@@ -1,1 +1,1 @@
-# proto
+# @kyve/proto
