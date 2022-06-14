@@ -53,7 +53,9 @@
     "@babel/plugin-transform-runtime": "7.17.12",
     "@babel/preset-env": "7.17.12",
     "@babel/preset-typescript": "^7.16.7",
-    "@protobufs/osmosis": "^0.0.9",
+    "@protobufs/cosmos": "^0.0.9",
+    "@protobufs/gogoproto": "^0.0.9",
+    "@protobufs/google": "^0.0.9",
     "@types/jest": "^27.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "28.1.0",
@@ -78,6 +80,7 @@
     "@cosmjs/stargate": "0.28.4",
     "@cosmjs/tendermint-rpc": "^0.28.0",
     "@osmonauts/helpers": "^0.3.2",
+    "@osmonauts/lcd": "^0.3.4",
     "@osmonauts/telescope": "^0.4.33",
     "protobufjs": "^6.11.2"
   }
