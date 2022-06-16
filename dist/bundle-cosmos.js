@@ -39,10 +39,11 @@ var cosmosTx = __importStar(require("./proto/cosmos/gov/v1beta1/tx"));
 var cosmosQuery = __importStar(require("./proto/cosmos/gov/v1beta1/query"));
 var cosmosGenesis = __importStar(require("./proto/cosmos/gov/v1beta1/genesis"));
 var cosmosGov = __importStar(require("./proto/cosmos/gov/v1beta1/gov"));
+var cosmosParams = __importStar(require("./proto/cosmos/params/v1beta1/params"));
 var cosmos;
 (function (cosmos) {
     var registry;
     (function (registry) {
-        registry.v1beta1 = __assign(__assign(__assign(__assign({}, cosmosGov), cosmosTx), cosmosQuery), cosmosGenesis);
+        registry.v1beta1 = __assign(__assign(__assign(__assign(__assign({}, cosmosGov), cosmosTx), cosmosQuery), cosmosGenesis), cosmosParams);
     })(registry = cosmos.registry || (cosmos.registry = {}));
 })(cosmos = exports.cosmos || (exports.cosmos = {}));
