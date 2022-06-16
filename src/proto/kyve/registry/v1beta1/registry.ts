@@ -13,13 +13,13 @@ export interface BundleProposal {
   /** bundle_id ... */
   bundleId: string;
   /** byte_size ... */
-  byteSize: number;
+  byteSize: string;
   /** from_height ... */
-  fromHeight: number;
+  fromHeight: string;
   /** to_height ... */
-  toHeight: number;
+  toHeight: string;
   /** created_at ... */
-  createdAt: number;
+  createdAt: string;
   /** voters_valid ... */
   votersValid: string[];
   /** voters_invalid ... */
@@ -35,7 +35,7 @@ export interface Protocol {
   /** binaries ... */
   binaries: string;
   /** last_upgrade ... */
-  lastUpgrade: number;
+  lastUpgrade: string;
 }
 
 /** Upgrade ... */
@@ -45,37 +45,37 @@ export interface UpgradePlan {
   /** binaries ... */
   binaries: string;
   /** scheduled_at ... */
-  scheduledAt: number;
+  scheduledAt: string;
   /** duration ... */
-  duration: number;
+  duration: string;
 }
 
 /** DelegationEntries ... */
 export interface DelegationEntries {
   /** id ... */
-  id: number;
+  id: string;
   /** balance ... */
   balance: string;
   /** staker ... */
   staker: string;
   /** k_index ... */
-  kIndex: number;
+  kIndex: string;
 }
 
 /** DelegationPoolData ... */
 export interface DelegationPoolData {
   /** id ... */
-  id: number;
+  id: string;
   /** staker ... */
   staker: string;
   /** current_rewards ... */
-  currentRewards: number;
+  currentRewards: string;
   /** total_delegation ... */
-  totalDelegation: number;
+  totalDelegation: string;
   /** latest_index_k ... */
-  latestIndexK: number;
+  latestIndexK: string;
   /** delegator_count ... */
-  delegatorCount: number;
+  delegatorCount: string;
   /** latest_index_was_undelegation ... */
   latestIndexWasUndelegation: boolean;
 }
@@ -83,11 +83,11 @@ export interface DelegationPoolData {
 /** Delegator ... */
 export interface Delegator {
   /** id ... */
-  id: number;
+  id: string;
   /** k_index ... */
-  kIndex: number;
+  kIndex: string;
   /** delegation_amount ... */
-  delegationAmount: number;
+  delegationAmount: string;
   /** staker ... */
   staker: string;
   /** delegator ... */
@@ -99,15 +99,15 @@ export interface Funder {
   /** account ... */
   account: string;
   /** fund_id ... */
-  poolId: number;
+  poolId: string;
   /** amount ... */
-  amount: number;
+  amount: string;
 }
 
 /** Pool ... */
 export interface Pool {
   /** id ... */
-  id: number;
+  id: string;
   /** creator ... */
   creator: string;
   /** name ... */
@@ -125,19 +125,19 @@ export interface Pool {
   /** config ... */
   config: string;
   /** height_archived ... */
-  heightArchived: number;
+  heightArchived: string;
   /** bytes_archived ... */
-  bytesArchived: number;
+  bytesArchived: string;
   /** total_bundles ... */
-  totalBundles: number;
+  totalBundles: string;
   /** total_bundle_rewards ... */
-  totalBundleRewards: number;
+  totalBundleRewards: string;
   /** start_height ... */
-  startHeight: number;
+  startHeight: string;
   /** upload_interval ... */
-  uploadInterval: number;
+  uploadInterval: string;
   /** operating_cost ... */
-  operatingCost: number;
+  operatingCost: string;
   /** paused ... */
   paused: boolean;
   /** funders ... */
@@ -145,23 +145,23 @@ export interface Pool {
   /** lowest_funder ... */
   lowestFunder: string;
   /** total_funds ... */
-  totalFunds: number;
+  totalFunds: string;
   /** stakers ... */
   stakers: string[];
   /** lowest_staker ... */
   lowestStaker: string;
   /** total_stake ... */
-  totalStake: number;
+  totalStake: string;
   /** total_delegation ... */
-  totalDelegation: number;
+  totalDelegation: string;
   /** bundle_proposal ... */
-  bundleProposal: BundleProposal | undefined;
+  bundleProposal?: BundleProposal;
   /** max_bundle_size ... */
-  maxBundleSize: number;
+  maxBundleSize: string;
   /** protocol ... */
-  protocol: Protocol | undefined;
+  protocol?: Protocol;
   /** upgrade_plan ... */
-  upgradePlan: UpgradePlan | undefined;
+  upgradePlan?: UpgradePlan;
 }
 
 /** Proposal ... */
@@ -169,15 +169,15 @@ export interface Proposal {
   /** bundle_id ... */
   bundleId: string;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** uploader ... */
   uploader: string;
   /** from_height ... */
-  fromHeight: number;
+  fromHeight: string;
   /** to_height ... */
-  toHeight: number;
+  toHeight: string;
   /** finalized_at ... */
-  finalizedAt: number;
+  finalizedAt: string;
 }
 
 /** Staker ... */
@@ -185,11 +185,11 @@ export interface Staker {
   /** staker ... */
   account: string;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** amount ... */
-  amount: number;
+  amount: string;
   /** unbonding_amount ... */
-  unbondingAmount: number;
+  unbondingAmount: string;
   /** commission ... */
   commission: string;
   /** moniker ... */
@@ -199,31 +199,31 @@ export interface Staker {
   /** logo */
   logo: string;
   /** points */
-  points: number;
+  points: string;
 }
 
 /** UnbondingEntries ... */
 export interface UnbondingEntries {
   /** index ... */
-  index: number;
+  index: string;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** staker ... */
   staker: string;
   /** delegator ... */
   delegator: string;
   /** creation_time ... */
-  creationTime: number;
+  creationTime: string;
   /** amount ... */
-  amount: number;
+  amount: string;
 }
 
 /** UnbondingState stores the state for the unbonding of stakes and delegations. */
 export interface UnbondingState {
   /** low_index ... */
-  lowIndex: number;
+  lowIndex: string;
   /** high_index ... */
-  highIndex: number;
+  highIndex: string;
 }
 
 function createBaseBundleProposal(): BundleProposal {
@@ -231,10 +231,10 @@ function createBaseBundleProposal(): BundleProposal {
     uploader: "",
     nextUploader: "",
     bundleId: "",
-    byteSize: 0,
-    fromHeight: 0,
-    toHeight: 0,
-    createdAt: 0,
+    byteSize: "0",
+    fromHeight: "0",
+    toHeight: "0",
+    createdAt: "0",
     votersValid: [],
     votersInvalid: [],
     votersAbstain: [],
@@ -255,16 +255,16 @@ export const BundleProposal = {
     if (message.bundleId !== "") {
       writer.uint32(26).string(message.bundleId);
     }
-    if (message.byteSize !== 0) {
+    if (message.byteSize !== "0") {
       writer.uint32(32).uint64(message.byteSize);
     }
-    if (message.fromHeight !== 0) {
+    if (message.fromHeight !== "0") {
       writer.uint32(40).uint64(message.fromHeight);
     }
-    if (message.toHeight !== 0) {
+    if (message.toHeight !== "0") {
       writer.uint32(48).uint64(message.toHeight);
     }
-    if (message.createdAt !== 0) {
+    if (message.createdAt !== "0") {
       writer.uint32(56).uint64(message.createdAt);
     }
     for (const v of message.votersValid) {
@@ -296,16 +296,16 @@ export const BundleProposal = {
           message.bundleId = reader.string();
           break;
         case 4:
-          message.byteSize = longToNumber(reader.uint64() as Long);
+          message.byteSize = longToString(reader.uint64() as Long);
           break;
         case 5:
-          message.fromHeight = longToNumber(reader.uint64() as Long);
+          message.fromHeight = longToString(reader.uint64() as Long);
           break;
         case 6:
-          message.toHeight = longToNumber(reader.uint64() as Long);
+          message.toHeight = longToString(reader.uint64() as Long);
           break;
         case 7:
-          message.createdAt = longToNumber(reader.uint64() as Long);
+          message.createdAt = longToString(reader.uint64() as Long);
           break;
         case 8:
           message.votersValid.push(reader.string());
@@ -331,10 +331,10 @@ export const BundleProposal = {
         ? String(object.nextUploader)
         : "",
       bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-      byteSize: isSet(object.byteSize) ? Number(object.byteSize) : 0,
-      fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0,
-      toHeight: isSet(object.toHeight) ? Number(object.toHeight) : 0,
-      createdAt: isSet(object.createdAt) ? Number(object.createdAt) : 0,
+      byteSize: isSet(object.byteSize) ? String(object.byteSize) : "0",
+      fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
+      toHeight: isSet(object.toHeight) ? String(object.toHeight) : "0",
+      createdAt: isSet(object.createdAt) ? String(object.createdAt) : "0",
       votersValid: Array.isArray(object?.votersValid)
         ? object.votersValid.map((e: any) => String(e))
         : [],
@@ -353,14 +353,10 @@ export const BundleProposal = {
     message.nextUploader !== undefined &&
       (obj.nextUploader = message.nextUploader);
     message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-    message.byteSize !== undefined &&
-      (obj.byteSize = Math.round(message.byteSize));
-    message.fromHeight !== undefined &&
-      (obj.fromHeight = Math.round(message.fromHeight));
-    message.toHeight !== undefined &&
-      (obj.toHeight = Math.round(message.toHeight));
-    message.createdAt !== undefined &&
-      (obj.createdAt = Math.round(message.createdAt));
+    message.byteSize !== undefined && (obj.byteSize = message.byteSize);
+    message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
+    message.toHeight !== undefined && (obj.toHeight = message.toHeight);
+    message.createdAt !== undefined && (obj.createdAt = message.createdAt);
     if (message.votersValid) {
       obj.votersValid = message.votersValid.map((e) => e);
     } else {
@@ -386,10 +382,10 @@ export const BundleProposal = {
     message.uploader = object.uploader ?? "";
     message.nextUploader = object.nextUploader ?? "";
     message.bundleId = object.bundleId ?? "";
-    message.byteSize = object.byteSize ?? 0;
-    message.fromHeight = object.fromHeight ?? 0;
-    message.toHeight = object.toHeight ?? 0;
-    message.createdAt = object.createdAt ?? 0;
+    message.byteSize = object.byteSize ?? "0";
+    message.fromHeight = object.fromHeight ?? "0";
+    message.toHeight = object.toHeight ?? "0";
+    message.createdAt = object.createdAt ?? "0";
     message.votersValid = object.votersValid?.map((e) => e) || [];
     message.votersInvalid = object.votersInvalid?.map((e) => e) || [];
     message.votersAbstain = object.votersAbstain?.map((e) => e) || [];
@@ -398,7 +394,7 @@ export const BundleProposal = {
 };
 
 function createBaseProtocol(): Protocol {
-  return { version: "", binaries: "", lastUpgrade: 0 };
+  return { version: "", binaries: "", lastUpgrade: "0" };
 }
 
 export const Protocol = {
@@ -412,7 +408,7 @@ export const Protocol = {
     if (message.binaries !== "") {
       writer.uint32(18).string(message.binaries);
     }
-    if (message.lastUpgrade !== 0) {
+    if (message.lastUpgrade !== "0") {
       writer.uint32(24).uint64(message.lastUpgrade);
     }
     return writer;
@@ -432,7 +428,7 @@ export const Protocol = {
           message.binaries = reader.string();
           break;
         case 3:
-          message.lastUpgrade = longToNumber(reader.uint64() as Long);
+          message.lastUpgrade = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -446,7 +442,7 @@ export const Protocol = {
     return {
       version: isSet(object.version) ? String(object.version) : "",
       binaries: isSet(object.binaries) ? String(object.binaries) : "",
-      lastUpgrade: isSet(object.lastUpgrade) ? Number(object.lastUpgrade) : 0,
+      lastUpgrade: isSet(object.lastUpgrade) ? String(object.lastUpgrade) : "0",
     };
   },
 
@@ -455,7 +451,7 @@ export const Protocol = {
     message.version !== undefined && (obj.version = message.version);
     message.binaries !== undefined && (obj.binaries = message.binaries);
     message.lastUpgrade !== undefined &&
-      (obj.lastUpgrade = Math.round(message.lastUpgrade));
+      (obj.lastUpgrade = message.lastUpgrade);
     return obj;
   },
 
@@ -463,13 +459,13 @@ export const Protocol = {
     const message = createBaseProtocol();
     message.version = object.version ?? "";
     message.binaries = object.binaries ?? "";
-    message.lastUpgrade = object.lastUpgrade ?? 0;
+    message.lastUpgrade = object.lastUpgrade ?? "0";
     return message;
   },
 };
 
 function createBaseUpgradePlan(): UpgradePlan {
-  return { version: "", binaries: "", scheduledAt: 0, duration: 0 };
+  return { version: "", binaries: "", scheduledAt: "0", duration: "0" };
 }
 
 export const UpgradePlan = {
@@ -483,10 +479,10 @@ export const UpgradePlan = {
     if (message.binaries !== "") {
       writer.uint32(18).string(message.binaries);
     }
-    if (message.scheduledAt !== 0) {
+    if (message.scheduledAt !== "0") {
       writer.uint32(24).uint64(message.scheduledAt);
     }
-    if (message.duration !== 0) {
+    if (message.duration !== "0") {
       writer.uint32(32).uint64(message.duration);
     }
     return writer;
@@ -506,10 +502,10 @@ export const UpgradePlan = {
           message.binaries = reader.string();
           break;
         case 3:
-          message.scheduledAt = longToNumber(reader.uint64() as Long);
+          message.scheduledAt = longToString(reader.uint64() as Long);
           break;
         case 4:
-          message.duration = longToNumber(reader.uint64() as Long);
+          message.duration = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -523,8 +519,8 @@ export const UpgradePlan = {
     return {
       version: isSet(object.version) ? String(object.version) : "",
       binaries: isSet(object.binaries) ? String(object.binaries) : "",
-      scheduledAt: isSet(object.scheduledAt) ? Number(object.scheduledAt) : 0,
-      duration: isSet(object.duration) ? Number(object.duration) : 0,
+      scheduledAt: isSet(object.scheduledAt) ? String(object.scheduledAt) : "0",
+      duration: isSet(object.duration) ? String(object.duration) : "0",
     };
   },
 
@@ -533,9 +529,8 @@ export const UpgradePlan = {
     message.version !== undefined && (obj.version = message.version);
     message.binaries !== undefined && (obj.binaries = message.binaries);
     message.scheduledAt !== undefined &&
-      (obj.scheduledAt = Math.round(message.scheduledAt));
-    message.duration !== undefined &&
-      (obj.duration = Math.round(message.duration));
+      (obj.scheduledAt = message.scheduledAt);
+    message.duration !== undefined && (obj.duration = message.duration);
     return obj;
   },
 
@@ -545,14 +540,14 @@ export const UpgradePlan = {
     const message = createBaseUpgradePlan();
     message.version = object.version ?? "";
     message.binaries = object.binaries ?? "";
-    message.scheduledAt = object.scheduledAt ?? 0;
-    message.duration = object.duration ?? 0;
+    message.scheduledAt = object.scheduledAt ?? "0";
+    message.duration = object.duration ?? "0";
     return message;
   },
 };
 
 function createBaseDelegationEntries(): DelegationEntries {
-  return { id: 0, balance: "", staker: "", kIndex: 0 };
+  return { id: "0", balance: "", staker: "", kIndex: "0" };
 }
 
 export const DelegationEntries = {
@@ -560,7 +555,7 @@ export const DelegationEntries = {
     message: DelegationEntries,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(8).uint64(message.id);
     }
     if (message.balance !== "") {
@@ -569,7 +564,7 @@ export const DelegationEntries = {
     if (message.staker !== "") {
       writer.uint32(26).string(message.staker);
     }
-    if (message.kIndex !== 0) {
+    if (message.kIndex !== "0") {
       writer.uint32(32).uint64(message.kIndex);
     }
     return writer;
@@ -583,7 +578,7 @@ export const DelegationEntries = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.balance = reader.string();
@@ -592,7 +587,7 @@ export const DelegationEntries = {
           message.staker = reader.string();
           break;
         case 4:
-          message.kIndex = longToNumber(reader.uint64() as Long);
+          message.kIndex = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -604,19 +599,19 @@ export const DelegationEntries = {
 
   fromJSON(object: any): DelegationEntries {
     return {
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
       balance: isSet(object.balance) ? String(object.balance) : "",
       staker: isSet(object.staker) ? String(object.staker) : "",
-      kIndex: isSet(object.kIndex) ? Number(object.kIndex) : 0,
+      kIndex: isSet(object.kIndex) ? String(object.kIndex) : "0",
     };
   },
 
   toJSON(message: DelegationEntries): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     message.balance !== undefined && (obj.balance = message.balance);
     message.staker !== undefined && (obj.staker = message.staker);
-    message.kIndex !== undefined && (obj.kIndex = Math.round(message.kIndex));
+    message.kIndex !== undefined && (obj.kIndex = message.kIndex);
     return obj;
   },
 
@@ -624,22 +619,22 @@ export const DelegationEntries = {
     object: I
   ): DelegationEntries {
     const message = createBaseDelegationEntries();
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     message.balance = object.balance ?? "";
     message.staker = object.staker ?? "";
-    message.kIndex = object.kIndex ?? 0;
+    message.kIndex = object.kIndex ?? "0";
     return message;
   },
 };
 
 function createBaseDelegationPoolData(): DelegationPoolData {
   return {
-    id: 0,
+    id: "0",
     staker: "",
-    currentRewards: 0,
-    totalDelegation: 0,
-    latestIndexK: 0,
-    delegatorCount: 0,
+    currentRewards: "0",
+    totalDelegation: "0",
+    latestIndexK: "0",
+    delegatorCount: "0",
     latestIndexWasUndelegation: false,
   };
 }
@@ -649,22 +644,22 @@ export const DelegationPoolData = {
     message: DelegationPoolData,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(8).uint64(message.id);
     }
     if (message.staker !== "") {
       writer.uint32(18).string(message.staker);
     }
-    if (message.currentRewards !== 0) {
+    if (message.currentRewards !== "0") {
       writer.uint32(24).uint64(message.currentRewards);
     }
-    if (message.totalDelegation !== 0) {
+    if (message.totalDelegation !== "0") {
       writer.uint32(32).uint64(message.totalDelegation);
     }
-    if (message.latestIndexK !== 0) {
+    if (message.latestIndexK !== "0") {
       writer.uint32(40).uint64(message.latestIndexK);
     }
-    if (message.delegatorCount !== 0) {
+    if (message.delegatorCount !== "0") {
       writer.uint32(48).uint64(message.delegatorCount);
     }
     if (message.latestIndexWasUndelegation === true) {
@@ -681,22 +676,22 @@ export const DelegationPoolData = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.staker = reader.string();
           break;
         case 3:
-          message.currentRewards = longToNumber(reader.uint64() as Long);
+          message.currentRewards = longToString(reader.uint64() as Long);
           break;
         case 4:
-          message.totalDelegation = longToNumber(reader.uint64() as Long);
+          message.totalDelegation = longToString(reader.uint64() as Long);
           break;
         case 5:
-          message.latestIndexK = longToNumber(reader.uint64() as Long);
+          message.latestIndexK = longToString(reader.uint64() as Long);
           break;
         case 6:
-          message.delegatorCount = longToNumber(reader.uint64() as Long);
+          message.delegatorCount = longToString(reader.uint64() as Long);
           break;
         case 7:
           message.latestIndexWasUndelegation = reader.bool();
@@ -711,20 +706,20 @@ export const DelegationPoolData = {
 
   fromJSON(object: any): DelegationPoolData {
     return {
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
       currentRewards: isSet(object.currentRewards)
-        ? Number(object.currentRewards)
-        : 0,
+        ? String(object.currentRewards)
+        : "0",
       totalDelegation: isSet(object.totalDelegation)
-        ? Number(object.totalDelegation)
-        : 0,
+        ? String(object.totalDelegation)
+        : "0",
       latestIndexK: isSet(object.latestIndexK)
-        ? Number(object.latestIndexK)
-        : 0,
+        ? String(object.latestIndexK)
+        : "0",
       delegatorCount: isSet(object.delegatorCount)
-        ? Number(object.delegatorCount)
-        : 0,
+        ? String(object.delegatorCount)
+        : "0",
       latestIndexWasUndelegation: isSet(object.latestIndexWasUndelegation)
         ? Boolean(object.latestIndexWasUndelegation)
         : false,
@@ -733,16 +728,16 @@ export const DelegationPoolData = {
 
   toJSON(message: DelegationPoolData): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     message.staker !== undefined && (obj.staker = message.staker);
     message.currentRewards !== undefined &&
-      (obj.currentRewards = Math.round(message.currentRewards));
+      (obj.currentRewards = message.currentRewards);
     message.totalDelegation !== undefined &&
-      (obj.totalDelegation = Math.round(message.totalDelegation));
+      (obj.totalDelegation = message.totalDelegation);
     message.latestIndexK !== undefined &&
-      (obj.latestIndexK = Math.round(message.latestIndexK));
+      (obj.latestIndexK = message.latestIndexK);
     message.delegatorCount !== undefined &&
-      (obj.delegatorCount = Math.round(message.delegatorCount));
+      (obj.delegatorCount = message.delegatorCount);
     message.latestIndexWasUndelegation !== undefined &&
       (obj.latestIndexWasUndelegation = message.latestIndexWasUndelegation);
     return obj;
@@ -752,12 +747,12 @@ export const DelegationPoolData = {
     object: I
   ): DelegationPoolData {
     const message = createBaseDelegationPoolData();
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     message.staker = object.staker ?? "";
-    message.currentRewards = object.currentRewards ?? 0;
-    message.totalDelegation = object.totalDelegation ?? 0;
-    message.latestIndexK = object.latestIndexK ?? 0;
-    message.delegatorCount = object.delegatorCount ?? 0;
+    message.currentRewards = object.currentRewards ?? "0";
+    message.totalDelegation = object.totalDelegation ?? "0";
+    message.latestIndexK = object.latestIndexK ?? "0";
+    message.delegatorCount = object.delegatorCount ?? "0";
     message.latestIndexWasUndelegation =
       object.latestIndexWasUndelegation ?? false;
     return message;
@@ -765,7 +760,13 @@ export const DelegationPoolData = {
 };
 
 function createBaseDelegator(): Delegator {
-  return { id: 0, kIndex: 0, delegationAmount: 0, staker: "", delegator: "" };
+  return {
+    id: "0",
+    kIndex: "0",
+    delegationAmount: "0",
+    staker: "",
+    delegator: "",
+  };
 }
 
 export const Delegator = {
@@ -773,13 +774,13 @@ export const Delegator = {
     message: Delegator,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(8).uint64(message.id);
     }
-    if (message.kIndex !== 0) {
+    if (message.kIndex !== "0") {
       writer.uint32(16).uint64(message.kIndex);
     }
-    if (message.delegationAmount !== 0) {
+    if (message.delegationAmount !== "0") {
       writer.uint32(24).uint64(message.delegationAmount);
     }
     if (message.staker !== "") {
@@ -799,13 +800,13 @@ export const Delegator = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         case 2:
-          message.kIndex = longToNumber(reader.uint64() as Long);
+          message.kIndex = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.delegationAmount = longToNumber(reader.uint64() as Long);
+          message.delegationAmount = longToString(reader.uint64() as Long);
           break;
         case 4:
           message.staker = reader.string();
@@ -823,11 +824,11 @@ export const Delegator = {
 
   fromJSON(object: any): Delegator {
     return {
-      id: isSet(object.id) ? Number(object.id) : 0,
-      kIndex: isSet(object.kIndex) ? Number(object.kIndex) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
+      kIndex: isSet(object.kIndex) ? String(object.kIndex) : "0",
       delegationAmount: isSet(object.delegationAmount)
-        ? Number(object.delegationAmount)
-        : 0,
+        ? String(object.delegationAmount)
+        : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
       delegator: isSet(object.delegator) ? String(object.delegator) : "",
     };
@@ -835,10 +836,10 @@ export const Delegator = {
 
   toJSON(message: Delegator): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = Math.round(message.id));
-    message.kIndex !== undefined && (obj.kIndex = Math.round(message.kIndex));
+    message.id !== undefined && (obj.id = message.id);
+    message.kIndex !== undefined && (obj.kIndex = message.kIndex);
     message.delegationAmount !== undefined &&
-      (obj.delegationAmount = Math.round(message.delegationAmount));
+      (obj.delegationAmount = message.delegationAmount);
     message.staker !== undefined && (obj.staker = message.staker);
     message.delegator !== undefined && (obj.delegator = message.delegator);
     return obj;
@@ -848,9 +849,9 @@ export const Delegator = {
     object: I
   ): Delegator {
     const message = createBaseDelegator();
-    message.id = object.id ?? 0;
-    message.kIndex = object.kIndex ?? 0;
-    message.delegationAmount = object.delegationAmount ?? 0;
+    message.id = object.id ?? "0";
+    message.kIndex = object.kIndex ?? "0";
+    message.delegationAmount = object.delegationAmount ?? "0";
     message.staker = object.staker ?? "";
     message.delegator = object.delegator ?? "";
     return message;
@@ -858,7 +859,7 @@ export const Delegator = {
 };
 
 function createBaseFunder(): Funder {
-  return { account: "", poolId: 0, amount: 0 };
+  return { account: "", poolId: "0", amount: "0" };
 }
 
 export const Funder = {
@@ -869,10 +870,10 @@ export const Funder = {
     if (message.account !== "") {
       writer.uint32(18).string(message.account);
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
-    if (message.amount !== 0) {
+    if (message.amount !== "0") {
       writer.uint32(24).uint64(message.amount);
     }
     return writer;
@@ -889,10 +890,10 @@ export const Funder = {
           message.account = reader.string();
           break;
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.amount = longToNumber(reader.uint64() as Long);
+          message.amount = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -905,54 +906,54 @@ export const Funder = {
   fromJSON(object: any): Funder {
     return {
       account: isSet(object.account) ? String(object.account) : "",
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
-      amount: isSet(object.amount) ? Number(object.amount) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
     };
   },
 
   toJSON(message: Funder): unknown {
     const obj: any = {};
     message.account !== undefined && (obj.account = message.account);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
-    message.amount !== undefined && (obj.amount = Math.round(message.amount));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
+    message.amount !== undefined && (obj.amount = message.amount);
     return obj;
   },
 
   fromPartial<I extends Exact<DeepPartial<Funder>, I>>(object: I): Funder {
     const message = createBaseFunder();
     message.account = object.account ?? "";
-    message.poolId = object.poolId ?? 0;
-    message.amount = object.amount ?? 0;
+    message.poolId = object.poolId ?? "0";
+    message.amount = object.amount ?? "0";
     return message;
   },
 };
 
 function createBasePool(): Pool {
   return {
-    id: 0,
+    id: "0",
     creator: "",
     name: "",
     runtime: "",
     logo: "",
     versions: "",
     config: "",
-    heightArchived: 0,
-    bytesArchived: 0,
-    totalBundles: 0,
-    totalBundleRewards: 0,
-    startHeight: 0,
-    uploadInterval: 0,
-    operatingCost: 0,
+    heightArchived: "0",
+    bytesArchived: "0",
+    totalBundles: "0",
+    totalBundleRewards: "0",
+    startHeight: "0",
+    uploadInterval: "0",
+    operatingCost: "0",
     paused: false,
     funders: [],
     lowestFunder: "",
-    totalFunds: 0,
+    totalFunds: "0",
     stakers: [],
     lowestStaker: "",
-    totalStake: 0,
-    totalDelegation: 0,
+    totalStake: "0",
+    totalDelegation: "0",
     bundleProposal: undefined,
-    maxBundleSize: 0,
+    maxBundleSize: "0",
     protocol: undefined,
     upgradePlan: undefined,
   };
@@ -960,7 +961,7 @@ function createBasePool(): Pool {
 
 export const Pool = {
   encode(message: Pool, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(8).uint64(message.id);
     }
     if (message.creator !== "") {
@@ -981,25 +982,25 @@ export const Pool = {
     if (message.config !== "") {
       writer.uint32(58).string(message.config);
     }
-    if (message.heightArchived !== 0) {
+    if (message.heightArchived !== "0") {
       writer.uint32(64).uint64(message.heightArchived);
     }
-    if (message.bytesArchived !== 0) {
+    if (message.bytesArchived !== "0") {
       writer.uint32(72).uint64(message.bytesArchived);
     }
-    if (message.totalBundles !== 0) {
+    if (message.totalBundles !== "0") {
       writer.uint32(80).uint64(message.totalBundles);
     }
-    if (message.totalBundleRewards !== 0) {
+    if (message.totalBundleRewards !== "0") {
       writer.uint32(88).uint64(message.totalBundleRewards);
     }
-    if (message.startHeight !== 0) {
+    if (message.startHeight !== "0") {
       writer.uint32(96).uint64(message.startHeight);
     }
-    if (message.uploadInterval !== 0) {
+    if (message.uploadInterval !== "0") {
       writer.uint32(104).uint64(message.uploadInterval);
     }
-    if (message.operatingCost !== 0) {
+    if (message.operatingCost !== "0") {
       writer.uint32(112).uint64(message.operatingCost);
     }
     if (message.paused === true) {
@@ -1011,7 +1012,7 @@ export const Pool = {
     if (message.lowestFunder !== "") {
       writer.uint32(138).string(message.lowestFunder);
     }
-    if (message.totalFunds !== 0) {
+    if (message.totalFunds !== "0") {
       writer.uint32(144).uint64(message.totalFunds);
     }
     for (const v of message.stakers) {
@@ -1020,10 +1021,10 @@ export const Pool = {
     if (message.lowestStaker !== "") {
       writer.uint32(162).string(message.lowestStaker);
     }
-    if (message.totalStake !== 0) {
+    if (message.totalStake !== "0") {
       writer.uint32(168).uint64(message.totalStake);
     }
-    if (message.totalDelegation !== 0) {
+    if (message.totalDelegation !== "0") {
       writer.uint32(176).uint64(message.totalDelegation);
     }
     if (message.bundleProposal !== undefined) {
@@ -1032,7 +1033,7 @@ export const Pool = {
         writer.uint32(186).fork()
       ).ldelim();
     }
-    if (message.maxBundleSize !== 0) {
+    if (message.maxBundleSize !== "0") {
       writer.uint32(192).uint64(message.maxBundleSize);
     }
     if (message.protocol !== undefined) {
@@ -1055,7 +1056,7 @@ export const Pool = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.creator = reader.string();
@@ -1076,25 +1077,25 @@ export const Pool = {
           message.config = reader.string();
           break;
         case 8:
-          message.heightArchived = longToNumber(reader.uint64() as Long);
+          message.heightArchived = longToString(reader.uint64() as Long);
           break;
         case 9:
-          message.bytesArchived = longToNumber(reader.uint64() as Long);
+          message.bytesArchived = longToString(reader.uint64() as Long);
           break;
         case 10:
-          message.totalBundles = longToNumber(reader.uint64() as Long);
+          message.totalBundles = longToString(reader.uint64() as Long);
           break;
         case 11:
-          message.totalBundleRewards = longToNumber(reader.uint64() as Long);
+          message.totalBundleRewards = longToString(reader.uint64() as Long);
           break;
         case 12:
-          message.startHeight = longToNumber(reader.uint64() as Long);
+          message.startHeight = longToString(reader.uint64() as Long);
           break;
         case 13:
-          message.uploadInterval = longToNumber(reader.uint64() as Long);
+          message.uploadInterval = longToString(reader.uint64() as Long);
           break;
         case 14:
-          message.operatingCost = longToNumber(reader.uint64() as Long);
+          message.operatingCost = longToString(reader.uint64() as Long);
           break;
         case 15:
           message.paused = reader.bool();
@@ -1106,7 +1107,7 @@ export const Pool = {
           message.lowestFunder = reader.string();
           break;
         case 18:
-          message.totalFunds = longToNumber(reader.uint64() as Long);
+          message.totalFunds = longToString(reader.uint64() as Long);
           break;
         case 19:
           message.stakers.push(reader.string());
@@ -1115,10 +1116,10 @@ export const Pool = {
           message.lowestStaker = reader.string();
           break;
         case 21:
-          message.totalStake = longToNumber(reader.uint64() as Long);
+          message.totalStake = longToString(reader.uint64() as Long);
           break;
         case 22:
-          message.totalDelegation = longToNumber(reader.uint64() as Long);
+          message.totalDelegation = longToString(reader.uint64() as Long);
           break;
         case 23:
           message.bundleProposal = BundleProposal.decode(
@@ -1127,7 +1128,7 @@ export const Pool = {
           );
           break;
         case 24:
-          message.maxBundleSize = longToNumber(reader.uint64() as Long);
+          message.maxBundleSize = longToString(reader.uint64() as Long);
           break;
         case 25:
           message.protocol = Protocol.decode(reader, reader.uint32());
@@ -1145,7 +1146,7 @@ export const Pool = {
 
   fromJSON(object: any): Pool {
     return {
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
       creator: isSet(object.creator) ? String(object.creator) : "",
       name: isSet(object.name) ? String(object.name) : "",
       runtime: isSet(object.runtime) ? String(object.runtime) : "",
@@ -1153,24 +1154,24 @@ export const Pool = {
       versions: isSet(object.versions) ? String(object.versions) : "",
       config: isSet(object.config) ? String(object.config) : "",
       heightArchived: isSet(object.heightArchived)
-        ? Number(object.heightArchived)
-        : 0,
+        ? String(object.heightArchived)
+        : "0",
       bytesArchived: isSet(object.bytesArchived)
-        ? Number(object.bytesArchived)
-        : 0,
+        ? String(object.bytesArchived)
+        : "0",
       totalBundles: isSet(object.totalBundles)
-        ? Number(object.totalBundles)
-        : 0,
+        ? String(object.totalBundles)
+        : "0",
       totalBundleRewards: isSet(object.totalBundleRewards)
-        ? Number(object.totalBundleRewards)
-        : 0,
-      startHeight: isSet(object.startHeight) ? Number(object.startHeight) : 0,
+        ? String(object.totalBundleRewards)
+        : "0",
+      startHeight: isSet(object.startHeight) ? String(object.startHeight) : "0",
       uploadInterval: isSet(object.uploadInterval)
-        ? Number(object.uploadInterval)
-        : 0,
+        ? String(object.uploadInterval)
+        : "0",
       operatingCost: isSet(object.operatingCost)
-        ? Number(object.operatingCost)
-        : 0,
+        ? String(object.operatingCost)
+        : "0",
       paused: isSet(object.paused) ? Boolean(object.paused) : false,
       funders: Array.isArray(object?.funders)
         ? object.funders.map((e: any) => String(e))
@@ -1178,23 +1179,23 @@ export const Pool = {
       lowestFunder: isSet(object.lowestFunder)
         ? String(object.lowestFunder)
         : "",
-      totalFunds: isSet(object.totalFunds) ? Number(object.totalFunds) : 0,
+      totalFunds: isSet(object.totalFunds) ? String(object.totalFunds) : "0",
       stakers: Array.isArray(object?.stakers)
         ? object.stakers.map((e: any) => String(e))
         : [],
       lowestStaker: isSet(object.lowestStaker)
         ? String(object.lowestStaker)
         : "",
-      totalStake: isSet(object.totalStake) ? Number(object.totalStake) : 0,
+      totalStake: isSet(object.totalStake) ? String(object.totalStake) : "0",
       totalDelegation: isSet(object.totalDelegation)
-        ? Number(object.totalDelegation)
-        : 0,
+        ? String(object.totalDelegation)
+        : "0",
       bundleProposal: isSet(object.bundleProposal)
         ? BundleProposal.fromJSON(object.bundleProposal)
         : undefined,
       maxBundleSize: isSet(object.maxBundleSize)
-        ? Number(object.maxBundleSize)
-        : 0,
+        ? String(object.maxBundleSize)
+        : "0",
       protocol: isSet(object.protocol)
         ? Protocol.fromJSON(object.protocol)
         : undefined,
@@ -1206,7 +1207,7 @@ export const Pool = {
 
   toJSON(message: Pool): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     message.creator !== undefined && (obj.creator = message.creator);
     message.name !== undefined && (obj.name = message.name);
     message.runtime !== undefined && (obj.runtime = message.runtime);
@@ -1214,19 +1215,19 @@ export const Pool = {
     message.versions !== undefined && (obj.versions = message.versions);
     message.config !== undefined && (obj.config = message.config);
     message.heightArchived !== undefined &&
-      (obj.heightArchived = Math.round(message.heightArchived));
+      (obj.heightArchived = message.heightArchived);
     message.bytesArchived !== undefined &&
-      (obj.bytesArchived = Math.round(message.bytesArchived));
+      (obj.bytesArchived = message.bytesArchived);
     message.totalBundles !== undefined &&
-      (obj.totalBundles = Math.round(message.totalBundles));
+      (obj.totalBundles = message.totalBundles);
     message.totalBundleRewards !== undefined &&
-      (obj.totalBundleRewards = Math.round(message.totalBundleRewards));
+      (obj.totalBundleRewards = message.totalBundleRewards);
     message.startHeight !== undefined &&
-      (obj.startHeight = Math.round(message.startHeight));
+      (obj.startHeight = message.startHeight);
     message.uploadInterval !== undefined &&
-      (obj.uploadInterval = Math.round(message.uploadInterval));
+      (obj.uploadInterval = message.uploadInterval);
     message.operatingCost !== undefined &&
-      (obj.operatingCost = Math.round(message.operatingCost));
+      (obj.operatingCost = message.operatingCost);
     message.paused !== undefined && (obj.paused = message.paused);
     if (message.funders) {
       obj.funders = message.funders.map((e) => e);
@@ -1235,8 +1236,7 @@ export const Pool = {
     }
     message.lowestFunder !== undefined &&
       (obj.lowestFunder = message.lowestFunder);
-    message.totalFunds !== undefined &&
-      (obj.totalFunds = Math.round(message.totalFunds));
+    message.totalFunds !== undefined && (obj.totalFunds = message.totalFunds);
     if (message.stakers) {
       obj.stakers = message.stakers.map((e) => e);
     } else {
@@ -1244,16 +1244,15 @@ export const Pool = {
     }
     message.lowestStaker !== undefined &&
       (obj.lowestStaker = message.lowestStaker);
-    message.totalStake !== undefined &&
-      (obj.totalStake = Math.round(message.totalStake));
+    message.totalStake !== undefined && (obj.totalStake = message.totalStake);
     message.totalDelegation !== undefined &&
-      (obj.totalDelegation = Math.round(message.totalDelegation));
+      (obj.totalDelegation = message.totalDelegation);
     message.bundleProposal !== undefined &&
       (obj.bundleProposal = message.bundleProposal
         ? BundleProposal.toJSON(message.bundleProposal)
         : undefined);
     message.maxBundleSize !== undefined &&
-      (obj.maxBundleSize = Math.round(message.maxBundleSize));
+      (obj.maxBundleSize = message.maxBundleSize);
     message.protocol !== undefined &&
       (obj.protocol = message.protocol
         ? Protocol.toJSON(message.protocol)
@@ -1267,33 +1266,33 @@ export const Pool = {
 
   fromPartial<I extends Exact<DeepPartial<Pool>, I>>(object: I): Pool {
     const message = createBasePool();
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     message.creator = object.creator ?? "";
     message.name = object.name ?? "";
     message.runtime = object.runtime ?? "";
     message.logo = object.logo ?? "";
     message.versions = object.versions ?? "";
     message.config = object.config ?? "";
-    message.heightArchived = object.heightArchived ?? 0;
-    message.bytesArchived = object.bytesArchived ?? 0;
-    message.totalBundles = object.totalBundles ?? 0;
-    message.totalBundleRewards = object.totalBundleRewards ?? 0;
-    message.startHeight = object.startHeight ?? 0;
-    message.uploadInterval = object.uploadInterval ?? 0;
-    message.operatingCost = object.operatingCost ?? 0;
+    message.heightArchived = object.heightArchived ?? "0";
+    message.bytesArchived = object.bytesArchived ?? "0";
+    message.totalBundles = object.totalBundles ?? "0";
+    message.totalBundleRewards = object.totalBundleRewards ?? "0";
+    message.startHeight = object.startHeight ?? "0";
+    message.uploadInterval = object.uploadInterval ?? "0";
+    message.operatingCost = object.operatingCost ?? "0";
     message.paused = object.paused ?? false;
     message.funders = object.funders?.map((e) => e) || [];
     message.lowestFunder = object.lowestFunder ?? "";
-    message.totalFunds = object.totalFunds ?? 0;
+    message.totalFunds = object.totalFunds ?? "0";
     message.stakers = object.stakers?.map((e) => e) || [];
     message.lowestStaker = object.lowestStaker ?? "";
-    message.totalStake = object.totalStake ?? 0;
-    message.totalDelegation = object.totalDelegation ?? 0;
+    message.totalStake = object.totalStake ?? "0";
+    message.totalDelegation = object.totalDelegation ?? "0";
     message.bundleProposal =
       object.bundleProposal !== undefined && object.bundleProposal !== null
         ? BundleProposal.fromPartial(object.bundleProposal)
         : undefined;
-    message.maxBundleSize = object.maxBundleSize ?? 0;
+    message.maxBundleSize = object.maxBundleSize ?? "0";
     message.protocol =
       object.protocol !== undefined && object.protocol !== null
         ? Protocol.fromPartial(object.protocol)
@@ -1309,11 +1308,11 @@ export const Pool = {
 function createBaseProposal(): Proposal {
   return {
     bundleId: "",
-    poolId: 0,
+    poolId: "0",
     uploader: "",
-    fromHeight: 0,
-    toHeight: 0,
-    finalizedAt: 0,
+    fromHeight: "0",
+    toHeight: "0",
+    finalizedAt: "0",
   };
 }
 
@@ -1325,19 +1324,19 @@ export const Proposal = {
     if (message.bundleId !== "") {
       writer.uint32(10).string(message.bundleId);
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     if (message.uploader !== "") {
       writer.uint32(26).string(message.uploader);
     }
-    if (message.fromHeight !== 0) {
+    if (message.fromHeight !== "0") {
       writer.uint32(32).uint64(message.fromHeight);
     }
-    if (message.toHeight !== 0) {
+    if (message.toHeight !== "0") {
       writer.uint32(40).uint64(message.toHeight);
     }
-    if (message.finalizedAt !== 0) {
+    if (message.finalizedAt !== "0") {
       writer.uint32(48).uint64(message.finalizedAt);
     }
     return writer;
@@ -1354,19 +1353,19 @@ export const Proposal = {
           message.bundleId = reader.string();
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.uploader = reader.string();
           break;
         case 4:
-          message.fromHeight = longToNumber(reader.uint64() as Long);
+          message.fromHeight = longToString(reader.uint64() as Long);
           break;
         case 5:
-          message.toHeight = longToNumber(reader.uint64() as Long);
+          message.toHeight = longToString(reader.uint64() as Long);
           break;
         case 6:
-          message.finalizedAt = longToNumber(reader.uint64() as Long);
+          message.finalizedAt = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1379,36 +1378,34 @@ export const Proposal = {
   fromJSON(object: any): Proposal {
     return {
       bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       uploader: isSet(object.uploader) ? String(object.uploader) : "",
-      fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0,
-      toHeight: isSet(object.toHeight) ? Number(object.toHeight) : 0,
-      finalizedAt: isSet(object.finalizedAt) ? Number(object.finalizedAt) : 0,
+      fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
+      toHeight: isSet(object.toHeight) ? String(object.toHeight) : "0",
+      finalizedAt: isSet(object.finalizedAt) ? String(object.finalizedAt) : "0",
     };
   },
 
   toJSON(message: Proposal): unknown {
     const obj: any = {};
     message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.uploader !== undefined && (obj.uploader = message.uploader);
-    message.fromHeight !== undefined &&
-      (obj.fromHeight = Math.round(message.fromHeight));
-    message.toHeight !== undefined &&
-      (obj.toHeight = Math.round(message.toHeight));
+    message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
+    message.toHeight !== undefined && (obj.toHeight = message.toHeight);
     message.finalizedAt !== undefined &&
-      (obj.finalizedAt = Math.round(message.finalizedAt));
+      (obj.finalizedAt = message.finalizedAt);
     return obj;
   },
 
   fromPartial<I extends Exact<DeepPartial<Proposal>, I>>(object: I): Proposal {
     const message = createBaseProposal();
     message.bundleId = object.bundleId ?? "";
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.uploader = object.uploader ?? "";
-    message.fromHeight = object.fromHeight ?? 0;
-    message.toHeight = object.toHeight ?? 0;
-    message.finalizedAt = object.finalizedAt ?? 0;
+    message.fromHeight = object.fromHeight ?? "0";
+    message.toHeight = object.toHeight ?? "0";
+    message.finalizedAt = object.finalizedAt ?? "0";
     return message;
   },
 };
@@ -1416,14 +1413,14 @@ export const Proposal = {
 function createBaseStaker(): Staker {
   return {
     account: "",
-    poolId: 0,
-    amount: 0,
-    unbondingAmount: 0,
+    poolId: "0",
+    amount: "0",
+    unbondingAmount: "0",
     commission: "",
     moniker: "",
     website: "",
     logo: "",
-    points: 0,
+    points: "0",
   };
 }
 
@@ -1435,13 +1432,13 @@ export const Staker = {
     if (message.account !== "") {
       writer.uint32(10).string(message.account);
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
-    if (message.amount !== 0) {
+    if (message.amount !== "0") {
       writer.uint32(24).uint64(message.amount);
     }
-    if (message.unbondingAmount !== 0) {
+    if (message.unbondingAmount !== "0") {
       writer.uint32(32).uint64(message.unbondingAmount);
     }
     if (message.commission !== "") {
@@ -1456,7 +1453,7 @@ export const Staker = {
     if (message.logo !== "") {
       writer.uint32(66).string(message.logo);
     }
-    if (message.points !== 0) {
+    if (message.points !== "0") {
       writer.uint32(72).uint64(message.points);
     }
     return writer;
@@ -1473,13 +1470,13 @@ export const Staker = {
           message.account = reader.string();
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.amount = longToNumber(reader.uint64() as Long);
+          message.amount = longToString(reader.uint64() as Long);
           break;
         case 4:
-          message.unbondingAmount = longToNumber(reader.uint64() as Long);
+          message.unbondingAmount = longToString(reader.uint64() as Long);
           break;
         case 5:
           message.commission = reader.string();
@@ -1494,7 +1491,7 @@ export const Staker = {
           message.logo = reader.string();
           break;
         case 9:
-          message.points = longToNumber(reader.uint64() as Long);
+          message.points = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1507,57 +1504,57 @@ export const Staker = {
   fromJSON(object: any): Staker {
     return {
       account: isSet(object.account) ? String(object.account) : "",
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
-      amount: isSet(object.amount) ? Number(object.amount) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
       unbondingAmount: isSet(object.unbondingAmount)
-        ? Number(object.unbondingAmount)
-        : 0,
+        ? String(object.unbondingAmount)
+        : "0",
       commission: isSet(object.commission) ? String(object.commission) : "",
       moniker: isSet(object.moniker) ? String(object.moniker) : "",
       website: isSet(object.website) ? String(object.website) : "",
       logo: isSet(object.logo) ? String(object.logo) : "",
-      points: isSet(object.points) ? Number(object.points) : 0,
+      points: isSet(object.points) ? String(object.points) : "0",
     };
   },
 
   toJSON(message: Staker): unknown {
     const obj: any = {};
     message.account !== undefined && (obj.account = message.account);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
-    message.amount !== undefined && (obj.amount = Math.round(message.amount));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
+    message.amount !== undefined && (obj.amount = message.amount);
     message.unbondingAmount !== undefined &&
-      (obj.unbondingAmount = Math.round(message.unbondingAmount));
+      (obj.unbondingAmount = message.unbondingAmount);
     message.commission !== undefined && (obj.commission = message.commission);
     message.moniker !== undefined && (obj.moniker = message.moniker);
     message.website !== undefined && (obj.website = message.website);
     message.logo !== undefined && (obj.logo = message.logo);
-    message.points !== undefined && (obj.points = Math.round(message.points));
+    message.points !== undefined && (obj.points = message.points);
     return obj;
   },
 
   fromPartial<I extends Exact<DeepPartial<Staker>, I>>(object: I): Staker {
     const message = createBaseStaker();
     message.account = object.account ?? "";
-    message.poolId = object.poolId ?? 0;
-    message.amount = object.amount ?? 0;
-    message.unbondingAmount = object.unbondingAmount ?? 0;
+    message.poolId = object.poolId ?? "0";
+    message.amount = object.amount ?? "0";
+    message.unbondingAmount = object.unbondingAmount ?? "0";
     message.commission = object.commission ?? "";
     message.moniker = object.moniker ?? "";
     message.website = object.website ?? "";
     message.logo = object.logo ?? "";
-    message.points = object.points ?? 0;
+    message.points = object.points ?? "0";
     return message;
   },
 };
 
 function createBaseUnbondingEntries(): UnbondingEntries {
   return {
-    index: 0,
-    poolId: 0,
+    index: "0",
+    poolId: "0",
     staker: "",
     delegator: "",
-    creationTime: 0,
-    amount: 0,
+    creationTime: "0",
+    amount: "0",
   };
 }
 
@@ -1566,10 +1563,10 @@ export const UnbondingEntries = {
     message: UnbondingEntries,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.index !== 0) {
+    if (message.index !== "0") {
       writer.uint32(8).uint64(message.index);
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     if (message.staker !== "") {
@@ -1578,10 +1575,10 @@ export const UnbondingEntries = {
     if (message.delegator !== "") {
       writer.uint32(34).string(message.delegator);
     }
-    if (message.creationTime !== 0) {
+    if (message.creationTime !== "0") {
       writer.uint32(40).uint64(message.creationTime);
     }
-    if (message.amount !== 0) {
+    if (message.amount !== "0") {
       writer.uint32(48).uint64(message.amount);
     }
     return writer;
@@ -1595,10 +1592,10 @@ export const UnbondingEntries = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.index = longToNumber(reader.uint64() as Long);
+          message.index = longToString(reader.uint64() as Long);
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.staker = reader.string();
@@ -1607,10 +1604,10 @@ export const UnbondingEntries = {
           message.delegator = reader.string();
           break;
         case 5:
-          message.creationTime = longToNumber(reader.uint64() as Long);
+          message.creationTime = longToString(reader.uint64() as Long);
           break;
         case 6:
-          message.amount = longToNumber(reader.uint64() as Long);
+          message.amount = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1622,26 +1619,26 @@ export const UnbondingEntries = {
 
   fromJSON(object: any): UnbondingEntries {
     return {
-      index: isSet(object.index) ? Number(object.index) : 0,
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      index: isSet(object.index) ? String(object.index) : "0",
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
       delegator: isSet(object.delegator) ? String(object.delegator) : "",
       creationTime: isSet(object.creationTime)
-        ? Number(object.creationTime)
-        : 0,
-      amount: isSet(object.amount) ? Number(object.amount) : 0,
+        ? String(object.creationTime)
+        : "0",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
     };
   },
 
   toJSON(message: UnbondingEntries): unknown {
     const obj: any = {};
-    message.index !== undefined && (obj.index = Math.round(message.index));
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.index !== undefined && (obj.index = message.index);
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.staker !== undefined && (obj.staker = message.staker);
     message.delegator !== undefined && (obj.delegator = message.delegator);
     message.creationTime !== undefined &&
-      (obj.creationTime = Math.round(message.creationTime));
-    message.amount !== undefined && (obj.amount = Math.round(message.amount));
+      (obj.creationTime = message.creationTime);
+    message.amount !== undefined && (obj.amount = message.amount);
     return obj;
   },
 
@@ -1649,18 +1646,18 @@ export const UnbondingEntries = {
     object: I
   ): UnbondingEntries {
     const message = createBaseUnbondingEntries();
-    message.index = object.index ?? 0;
-    message.poolId = object.poolId ?? 0;
+    message.index = object.index ?? "0";
+    message.poolId = object.poolId ?? "0";
     message.staker = object.staker ?? "";
     message.delegator = object.delegator ?? "";
-    message.creationTime = object.creationTime ?? 0;
-    message.amount = object.amount ?? 0;
+    message.creationTime = object.creationTime ?? "0";
+    message.amount = object.amount ?? "0";
     return message;
   },
 };
 
 function createBaseUnbondingState(): UnbondingState {
-  return { lowIndex: 0, highIndex: 0 };
+  return { lowIndex: "0", highIndex: "0" };
 }
 
 export const UnbondingState = {
@@ -1668,10 +1665,10 @@ export const UnbondingState = {
     message: UnbondingState,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.lowIndex !== 0) {
+    if (message.lowIndex !== "0") {
       writer.uint32(8).uint64(message.lowIndex);
     }
-    if (message.highIndex !== 0) {
+    if (message.highIndex !== "0") {
       writer.uint32(16).uint64(message.highIndex);
     }
     return writer;
@@ -1685,10 +1682,10 @@ export const UnbondingState = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.lowIndex = longToNumber(reader.uint64() as Long);
+          message.lowIndex = longToString(reader.uint64() as Long);
           break;
         case 2:
-          message.highIndex = longToNumber(reader.uint64() as Long);
+          message.highIndex = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1700,17 +1697,15 @@ export const UnbondingState = {
 
   fromJSON(object: any): UnbondingState {
     return {
-      lowIndex: isSet(object.lowIndex) ? Number(object.lowIndex) : 0,
-      highIndex: isSet(object.highIndex) ? Number(object.highIndex) : 0,
+      lowIndex: isSet(object.lowIndex) ? String(object.lowIndex) : "0",
+      highIndex: isSet(object.highIndex) ? String(object.highIndex) : "0",
     };
   },
 
   toJSON(message: UnbondingState): unknown {
     const obj: any = {};
-    message.lowIndex !== undefined &&
-      (obj.lowIndex = Math.round(message.lowIndex));
-    message.highIndex !== undefined &&
-      (obj.highIndex = Math.round(message.highIndex));
+    message.lowIndex !== undefined && (obj.lowIndex = message.lowIndex);
+    message.highIndex !== undefined && (obj.highIndex = message.highIndex);
     return obj;
   },
 
@@ -1718,22 +1713,11 @@ export const UnbondingState = {
     object: I
   ): UnbondingState {
     const message = createBaseUnbondingState();
-    message.lowIndex = object.lowIndex ?? 0;
-    message.highIndex = object.highIndex ?? 0;
+    message.lowIndex = object.lowIndex ?? "0";
+    message.highIndex = object.highIndex ?? "0";
     return message;
   },
 };
-
-declare var self: any | undefined;
-declare var window: any | undefined;
-declare var global: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
-  throw "Unable to locate global object";
-})();
 
 type Builtin =
   | Date
@@ -1762,11 +1746,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {

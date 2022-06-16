@@ -36,10 +36,10 @@ function createBaseParams() {
         voteSlash: "",
         uploadSlash: "",
         timeoutSlash: "",
-        uploadTimeout: 0,
-        storageCost: 0,
+        uploadTimeout: "0",
+        storageCost: "0",
         networkFee: "",
-        maxPoints: 0
+        maxPoints: "0"
     };
 }
 exports.Params = {
@@ -54,16 +54,16 @@ exports.Params = {
         if (message.timeoutSlash !== "") {
             writer.uint32(42).string(message.timeoutSlash);
         }
-        if (message.uploadTimeout !== 0) {
+        if (message.uploadTimeout !== "0") {
             writer.uint32(48).uint64(message.uploadTimeout);
         }
-        if (message.storageCost !== 0) {
+        if (message.storageCost !== "0") {
             writer.uint32(56).uint64(message.storageCost);
         }
         if (message.networkFee !== "") {
             writer.uint32(66).string(message.networkFee);
         }
-        if (message.maxPoints !== 0) {
+        if (message.maxPoints !== "0") {
             writer.uint32(72).uint64(message.maxPoints);
         }
         return writer;
@@ -85,16 +85,16 @@ exports.Params = {
                     message.timeoutSlash = reader.string();
                     break;
                 case 6:
-                    message.uploadTimeout = longToNumber(reader.uint64());
+                    message.uploadTimeout = longToString(reader.uint64());
                     break;
                 case 7:
-                    message.storageCost = longToNumber(reader.uint64());
+                    message.storageCost = longToString(reader.uint64());
                     break;
                 case 8:
                     message.networkFee = reader.string();
                     break;
                 case 9:
-                    message.maxPoints = longToNumber(reader.uint64());
+                    message.maxPoints = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -111,11 +111,11 @@ exports.Params = {
                 ? String(object.timeoutSlash)
                 : "",
             uploadTimeout: isSet(object.uploadTimeout)
-                ? Number(object.uploadTimeout)
-                : 0,
-            storageCost: isSet(object.storageCost) ? Number(object.storageCost) : 0,
+                ? String(object.uploadTimeout)
+                : "0",
+            storageCost: isSet(object.storageCost) ? String(object.storageCost) : "0",
             networkFee: isSet(object.networkFee) ? String(object.networkFee) : "",
-            maxPoints: isSet(object.maxPoints) ? Number(object.maxPoints) : 0
+            maxPoints: isSet(object.maxPoints) ? String(object.maxPoints) : "0"
         };
     },
     toJSON: function (message) {
@@ -126,12 +126,11 @@ exports.Params = {
         message.timeoutSlash !== undefined &&
             (obj.timeoutSlash = message.timeoutSlash);
         message.uploadTimeout !== undefined &&
-            (obj.uploadTimeout = Math.round(message.uploadTimeout));
+            (obj.uploadTimeout = message.uploadTimeout);
         message.storageCost !== undefined &&
-            (obj.storageCost = Math.round(message.storageCost));
+            (obj.storageCost = message.storageCost);
         message.networkFee !== undefined && (obj.networkFee = message.networkFee);
-        message.maxPoints !== undefined &&
-            (obj.maxPoints = Math.round(message.maxPoints));
+        message.maxPoints !== undefined && (obj.maxPoints = message.maxPoints);
         return obj;
     },
     fromPartial: function (object) {
@@ -140,29 +139,15 @@ exports.Params = {
         message.voteSlash = (_a = object.voteSlash) !== null && _a !== void 0 ? _a : "";
         message.uploadSlash = (_b = object.uploadSlash) !== null && _b !== void 0 ? _b : "";
         message.timeoutSlash = (_c = object.timeoutSlash) !== null && _c !== void 0 ? _c : "";
-        message.uploadTimeout = (_d = object.uploadTimeout) !== null && _d !== void 0 ? _d : 0;
-        message.storageCost = (_e = object.storageCost) !== null && _e !== void 0 ? _e : 0;
+        message.uploadTimeout = (_d = object.uploadTimeout) !== null && _d !== void 0 ? _d : "0";
+        message.storageCost = (_e = object.storageCost) !== null && _e !== void 0 ? _e : "0";
         message.networkFee = (_f = object.networkFee) !== null && _f !== void 0 ? _f : "";
-        message.maxPoints = (_g = object.maxPoints) !== null && _g !== void 0 ? _g : 0;
+        message.maxPoints = (_g = object.maxPoints) !== null && _g !== void 0 ? _g : "0";
         return message;
     }
 };
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

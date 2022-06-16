@@ -13,13 +13,13 @@ export interface Params {
   /** timeout_slash ... */
   timeoutSlash: string;
   /** upload_timeout ... */
-  uploadTimeout: number;
+  uploadTimeout: string;
   /** storage_cost ... */
-  storageCost: number;
+  storageCost: string;
   /** network_fee ... */
   networkFee: string;
   /** max_points ... */
-  maxPoints: number;
+  maxPoints: string;
 }
 
 function createBaseParams(): Params {
@@ -27,10 +27,10 @@ function createBaseParams(): Params {
     voteSlash: "",
     uploadSlash: "",
     timeoutSlash: "",
-    uploadTimeout: 0,
-    storageCost: 0,
+    uploadTimeout: "0",
+    storageCost: "0",
     networkFee: "",
-    maxPoints: 0,
+    maxPoints: "0",
   };
 }
 
@@ -48,16 +48,16 @@ export const Params = {
     if (message.timeoutSlash !== "") {
       writer.uint32(42).string(message.timeoutSlash);
     }
-    if (message.uploadTimeout !== 0) {
+    if (message.uploadTimeout !== "0") {
       writer.uint32(48).uint64(message.uploadTimeout);
     }
-    if (message.storageCost !== 0) {
+    if (message.storageCost !== "0") {
       writer.uint32(56).uint64(message.storageCost);
     }
     if (message.networkFee !== "") {
       writer.uint32(66).string(message.networkFee);
     }
-    if (message.maxPoints !== 0) {
+    if (message.maxPoints !== "0") {
       writer.uint32(72).uint64(message.maxPoints);
     }
     return writer;
@@ -80,16 +80,16 @@ export const Params = {
           message.timeoutSlash = reader.string();
           break;
         case 6:
-          message.uploadTimeout = longToNumber(reader.uint64() as Long);
+          message.uploadTimeout = longToString(reader.uint64() as Long);
           break;
         case 7:
-          message.storageCost = longToNumber(reader.uint64() as Long);
+          message.storageCost = longToString(reader.uint64() as Long);
           break;
         case 8:
           message.networkFee = reader.string();
           break;
         case 9:
-          message.maxPoints = longToNumber(reader.uint64() as Long);
+          message.maxPoints = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -107,11 +107,11 @@ export const Params = {
         ? String(object.timeoutSlash)
         : "",
       uploadTimeout: isSet(object.uploadTimeout)
-        ? Number(object.uploadTimeout)
-        : 0,
-      storageCost: isSet(object.storageCost) ? Number(object.storageCost) : 0,
+        ? String(object.uploadTimeout)
+        : "0",
+      storageCost: isSet(object.storageCost) ? String(object.storageCost) : "0",
       networkFee: isSet(object.networkFee) ? String(object.networkFee) : "",
-      maxPoints: isSet(object.maxPoints) ? Number(object.maxPoints) : 0,
+      maxPoints: isSet(object.maxPoints) ? String(object.maxPoints) : "0",
     };
   },
 
@@ -123,12 +123,11 @@ export const Params = {
     message.timeoutSlash !== undefined &&
       (obj.timeoutSlash = message.timeoutSlash);
     message.uploadTimeout !== undefined &&
-      (obj.uploadTimeout = Math.round(message.uploadTimeout));
+      (obj.uploadTimeout = message.uploadTimeout);
     message.storageCost !== undefined &&
-      (obj.storageCost = Math.round(message.storageCost));
+      (obj.storageCost = message.storageCost);
     message.networkFee !== undefined && (obj.networkFee = message.networkFee);
-    message.maxPoints !== undefined &&
-      (obj.maxPoints = Math.round(message.maxPoints));
+    message.maxPoints !== undefined && (obj.maxPoints = message.maxPoints);
     return obj;
   },
 
@@ -137,24 +136,13 @@ export const Params = {
     message.voteSlash = object.voteSlash ?? "";
     message.uploadSlash = object.uploadSlash ?? "";
     message.timeoutSlash = object.timeoutSlash ?? "";
-    message.uploadTimeout = object.uploadTimeout ?? 0;
-    message.storageCost = object.storageCost ?? 0;
+    message.uploadTimeout = object.uploadTimeout ?? "0";
+    message.storageCost = object.storageCost ?? "0";
     message.networkFee = object.networkFee ?? "";
-    message.maxPoints = object.maxPoints ?? 0;
+    message.maxPoints = object.maxPoints ?? "0";
     return message;
   },
 };
-
-declare var self: any | undefined;
-declare var window: any | undefined;
-declare var global: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
-  throw "Unable to locate global object";
-})();
 
 type Builtin =
   | Date
@@ -183,11 +171,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {

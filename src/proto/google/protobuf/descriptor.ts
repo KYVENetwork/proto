@@ -32,14 +32,14 @@ export interface FileDescriptorProto {
   enumType: EnumDescriptorProto[];
   service: ServiceDescriptorProto[];
   extension: FieldDescriptorProto[];
-  options: FileOptions | undefined;
+  options?: FileOptions;
   /**
    * This field contains optional information about the original source code.
    * You may safely remove this entire field without harming runtime
    * functionality of the descriptors -- the information is needed only by
    * development tools.
    */
-  sourceCodeInfo: SourceCodeInfo | undefined;
+  sourceCodeInfo?: SourceCodeInfo;
   /**
    * The syntax of the proto file.
    * The supported values are "proto2" and "proto3".
@@ -56,7 +56,7 @@ export interface DescriptorProto {
   enumType: EnumDescriptorProto[];
   extensionRange: DescriptorProto_ExtensionRange[];
   oneofDecl: OneofDescriptorProto[];
-  options: MessageOptions | undefined;
+  options?: MessageOptions;
   reservedRange: DescriptorProto_ReservedRange[];
   /**
    * Reserved field names, which may not be used by fields in the same message.
@@ -70,7 +70,7 @@ export interface DescriptorProto_ExtensionRange {
   start: number;
   /** Exclusive. */
   end: number;
-  options: ExtensionRangeOptions | undefined;
+  options?: ExtensionRangeOptions;
 }
 
 /**
@@ -133,7 +133,7 @@ export interface FieldDescriptorProto {
    * it to camelCase.
    */
   jsonName: string;
-  options: FieldOptions | undefined;
+  options?: FieldOptions;
 }
 
 export enum FieldDescriptorProto_Type {
@@ -338,14 +338,14 @@ export function fieldDescriptorProto_LabelToJSON(
 /** Describes a oneof. */
 export interface OneofDescriptorProto {
   name: string;
-  options: OneofOptions | undefined;
+  options?: OneofOptions;
 }
 
 /** Describes an enum type. */
 export interface EnumDescriptorProto {
   name: string;
   value: EnumValueDescriptorProto[];
-  options: EnumOptions | undefined;
+  options?: EnumOptions;
   /**
    * Range of reserved numeric values. Reserved numeric values may not be used
    * by enum values in the same enum declaration. Reserved ranges may not
@@ -378,14 +378,14 @@ export interface EnumDescriptorProto_EnumReservedRange {
 export interface EnumValueDescriptorProto {
   name: string;
   number: number;
-  options: EnumValueOptions | undefined;
+  options?: EnumValueOptions;
 }
 
 /** Describes a service. */
 export interface ServiceDescriptorProto {
   name: string;
   method: MethodDescriptorProto[];
-  options: ServiceOptions | undefined;
+  options?: ServiceOptions;
 }
 
 /** Describes a method of a service. */
@@ -397,7 +397,7 @@ export interface MethodDescriptorProto {
    */
   inputType: string;
   outputType: string;
-  options: MethodOptions | undefined;
+  options?: MethodOptions;
   /** Identifies if client streams multiple client messages */
   clientStreaming: boolean;
   /** Identifies if server streams multiple server messages */
@@ -915,8 +915,8 @@ export interface UninterpretedOption {
    * identified it as during parsing. Exactly one of these should be set.
    */
   identifierValue: string;
-  positiveIntValue: number;
-  negativeIntValue: number;
+  positiveIntValue: string;
+  negativeIntValue: string;
   doubleValue: number;
   stringValue: Uint8Array;
   aggregateValue: string;
@@ -3654,8 +3654,8 @@ function createBaseUninterpretedOption(): UninterpretedOption {
   return {
     name: [],
     identifierValue: "",
-    positiveIntValue: 0,
-    negativeIntValue: 0,
+    positiveIntValue: "0",
+    negativeIntValue: "0",
     doubleValue: 0,
     stringValue: new Uint8Array(),
     aggregateValue: "",
@@ -3676,10 +3676,10 @@ export const UninterpretedOption = {
     if (message.identifierValue !== "") {
       writer.uint32(26).string(message.identifierValue);
     }
-    if (message.positiveIntValue !== 0) {
+    if (message.positiveIntValue !== "0") {
       writer.uint32(32).uint64(message.positiveIntValue);
     }
-    if (message.negativeIntValue !== 0) {
+    if (message.negativeIntValue !== "0") {
       writer.uint32(40).int64(message.negativeIntValue);
     }
     if (message.doubleValue !== 0) {
@@ -3710,10 +3710,10 @@ export const UninterpretedOption = {
           message.identifierValue = reader.string();
           break;
         case 4:
-          message.positiveIntValue = longToNumber(reader.uint64() as Long);
+          message.positiveIntValue = longToString(reader.uint64() as Long);
           break;
         case 5:
-          message.negativeIntValue = longToNumber(reader.int64() as Long);
+          message.negativeIntValue = longToString(reader.int64() as Long);
           break;
         case 6:
           message.doubleValue = reader.double();
@@ -3741,11 +3741,11 @@ export const UninterpretedOption = {
         ? String(object.identifierValue)
         : "",
       positiveIntValue: isSet(object.positiveIntValue)
-        ? Number(object.positiveIntValue)
-        : 0,
+        ? String(object.positiveIntValue)
+        : "0",
       negativeIntValue: isSet(object.negativeIntValue)
-        ? Number(object.negativeIntValue)
-        : 0,
+        ? String(object.negativeIntValue)
+        : "0",
       doubleValue: isSet(object.doubleValue) ? Number(object.doubleValue) : 0,
       stringValue: isSet(object.stringValue)
         ? bytesFromBase64(object.stringValue)
@@ -3768,9 +3768,9 @@ export const UninterpretedOption = {
     message.identifierValue !== undefined &&
       (obj.identifierValue = message.identifierValue);
     message.positiveIntValue !== undefined &&
-      (obj.positiveIntValue = Math.round(message.positiveIntValue));
+      (obj.positiveIntValue = message.positiveIntValue);
     message.negativeIntValue !== undefined &&
-      (obj.negativeIntValue = Math.round(message.negativeIntValue));
+      (obj.negativeIntValue = message.negativeIntValue);
     message.doubleValue !== undefined &&
       (obj.doubleValue = message.doubleValue);
     message.stringValue !== undefined &&
@@ -3792,8 +3792,8 @@ export const UninterpretedOption = {
       object.name?.map((e) => UninterpretedOption_NamePart.fromPartial(e)) ||
       [];
     message.identifierValue = object.identifierValue ?? "";
-    message.positiveIntValue = object.positiveIntValue ?? 0;
-    message.negativeIntValue = object.negativeIntValue ?? 0;
+    message.positiveIntValue = object.positiveIntValue ?? "0";
+    message.negativeIntValue = object.negativeIntValue ?? "0";
     message.doubleValue = object.doubleValue ?? 0;
     message.stringValue = object.stringValue ?? new Uint8Array();
     message.aggregateValue = object.aggregateValue ?? "";
@@ -4311,11 +4311,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {

@@ -21,13 +21,13 @@ export interface CreatePoolProposal {
   /** config ... */
   config: string;
   /** start_height ... */
-  startHeight: number;
+  startHeight: string;
   /** upload_interval ... */
-  uploadInterval: number;
+  uploadInterval: string;
   /** operating_cost ... */
-  operatingCost: number;
+  operatingCost: string;
   /** max_bundle_size ... */
-  maxBundleSize: number;
+  maxBundleSize: string;
   /** binaries ... */
   binaries: string;
 }
@@ -39,7 +39,7 @@ export interface UpdatePoolProposal {
   /** description ... */
   description: string;
   /** id ... */
-  id: number;
+  id: string;
   /** name ... */
   name: string;
   /** runtime ... */
@@ -51,11 +51,11 @@ export interface UpdatePoolProposal {
   /** config ... */
   config: string;
   /** upload_interval ... */
-  uploadInterval: number;
+  uploadInterval: string;
   /** operating_cost ... */
-  operatingCost: number;
+  operatingCost: string;
   /** max_bundle_size ... */
-  maxBundleSize: number;
+  maxBundleSize: string;
 }
 
 /** PausePoolProposal is a gov Content type for pausing a pool. */
@@ -65,7 +65,7 @@ export interface PausePoolProposal {
   /** description ... */
   description: string;
   /** id ... */
-  id: number;
+  id: string;
 }
 
 /** UnpausePoolProposal is a gov Content type for unpausing a pool. */
@@ -75,7 +75,7 @@ export interface UnpausePoolProposal {
   /** description ... */
   description: string;
   /** id ... */
-  id: number;
+  id: string;
 }
 
 /** SchedulePoolUpgradeProposal is a gov Content type for upgrading a pool by the runtime. */
@@ -89,9 +89,9 @@ export interface SchedulePoolUpgradeProposal {
   /** version ... */
   version: string;
   /** scheduled_at ... */
-  scheduledAt: number;
+  scheduledAt: string;
   /** duration ... */
-  duration: number;
+  duration: string;
   /** binaries ... */
   binaries: string;
 }
@@ -115,10 +115,10 @@ function createBaseCreatePoolProposal(): CreatePoolProposal {
     logo: "",
     version: "",
     config: "",
-    startHeight: 0,
-    uploadInterval: 0,
-    operatingCost: 0,
-    maxBundleSize: 0,
+    startHeight: "0",
+    uploadInterval: "0",
+    operatingCost: "0",
+    maxBundleSize: "0",
     binaries: "",
   };
 }
@@ -149,16 +149,16 @@ export const CreatePoolProposal = {
     if (message.config !== "") {
       writer.uint32(58).string(message.config);
     }
-    if (message.startHeight !== 0) {
+    if (message.startHeight !== "0") {
       writer.uint32(64).uint64(message.startHeight);
     }
-    if (message.uploadInterval !== 0) {
+    if (message.uploadInterval !== "0") {
       writer.uint32(72).uint64(message.uploadInterval);
     }
-    if (message.operatingCost !== 0) {
+    if (message.operatingCost !== "0") {
       writer.uint32(80).uint64(message.operatingCost);
     }
-    if (message.maxBundleSize !== 0) {
+    if (message.maxBundleSize !== "0") {
       writer.uint32(88).uint64(message.maxBundleSize);
     }
     if (message.binaries !== "") {
@@ -196,16 +196,16 @@ export const CreatePoolProposal = {
           message.config = reader.string();
           break;
         case 8:
-          message.startHeight = longToNumber(reader.uint64() as Long);
+          message.startHeight = longToString(reader.uint64() as Long);
           break;
         case 9:
-          message.uploadInterval = longToNumber(reader.uint64() as Long);
+          message.uploadInterval = longToString(reader.uint64() as Long);
           break;
         case 10:
-          message.operatingCost = longToNumber(reader.uint64() as Long);
+          message.operatingCost = longToString(reader.uint64() as Long);
           break;
         case 11:
-          message.maxBundleSize = longToNumber(reader.uint64() as Long);
+          message.maxBundleSize = longToString(reader.uint64() as Long);
           break;
         case 12:
           message.binaries = reader.string();
@@ -227,16 +227,16 @@ export const CreatePoolProposal = {
       logo: isSet(object.logo) ? String(object.logo) : "",
       version: isSet(object.version) ? String(object.version) : "",
       config: isSet(object.config) ? String(object.config) : "",
-      startHeight: isSet(object.startHeight) ? Number(object.startHeight) : 0,
+      startHeight: isSet(object.startHeight) ? String(object.startHeight) : "0",
       uploadInterval: isSet(object.uploadInterval)
-        ? Number(object.uploadInterval)
-        : 0,
+        ? String(object.uploadInterval)
+        : "0",
       operatingCost: isSet(object.operatingCost)
-        ? Number(object.operatingCost)
-        : 0,
+        ? String(object.operatingCost)
+        : "0",
       maxBundleSize: isSet(object.maxBundleSize)
-        ? Number(object.maxBundleSize)
-        : 0,
+        ? String(object.maxBundleSize)
+        : "0",
       binaries: isSet(object.binaries) ? String(object.binaries) : "",
     };
   },
@@ -252,13 +252,13 @@ export const CreatePoolProposal = {
     message.version !== undefined && (obj.version = message.version);
     message.config !== undefined && (obj.config = message.config);
     message.startHeight !== undefined &&
-      (obj.startHeight = Math.round(message.startHeight));
+      (obj.startHeight = message.startHeight);
     message.uploadInterval !== undefined &&
-      (obj.uploadInterval = Math.round(message.uploadInterval));
+      (obj.uploadInterval = message.uploadInterval);
     message.operatingCost !== undefined &&
-      (obj.operatingCost = Math.round(message.operatingCost));
+      (obj.operatingCost = message.operatingCost);
     message.maxBundleSize !== undefined &&
-      (obj.maxBundleSize = Math.round(message.maxBundleSize));
+      (obj.maxBundleSize = message.maxBundleSize);
     message.binaries !== undefined && (obj.binaries = message.binaries);
     return obj;
   },
@@ -274,10 +274,10 @@ export const CreatePoolProposal = {
     message.logo = object.logo ?? "";
     message.version = object.version ?? "";
     message.config = object.config ?? "";
-    message.startHeight = object.startHeight ?? 0;
-    message.uploadInterval = object.uploadInterval ?? 0;
-    message.operatingCost = object.operatingCost ?? 0;
-    message.maxBundleSize = object.maxBundleSize ?? 0;
+    message.startHeight = object.startHeight ?? "0";
+    message.uploadInterval = object.uploadInterval ?? "0";
+    message.operatingCost = object.operatingCost ?? "0";
+    message.maxBundleSize = object.maxBundleSize ?? "0";
     message.binaries = object.binaries ?? "";
     return message;
   },
@@ -287,15 +287,15 @@ function createBaseUpdatePoolProposal(): UpdatePoolProposal {
   return {
     title: "",
     description: "",
-    id: 0,
+    id: "0",
     name: "",
     runtime: "",
     logo: "",
     versions: "",
     config: "",
-    uploadInterval: 0,
-    operatingCost: 0,
-    maxBundleSize: 0,
+    uploadInterval: "0",
+    operatingCost: "0",
+    maxBundleSize: "0",
   };
 }
 
@@ -310,7 +310,7 @@ export const UpdatePoolProposal = {
     if (message.description !== "") {
       writer.uint32(18).string(message.description);
     }
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(24).uint64(message.id);
     }
     if (message.name !== "") {
@@ -328,13 +328,13 @@ export const UpdatePoolProposal = {
     if (message.config !== "") {
       writer.uint32(66).string(message.config);
     }
-    if (message.uploadInterval !== 0) {
+    if (message.uploadInterval !== "0") {
       writer.uint32(72).uint64(message.uploadInterval);
     }
-    if (message.operatingCost !== 0) {
+    if (message.operatingCost !== "0") {
       writer.uint32(80).uint64(message.operatingCost);
     }
-    if (message.maxBundleSize !== 0) {
+    if (message.maxBundleSize !== "0") {
       writer.uint32(88).uint64(message.maxBundleSize);
     }
     return writer;
@@ -354,7 +354,7 @@ export const UpdatePoolProposal = {
           message.description = reader.string();
           break;
         case 3:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         case 4:
           message.name = reader.string();
@@ -372,13 +372,13 @@ export const UpdatePoolProposal = {
           message.config = reader.string();
           break;
         case 9:
-          message.uploadInterval = longToNumber(reader.uint64() as Long);
+          message.uploadInterval = longToString(reader.uint64() as Long);
           break;
         case 10:
-          message.operatingCost = longToNumber(reader.uint64() as Long);
+          message.operatingCost = longToString(reader.uint64() as Long);
           break;
         case 11:
-          message.maxBundleSize = longToNumber(reader.uint64() as Long);
+          message.maxBundleSize = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -392,21 +392,21 @@ export const UpdatePoolProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
       name: isSet(object.name) ? String(object.name) : "",
       runtime: isSet(object.runtime) ? String(object.runtime) : "",
       logo: isSet(object.logo) ? String(object.logo) : "",
       versions: isSet(object.versions) ? String(object.versions) : "",
       config: isSet(object.config) ? String(object.config) : "",
       uploadInterval: isSet(object.uploadInterval)
-        ? Number(object.uploadInterval)
-        : 0,
+        ? String(object.uploadInterval)
+        : "0",
       operatingCost: isSet(object.operatingCost)
-        ? Number(object.operatingCost)
-        : 0,
+        ? String(object.operatingCost)
+        : "0",
       maxBundleSize: isSet(object.maxBundleSize)
-        ? Number(object.maxBundleSize)
-        : 0,
+        ? String(object.maxBundleSize)
+        : "0",
     };
   },
 
@@ -415,18 +415,18 @@ export const UpdatePoolProposal = {
     message.title !== undefined && (obj.title = message.title);
     message.description !== undefined &&
       (obj.description = message.description);
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     message.name !== undefined && (obj.name = message.name);
     message.runtime !== undefined && (obj.runtime = message.runtime);
     message.logo !== undefined && (obj.logo = message.logo);
     message.versions !== undefined && (obj.versions = message.versions);
     message.config !== undefined && (obj.config = message.config);
     message.uploadInterval !== undefined &&
-      (obj.uploadInterval = Math.round(message.uploadInterval));
+      (obj.uploadInterval = message.uploadInterval);
     message.operatingCost !== undefined &&
-      (obj.operatingCost = Math.round(message.operatingCost));
+      (obj.operatingCost = message.operatingCost);
     message.maxBundleSize !== undefined &&
-      (obj.maxBundleSize = Math.round(message.maxBundleSize));
+      (obj.maxBundleSize = message.maxBundleSize);
     return obj;
   },
 
@@ -436,21 +436,21 @@ export const UpdatePoolProposal = {
     const message = createBaseUpdatePoolProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     message.name = object.name ?? "";
     message.runtime = object.runtime ?? "";
     message.logo = object.logo ?? "";
     message.versions = object.versions ?? "";
     message.config = object.config ?? "";
-    message.uploadInterval = object.uploadInterval ?? 0;
-    message.operatingCost = object.operatingCost ?? 0;
-    message.maxBundleSize = object.maxBundleSize ?? 0;
+    message.uploadInterval = object.uploadInterval ?? "0";
+    message.operatingCost = object.operatingCost ?? "0";
+    message.maxBundleSize = object.maxBundleSize ?? "0";
     return message;
   },
 };
 
 function createBasePausePoolProposal(): PausePoolProposal {
-  return { title: "", description: "", id: 0 };
+  return { title: "", description: "", id: "0" };
 }
 
 export const PausePoolProposal = {
@@ -464,7 +464,7 @@ export const PausePoolProposal = {
     if (message.description !== "") {
       writer.uint32(18).string(message.description);
     }
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(24).uint64(message.id);
     }
     return writer;
@@ -484,7 +484,7 @@ export const PausePoolProposal = {
           message.description = reader.string();
           break;
         case 3:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -498,7 +498,7 @@ export const PausePoolProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
     };
   },
 
@@ -507,7 +507,7 @@ export const PausePoolProposal = {
     message.title !== undefined && (obj.title = message.title);
     message.description !== undefined &&
       (obj.description = message.description);
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     return obj;
   },
 
@@ -517,13 +517,13 @@ export const PausePoolProposal = {
     const message = createBasePausePoolProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     return message;
   },
 };
 
 function createBaseUnpausePoolProposal(): UnpausePoolProposal {
-  return { title: "", description: "", id: 0 };
+  return { title: "", description: "", id: "0" };
 }
 
 export const UnpausePoolProposal = {
@@ -537,7 +537,7 @@ export const UnpausePoolProposal = {
     if (message.description !== "") {
       writer.uint32(18).string(message.description);
     }
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(24).uint64(message.id);
     }
     return writer;
@@ -557,7 +557,7 @@ export const UnpausePoolProposal = {
           message.description = reader.string();
           break;
         case 3:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -571,7 +571,7 @@ export const UnpausePoolProposal = {
     return {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
     };
   },
 
@@ -580,7 +580,7 @@ export const UnpausePoolProposal = {
     message.title !== undefined && (obj.title = message.title);
     message.description !== undefined &&
       (obj.description = message.description);
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     return obj;
   },
 
@@ -590,7 +590,7 @@ export const UnpausePoolProposal = {
     const message = createBaseUnpausePoolProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     return message;
   },
 };
@@ -601,8 +601,8 @@ function createBaseSchedulePoolUpgradeProposal(): SchedulePoolUpgradeProposal {
     description: "",
     runtime: "",
     version: "",
-    scheduledAt: 0,
-    duration: 0,
+    scheduledAt: "0",
+    duration: "0",
     binaries: "",
   };
 }
@@ -624,10 +624,10 @@ export const SchedulePoolUpgradeProposal = {
     if (message.version !== "") {
       writer.uint32(34).string(message.version);
     }
-    if (message.scheduledAt !== 0) {
+    if (message.scheduledAt !== "0") {
       writer.uint32(40).uint64(message.scheduledAt);
     }
-    if (message.duration !== 0) {
+    if (message.duration !== "0") {
       writer.uint32(48).uint64(message.duration);
     }
     if (message.binaries !== "") {
@@ -659,10 +659,10 @@ export const SchedulePoolUpgradeProposal = {
           message.version = reader.string();
           break;
         case 5:
-          message.scheduledAt = longToNumber(reader.uint64() as Long);
+          message.scheduledAt = longToString(reader.uint64() as Long);
           break;
         case 6:
-          message.duration = longToNumber(reader.uint64() as Long);
+          message.duration = longToString(reader.uint64() as Long);
           break;
         case 7:
           message.binaries = reader.string();
@@ -681,8 +681,8 @@ export const SchedulePoolUpgradeProposal = {
       description: isSet(object.description) ? String(object.description) : "",
       runtime: isSet(object.runtime) ? String(object.runtime) : "",
       version: isSet(object.version) ? String(object.version) : "",
-      scheduledAt: isSet(object.scheduledAt) ? Number(object.scheduledAt) : 0,
-      duration: isSet(object.duration) ? Number(object.duration) : 0,
+      scheduledAt: isSet(object.scheduledAt) ? String(object.scheduledAt) : "0",
+      duration: isSet(object.duration) ? String(object.duration) : "0",
       binaries: isSet(object.binaries) ? String(object.binaries) : "",
     };
   },
@@ -695,9 +695,8 @@ export const SchedulePoolUpgradeProposal = {
     message.runtime !== undefined && (obj.runtime = message.runtime);
     message.version !== undefined && (obj.version = message.version);
     message.scheduledAt !== undefined &&
-      (obj.scheduledAt = Math.round(message.scheduledAt));
-    message.duration !== undefined &&
-      (obj.duration = Math.round(message.duration));
+      (obj.scheduledAt = message.scheduledAt);
+    message.duration !== undefined && (obj.duration = message.duration);
     message.binaries !== undefined && (obj.binaries = message.binaries);
     return obj;
   },
@@ -710,8 +709,8 @@ export const SchedulePoolUpgradeProposal = {
     message.description = object.description ?? "";
     message.runtime = object.runtime ?? "";
     message.version = object.version ?? "";
-    message.scheduledAt = object.scheduledAt ?? 0;
-    message.duration = object.duration ?? 0;
+    message.scheduledAt = object.scheduledAt ?? "0";
+    message.duration = object.duration ?? "0";
     message.binaries = object.binaries ?? "";
     return message;
   },
@@ -793,17 +792,6 @@ export const CancelPoolUpgradeProposal = {
   },
 };
 
-declare var self: any | undefined;
-declare var window: any | undefined;
-declare var global: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
-  throw "Unable to locate global object";
-})();
-
 type Builtin =
   | Date
   | Function
@@ -831,11 +819,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {

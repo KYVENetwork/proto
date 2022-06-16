@@ -21,25 +21,25 @@ export interface QueryParamsRequest {}
 /** QueryParamsResponse is response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
   /** params holds all the parameters of this module. */
-  params: Params | undefined;
+  params?: Params;
 }
 
 /** QueryPoolRequest is the request type for the Query/Pool RPC method. */
 export interface QueryPoolRequest {
   /** id defines the unique ID of the pool. */
-  id: number;
+  id: string;
 }
 
 /** QueryPoolResponse is the response type for the Query/Pool RPC method. */
 export interface QueryPoolResponse {
   /** pool ... */
-  pool: Pool | undefined;
+  pool?: Pool;
 }
 
 /** QueryPoolsRequest is the request type for the Query/Pools RPC method. */
 export interface QueryPoolsRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** search ... */
   search: string;
   /** runtime ... */
@@ -53,13 +53,13 @@ export interface QueryPoolsResponse {
   /** pools ... */
   pools: Pool[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** QueryFundersListRequest is the request type for the Query/FundersList RPC method. */
 export interface QueryFundersListRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
 }
 
 /** QueryFundersListResponse is the response type for the Query/FundersList RPC method. */
@@ -71,7 +71,7 @@ export interface QueryFundersListResponse {
 /** QueryFunderRequest is the request type for the Query/Funder RPC method. */
 export interface QueryFunderRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
   /** funder */
   funder: string;
 }
@@ -79,13 +79,13 @@ export interface QueryFunderRequest {
 /** QueryFunderResponse is the response type for the Query/Funder RPC method. */
 export interface QueryFunderResponse {
   /** funder ... */
-  funder: Funder | undefined;
+  funder?: Funder;
 }
 
 /** QueryStakersListRequest is the request type for the Query/StakersList RPC method. */
 export interface QueryStakersListRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
 }
 
 /** QueryStakersListResponse is the response type for the Query/StakersList RPC method. */
@@ -97,7 +97,7 @@ export interface QueryStakersListResponse {
 /** QueryStakerRequest is the request type for the Query/Staker RPC method. */
 export interface QueryStakerRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
   /** staker ... */
   staker: string;
 }
@@ -105,7 +105,7 @@ export interface QueryStakerRequest {
 /** QueryStakerResponse is the response type for the Query/Staker RPC method. */
 export interface QueryStakerResponse {
   /** staker ... */
-  staker: StakerResponse | undefined;
+  staker?: StakerResponse;
 }
 
 /** StakerResponse ... */
@@ -113,13 +113,13 @@ export interface StakerResponse {
   /** staker ... */
   staker: string;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** account ... */
   account: string;
   /** amount ... */
-  amount: number;
+  amount: string;
   /** total_delegation ... */
-  totalDelegation: number;
+  totalDelegation: string;
   /** commission ... */
   commission: string;
   /** moniker ... */
@@ -129,7 +129,7 @@ export interface StakerResponse {
   /** logo */
   logo: string;
   /** points */
-  points: number;
+  points: string;
 }
 
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
@@ -141,15 +141,15 @@ export interface QueryProposalRequest {
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 export interface QueryProposalResponse {
   /** proposal ... */
-  proposal: Proposal | undefined;
+  proposal?: Proposal;
 }
 
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
 export interface QueryProposalsRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
 }
 
 /** QueryProposalsResponse is the response type for the Query/Proposals RPC method. */
@@ -157,31 +157,31 @@ export interface QueryProposalsResponse {
   /** proposals ... */
   proposals: Proposal[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** QueryProposalByHeightRequest is the request type for the Query/ProposalByHeight RPC method. */
 export interface QueryProposalByHeightRequest {
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** height ... */
-  height: number;
+  height: string;
 }
 
 /** QueryProposalResponse is the response type for the Query/ProposalByHeight RPC method. */
 export interface QueryProposalByHeightResponse {
   /** proposal ... */
-  proposal: Proposal | undefined;
+  proposal?: Proposal;
 }
 
 /** QueryCanProposeRequest is the request type for the Query/CanPropose RPC method. */
 export interface QueryCanProposeRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
   /** proposer ... */
   proposer: string;
   /** from_height ... */
-  fromHeight: number;
+  fromHeight: string;
 }
 
 /** QueryCanProposeResponse is the response type for the Query/CanPropose RPC method. */
@@ -195,7 +195,7 @@ export interface QueryCanProposeResponse {
 /** QueryCanVoteRequest is the request type for the Query/CanVote RPC method. */
 export interface QueryCanVoteRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
   /** voter ... */
   voter: string;
   /** bundle_id ... */
@@ -213,7 +213,7 @@ export interface QueryCanVoteResponse {
 /** QueryStakeInfoRequest is the request type for the Query/StakeInfo RPC method. */
 export interface QueryStakeInfoRequest {
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** staker .. */
   staker: string;
 }
@@ -237,21 +237,21 @@ export interface QueryAccountAssetsRequest {
 /** QueryAccountAssetsResponse is the response type for the Query/AccountAssets RPC method. */
 export interface QueryAccountAssetsResponse {
   /** balance ... */
-  balance: number;
+  balance: string;
   /** protocol_staking ... */
-  protocolStaking: number;
+  protocolStaking: string;
   /** protocol_delegation ... */
-  protocolDelegation: number;
+  protocolDelegation: string;
   /** protocol_rewards ... */
-  protocolRewards: number;
+  protocolRewards: string;
   /** protocol_funding ... */
-  protocolFunding: number;
+  protocolFunding: string;
 }
 
 /** QueryAccountFundedListRequest is the request type for the Query/AccountFundedList RPC method. */
 export interface QueryAccountFundedListRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** address ... */
   address: string;
 }
@@ -261,7 +261,7 @@ export interface QueryAccountFundedListResponse {
   /** funded ... */
   funded: Funded[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** Funded ... */
@@ -269,15 +269,15 @@ export interface Funded {
   /** account ... */
   account: string;
   /** amount ... */
-  amount: number;
+  amount: string;
   /** pool ... */
-  pool: Pool | undefined;
+  pool?: Pool;
 }
 
 /** QueryAccountStakedListRequest is the request type for the Query/AccountStakedList RPC method. */
 export interface QueryAccountStakedListRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** address ... */
   address: string;
 }
@@ -287,7 +287,7 @@ export interface QueryAccountStakedListResponse {
   /** staked ... */
   staked: Staked[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** Staked ... */
@@ -295,19 +295,19 @@ export interface Staked {
   /** staker ... */
   staker: string;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** account ... */
   account: string;
   /** amount ... */
-  amount: number;
+  amount: string;
   /** pool ... */
-  pool: Pool | undefined;
+  pool?: Pool;
 }
 
 /** QueryAccountDelegationListRequest is the request type for the Query/AccountDelegationList RPC method. */
 export interface QueryAccountDelegationListRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** address ... */
   address: string;
 }
@@ -317,13 +317,13 @@ export interface QueryAccountDelegationListResponse {
   /** delegations ... */
   delegations: DelegatorResponse[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** QueryDelegatorRequest is the request type for the Query/Delegator RPC method. */
 export interface QueryDelegatorRequest {
   /** pool_id defines the unique ID of the pool. */
-  poolId: number;
+  poolId: string;
   /** staker ... */
   staker: string;
   /** delegator ... */
@@ -333,7 +333,7 @@ export interface QueryDelegatorRequest {
 /** QueryDelegatorResponse is the response type for the Query/Delegator RPC method. */
 export interface QueryDelegatorResponse {
   /** delegator ... */
-  delegator: StakerDelegatorResponse | undefined;
+  delegator?: StakerDelegatorResponse;
 }
 
 /** DelegatorResponse ... */
@@ -341,23 +341,23 @@ export interface DelegatorResponse {
   /** account ... */
   account: string;
   /** pool ... */
-  pool: Pool | undefined;
+  pool?: Pool;
   /** current_reward ... */
-  currentReward: number;
+  currentReward: string;
   /** delegation_amount ... */
-  delegationAmount: number;
+  delegationAmount: string;
   /** staker ... */
   staker: string;
   /** delegation_pool_data ... */
-  delegationPoolData: DelegationPoolData | undefined;
+  delegationPoolData?: DelegationPoolData;
 }
 
 /** QueryDelegatorsByPoolAndStakerRequest is the request type for the Query/DelegatorsByPoolAndStaker RPC method. */
 export interface QueryDelegatorsByPoolAndStakerRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** staker ... */
   staker: string;
 }
@@ -367,11 +367,11 @@ export interface QueryDelegatorsByPoolAndStakerResponse {
   /** delegators ... */
   delegators: StakerDelegatorResponse[];
   /** pool ... */
-  pool: Pool | undefined;
+  pool?: Pool;
   /** delegation_pool_data ... */
-  delegationPoolData: DelegationPoolData | undefined;
+  delegationPoolData?: DelegationPoolData;
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** StakerDelegatorResponse ... */
@@ -379,9 +379,9 @@ export interface StakerDelegatorResponse {
   /** delegator ... */
   delegator: string;
   /** current_reward ... */
-  currentReward: number;
+  currentReward: string;
   /** delegation_amount ... */
-  delegationAmount: number;
+  delegationAmount: string;
   /** staker ... */
   staker: string;
 }
@@ -389,9 +389,9 @@ export interface StakerDelegatorResponse {
 /** QueryStakersByPoolAndDelegatorRequest  is the request type for the Query/StakersByPoolAndDelegator RPC method. */
 export interface QueryStakersByPoolAndDelegatorRequest {
   /** pagination defines an optional pagination for the request. */
-  pagination: PageRequest | undefined;
+  pagination?: PageRequest;
   /** pool_id ... */
-  poolId: number;
+  poolId: string;
   /** delegator ... */
   delegator: string;
 }
@@ -401,11 +401,11 @@ export interface QueryStakersByPoolAndDelegatorResponse {
   /** delegator ... */
   delegator: string;
   /** pool ... */
-  pool: Pool | undefined;
+  pool?: Pool;
   /** stakers ... */
   stakers: DelegationForStakerResponse[];
   /** pagination defines the pagination in the response. */
-  pagination: PageResponse | undefined;
+  pagination?: PageResponse;
 }
 
 /** DelegationForStakerResponse ... */
@@ -413,13 +413,13 @@ export interface DelegationForStakerResponse {
   /** staker ... */
   staker: string;
   /** current_reward ... */
-  currentReward: number;
+  currentReward: string;
   /** delegation_amount ... */
-  delegationAmount: number;
+  delegationAmount: string;
   /** total_delegation_amount ... */
-  totalDelegationAmount: number;
+  totalDelegationAmount: string;
   /** delegator_count ... */
-  delegatorCount: number;
+  delegatorCount: string;
 }
 
 function createBaseQueryParamsRequest(): QueryParamsRequest {
@@ -525,7 +525,7 @@ export const QueryParamsResponse = {
 };
 
 function createBaseQueryPoolRequest(): QueryPoolRequest {
-  return { id: 0 };
+  return { id: "0" };
 }
 
 export const QueryPoolRequest = {
@@ -533,7 +533,7 @@ export const QueryPoolRequest = {
     message: QueryPoolRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.id !== 0) {
+    if (message.id !== "0") {
       writer.uint32(8).uint64(message.id);
     }
     return writer;
@@ -547,7 +547,7 @@ export const QueryPoolRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.id = longToNumber(reader.uint64() as Long);
+          message.id = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -559,13 +559,13 @@ export const QueryPoolRequest = {
 
   fromJSON(object: any): QueryPoolRequest {
     return {
-      id: isSet(object.id) ? Number(object.id) : 0,
+      id: isSet(object.id) ? String(object.id) : "0",
     };
   },
 
   toJSON(message: QueryPoolRequest): unknown {
     const obj: any = {};
-    message.id !== undefined && (obj.id = Math.round(message.id));
+    message.id !== undefined && (obj.id = message.id);
     return obj;
   },
 
@@ -573,7 +573,7 @@ export const QueryPoolRequest = {
     object: I
   ): QueryPoolRequest {
     const message = createBaseQueryPoolRequest();
-    message.id = object.id ?? 0;
+    message.id = object.id ?? "0";
     return message;
   },
 };
@@ -806,7 +806,7 @@ export const QueryPoolsResponse = {
 };
 
 function createBaseQueryFundersListRequest(): QueryFundersListRequest {
-  return { poolId: 0 };
+  return { poolId: "0" };
 }
 
 export const QueryFundersListRequest = {
@@ -814,7 +814,7 @@ export const QueryFundersListRequest = {
     message: QueryFundersListRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     return writer;
@@ -831,7 +831,7 @@ export const QueryFundersListRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -843,13 +843,13 @@ export const QueryFundersListRequest = {
 
   fromJSON(object: any): QueryFundersListRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
     };
   },
 
   toJSON(message: QueryFundersListRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     return obj;
   },
 
@@ -857,7 +857,7 @@ export const QueryFundersListRequest = {
     object: I
   ): QueryFundersListRequest {
     const message = createBaseQueryFundersListRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     return message;
   },
 };
@@ -928,7 +928,7 @@ export const QueryFundersListResponse = {
 };
 
 function createBaseQueryFunderRequest(): QueryFunderRequest {
-  return { poolId: 0, funder: "" };
+  return { poolId: "0", funder: "" };
 }
 
 export const QueryFunderRequest = {
@@ -936,7 +936,7 @@ export const QueryFunderRequest = {
     message: QueryFunderRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     if (message.funder !== "") {
@@ -953,7 +953,7 @@ export const QueryFunderRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.funder = reader.string();
@@ -968,14 +968,14 @@ export const QueryFunderRequest = {
 
   fromJSON(object: any): QueryFunderRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       funder: isSet(object.funder) ? String(object.funder) : "",
     };
   },
 
   toJSON(message: QueryFunderRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.funder !== undefined && (obj.funder = message.funder);
     return obj;
   },
@@ -984,7 +984,7 @@ export const QueryFunderRequest = {
     object: I
   ): QueryFunderRequest {
     const message = createBaseQueryFunderRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.funder = object.funder ?? "";
     return message;
   },
@@ -1049,7 +1049,7 @@ export const QueryFunderResponse = {
 };
 
 function createBaseQueryStakersListRequest(): QueryStakersListRequest {
-  return { poolId: 0 };
+  return { poolId: "0" };
 }
 
 export const QueryStakersListRequest = {
@@ -1057,7 +1057,7 @@ export const QueryStakersListRequest = {
     message: QueryStakersListRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     return writer;
@@ -1074,7 +1074,7 @@ export const QueryStakersListRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1086,13 +1086,13 @@ export const QueryStakersListRequest = {
 
   fromJSON(object: any): QueryStakersListRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
     };
   },
 
   toJSON(message: QueryStakersListRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     return obj;
   },
 
@@ -1100,7 +1100,7 @@ export const QueryStakersListRequest = {
     object: I
   ): QueryStakersListRequest {
     const message = createBaseQueryStakersListRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     return message;
   },
 };
@@ -1172,7 +1172,7 @@ export const QueryStakersListResponse = {
 };
 
 function createBaseQueryStakerRequest(): QueryStakerRequest {
-  return { poolId: 0, staker: "" };
+  return { poolId: "0", staker: "" };
 }
 
 export const QueryStakerRequest = {
@@ -1180,7 +1180,7 @@ export const QueryStakerRequest = {
     message: QueryStakerRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     if (message.staker !== "") {
@@ -1197,7 +1197,7 @@ export const QueryStakerRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.staker = reader.string();
@@ -1212,14 +1212,14 @@ export const QueryStakerRequest = {
 
   fromJSON(object: any): QueryStakerRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
     };
   },
 
   toJSON(message: QueryStakerRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.staker !== undefined && (obj.staker = message.staker);
     return obj;
   },
@@ -1228,7 +1228,7 @@ export const QueryStakerRequest = {
     object: I
   ): QueryStakerRequest {
     const message = createBaseQueryStakerRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.staker = object.staker ?? "";
     return message;
   },
@@ -1299,15 +1299,15 @@ export const QueryStakerResponse = {
 function createBaseStakerResponse(): StakerResponse {
   return {
     staker: "",
-    poolId: 0,
+    poolId: "0",
     account: "",
-    amount: 0,
-    totalDelegation: 0,
+    amount: "0",
+    totalDelegation: "0",
     commission: "",
     moniker: "",
     website: "",
     logo: "",
-    points: 0,
+    points: "0",
   };
 }
 
@@ -1319,16 +1319,16 @@ export const StakerResponse = {
     if (message.staker !== "") {
       writer.uint32(10).string(message.staker);
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     if (message.account !== "") {
       writer.uint32(26).string(message.account);
     }
-    if (message.amount !== 0) {
+    if (message.amount !== "0") {
       writer.uint32(32).uint64(message.amount);
     }
-    if (message.totalDelegation !== 0) {
+    if (message.totalDelegation !== "0") {
       writer.uint32(40).uint64(message.totalDelegation);
     }
     if (message.commission !== "") {
@@ -1343,7 +1343,7 @@ export const StakerResponse = {
     if (message.logo !== "") {
       writer.uint32(74).string(message.logo);
     }
-    if (message.points !== 0) {
+    if (message.points !== "0") {
       writer.uint32(80).uint64(message.points);
     }
     return writer;
@@ -1360,16 +1360,16 @@ export const StakerResponse = {
           message.staker = reader.string();
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.account = reader.string();
           break;
         case 4:
-          message.amount = longToNumber(reader.uint64() as Long);
+          message.amount = longToString(reader.uint64() as Long);
           break;
         case 5:
-          message.totalDelegation = longToNumber(reader.uint64() as Long);
+          message.totalDelegation = longToString(reader.uint64() as Long);
           break;
         case 6:
           message.commission = reader.string();
@@ -1384,7 +1384,7 @@ export const StakerResponse = {
           message.logo = reader.string();
           break;
         case 10:
-          message.points = longToNumber(reader.uint64() as Long);
+          message.points = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1397,33 +1397,33 @@ export const StakerResponse = {
   fromJSON(object: any): StakerResponse {
     return {
       staker: isSet(object.staker) ? String(object.staker) : "",
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       account: isSet(object.account) ? String(object.account) : "",
-      amount: isSet(object.amount) ? Number(object.amount) : 0,
+      amount: isSet(object.amount) ? String(object.amount) : "0",
       totalDelegation: isSet(object.totalDelegation)
-        ? Number(object.totalDelegation)
-        : 0,
+        ? String(object.totalDelegation)
+        : "0",
       commission: isSet(object.commission) ? String(object.commission) : "",
       moniker: isSet(object.moniker) ? String(object.moniker) : "",
       website: isSet(object.website) ? String(object.website) : "",
       logo: isSet(object.logo) ? String(object.logo) : "",
-      points: isSet(object.points) ? Number(object.points) : 0,
+      points: isSet(object.points) ? String(object.points) : "0",
     };
   },
 
   toJSON(message: StakerResponse): unknown {
     const obj: any = {};
     message.staker !== undefined && (obj.staker = message.staker);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.account !== undefined && (obj.account = message.account);
-    message.amount !== undefined && (obj.amount = Math.round(message.amount));
+    message.amount !== undefined && (obj.amount = message.amount);
     message.totalDelegation !== undefined &&
-      (obj.totalDelegation = Math.round(message.totalDelegation));
+      (obj.totalDelegation = message.totalDelegation);
     message.commission !== undefined && (obj.commission = message.commission);
     message.moniker !== undefined && (obj.moniker = message.moniker);
     message.website !== undefined && (obj.website = message.website);
     message.logo !== undefined && (obj.logo = message.logo);
-    message.points !== undefined && (obj.points = Math.round(message.points));
+    message.points !== undefined && (obj.points = message.points);
     return obj;
   },
 
@@ -1432,15 +1432,15 @@ export const StakerResponse = {
   ): StakerResponse {
     const message = createBaseStakerResponse();
     message.staker = object.staker ?? "";
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.account = object.account ?? "";
-    message.amount = object.amount ?? 0;
-    message.totalDelegation = object.totalDelegation ?? 0;
+    message.amount = object.amount ?? "0";
+    message.totalDelegation = object.totalDelegation ?? "0";
     message.commission = object.commission ?? "";
     message.moniker = object.moniker ?? "";
     message.website = object.website ?? "";
     message.logo = object.logo ?? "";
-    message.points = object.points ?? 0;
+    message.points = object.points ?? "0";
     return message;
   },
 };
@@ -1568,7 +1568,7 @@ export const QueryProposalResponse = {
 };
 
 function createBaseQueryProposalsRequest(): QueryProposalsRequest {
-  return { pagination: undefined, poolId: 0 };
+  return { pagination: undefined, poolId: "0" };
 }
 
 export const QueryProposalsRequest = {
@@ -1579,7 +1579,7 @@ export const QueryProposalsRequest = {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     return writer;
@@ -1599,7 +1599,7 @@ export const QueryProposalsRequest = {
           message.pagination = PageRequest.decode(reader, reader.uint32());
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1614,7 +1614,7 @@ export const QueryProposalsRequest = {
       pagination: isSet(object.pagination)
         ? PageRequest.fromJSON(object.pagination)
         : undefined,
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
     };
   },
 
@@ -1624,7 +1624,7 @@ export const QueryProposalsRequest = {
       (obj.pagination = message.pagination
         ? PageRequest.toJSON(message.pagination)
         : undefined);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     return obj;
   },
 
@@ -1636,7 +1636,7 @@ export const QueryProposalsRequest = {
       object.pagination !== undefined && object.pagination !== null
         ? PageRequest.fromPartial(object.pagination)
         : undefined;
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     return message;
   },
 };
@@ -1728,7 +1728,7 @@ export const QueryProposalsResponse = {
 };
 
 function createBaseQueryProposalByHeightRequest(): QueryProposalByHeightRequest {
-  return { poolId: 0, height: 0 };
+  return { poolId: "0", height: "0" };
 }
 
 export const QueryProposalByHeightRequest = {
@@ -1736,10 +1736,10 @@ export const QueryProposalByHeightRequest = {
     message: QueryProposalByHeightRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
-    if (message.height !== 0) {
+    if (message.height !== "0") {
       writer.uint32(16).uint64(message.height);
     }
     return writer;
@@ -1756,10 +1756,10 @@ export const QueryProposalByHeightRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
-          message.height = longToNumber(reader.uint64() as Long);
+          message.height = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1771,15 +1771,15 @@ export const QueryProposalByHeightRequest = {
 
   fromJSON(object: any): QueryProposalByHeightRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
-      height: isSet(object.height) ? Number(object.height) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+      height: isSet(object.height) ? String(object.height) : "0",
     };
   },
 
   toJSON(message: QueryProposalByHeightRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
-    message.height !== undefined && (obj.height = Math.round(message.height));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
+    message.height !== undefined && (obj.height = message.height);
     return obj;
   },
 
@@ -1787,8 +1787,8 @@ export const QueryProposalByHeightRequest = {
     object: I
   ): QueryProposalByHeightRequest {
     const message = createBaseQueryProposalByHeightRequest();
-    message.poolId = object.poolId ?? 0;
-    message.height = object.height ?? 0;
+    message.poolId = object.poolId ?? "0";
+    message.height = object.height ?? "0";
     return message;
   },
 };
@@ -1859,7 +1859,7 @@ export const QueryProposalByHeightResponse = {
 };
 
 function createBaseQueryCanProposeRequest(): QueryCanProposeRequest {
-  return { poolId: 0, proposer: "", fromHeight: 0 };
+  return { poolId: "0", proposer: "", fromHeight: "0" };
 }
 
 export const QueryCanProposeRequest = {
@@ -1867,13 +1867,13 @@ export const QueryCanProposeRequest = {
     message: QueryCanProposeRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     if (message.proposer !== "") {
       writer.uint32(18).string(message.proposer);
     }
-    if (message.fromHeight !== 0) {
+    if (message.fromHeight !== "0") {
       writer.uint32(24).uint64(message.fromHeight);
     }
     return writer;
@@ -1890,13 +1890,13 @@ export const QueryCanProposeRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.proposer = reader.string();
           break;
         case 3:
-          message.fromHeight = longToNumber(reader.uint64() as Long);
+          message.fromHeight = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -1908,18 +1908,17 @@ export const QueryCanProposeRequest = {
 
   fromJSON(object: any): QueryCanProposeRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       proposer: isSet(object.proposer) ? String(object.proposer) : "",
-      fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0,
+      fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
     };
   },
 
   toJSON(message: QueryCanProposeRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.proposer !== undefined && (obj.proposer = message.proposer);
-    message.fromHeight !== undefined &&
-      (obj.fromHeight = Math.round(message.fromHeight));
+    message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
     return obj;
   },
 
@@ -1927,9 +1926,9 @@ export const QueryCanProposeRequest = {
     object: I
   ): QueryCanProposeRequest {
     const message = createBaseQueryCanProposeRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.proposer = object.proposer ?? "";
-    message.fromHeight = object.fromHeight ?? 0;
+    message.fromHeight = object.fromHeight ?? "0";
     return message;
   },
 };
@@ -2001,7 +2000,7 @@ export const QueryCanProposeResponse = {
 };
 
 function createBaseQueryCanVoteRequest(): QueryCanVoteRequest {
-  return { poolId: 0, voter: "", bundleId: "" };
+  return { poolId: "0", voter: "", bundleId: "" };
 }
 
 export const QueryCanVoteRequest = {
@@ -2009,7 +2008,7 @@ export const QueryCanVoteRequest = {
     message: QueryCanVoteRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     if (message.voter !== "") {
@@ -2029,7 +2028,7 @@ export const QueryCanVoteRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.voter = reader.string();
@@ -2047,7 +2046,7 @@ export const QueryCanVoteRequest = {
 
   fromJSON(object: any): QueryCanVoteRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       voter: isSet(object.voter) ? String(object.voter) : "",
       bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
     };
@@ -2055,7 +2054,7 @@ export const QueryCanVoteRequest = {
 
   toJSON(message: QueryCanVoteRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.voter !== undefined && (obj.voter = message.voter);
     message.bundleId !== undefined && (obj.bundleId = message.bundleId);
     return obj;
@@ -2065,7 +2064,7 @@ export const QueryCanVoteRequest = {
     object: I
   ): QueryCanVoteRequest {
     const message = createBaseQueryCanVoteRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.voter = object.voter ?? "";
     message.bundleId = object.bundleId ?? "";
     return message;
@@ -2139,7 +2138,7 @@ export const QueryCanVoteResponse = {
 };
 
 function createBaseQueryStakeInfoRequest(): QueryStakeInfoRequest {
-  return { poolId: 0, staker: "" };
+  return { poolId: "0", staker: "" };
 }
 
 export const QueryStakeInfoRequest = {
@@ -2147,7 +2146,7 @@ export const QueryStakeInfoRequest = {
     message: QueryStakeInfoRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     if (message.staker !== "") {
@@ -2167,7 +2166,7 @@ export const QueryStakeInfoRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.staker = reader.string();
@@ -2182,14 +2181,14 @@ export const QueryStakeInfoRequest = {
 
   fromJSON(object: any): QueryStakeInfoRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
     };
   },
 
   toJSON(message: QueryStakeInfoRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.staker !== undefined && (obj.staker = message.staker);
     return obj;
   },
@@ -2198,7 +2197,7 @@ export const QueryStakeInfoRequest = {
     object: I
   ): QueryStakeInfoRequest {
     const message = createBaseQueryStakeInfoRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.staker = object.staker ?? "";
     return message;
   },
@@ -2344,11 +2343,11 @@ export const QueryAccountAssetsRequest = {
 
 function createBaseQueryAccountAssetsResponse(): QueryAccountAssetsResponse {
   return {
-    balance: 0,
-    protocolStaking: 0,
-    protocolDelegation: 0,
-    protocolRewards: 0,
-    protocolFunding: 0,
+    balance: "0",
+    protocolStaking: "0",
+    protocolDelegation: "0",
+    protocolRewards: "0",
+    protocolFunding: "0",
   };
 }
 
@@ -2357,19 +2356,19 @@ export const QueryAccountAssetsResponse = {
     message: QueryAccountAssetsResponse,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.balance !== 0) {
+    if (message.balance !== "0") {
       writer.uint32(8).uint64(message.balance);
     }
-    if (message.protocolStaking !== 0) {
+    if (message.protocolStaking !== "0") {
       writer.uint32(16).uint64(message.protocolStaking);
     }
-    if (message.protocolDelegation !== 0) {
+    if (message.protocolDelegation !== "0") {
       writer.uint32(24).uint64(message.protocolDelegation);
     }
-    if (message.protocolRewards !== 0) {
+    if (message.protocolRewards !== "0") {
       writer.uint32(48).uint64(message.protocolRewards);
     }
-    if (message.protocolFunding !== 0) {
+    if (message.protocolFunding !== "0") {
       writer.uint32(56).uint64(message.protocolFunding);
     }
     return writer;
@@ -2386,19 +2385,19 @@ export const QueryAccountAssetsResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.balance = longToNumber(reader.uint64() as Long);
+          message.balance = longToString(reader.uint64() as Long);
           break;
         case 2:
-          message.protocolStaking = longToNumber(reader.uint64() as Long);
+          message.protocolStaking = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.protocolDelegation = longToNumber(reader.uint64() as Long);
+          message.protocolDelegation = longToString(reader.uint64() as Long);
           break;
         case 6:
-          message.protocolRewards = longToNumber(reader.uint64() as Long);
+          message.protocolRewards = longToString(reader.uint64() as Long);
           break;
         case 7:
-          message.protocolFunding = longToNumber(reader.uint64() as Long);
+          message.protocolFunding = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -2410,34 +2409,33 @@ export const QueryAccountAssetsResponse = {
 
   fromJSON(object: any): QueryAccountAssetsResponse {
     return {
-      balance: isSet(object.balance) ? Number(object.balance) : 0,
+      balance: isSet(object.balance) ? String(object.balance) : "0",
       protocolStaking: isSet(object.protocolStaking)
-        ? Number(object.protocolStaking)
-        : 0,
+        ? String(object.protocolStaking)
+        : "0",
       protocolDelegation: isSet(object.protocolDelegation)
-        ? Number(object.protocolDelegation)
-        : 0,
+        ? String(object.protocolDelegation)
+        : "0",
       protocolRewards: isSet(object.protocolRewards)
-        ? Number(object.protocolRewards)
-        : 0,
+        ? String(object.protocolRewards)
+        : "0",
       protocolFunding: isSet(object.protocolFunding)
-        ? Number(object.protocolFunding)
-        : 0,
+        ? String(object.protocolFunding)
+        : "0",
     };
   },
 
   toJSON(message: QueryAccountAssetsResponse): unknown {
     const obj: any = {};
-    message.balance !== undefined &&
-      (obj.balance = Math.round(message.balance));
+    message.balance !== undefined && (obj.balance = message.balance);
     message.protocolStaking !== undefined &&
-      (obj.protocolStaking = Math.round(message.protocolStaking));
+      (obj.protocolStaking = message.protocolStaking);
     message.protocolDelegation !== undefined &&
-      (obj.protocolDelegation = Math.round(message.protocolDelegation));
+      (obj.protocolDelegation = message.protocolDelegation);
     message.protocolRewards !== undefined &&
-      (obj.protocolRewards = Math.round(message.protocolRewards));
+      (obj.protocolRewards = message.protocolRewards);
     message.protocolFunding !== undefined &&
-      (obj.protocolFunding = Math.round(message.protocolFunding));
+      (obj.protocolFunding = message.protocolFunding);
     return obj;
   },
 
@@ -2445,11 +2443,11 @@ export const QueryAccountAssetsResponse = {
     object: I
   ): QueryAccountAssetsResponse {
     const message = createBaseQueryAccountAssetsResponse();
-    message.balance = object.balance ?? 0;
-    message.protocolStaking = object.protocolStaking ?? 0;
-    message.protocolDelegation = object.protocolDelegation ?? 0;
-    message.protocolRewards = object.protocolRewards ?? 0;
-    message.protocolFunding = object.protocolFunding ?? 0;
+    message.balance = object.balance ?? "0";
+    message.protocolStaking = object.protocolStaking ?? "0";
+    message.protocolDelegation = object.protocolDelegation ?? "0";
+    message.protocolRewards = object.protocolRewards ?? "0";
+    message.protocolFunding = object.protocolFunding ?? "0";
     return message;
   },
 };
@@ -2614,7 +2612,7 @@ export const QueryAccountFundedListResponse = {
 };
 
 function createBaseFunded(): Funded {
-  return { account: "", amount: 0, pool: undefined };
+  return { account: "", amount: "0", pool: undefined };
 }
 
 export const Funded = {
@@ -2625,7 +2623,7 @@ export const Funded = {
     if (message.account !== "") {
       writer.uint32(10).string(message.account);
     }
-    if (message.amount !== 0) {
+    if (message.amount !== "0") {
       writer.uint32(16).uint64(message.amount);
     }
     if (message.pool !== undefined) {
@@ -2645,7 +2643,7 @@ export const Funded = {
           message.account = reader.string();
           break;
         case 2:
-          message.amount = longToNumber(reader.uint64() as Long);
+          message.amount = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.pool = Pool.decode(reader, reader.uint32());
@@ -2661,7 +2659,7 @@ export const Funded = {
   fromJSON(object: any): Funded {
     return {
       account: isSet(object.account) ? String(object.account) : "",
-      amount: isSet(object.amount) ? Number(object.amount) : 0,
+      amount: isSet(object.amount) ? String(object.amount) : "0",
       pool: isSet(object.pool) ? Pool.fromJSON(object.pool) : undefined,
     };
   },
@@ -2669,7 +2667,7 @@ export const Funded = {
   toJSON(message: Funded): unknown {
     const obj: any = {};
     message.account !== undefined && (obj.account = message.account);
-    message.amount !== undefined && (obj.amount = Math.round(message.amount));
+    message.amount !== undefined && (obj.amount = message.amount);
     message.pool !== undefined &&
       (obj.pool = message.pool ? Pool.toJSON(message.pool) : undefined);
     return obj;
@@ -2678,7 +2676,7 @@ export const Funded = {
   fromPartial<I extends Exact<DeepPartial<Funded>, I>>(object: I): Funded {
     const message = createBaseFunded();
     message.account = object.account ?? "";
-    message.amount = object.amount ?? 0;
+    message.amount = object.amount ?? "0";
     message.pool =
       object.pool !== undefined && object.pool !== null
         ? Pool.fromPartial(object.pool)
@@ -2847,7 +2845,7 @@ export const QueryAccountStakedListResponse = {
 };
 
 function createBaseStaked(): Staked {
-  return { staker: "", poolId: 0, account: "", amount: 0, pool: undefined };
+  return { staker: "", poolId: "0", account: "", amount: "0", pool: undefined };
 }
 
 export const Staked = {
@@ -2858,13 +2856,13 @@ export const Staked = {
     if (message.staker !== "") {
       writer.uint32(10).string(message.staker);
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     if (message.account !== "") {
       writer.uint32(26).string(message.account);
     }
-    if (message.amount !== 0) {
+    if (message.amount !== "0") {
       writer.uint32(32).uint64(message.amount);
     }
     if (message.pool !== undefined) {
@@ -2884,13 +2882,13 @@ export const Staked = {
           message.staker = reader.string();
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.account = reader.string();
           break;
         case 4:
-          message.amount = longToNumber(reader.uint64() as Long);
+          message.amount = longToString(reader.uint64() as Long);
           break;
         case 6:
           message.pool = Pool.decode(reader, reader.uint32());
@@ -2906,9 +2904,9 @@ export const Staked = {
   fromJSON(object: any): Staked {
     return {
       staker: isSet(object.staker) ? String(object.staker) : "",
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       account: isSet(object.account) ? String(object.account) : "",
-      amount: isSet(object.amount) ? Number(object.amount) : 0,
+      amount: isSet(object.amount) ? String(object.amount) : "0",
       pool: isSet(object.pool) ? Pool.fromJSON(object.pool) : undefined,
     };
   },
@@ -2916,9 +2914,9 @@ export const Staked = {
   toJSON(message: Staked): unknown {
     const obj: any = {};
     message.staker !== undefined && (obj.staker = message.staker);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.account !== undefined && (obj.account = message.account);
-    message.amount !== undefined && (obj.amount = Math.round(message.amount));
+    message.amount !== undefined && (obj.amount = message.amount);
     message.pool !== undefined &&
       (obj.pool = message.pool ? Pool.toJSON(message.pool) : undefined);
     return obj;
@@ -2927,9 +2925,9 @@ export const Staked = {
   fromPartial<I extends Exact<DeepPartial<Staked>, I>>(object: I): Staked {
     const message = createBaseStaked();
     message.staker = object.staker ?? "";
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.account = object.account ?? "";
-    message.amount = object.amount ?? 0;
+    message.amount = object.amount ?? "0";
     message.pool =
       object.pool !== undefined && object.pool !== null
         ? Pool.fromPartial(object.pool)
@@ -3101,7 +3099,7 @@ export const QueryAccountDelegationListResponse = {
 };
 
 function createBaseQueryDelegatorRequest(): QueryDelegatorRequest {
-  return { poolId: 0, staker: "", delegator: "" };
+  return { poolId: "0", staker: "", delegator: "" };
 }
 
 export const QueryDelegatorRequest = {
@@ -3109,7 +3107,7 @@ export const QueryDelegatorRequest = {
     message: QueryDelegatorRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(8).uint64(message.poolId);
     }
     if (message.staker !== "") {
@@ -3132,7 +3130,7 @@ export const QueryDelegatorRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 2:
           message.staker = reader.string();
@@ -3150,7 +3148,7 @@ export const QueryDelegatorRequest = {
 
   fromJSON(object: any): QueryDelegatorRequest {
     return {
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
       delegator: isSet(object.delegator) ? String(object.delegator) : "",
     };
@@ -3158,7 +3156,7 @@ export const QueryDelegatorRequest = {
 
   toJSON(message: QueryDelegatorRequest): unknown {
     const obj: any = {};
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.staker !== undefined && (obj.staker = message.staker);
     message.delegator !== undefined && (obj.delegator = message.delegator);
     return obj;
@@ -3168,7 +3166,7 @@ export const QueryDelegatorRequest = {
     object: I
   ): QueryDelegatorRequest {
     const message = createBaseQueryDelegatorRequest();
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.staker = object.staker ?? "";
     message.delegator = object.delegator ?? "";
     return message;
@@ -3250,8 +3248,8 @@ function createBaseDelegatorResponse(): DelegatorResponse {
   return {
     account: "",
     pool: undefined,
-    currentReward: 0,
-    delegationAmount: 0,
+    currentReward: "0",
+    delegationAmount: "0",
     staker: "",
     delegationPoolData: undefined,
   };
@@ -3268,10 +3266,10 @@ export const DelegatorResponse = {
     if (message.pool !== undefined) {
       Pool.encode(message.pool, writer.uint32(18).fork()).ldelim();
     }
-    if (message.currentReward !== 0) {
+    if (message.currentReward !== "0") {
       writer.uint32(24).uint64(message.currentReward);
     }
-    if (message.delegationAmount !== 0) {
+    if (message.delegationAmount !== "0") {
       writer.uint32(32).uint64(message.delegationAmount);
     }
     if (message.staker !== "") {
@@ -3300,10 +3298,10 @@ export const DelegatorResponse = {
           message.pool = Pool.decode(reader, reader.uint32());
           break;
         case 3:
-          message.currentReward = longToNumber(reader.uint64() as Long);
+          message.currentReward = longToString(reader.uint64() as Long);
           break;
         case 4:
-          message.delegationAmount = longToNumber(reader.uint64() as Long);
+          message.delegationAmount = longToString(reader.uint64() as Long);
           break;
         case 5:
           message.staker = reader.string();
@@ -3327,11 +3325,11 @@ export const DelegatorResponse = {
       account: isSet(object.account) ? String(object.account) : "",
       pool: isSet(object.pool) ? Pool.fromJSON(object.pool) : undefined,
       currentReward: isSet(object.currentReward)
-        ? Number(object.currentReward)
-        : 0,
+        ? String(object.currentReward)
+        : "0",
       delegationAmount: isSet(object.delegationAmount)
-        ? Number(object.delegationAmount)
-        : 0,
+        ? String(object.delegationAmount)
+        : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
       delegationPoolData: isSet(object.delegationPoolData)
         ? DelegationPoolData.fromJSON(object.delegationPoolData)
@@ -3345,9 +3343,9 @@ export const DelegatorResponse = {
     message.pool !== undefined &&
       (obj.pool = message.pool ? Pool.toJSON(message.pool) : undefined);
     message.currentReward !== undefined &&
-      (obj.currentReward = Math.round(message.currentReward));
+      (obj.currentReward = message.currentReward);
     message.delegationAmount !== undefined &&
-      (obj.delegationAmount = Math.round(message.delegationAmount));
+      (obj.delegationAmount = message.delegationAmount);
     message.staker !== undefined && (obj.staker = message.staker);
     message.delegationPoolData !== undefined &&
       (obj.delegationPoolData = message.delegationPoolData
@@ -3365,8 +3363,8 @@ export const DelegatorResponse = {
       object.pool !== undefined && object.pool !== null
         ? Pool.fromPartial(object.pool)
         : undefined;
-    message.currentReward = object.currentReward ?? 0;
-    message.delegationAmount = object.delegationAmount ?? 0;
+    message.currentReward = object.currentReward ?? "0";
+    message.delegationAmount = object.delegationAmount ?? "0";
     message.staker = object.staker ?? "";
     message.delegationPoolData =
       object.delegationPoolData !== undefined &&
@@ -3378,7 +3376,7 @@ export const DelegatorResponse = {
 };
 
 function createBaseQueryDelegatorsByPoolAndStakerRequest(): QueryDelegatorsByPoolAndStakerRequest {
-  return { pagination: undefined, poolId: 0, staker: "" };
+  return { pagination: undefined, poolId: "0", staker: "" };
 }
 
 export const QueryDelegatorsByPoolAndStakerRequest = {
@@ -3389,7 +3387,7 @@ export const QueryDelegatorsByPoolAndStakerRequest = {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     if (message.staker !== "") {
@@ -3412,7 +3410,7 @@ export const QueryDelegatorsByPoolAndStakerRequest = {
           message.pagination = PageRequest.decode(reader, reader.uint32());
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.staker = reader.string();
@@ -3430,7 +3428,7 @@ export const QueryDelegatorsByPoolAndStakerRequest = {
       pagination: isSet(object.pagination)
         ? PageRequest.fromJSON(object.pagination)
         : undefined,
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
     };
   },
@@ -3441,7 +3439,7 @@ export const QueryDelegatorsByPoolAndStakerRequest = {
       (obj.pagination = message.pagination
         ? PageRequest.toJSON(message.pagination)
         : undefined);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.staker !== undefined && (obj.staker = message.staker);
     return obj;
   },
@@ -3454,7 +3452,7 @@ export const QueryDelegatorsByPoolAndStakerRequest = {
       object.pagination !== undefined && object.pagination !== null
         ? PageRequest.fromPartial(object.pagination)
         : undefined;
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.staker = object.staker ?? "";
     return message;
   },
@@ -3592,7 +3590,12 @@ export const QueryDelegatorsByPoolAndStakerResponse = {
 };
 
 function createBaseStakerDelegatorResponse(): StakerDelegatorResponse {
-  return { delegator: "", currentReward: 0, delegationAmount: 0, staker: "" };
+  return {
+    delegator: "",
+    currentReward: "0",
+    delegationAmount: "0",
+    staker: "",
+  };
 }
 
 export const StakerDelegatorResponse = {
@@ -3603,10 +3606,10 @@ export const StakerDelegatorResponse = {
     if (message.delegator !== "") {
       writer.uint32(10).string(message.delegator);
     }
-    if (message.currentReward !== 0) {
+    if (message.currentReward !== "0") {
       writer.uint32(16).uint64(message.currentReward);
     }
-    if (message.delegationAmount !== 0) {
+    if (message.delegationAmount !== "0") {
       writer.uint32(24).uint64(message.delegationAmount);
     }
     if (message.staker !== "") {
@@ -3629,10 +3632,10 @@ export const StakerDelegatorResponse = {
           message.delegator = reader.string();
           break;
         case 2:
-          message.currentReward = longToNumber(reader.uint64() as Long);
+          message.currentReward = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.delegationAmount = longToNumber(reader.uint64() as Long);
+          message.delegationAmount = longToString(reader.uint64() as Long);
           break;
         case 4:
           message.staker = reader.string();
@@ -3649,11 +3652,11 @@ export const StakerDelegatorResponse = {
     return {
       delegator: isSet(object.delegator) ? String(object.delegator) : "",
       currentReward: isSet(object.currentReward)
-        ? Number(object.currentReward)
-        : 0,
+        ? String(object.currentReward)
+        : "0",
       delegationAmount: isSet(object.delegationAmount)
-        ? Number(object.delegationAmount)
-        : 0,
+        ? String(object.delegationAmount)
+        : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
     };
   },
@@ -3662,9 +3665,9 @@ export const StakerDelegatorResponse = {
     const obj: any = {};
     message.delegator !== undefined && (obj.delegator = message.delegator);
     message.currentReward !== undefined &&
-      (obj.currentReward = Math.round(message.currentReward));
+      (obj.currentReward = message.currentReward);
     message.delegationAmount !== undefined &&
-      (obj.delegationAmount = Math.round(message.delegationAmount));
+      (obj.delegationAmount = message.delegationAmount);
     message.staker !== undefined && (obj.staker = message.staker);
     return obj;
   },
@@ -3674,15 +3677,15 @@ export const StakerDelegatorResponse = {
   ): StakerDelegatorResponse {
     const message = createBaseStakerDelegatorResponse();
     message.delegator = object.delegator ?? "";
-    message.currentReward = object.currentReward ?? 0;
-    message.delegationAmount = object.delegationAmount ?? 0;
+    message.currentReward = object.currentReward ?? "0";
+    message.delegationAmount = object.delegationAmount ?? "0";
     message.staker = object.staker ?? "";
     return message;
   },
 };
 
 function createBaseQueryStakersByPoolAndDelegatorRequest(): QueryStakersByPoolAndDelegatorRequest {
-  return { pagination: undefined, poolId: 0, delegator: "" };
+  return { pagination: undefined, poolId: "0", delegator: "" };
 }
 
 export const QueryStakersByPoolAndDelegatorRequest = {
@@ -3693,7 +3696,7 @@ export const QueryStakersByPoolAndDelegatorRequest = {
     if (message.pagination !== undefined) {
       PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
     }
-    if (message.poolId !== 0) {
+    if (message.poolId !== "0") {
       writer.uint32(16).uint64(message.poolId);
     }
     if (message.delegator !== "") {
@@ -3716,7 +3719,7 @@ export const QueryStakersByPoolAndDelegatorRequest = {
           message.pagination = PageRequest.decode(reader, reader.uint32());
           break;
         case 2:
-          message.poolId = longToNumber(reader.uint64() as Long);
+          message.poolId = longToString(reader.uint64() as Long);
           break;
         case 3:
           message.delegator = reader.string();
@@ -3734,7 +3737,7 @@ export const QueryStakersByPoolAndDelegatorRequest = {
       pagination: isSet(object.pagination)
         ? PageRequest.fromJSON(object.pagination)
         : undefined,
-      poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+      poolId: isSet(object.poolId) ? String(object.poolId) : "0",
       delegator: isSet(object.delegator) ? String(object.delegator) : "",
     };
   },
@@ -3745,7 +3748,7 @@ export const QueryStakersByPoolAndDelegatorRequest = {
       (obj.pagination = message.pagination
         ? PageRequest.toJSON(message.pagination)
         : undefined);
-    message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+    message.poolId !== undefined && (obj.poolId = message.poolId);
     message.delegator !== undefined && (obj.delegator = message.delegator);
     return obj;
   },
@@ -3758,7 +3761,7 @@ export const QueryStakersByPoolAndDelegatorRequest = {
       object.pagination !== undefined && object.pagination !== null
         ? PageRequest.fromPartial(object.pagination)
         : undefined;
-    message.poolId = object.poolId ?? 0;
+    message.poolId = object.poolId ?? "0";
     message.delegator = object.delegator ?? "";
     return message;
   },
@@ -3880,10 +3883,10 @@ export const QueryStakersByPoolAndDelegatorResponse = {
 function createBaseDelegationForStakerResponse(): DelegationForStakerResponse {
   return {
     staker: "",
-    currentReward: 0,
-    delegationAmount: 0,
-    totalDelegationAmount: 0,
-    delegatorCount: 0,
+    currentReward: "0",
+    delegationAmount: "0",
+    totalDelegationAmount: "0",
+    delegatorCount: "0",
   };
 }
 
@@ -3895,16 +3898,16 @@ export const DelegationForStakerResponse = {
     if (message.staker !== "") {
       writer.uint32(10).string(message.staker);
     }
-    if (message.currentReward !== 0) {
+    if (message.currentReward !== "0") {
       writer.uint32(16).uint64(message.currentReward);
     }
-    if (message.delegationAmount !== 0) {
+    if (message.delegationAmount !== "0") {
       writer.uint32(24).uint64(message.delegationAmount);
     }
-    if (message.totalDelegationAmount !== 0) {
+    if (message.totalDelegationAmount !== "0") {
       writer.uint32(32).uint64(message.totalDelegationAmount);
     }
-    if (message.delegatorCount !== 0) {
+    if (message.delegatorCount !== "0") {
       writer.uint32(40).uint64(message.delegatorCount);
     }
     return writer;
@@ -3924,16 +3927,16 @@ export const DelegationForStakerResponse = {
           message.staker = reader.string();
           break;
         case 2:
-          message.currentReward = longToNumber(reader.uint64() as Long);
+          message.currentReward = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.delegationAmount = longToNumber(reader.uint64() as Long);
+          message.delegationAmount = longToString(reader.uint64() as Long);
           break;
         case 4:
-          message.totalDelegationAmount = longToNumber(reader.uint64() as Long);
+          message.totalDelegationAmount = longToString(reader.uint64() as Long);
           break;
         case 5:
-          message.delegatorCount = longToNumber(reader.uint64() as Long);
+          message.delegatorCount = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -3947,17 +3950,17 @@ export const DelegationForStakerResponse = {
     return {
       staker: isSet(object.staker) ? String(object.staker) : "",
       currentReward: isSet(object.currentReward)
-        ? Number(object.currentReward)
-        : 0,
+        ? String(object.currentReward)
+        : "0",
       delegationAmount: isSet(object.delegationAmount)
-        ? Number(object.delegationAmount)
-        : 0,
+        ? String(object.delegationAmount)
+        : "0",
       totalDelegationAmount: isSet(object.totalDelegationAmount)
-        ? Number(object.totalDelegationAmount)
-        : 0,
+        ? String(object.totalDelegationAmount)
+        : "0",
       delegatorCount: isSet(object.delegatorCount)
-        ? Number(object.delegatorCount)
-        : 0,
+        ? String(object.delegatorCount)
+        : "0",
     };
   },
 
@@ -3965,13 +3968,13 @@ export const DelegationForStakerResponse = {
     const obj: any = {};
     message.staker !== undefined && (obj.staker = message.staker);
     message.currentReward !== undefined &&
-      (obj.currentReward = Math.round(message.currentReward));
+      (obj.currentReward = message.currentReward);
     message.delegationAmount !== undefined &&
-      (obj.delegationAmount = Math.round(message.delegationAmount));
+      (obj.delegationAmount = message.delegationAmount);
     message.totalDelegationAmount !== undefined &&
-      (obj.totalDelegationAmount = Math.round(message.totalDelegationAmount));
+      (obj.totalDelegationAmount = message.totalDelegationAmount);
     message.delegatorCount !== undefined &&
-      (obj.delegatorCount = Math.round(message.delegatorCount));
+      (obj.delegatorCount = message.delegatorCount);
     return obj;
   },
 
@@ -3980,10 +3983,10 @@ export const DelegationForStakerResponse = {
   ): DelegationForStakerResponse {
     const message = createBaseDelegationForStakerResponse();
     message.staker = object.staker ?? "";
-    message.currentReward = object.currentReward ?? 0;
-    message.delegationAmount = object.delegationAmount ?? 0;
-    message.totalDelegationAmount = object.totalDelegationAmount ?? 0;
-    message.delegatorCount = object.delegatorCount ?? 0;
+    message.currentReward = object.currentReward ?? "0";
+    message.delegationAmount = object.delegationAmount ?? "0";
+    message.totalDelegationAmount = object.totalDelegationAmount ?? "0";
+    message.delegatorCount = object.delegatorCount ?? "0";
     return message;
   },
 };
@@ -4344,17 +4347,6 @@ interface Rpc {
   ): Promise<Uint8Array>;
 }
 
-declare var self: any | undefined;
-declare var window: any | undefined;
-declare var global: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
-  throw "Unable to locate global object";
-})();
-
 type Builtin =
   | Date
   | Function
@@ -4382,11 +4374,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {

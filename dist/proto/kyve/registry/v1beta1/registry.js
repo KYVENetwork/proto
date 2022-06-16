@@ -36,10 +36,10 @@ function createBaseBundleProposal() {
         uploader: "",
         nextUploader: "",
         bundleId: "",
-        byteSize: 0,
-        fromHeight: 0,
-        toHeight: 0,
-        createdAt: 0,
+        byteSize: "0",
+        fromHeight: "0",
+        toHeight: "0",
+        createdAt: "0",
         votersValid: [],
         votersInvalid: [],
         votersAbstain: []
@@ -57,16 +57,16 @@ exports.BundleProposal = {
         if (message.bundleId !== "") {
             writer.uint32(26).string(message.bundleId);
         }
-        if (message.byteSize !== 0) {
+        if (message.byteSize !== "0") {
             writer.uint32(32).uint64(message.byteSize);
         }
-        if (message.fromHeight !== 0) {
+        if (message.fromHeight !== "0") {
             writer.uint32(40).uint64(message.fromHeight);
         }
-        if (message.toHeight !== 0) {
+        if (message.toHeight !== "0") {
             writer.uint32(48).uint64(message.toHeight);
         }
-        if (message.createdAt !== 0) {
+        if (message.createdAt !== "0") {
             writer.uint32(56).uint64(message.createdAt);
         }
         for (var _i = 0, _a = message.votersValid; _i < _a.length; _i++) {
@@ -100,16 +100,16 @@ exports.BundleProposal = {
                     message.bundleId = reader.string();
                     break;
                 case 4:
-                    message.byteSize = longToNumber(reader.uint64());
+                    message.byteSize = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.fromHeight = longToNumber(reader.uint64());
+                    message.fromHeight = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.toHeight = longToNumber(reader.uint64());
+                    message.toHeight = longToString(reader.uint64());
                     break;
                 case 7:
-                    message.createdAt = longToNumber(reader.uint64());
+                    message.createdAt = longToString(reader.uint64());
                     break;
                 case 8:
                     message.votersValid.push(reader.string());
@@ -134,10 +134,10 @@ exports.BundleProposal = {
                 ? String(object.nextUploader)
                 : "",
             bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-            byteSize: isSet(object.byteSize) ? Number(object.byteSize) : 0,
-            fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0,
-            toHeight: isSet(object.toHeight) ? Number(object.toHeight) : 0,
-            createdAt: isSet(object.createdAt) ? Number(object.createdAt) : 0,
+            byteSize: isSet(object.byteSize) ? String(object.byteSize) : "0",
+            fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
+            toHeight: isSet(object.toHeight) ? String(object.toHeight) : "0",
+            createdAt: isSet(object.createdAt) ? String(object.createdAt) : "0",
             votersValid: Array.isArray(object === null || object === void 0 ? void 0 : object.votersValid)
                 ? object.votersValid.map(function (e) { return String(e); })
                 : [],
@@ -155,14 +155,10 @@ exports.BundleProposal = {
         message.nextUploader !== undefined &&
             (obj.nextUploader = message.nextUploader);
         message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-        message.byteSize !== undefined &&
-            (obj.byteSize = Math.round(message.byteSize));
-        message.fromHeight !== undefined &&
-            (obj.fromHeight = Math.round(message.fromHeight));
-        message.toHeight !== undefined &&
-            (obj.toHeight = Math.round(message.toHeight));
-        message.createdAt !== undefined &&
-            (obj.createdAt = Math.round(message.createdAt));
+        message.byteSize !== undefined && (obj.byteSize = message.byteSize);
+        message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
+        message.toHeight !== undefined && (obj.toHeight = message.toHeight);
+        message.createdAt !== undefined && (obj.createdAt = message.createdAt);
         if (message.votersValid) {
             obj.votersValid = message.votersValid.map(function (e) { return e; });
         }
@@ -189,10 +185,10 @@ exports.BundleProposal = {
         message.uploader = (_a = object.uploader) !== null && _a !== void 0 ? _a : "";
         message.nextUploader = (_b = object.nextUploader) !== null && _b !== void 0 ? _b : "";
         message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
-        message.byteSize = (_d = object.byteSize) !== null && _d !== void 0 ? _d : 0;
-        message.fromHeight = (_e = object.fromHeight) !== null && _e !== void 0 ? _e : 0;
-        message.toHeight = (_f = object.toHeight) !== null && _f !== void 0 ? _f : 0;
-        message.createdAt = (_g = object.createdAt) !== null && _g !== void 0 ? _g : 0;
+        message.byteSize = (_d = object.byteSize) !== null && _d !== void 0 ? _d : "0";
+        message.fromHeight = (_e = object.fromHeight) !== null && _e !== void 0 ? _e : "0";
+        message.toHeight = (_f = object.toHeight) !== null && _f !== void 0 ? _f : "0";
+        message.createdAt = (_g = object.createdAt) !== null && _g !== void 0 ? _g : "0";
         message.votersValid = ((_h = object.votersValid) === null || _h === void 0 ? void 0 : _h.map(function (e) { return e; })) || [];
         message.votersInvalid = ((_j = object.votersInvalid) === null || _j === void 0 ? void 0 : _j.map(function (e) { return e; })) || [];
         message.votersAbstain = ((_k = object.votersAbstain) === null || _k === void 0 ? void 0 : _k.map(function (e) { return e; })) || [];
@@ -200,7 +196,7 @@ exports.BundleProposal = {
     }
 };
 function createBaseProtocol() {
-    return { version: "", binaries: "", lastUpgrade: 0 };
+    return { version: "", binaries: "", lastUpgrade: "0" };
 }
 exports.Protocol = {
     encode: function (message, writer) {
@@ -211,7 +207,7 @@ exports.Protocol = {
         if (message.binaries !== "") {
             writer.uint32(18).string(message.binaries);
         }
-        if (message.lastUpgrade !== 0) {
+        if (message.lastUpgrade !== "0") {
             writer.uint32(24).uint64(message.lastUpgrade);
         }
         return writer;
@@ -230,7 +226,7 @@ exports.Protocol = {
                     message.binaries = reader.string();
                     break;
                 case 3:
-                    message.lastUpgrade = longToNumber(reader.uint64());
+                    message.lastUpgrade = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -243,7 +239,7 @@ exports.Protocol = {
         return {
             version: isSet(object.version) ? String(object.version) : "",
             binaries: isSet(object.binaries) ? String(object.binaries) : "",
-            lastUpgrade: isSet(object.lastUpgrade) ? Number(object.lastUpgrade) : 0
+            lastUpgrade: isSet(object.lastUpgrade) ? String(object.lastUpgrade) : "0"
         };
     },
     toJSON: function (message) {
@@ -251,7 +247,7 @@ exports.Protocol = {
         message.version !== undefined && (obj.version = message.version);
         message.binaries !== undefined && (obj.binaries = message.binaries);
         message.lastUpgrade !== undefined &&
-            (obj.lastUpgrade = Math.round(message.lastUpgrade));
+            (obj.lastUpgrade = message.lastUpgrade);
         return obj;
     },
     fromPartial: function (object) {
@@ -259,12 +255,12 @@ exports.Protocol = {
         var message = createBaseProtocol();
         message.version = (_a = object.version) !== null && _a !== void 0 ? _a : "";
         message.binaries = (_b = object.binaries) !== null && _b !== void 0 ? _b : "";
-        message.lastUpgrade = (_c = object.lastUpgrade) !== null && _c !== void 0 ? _c : 0;
+        message.lastUpgrade = (_c = object.lastUpgrade) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
 function createBaseUpgradePlan() {
-    return { version: "", binaries: "", scheduledAt: 0, duration: 0 };
+    return { version: "", binaries: "", scheduledAt: "0", duration: "0" };
 }
 exports.UpgradePlan = {
     encode: function (message, writer) {
@@ -275,10 +271,10 @@ exports.UpgradePlan = {
         if (message.binaries !== "") {
             writer.uint32(18).string(message.binaries);
         }
-        if (message.scheduledAt !== 0) {
+        if (message.scheduledAt !== "0") {
             writer.uint32(24).uint64(message.scheduledAt);
         }
-        if (message.duration !== 0) {
+        if (message.duration !== "0") {
             writer.uint32(32).uint64(message.duration);
         }
         return writer;
@@ -297,10 +293,10 @@ exports.UpgradePlan = {
                     message.binaries = reader.string();
                     break;
                 case 3:
-                    message.scheduledAt = longToNumber(reader.uint64());
+                    message.scheduledAt = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.duration = longToNumber(reader.uint64());
+                    message.duration = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -313,8 +309,8 @@ exports.UpgradePlan = {
         return {
             version: isSet(object.version) ? String(object.version) : "",
             binaries: isSet(object.binaries) ? String(object.binaries) : "",
-            scheduledAt: isSet(object.scheduledAt) ? Number(object.scheduledAt) : 0,
-            duration: isSet(object.duration) ? Number(object.duration) : 0
+            scheduledAt: isSet(object.scheduledAt) ? String(object.scheduledAt) : "0",
+            duration: isSet(object.duration) ? String(object.duration) : "0"
         };
     },
     toJSON: function (message) {
@@ -322,9 +318,8 @@ exports.UpgradePlan = {
         message.version !== undefined && (obj.version = message.version);
         message.binaries !== undefined && (obj.binaries = message.binaries);
         message.scheduledAt !== undefined &&
-            (obj.scheduledAt = Math.round(message.scheduledAt));
-        message.duration !== undefined &&
-            (obj.duration = Math.round(message.duration));
+            (obj.scheduledAt = message.scheduledAt);
+        message.duration !== undefined && (obj.duration = message.duration);
         return obj;
     },
     fromPartial: function (object) {
@@ -332,18 +327,18 @@ exports.UpgradePlan = {
         var message = createBaseUpgradePlan();
         message.version = (_a = object.version) !== null && _a !== void 0 ? _a : "";
         message.binaries = (_b = object.binaries) !== null && _b !== void 0 ? _b : "";
-        message.scheduledAt = (_c = object.scheduledAt) !== null && _c !== void 0 ? _c : 0;
-        message.duration = (_d = object.duration) !== null && _d !== void 0 ? _d : 0;
+        message.scheduledAt = (_c = object.scheduledAt) !== null && _c !== void 0 ? _c : "0";
+        message.duration = (_d = object.duration) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };
 function createBaseDelegationEntries() {
-    return { id: 0, balance: "", staker: "", kIndex: 0 };
+    return { id: "0", balance: "", staker: "", kIndex: "0" };
 }
 exports.DelegationEntries = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
         if (message.balance !== "") {
@@ -352,7 +347,7 @@ exports.DelegationEntries = {
         if (message.staker !== "") {
             writer.uint32(26).string(message.staker);
         }
-        if (message.kIndex !== 0) {
+        if (message.kIndex !== "0") {
             writer.uint32(32).uint64(message.kIndex);
         }
         return writer;
@@ -365,7 +360,7 @@ exports.DelegationEntries = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.balance = reader.string();
@@ -374,7 +369,7 @@ exports.DelegationEntries = {
                     message.staker = reader.string();
                     break;
                 case 4:
-                    message.kIndex = longToNumber(reader.uint64());
+                    message.kIndex = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -385,60 +380,60 @@ exports.DelegationEntries = {
     },
     fromJSON: function (object) {
         return {
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             balance: isSet(object.balance) ? String(object.balance) : "",
             staker: isSet(object.staker) ? String(object.staker) : "",
-            kIndex: isSet(object.kIndex) ? Number(object.kIndex) : 0
+            kIndex: isSet(object.kIndex) ? String(object.kIndex) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.balance !== undefined && (obj.balance = message.balance);
         message.staker !== undefined && (obj.staker = message.staker);
-        message.kIndex !== undefined && (obj.kIndex = Math.round(message.kIndex));
+        message.kIndex !== undefined && (obj.kIndex = message.kIndex);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d;
         var message = createBaseDelegationEntries();
-        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : 0;
+        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
         message.balance = (_b = object.balance) !== null && _b !== void 0 ? _b : "";
         message.staker = (_c = object.staker) !== null && _c !== void 0 ? _c : "";
-        message.kIndex = (_d = object.kIndex) !== null && _d !== void 0 ? _d : 0;
+        message.kIndex = (_d = object.kIndex) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };
 function createBaseDelegationPoolData() {
     return {
-        id: 0,
+        id: "0",
         staker: "",
-        currentRewards: 0,
-        totalDelegation: 0,
-        latestIndexK: 0,
-        delegatorCount: 0,
+        currentRewards: "0",
+        totalDelegation: "0",
+        latestIndexK: "0",
+        delegatorCount: "0",
         latestIndexWasUndelegation: false
     };
 }
 exports.DelegationPoolData = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
         if (message.staker !== "") {
             writer.uint32(18).string(message.staker);
         }
-        if (message.currentRewards !== 0) {
+        if (message.currentRewards !== "0") {
             writer.uint32(24).uint64(message.currentRewards);
         }
-        if (message.totalDelegation !== 0) {
+        if (message.totalDelegation !== "0") {
             writer.uint32(32).uint64(message.totalDelegation);
         }
-        if (message.latestIndexK !== 0) {
+        if (message.latestIndexK !== "0") {
             writer.uint32(40).uint64(message.latestIndexK);
         }
-        if (message.delegatorCount !== 0) {
+        if (message.delegatorCount !== "0") {
             writer.uint32(48).uint64(message.delegatorCount);
         }
         if (message.latestIndexWasUndelegation === true) {
@@ -454,22 +449,22 @@ exports.DelegationPoolData = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
                     break;
                 case 3:
-                    message.currentRewards = longToNumber(reader.uint64());
+                    message.currentRewards = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.totalDelegation = longToNumber(reader.uint64());
+                    message.totalDelegation = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.latestIndexK = longToNumber(reader.uint64());
+                    message.latestIndexK = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.delegatorCount = longToNumber(reader.uint64());
+                    message.delegatorCount = longToString(reader.uint64());
                     break;
                 case 7:
                     message.latestIndexWasUndelegation = reader.bool();
@@ -483,20 +478,20 @@ exports.DelegationPoolData = {
     },
     fromJSON: function (object) {
         return {
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
             currentRewards: isSet(object.currentRewards)
-                ? Number(object.currentRewards)
-                : 0,
+                ? String(object.currentRewards)
+                : "0",
             totalDelegation: isSet(object.totalDelegation)
-                ? Number(object.totalDelegation)
-                : 0,
+                ? String(object.totalDelegation)
+                : "0",
             latestIndexK: isSet(object.latestIndexK)
-                ? Number(object.latestIndexK)
-                : 0,
+                ? String(object.latestIndexK)
+                : "0",
             delegatorCount: isSet(object.delegatorCount)
-                ? Number(object.delegatorCount)
-                : 0,
+                ? String(object.delegatorCount)
+                : "0",
             latestIndexWasUndelegation: isSet(object.latestIndexWasUndelegation)
                 ? Boolean(object.latestIndexWasUndelegation)
                 : false
@@ -504,16 +499,16 @@ exports.DelegationPoolData = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.staker !== undefined && (obj.staker = message.staker);
         message.currentRewards !== undefined &&
-            (obj.currentRewards = Math.round(message.currentRewards));
+            (obj.currentRewards = message.currentRewards);
         message.totalDelegation !== undefined &&
-            (obj.totalDelegation = Math.round(message.totalDelegation));
+            (obj.totalDelegation = message.totalDelegation);
         message.latestIndexK !== undefined &&
-            (obj.latestIndexK = Math.round(message.latestIndexK));
+            (obj.latestIndexK = message.latestIndexK);
         message.delegatorCount !== undefined &&
-            (obj.delegatorCount = Math.round(message.delegatorCount));
+            (obj.delegatorCount = message.delegatorCount);
         message.latestIndexWasUndelegation !== undefined &&
             (obj.latestIndexWasUndelegation = message.latestIndexWasUndelegation);
         return obj;
@@ -521,30 +516,36 @@ exports.DelegationPoolData = {
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f, _g;
         var message = createBaseDelegationPoolData();
-        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : 0;
+        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
-        message.currentRewards = (_c = object.currentRewards) !== null && _c !== void 0 ? _c : 0;
-        message.totalDelegation = (_d = object.totalDelegation) !== null && _d !== void 0 ? _d : 0;
-        message.latestIndexK = (_e = object.latestIndexK) !== null && _e !== void 0 ? _e : 0;
-        message.delegatorCount = (_f = object.delegatorCount) !== null && _f !== void 0 ? _f : 0;
+        message.currentRewards = (_c = object.currentRewards) !== null && _c !== void 0 ? _c : "0";
+        message.totalDelegation = (_d = object.totalDelegation) !== null && _d !== void 0 ? _d : "0";
+        message.latestIndexK = (_e = object.latestIndexK) !== null && _e !== void 0 ? _e : "0";
+        message.delegatorCount = (_f = object.delegatorCount) !== null && _f !== void 0 ? _f : "0";
         message.latestIndexWasUndelegation =
             (_g = object.latestIndexWasUndelegation) !== null && _g !== void 0 ? _g : false;
         return message;
     }
 };
 function createBaseDelegator() {
-    return { id: 0, kIndex: 0, delegationAmount: 0, staker: "", delegator: "" };
+    return {
+        id: "0",
+        kIndex: "0",
+        delegationAmount: "0",
+        staker: "",
+        delegator: ""
+    };
 }
 exports.Delegator = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
-        if (message.kIndex !== 0) {
+        if (message.kIndex !== "0") {
             writer.uint32(16).uint64(message.kIndex);
         }
-        if (message.delegationAmount !== 0) {
+        if (message.delegationAmount !== "0") {
             writer.uint32(24).uint64(message.delegationAmount);
         }
         if (message.staker !== "") {
@@ -563,13 +564,13 @@ exports.Delegator = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.kIndex = longToNumber(reader.uint64());
+                    message.kIndex = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.delegationAmount = longToNumber(reader.uint64());
+                    message.delegationAmount = longToString(reader.uint64());
                     break;
                 case 4:
                     message.staker = reader.string();
@@ -586,21 +587,21 @@ exports.Delegator = {
     },
     fromJSON: function (object) {
         return {
-            id: isSet(object.id) ? Number(object.id) : 0,
-            kIndex: isSet(object.kIndex) ? Number(object.kIndex) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
+            kIndex: isSet(object.kIndex) ? String(object.kIndex) : "0",
             delegationAmount: isSet(object.delegationAmount)
-                ? Number(object.delegationAmount)
-                : 0,
+                ? String(object.delegationAmount)
+                : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
             delegator: isSet(object.delegator) ? String(object.delegator) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.id !== undefined && (obj.id = Math.round(message.id));
-        message.kIndex !== undefined && (obj.kIndex = Math.round(message.kIndex));
+        message.id !== undefined && (obj.id = message.id);
+        message.kIndex !== undefined && (obj.kIndex = message.kIndex);
         message.delegationAmount !== undefined &&
-            (obj.delegationAmount = Math.round(message.delegationAmount));
+            (obj.delegationAmount = message.delegationAmount);
         message.staker !== undefined && (obj.staker = message.staker);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         return obj;
@@ -608,16 +609,16 @@ exports.Delegator = {
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e;
         var message = createBaseDelegator();
-        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : 0;
-        message.kIndex = (_b = object.kIndex) !== null && _b !== void 0 ? _b : 0;
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : 0;
+        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
+        message.kIndex = (_b = object.kIndex) !== null && _b !== void 0 ? _b : "0";
+        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
         message.staker = (_d = object.staker) !== null && _d !== void 0 ? _d : "";
         message.delegator = (_e = object.delegator) !== null && _e !== void 0 ? _e : "";
         return message;
     }
 };
 function createBaseFunder() {
-    return { account: "", poolId: 0, amount: 0 };
+    return { account: "", poolId: "0", amount: "0" };
 }
 exports.Funder = {
     encode: function (message, writer) {
@@ -625,10 +626,10 @@ exports.Funder = {
         if (message.account !== "") {
             writer.uint32(18).string(message.account);
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(24).uint64(message.amount);
         }
         return writer;
@@ -644,10 +645,10 @@ exports.Funder = {
                     message.account = reader.string();
                     break;
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -659,52 +660,52 @@ exports.Funder = {
     fromJSON: function (object) {
         return {
             account: isSet(object.account) ? String(object.account) : "",
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.account !== undefined && (obj.account = message.account);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseFunder();
         message.account = (_a = object.account) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : 0;
-        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : 0;
+        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
+        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
 function createBasePool() {
     return {
-        id: 0,
+        id: "0",
         creator: "",
         name: "",
         runtime: "",
         logo: "",
         versions: "",
         config: "",
-        heightArchived: 0,
-        bytesArchived: 0,
-        totalBundles: 0,
-        totalBundleRewards: 0,
-        startHeight: 0,
-        uploadInterval: 0,
-        operatingCost: 0,
+        heightArchived: "0",
+        bytesArchived: "0",
+        totalBundles: "0",
+        totalBundleRewards: "0",
+        startHeight: "0",
+        uploadInterval: "0",
+        operatingCost: "0",
         paused: false,
         funders: [],
         lowestFunder: "",
-        totalFunds: 0,
+        totalFunds: "0",
         stakers: [],
         lowestStaker: "",
-        totalStake: 0,
-        totalDelegation: 0,
+        totalStake: "0",
+        totalDelegation: "0",
         bundleProposal: undefined,
-        maxBundleSize: 0,
+        maxBundleSize: "0",
         protocol: undefined,
         upgradePlan: undefined
     };
@@ -712,7 +713,7 @@ function createBasePool() {
 exports.Pool = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
         if (message.creator !== "") {
@@ -733,25 +734,25 @@ exports.Pool = {
         if (message.config !== "") {
             writer.uint32(58).string(message.config);
         }
-        if (message.heightArchived !== 0) {
+        if (message.heightArchived !== "0") {
             writer.uint32(64).uint64(message.heightArchived);
         }
-        if (message.bytesArchived !== 0) {
+        if (message.bytesArchived !== "0") {
             writer.uint32(72).uint64(message.bytesArchived);
         }
-        if (message.totalBundles !== 0) {
+        if (message.totalBundles !== "0") {
             writer.uint32(80).uint64(message.totalBundles);
         }
-        if (message.totalBundleRewards !== 0) {
+        if (message.totalBundleRewards !== "0") {
             writer.uint32(88).uint64(message.totalBundleRewards);
         }
-        if (message.startHeight !== 0) {
+        if (message.startHeight !== "0") {
             writer.uint32(96).uint64(message.startHeight);
         }
-        if (message.uploadInterval !== 0) {
+        if (message.uploadInterval !== "0") {
             writer.uint32(104).uint64(message.uploadInterval);
         }
-        if (message.operatingCost !== 0) {
+        if (message.operatingCost !== "0") {
             writer.uint32(112).uint64(message.operatingCost);
         }
         if (message.paused === true) {
@@ -764,7 +765,7 @@ exports.Pool = {
         if (message.lowestFunder !== "") {
             writer.uint32(138).string(message.lowestFunder);
         }
-        if (message.totalFunds !== 0) {
+        if (message.totalFunds !== "0") {
             writer.uint32(144).uint64(message.totalFunds);
         }
         for (var _b = 0, _c = message.stakers; _b < _c.length; _b++) {
@@ -774,16 +775,16 @@ exports.Pool = {
         if (message.lowestStaker !== "") {
             writer.uint32(162).string(message.lowestStaker);
         }
-        if (message.totalStake !== 0) {
+        if (message.totalStake !== "0") {
             writer.uint32(168).uint64(message.totalStake);
         }
-        if (message.totalDelegation !== 0) {
+        if (message.totalDelegation !== "0") {
             writer.uint32(176).uint64(message.totalDelegation);
         }
         if (message.bundleProposal !== undefined) {
             exports.BundleProposal.encode(message.bundleProposal, writer.uint32(186).fork()).ldelim();
         }
-        if (message.maxBundleSize !== 0) {
+        if (message.maxBundleSize !== "0") {
             writer.uint32(192).uint64(message.maxBundleSize);
         }
         if (message.protocol !== undefined) {
@@ -802,7 +803,7 @@ exports.Pool = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.creator = reader.string();
@@ -823,25 +824,25 @@ exports.Pool = {
                     message.config = reader.string();
                     break;
                 case 8:
-                    message.heightArchived = longToNumber(reader.uint64());
+                    message.heightArchived = longToString(reader.uint64());
                     break;
                 case 9:
-                    message.bytesArchived = longToNumber(reader.uint64());
+                    message.bytesArchived = longToString(reader.uint64());
                     break;
                 case 10:
-                    message.totalBundles = longToNumber(reader.uint64());
+                    message.totalBundles = longToString(reader.uint64());
                     break;
                 case 11:
-                    message.totalBundleRewards = longToNumber(reader.uint64());
+                    message.totalBundleRewards = longToString(reader.uint64());
                     break;
                 case 12:
-                    message.startHeight = longToNumber(reader.uint64());
+                    message.startHeight = longToString(reader.uint64());
                     break;
                 case 13:
-                    message.uploadInterval = longToNumber(reader.uint64());
+                    message.uploadInterval = longToString(reader.uint64());
                     break;
                 case 14:
-                    message.operatingCost = longToNumber(reader.uint64());
+                    message.operatingCost = longToString(reader.uint64());
                     break;
                 case 15:
                     message.paused = reader.bool();
@@ -853,7 +854,7 @@ exports.Pool = {
                     message.lowestFunder = reader.string();
                     break;
                 case 18:
-                    message.totalFunds = longToNumber(reader.uint64());
+                    message.totalFunds = longToString(reader.uint64());
                     break;
                 case 19:
                     message.stakers.push(reader.string());
@@ -862,16 +863,16 @@ exports.Pool = {
                     message.lowestStaker = reader.string();
                     break;
                 case 21:
-                    message.totalStake = longToNumber(reader.uint64());
+                    message.totalStake = longToString(reader.uint64());
                     break;
                 case 22:
-                    message.totalDelegation = longToNumber(reader.uint64());
+                    message.totalDelegation = longToString(reader.uint64());
                     break;
                 case 23:
                     message.bundleProposal = exports.BundleProposal.decode(reader, reader.uint32());
                     break;
                 case 24:
-                    message.maxBundleSize = longToNumber(reader.uint64());
+                    message.maxBundleSize = longToString(reader.uint64());
                     break;
                 case 25:
                     message.protocol = exports.Protocol.decode(reader, reader.uint32());
@@ -888,7 +889,7 @@ exports.Pool = {
     },
     fromJSON: function (object) {
         return {
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             creator: isSet(object.creator) ? String(object.creator) : "",
             name: isSet(object.name) ? String(object.name) : "",
             runtime: isSet(object.runtime) ? String(object.runtime) : "",
@@ -896,24 +897,24 @@ exports.Pool = {
             versions: isSet(object.versions) ? String(object.versions) : "",
             config: isSet(object.config) ? String(object.config) : "",
             heightArchived: isSet(object.heightArchived)
-                ? Number(object.heightArchived)
-                : 0,
+                ? String(object.heightArchived)
+                : "0",
             bytesArchived: isSet(object.bytesArchived)
-                ? Number(object.bytesArchived)
-                : 0,
+                ? String(object.bytesArchived)
+                : "0",
             totalBundles: isSet(object.totalBundles)
-                ? Number(object.totalBundles)
-                : 0,
+                ? String(object.totalBundles)
+                : "0",
             totalBundleRewards: isSet(object.totalBundleRewards)
-                ? Number(object.totalBundleRewards)
-                : 0,
-            startHeight: isSet(object.startHeight) ? Number(object.startHeight) : 0,
+                ? String(object.totalBundleRewards)
+                : "0",
+            startHeight: isSet(object.startHeight) ? String(object.startHeight) : "0",
             uploadInterval: isSet(object.uploadInterval)
-                ? Number(object.uploadInterval)
-                : 0,
+                ? String(object.uploadInterval)
+                : "0",
             operatingCost: isSet(object.operatingCost)
-                ? Number(object.operatingCost)
-                : 0,
+                ? String(object.operatingCost)
+                : "0",
             paused: isSet(object.paused) ? Boolean(object.paused) : false,
             funders: Array.isArray(object === null || object === void 0 ? void 0 : object.funders)
                 ? object.funders.map(function (e) { return String(e); })
@@ -921,23 +922,23 @@ exports.Pool = {
             lowestFunder: isSet(object.lowestFunder)
                 ? String(object.lowestFunder)
                 : "",
-            totalFunds: isSet(object.totalFunds) ? Number(object.totalFunds) : 0,
+            totalFunds: isSet(object.totalFunds) ? String(object.totalFunds) : "0",
             stakers: Array.isArray(object === null || object === void 0 ? void 0 : object.stakers)
                 ? object.stakers.map(function (e) { return String(e); })
                 : [],
             lowestStaker: isSet(object.lowestStaker)
                 ? String(object.lowestStaker)
                 : "",
-            totalStake: isSet(object.totalStake) ? Number(object.totalStake) : 0,
+            totalStake: isSet(object.totalStake) ? String(object.totalStake) : "0",
             totalDelegation: isSet(object.totalDelegation)
-                ? Number(object.totalDelegation)
-                : 0,
+                ? String(object.totalDelegation)
+                : "0",
             bundleProposal: isSet(object.bundleProposal)
                 ? exports.BundleProposal.fromJSON(object.bundleProposal)
                 : undefined,
             maxBundleSize: isSet(object.maxBundleSize)
-                ? Number(object.maxBundleSize)
-                : 0,
+                ? String(object.maxBundleSize)
+                : "0",
             protocol: isSet(object.protocol)
                 ? exports.Protocol.fromJSON(object.protocol)
                 : undefined,
@@ -948,7 +949,7 @@ exports.Pool = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.creator !== undefined && (obj.creator = message.creator);
         message.name !== undefined && (obj.name = message.name);
         message.runtime !== undefined && (obj.runtime = message.runtime);
@@ -956,19 +957,19 @@ exports.Pool = {
         message.versions !== undefined && (obj.versions = message.versions);
         message.config !== undefined && (obj.config = message.config);
         message.heightArchived !== undefined &&
-            (obj.heightArchived = Math.round(message.heightArchived));
+            (obj.heightArchived = message.heightArchived);
         message.bytesArchived !== undefined &&
-            (obj.bytesArchived = Math.round(message.bytesArchived));
+            (obj.bytesArchived = message.bytesArchived);
         message.totalBundles !== undefined &&
-            (obj.totalBundles = Math.round(message.totalBundles));
+            (obj.totalBundles = message.totalBundles);
         message.totalBundleRewards !== undefined &&
-            (obj.totalBundleRewards = Math.round(message.totalBundleRewards));
+            (obj.totalBundleRewards = message.totalBundleRewards);
         message.startHeight !== undefined &&
-            (obj.startHeight = Math.round(message.startHeight));
+            (obj.startHeight = message.startHeight);
         message.uploadInterval !== undefined &&
-            (obj.uploadInterval = Math.round(message.uploadInterval));
+            (obj.uploadInterval = message.uploadInterval);
         message.operatingCost !== undefined &&
-            (obj.operatingCost = Math.round(message.operatingCost));
+            (obj.operatingCost = message.operatingCost);
         message.paused !== undefined && (obj.paused = message.paused);
         if (message.funders) {
             obj.funders = message.funders.map(function (e) { return e; });
@@ -978,8 +979,7 @@ exports.Pool = {
         }
         message.lowestFunder !== undefined &&
             (obj.lowestFunder = message.lowestFunder);
-        message.totalFunds !== undefined &&
-            (obj.totalFunds = Math.round(message.totalFunds));
+        message.totalFunds !== undefined && (obj.totalFunds = message.totalFunds);
         if (message.stakers) {
             obj.stakers = message.stakers.map(function (e) { return e; });
         }
@@ -988,16 +988,15 @@ exports.Pool = {
         }
         message.lowestStaker !== undefined &&
             (obj.lowestStaker = message.lowestStaker);
-        message.totalStake !== undefined &&
-            (obj.totalStake = Math.round(message.totalStake));
+        message.totalStake !== undefined && (obj.totalStake = message.totalStake);
         message.totalDelegation !== undefined &&
-            (obj.totalDelegation = Math.round(message.totalDelegation));
+            (obj.totalDelegation = message.totalDelegation);
         message.bundleProposal !== undefined &&
             (obj.bundleProposal = message.bundleProposal
                 ? exports.BundleProposal.toJSON(message.bundleProposal)
                 : undefined);
         message.maxBundleSize !== undefined &&
-            (obj.maxBundleSize = Math.round(message.maxBundleSize));
+            (obj.maxBundleSize = message.maxBundleSize);
         message.protocol !== undefined &&
             (obj.protocol = message.protocol
                 ? exports.Protocol.toJSON(message.protocol)
@@ -1011,33 +1010,33 @@ exports.Pool = {
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y;
         var message = createBasePool();
-        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : 0;
+        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
         message.creator = (_b = object.creator) !== null && _b !== void 0 ? _b : "";
         message.name = (_c = object.name) !== null && _c !== void 0 ? _c : "";
         message.runtime = (_d = object.runtime) !== null && _d !== void 0 ? _d : "";
         message.logo = (_e = object.logo) !== null && _e !== void 0 ? _e : "";
         message.versions = (_f = object.versions) !== null && _f !== void 0 ? _f : "";
         message.config = (_g = object.config) !== null && _g !== void 0 ? _g : "";
-        message.heightArchived = (_h = object.heightArchived) !== null && _h !== void 0 ? _h : 0;
-        message.bytesArchived = (_j = object.bytesArchived) !== null && _j !== void 0 ? _j : 0;
-        message.totalBundles = (_k = object.totalBundles) !== null && _k !== void 0 ? _k : 0;
-        message.totalBundleRewards = (_l = object.totalBundleRewards) !== null && _l !== void 0 ? _l : 0;
-        message.startHeight = (_m = object.startHeight) !== null && _m !== void 0 ? _m : 0;
-        message.uploadInterval = (_o = object.uploadInterval) !== null && _o !== void 0 ? _o : 0;
-        message.operatingCost = (_p = object.operatingCost) !== null && _p !== void 0 ? _p : 0;
+        message.heightArchived = (_h = object.heightArchived) !== null && _h !== void 0 ? _h : "0";
+        message.bytesArchived = (_j = object.bytesArchived) !== null && _j !== void 0 ? _j : "0";
+        message.totalBundles = (_k = object.totalBundles) !== null && _k !== void 0 ? _k : "0";
+        message.totalBundleRewards = (_l = object.totalBundleRewards) !== null && _l !== void 0 ? _l : "0";
+        message.startHeight = (_m = object.startHeight) !== null && _m !== void 0 ? _m : "0";
+        message.uploadInterval = (_o = object.uploadInterval) !== null && _o !== void 0 ? _o : "0";
+        message.operatingCost = (_p = object.operatingCost) !== null && _p !== void 0 ? _p : "0";
         message.paused = (_q = object.paused) !== null && _q !== void 0 ? _q : false;
         message.funders = ((_r = object.funders) === null || _r === void 0 ? void 0 : _r.map(function (e) { return e; })) || [];
         message.lowestFunder = (_s = object.lowestFunder) !== null && _s !== void 0 ? _s : "";
-        message.totalFunds = (_t = object.totalFunds) !== null && _t !== void 0 ? _t : 0;
+        message.totalFunds = (_t = object.totalFunds) !== null && _t !== void 0 ? _t : "0";
         message.stakers = ((_u = object.stakers) === null || _u === void 0 ? void 0 : _u.map(function (e) { return e; })) || [];
         message.lowestStaker = (_v = object.lowestStaker) !== null && _v !== void 0 ? _v : "";
-        message.totalStake = (_w = object.totalStake) !== null && _w !== void 0 ? _w : 0;
-        message.totalDelegation = (_x = object.totalDelegation) !== null && _x !== void 0 ? _x : 0;
+        message.totalStake = (_w = object.totalStake) !== null && _w !== void 0 ? _w : "0";
+        message.totalDelegation = (_x = object.totalDelegation) !== null && _x !== void 0 ? _x : "0";
         message.bundleProposal =
             object.bundleProposal !== undefined && object.bundleProposal !== null
                 ? exports.BundleProposal.fromPartial(object.bundleProposal)
                 : undefined;
-        message.maxBundleSize = (_y = object.maxBundleSize) !== null && _y !== void 0 ? _y : 0;
+        message.maxBundleSize = (_y = object.maxBundleSize) !== null && _y !== void 0 ? _y : "0";
         message.protocol =
             object.protocol !== undefined && object.protocol !== null
                 ? exports.Protocol.fromPartial(object.protocol)
@@ -1052,11 +1051,11 @@ exports.Pool = {
 function createBaseProposal() {
     return {
         bundleId: "",
-        poolId: 0,
+        poolId: "0",
         uploader: "",
-        fromHeight: 0,
-        toHeight: 0,
-        finalizedAt: 0
+        fromHeight: "0",
+        toHeight: "0",
+        finalizedAt: "0"
     };
 }
 exports.Proposal = {
@@ -1065,19 +1064,19 @@ exports.Proposal = {
         if (message.bundleId !== "") {
             writer.uint32(10).string(message.bundleId);
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         if (message.uploader !== "") {
             writer.uint32(26).string(message.uploader);
         }
-        if (message.fromHeight !== 0) {
+        if (message.fromHeight !== "0") {
             writer.uint32(32).uint64(message.fromHeight);
         }
-        if (message.toHeight !== 0) {
+        if (message.toHeight !== "0") {
             writer.uint32(40).uint64(message.toHeight);
         }
-        if (message.finalizedAt !== 0) {
+        if (message.finalizedAt !== "0") {
             writer.uint32(48).uint64(message.finalizedAt);
         }
         return writer;
@@ -1093,19 +1092,19 @@ exports.Proposal = {
                     message.bundleId = reader.string();
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
                     message.uploader = reader.string();
                     break;
                 case 4:
-                    message.fromHeight = longToNumber(reader.uint64());
+                    message.fromHeight = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.toHeight = longToNumber(reader.uint64());
+                    message.toHeight = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.finalizedAt = longToNumber(reader.uint64());
+                    message.finalizedAt = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1117,49 +1116,47 @@ exports.Proposal = {
     fromJSON: function (object) {
         return {
             bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             uploader: isSet(object.uploader) ? String(object.uploader) : "",
-            fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0,
-            toHeight: isSet(object.toHeight) ? Number(object.toHeight) : 0,
-            finalizedAt: isSet(object.finalizedAt) ? Number(object.finalizedAt) : 0
+            fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
+            toHeight: isSet(object.toHeight) ? String(object.toHeight) : "0",
+            finalizedAt: isSet(object.finalizedAt) ? String(object.finalizedAt) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.uploader !== undefined && (obj.uploader = message.uploader);
-        message.fromHeight !== undefined &&
-            (obj.fromHeight = Math.round(message.fromHeight));
-        message.toHeight !== undefined &&
-            (obj.toHeight = Math.round(message.toHeight));
+        message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
+        message.toHeight !== undefined && (obj.toHeight = message.toHeight);
         message.finalizedAt !== undefined &&
-            (obj.finalizedAt = Math.round(message.finalizedAt));
+            (obj.finalizedAt = message.finalizedAt);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f;
         var message = createBaseProposal();
         message.bundleId = (_a = object.bundleId) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : 0;
+        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
         message.uploader = (_c = object.uploader) !== null && _c !== void 0 ? _c : "";
-        message.fromHeight = (_d = object.fromHeight) !== null && _d !== void 0 ? _d : 0;
-        message.toHeight = (_e = object.toHeight) !== null && _e !== void 0 ? _e : 0;
-        message.finalizedAt = (_f = object.finalizedAt) !== null && _f !== void 0 ? _f : 0;
+        message.fromHeight = (_d = object.fromHeight) !== null && _d !== void 0 ? _d : "0";
+        message.toHeight = (_e = object.toHeight) !== null && _e !== void 0 ? _e : "0";
+        message.finalizedAt = (_f = object.finalizedAt) !== null && _f !== void 0 ? _f : "0";
         return message;
     }
 };
 function createBaseStaker() {
     return {
         account: "",
-        poolId: 0,
-        amount: 0,
-        unbondingAmount: 0,
+        poolId: "0",
+        amount: "0",
+        unbondingAmount: "0",
         commission: "",
         moniker: "",
         website: "",
         logo: "",
-        points: 0
+        points: "0"
     };
 }
 exports.Staker = {
@@ -1168,13 +1165,13 @@ exports.Staker = {
         if (message.account !== "") {
             writer.uint32(10).string(message.account);
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(24).uint64(message.amount);
         }
-        if (message.unbondingAmount !== 0) {
+        if (message.unbondingAmount !== "0") {
             writer.uint32(32).uint64(message.unbondingAmount);
         }
         if (message.commission !== "") {
@@ -1189,7 +1186,7 @@ exports.Staker = {
         if (message.logo !== "") {
             writer.uint32(66).string(message.logo);
         }
-        if (message.points !== 0) {
+        if (message.points !== "0") {
             writer.uint32(72).uint64(message.points);
         }
         return writer;
@@ -1205,13 +1202,13 @@ exports.Staker = {
                     message.account = reader.string();
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.unbondingAmount = longToNumber(reader.uint64());
+                    message.unbondingAmount = longToString(reader.uint64());
                     break;
                 case 5:
                     message.commission = reader.string();
@@ -1226,7 +1223,7 @@ exports.Staker = {
                     message.logo = reader.string();
                     break;
                 case 9:
-                    message.points = longToNumber(reader.uint64());
+                    message.points = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1238,64 +1235,64 @@ exports.Staker = {
     fromJSON: function (object) {
         return {
             account: isSet(object.account) ? String(object.account) : "",
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0",
             unbondingAmount: isSet(object.unbondingAmount)
-                ? Number(object.unbondingAmount)
-                : 0,
+                ? String(object.unbondingAmount)
+                : "0",
             commission: isSet(object.commission) ? String(object.commission) : "",
             moniker: isSet(object.moniker) ? String(object.moniker) : "",
             website: isSet(object.website) ? String(object.website) : "",
             logo: isSet(object.logo) ? String(object.logo) : "",
-            points: isSet(object.points) ? Number(object.points) : 0
+            points: isSet(object.points) ? String(object.points) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.account !== undefined && (obj.account = message.account);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.amount !== undefined && (obj.amount = message.amount);
         message.unbondingAmount !== undefined &&
-            (obj.unbondingAmount = Math.round(message.unbondingAmount));
+            (obj.unbondingAmount = message.unbondingAmount);
         message.commission !== undefined && (obj.commission = message.commission);
         message.moniker !== undefined && (obj.moniker = message.moniker);
         message.website !== undefined && (obj.website = message.website);
         message.logo !== undefined && (obj.logo = message.logo);
-        message.points !== undefined && (obj.points = Math.round(message.points));
+        message.points !== undefined && (obj.points = message.points);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         var message = createBaseStaker();
         message.account = (_a = object.account) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : 0;
-        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : 0;
-        message.unbondingAmount = (_d = object.unbondingAmount) !== null && _d !== void 0 ? _d : 0;
+        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
+        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : "0";
+        message.unbondingAmount = (_d = object.unbondingAmount) !== null && _d !== void 0 ? _d : "0";
         message.commission = (_e = object.commission) !== null && _e !== void 0 ? _e : "";
         message.moniker = (_f = object.moniker) !== null && _f !== void 0 ? _f : "";
         message.website = (_g = object.website) !== null && _g !== void 0 ? _g : "";
         message.logo = (_h = object.logo) !== null && _h !== void 0 ? _h : "";
-        message.points = (_j = object.points) !== null && _j !== void 0 ? _j : 0;
+        message.points = (_j = object.points) !== null && _j !== void 0 ? _j : "0";
         return message;
     }
 };
 function createBaseUnbondingEntries() {
     return {
-        index: 0,
-        poolId: 0,
+        index: "0",
+        poolId: "0",
         staker: "",
         delegator: "",
-        creationTime: 0,
-        amount: 0
+        creationTime: "0",
+        amount: "0"
     };
 }
 exports.UnbondingEntries = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.index !== 0) {
+        if (message.index !== "0") {
             writer.uint32(8).uint64(message.index);
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         if (message.staker !== "") {
@@ -1304,10 +1301,10 @@ exports.UnbondingEntries = {
         if (message.delegator !== "") {
             writer.uint32(34).string(message.delegator);
         }
-        if (message.creationTime !== 0) {
+        if (message.creationTime !== "0") {
             writer.uint32(40).uint64(message.creationTime);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(48).uint64(message.amount);
         }
         return writer;
@@ -1320,10 +1317,10 @@ exports.UnbondingEntries = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.index = longToNumber(reader.uint64());
+                    message.index = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
                     message.staker = reader.string();
@@ -1332,10 +1329,10 @@ exports.UnbondingEntries = {
                     message.delegator = reader.string();
                     break;
                 case 5:
-                    message.creationTime = longToNumber(reader.uint64());
+                    message.creationTime = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1346,49 +1343,49 @@ exports.UnbondingEntries = {
     },
     fromJSON: function (object) {
         return {
-            index: isSet(object.index) ? Number(object.index) : 0,
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            index: isSet(object.index) ? String(object.index) : "0",
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
             delegator: isSet(object.delegator) ? String(object.delegator) : "",
             creationTime: isSet(object.creationTime)
-                ? Number(object.creationTime)
-                : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+                ? String(object.creationTime)
+                : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.index !== undefined && (obj.index = Math.round(message.index));
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.index !== undefined && (obj.index = message.index);
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.staker !== undefined && (obj.staker = message.staker);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         message.creationTime !== undefined &&
-            (obj.creationTime = Math.round(message.creationTime));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+            (obj.creationTime = message.creationTime);
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f;
         var message = createBaseUnbondingEntries();
-        message.index = (_a = object.index) !== null && _a !== void 0 ? _a : 0;
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : 0;
+        message.index = (_a = object.index) !== null && _a !== void 0 ? _a : "0";
+        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
         message.staker = (_c = object.staker) !== null && _c !== void 0 ? _c : "";
         message.delegator = (_d = object.delegator) !== null && _d !== void 0 ? _d : "";
-        message.creationTime = (_e = object.creationTime) !== null && _e !== void 0 ? _e : 0;
-        message.amount = (_f = object.amount) !== null && _f !== void 0 ? _f : 0;
+        message.creationTime = (_e = object.creationTime) !== null && _e !== void 0 ? _e : "0";
+        message.amount = (_f = object.amount) !== null && _f !== void 0 ? _f : "0";
         return message;
     }
 };
 function createBaseUnbondingState() {
-    return { lowIndex: 0, highIndex: 0 };
+    return { lowIndex: "0", highIndex: "0" };
 }
 exports.UnbondingState = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.lowIndex !== 0) {
+        if (message.lowIndex !== "0") {
             writer.uint32(8).uint64(message.lowIndex);
         }
-        if (message.highIndex !== 0) {
+        if (message.highIndex !== "0") {
             writer.uint32(16).uint64(message.highIndex);
         }
         return writer;
@@ -1401,10 +1398,10 @@ exports.UnbondingState = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.lowIndex = longToNumber(reader.uint64());
+                    message.lowIndex = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.highIndex = longToNumber(reader.uint64());
+                    message.highIndex = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1415,42 +1412,26 @@ exports.UnbondingState = {
     },
     fromJSON: function (object) {
         return {
-            lowIndex: isSet(object.lowIndex) ? Number(object.lowIndex) : 0,
-            highIndex: isSet(object.highIndex) ? Number(object.highIndex) : 0
+            lowIndex: isSet(object.lowIndex) ? String(object.lowIndex) : "0",
+            highIndex: isSet(object.highIndex) ? String(object.highIndex) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.lowIndex !== undefined &&
-            (obj.lowIndex = Math.round(message.lowIndex));
-        message.highIndex !== undefined &&
-            (obj.highIndex = Math.round(message.highIndex));
+        message.lowIndex !== undefined && (obj.lowIndex = message.lowIndex);
+        message.highIndex !== undefined && (obj.highIndex = message.highIndex);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseUnbondingState();
-        message.lowIndex = (_a = object.lowIndex) !== null && _a !== void 0 ? _a : 0;
-        message.highIndex = (_b = object.highIndex) !== null && _b !== void 0 ? _b : 0;
+        message.lowIndex = (_a = object.lowIndex) !== null && _a !== void 0 ? _a : "0";
+        message.highIndex = (_b = object.highIndex) !== null && _b !== void 0 ? _b : "0";
         return message;
     }
 };
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

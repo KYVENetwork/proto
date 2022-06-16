@@ -1,1 +1,2 @@
-export * from "./bundle";
+export * from "./bundle-kyve";
+export * from "./bundle-cosmos";

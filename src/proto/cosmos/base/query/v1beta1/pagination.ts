@@ -25,12 +25,12 @@ export interface PageRequest {
    * It is less efficient than using key. Only one of offset or key should
    * be set.
    */
-  offset: number;
+  offset: string;
   /**
    * limit is the total number of results to be returned in the result page.
    * If left empty it will default to a value to be set by each app.
    */
-  limit: number;
+  limit: string;
   /**
    * count_total is set to true  to indicate that the result set should include
    * a count of the total number of items available for pagination in UIs.
@@ -66,14 +66,14 @@ export interface PageResponse {
    * total is total number of results available if PageRequest.count_total
    * was set, its value is undefined otherwise
    */
-  total: number;
+  total: string;
 }
 
 function createBasePageRequest(): PageRequest {
   return {
     key: new Uint8Array(),
-    offset: 0,
-    limit: 0,
+    offset: "0",
+    limit: "0",
     countTotal: false,
     reverse: false,
   };
@@ -87,10 +87,10 @@ export const PageRequest = {
     if (message.key.length !== 0) {
       writer.uint32(10).bytes(message.key);
     }
-    if (message.offset !== 0) {
+    if (message.offset !== "0") {
       writer.uint32(16).uint64(message.offset);
     }
-    if (message.limit !== 0) {
+    if (message.limit !== "0") {
       writer.uint32(24).uint64(message.limit);
     }
     if (message.countTotal === true) {
@@ -113,10 +113,10 @@ export const PageRequest = {
           message.key = reader.bytes();
           break;
         case 2:
-          message.offset = longToNumber(reader.uint64() as Long);
+          message.offset = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.limit = longToNumber(reader.uint64() as Long);
+          message.limit = longToString(reader.uint64() as Long);
           break;
         case 4:
           message.countTotal = reader.bool();
@@ -135,8 +135,8 @@ export const PageRequest = {
   fromJSON(object: any): PageRequest {
     return {
       key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
-      offset: isSet(object.offset) ? Number(object.offset) : 0,
-      limit: isSet(object.limit) ? Number(object.limit) : 0,
+      offset: isSet(object.offset) ? String(object.offset) : "0",
+      limit: isSet(object.limit) ? String(object.limit) : "0",
       countTotal: isSet(object.countTotal) ? Boolean(object.countTotal) : false,
       reverse: isSet(object.reverse) ? Boolean(object.reverse) : false,
     };
@@ -148,8 +148,8 @@ export const PageRequest = {
       (obj.key = base64FromBytes(
         message.key !== undefined ? message.key : new Uint8Array()
       ));
-    message.offset !== undefined && (obj.offset = Math.round(message.offset));
-    message.limit !== undefined && (obj.limit = Math.round(message.limit));
+    message.offset !== undefined && (obj.offset = message.offset);
+    message.limit !== undefined && (obj.limit = message.limit);
     message.countTotal !== undefined && (obj.countTotal = message.countTotal);
     message.reverse !== undefined && (obj.reverse = message.reverse);
     return obj;
@@ -160,8 +160,8 @@ export const PageRequest = {
   ): PageRequest {
     const message = createBasePageRequest();
     message.key = object.key ?? new Uint8Array();
-    message.offset = object.offset ?? 0;
-    message.limit = object.limit ?? 0;
+    message.offset = object.offset ?? "0";
+    message.limit = object.limit ?? "0";
     message.countTotal = object.countTotal ?? false;
     message.reverse = object.reverse ?? false;
     return message;
@@ -169,7 +169,7 @@ export const PageRequest = {
 };
 
 function createBasePageResponse(): PageResponse {
-  return { nextKey: new Uint8Array(), total: 0 };
+  return { nextKey: new Uint8Array(), total: "0" };
 }
 
 export const PageResponse = {
@@ -180,7 +180,7 @@ export const PageResponse = {
     if (message.nextKey.length !== 0) {
       writer.uint32(10).bytes(message.nextKey);
     }
-    if (message.total !== 0) {
+    if (message.total !== "0") {
       writer.uint32(16).uint64(message.total);
     }
     return writer;
@@ -197,7 +197,7 @@ export const PageResponse = {
           message.nextKey = reader.bytes();
           break;
         case 2:
-          message.total = longToNumber(reader.uint64() as Long);
+          message.total = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -212,7 +212,7 @@ export const PageResponse = {
       nextKey: isSet(object.nextKey)
         ? bytesFromBase64(object.nextKey)
         : new Uint8Array(),
-      total: isSet(object.total) ? Number(object.total) : 0,
+      total: isSet(object.total) ? String(object.total) : "0",
     };
   },
 
@@ -222,7 +222,7 @@ export const PageResponse = {
       (obj.nextKey = base64FromBytes(
         message.nextKey !== undefined ? message.nextKey : new Uint8Array()
       ));
-    message.total !== undefined && (obj.total = Math.round(message.total));
+    message.total !== undefined && (obj.total = message.total);
     return obj;
   },
 
@@ -231,7 +231,7 @@ export const PageResponse = {
   ): PageResponse {
     const message = createBasePageResponse();
     message.nextKey = object.nextKey ?? new Uint8Array();
-    message.total = object.total ?? 0;
+    message.total = object.total ?? "0";
     return message;
   },
 };
@@ -297,11 +297,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {

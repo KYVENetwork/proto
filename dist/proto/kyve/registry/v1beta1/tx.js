@@ -32,7 +32,7 @@ var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
 function createBaseMsgFundPool() {
-    return { creator: "", id: 0, amount: 0 };
+    return { creator: "", id: "0", amount: "0" };
 }
 exports.MsgFundPool = {
     encode: function (message, writer) {
@@ -40,10 +40,10 @@ exports.MsgFundPool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(24).uint64(message.amount);
         }
         return writer;
@@ -59,10 +59,10 @@ exports.MsgFundPool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -74,23 +74,23 @@ exports.MsgFundPool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            id: isSet(object.id) ? String(object.id) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.id !== undefined && (obj.id = message.id);
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseMsgFundPool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
-        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
+        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
@@ -129,7 +129,7 @@ exports.MsgFundPoolResponse = {
     }
 };
 function createBaseMsgDefundPool() {
-    return { creator: "", id: 0, amount: 0 };
+    return { creator: "", id: "0", amount: "0" };
 }
 exports.MsgDefundPool = {
     encode: function (message, writer) {
@@ -137,10 +137,10 @@ exports.MsgDefundPool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(24).uint64(message.amount);
         }
         return writer;
@@ -156,10 +156,10 @@ exports.MsgDefundPool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -171,23 +171,23 @@ exports.MsgDefundPool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            id: isSet(object.id) ? String(object.id) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.id !== undefined && (obj.id = message.id);
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseMsgDefundPool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
-        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
+        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
@@ -226,7 +226,7 @@ exports.MsgDefundPoolResponse = {
     }
 };
 function createBaseMsgStakePool() {
-    return { creator: "", id: 0, amount: 0 };
+    return { creator: "", id: "0", amount: "0" };
 }
 exports.MsgStakePool = {
     encode: function (message, writer) {
@@ -234,10 +234,10 @@ exports.MsgStakePool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(24).uint64(message.amount);
         }
         return writer;
@@ -253,10 +253,10 @@ exports.MsgStakePool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -268,23 +268,23 @@ exports.MsgStakePool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            id: isSet(object.id) ? String(object.id) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.id !== undefined && (obj.id = message.id);
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseMsgStakePool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
-        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
+        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
@@ -323,7 +323,7 @@ exports.MsgStakePoolResponse = {
     }
 };
 function createBaseMsgUnstakePool() {
-    return { creator: "", id: 0, amount: 0 };
+    return { creator: "", id: "0", amount: "0" };
 }
 exports.MsgUnstakePool = {
     encode: function (message, writer) {
@@ -331,10 +331,10 @@ exports.MsgUnstakePool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(24).uint64(message.amount);
         }
         return writer;
@@ -350,10 +350,10 @@ exports.MsgUnstakePool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -365,23 +365,23 @@ exports.MsgUnstakePool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            id: isSet(object.id) ? String(object.id) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.id !== undefined && (obj.id = message.id);
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseMsgUnstakePool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
-        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
+        message.amount = (_c = object.amount) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
@@ -420,7 +420,7 @@ exports.MsgUnstakePoolResponse = {
     }
 };
 function createBaseMsgDelegatePool() {
-    return { creator: "", id: 0, staker: "", amount: 0 };
+    return { creator: "", id: "0", staker: "", amount: "0" };
 }
 exports.MsgDelegatePool = {
     encode: function (message, writer) {
@@ -428,13 +428,13 @@ exports.MsgDelegatePool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         if (message.staker !== "") {
             writer.uint32(26).string(message.staker);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(32).uint64(message.amount);
         }
         return writer;
@@ -450,13 +450,13 @@ exports.MsgDelegatePool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.staker = reader.string();
                     break;
                 case 4:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -468,26 +468,26 @@ exports.MsgDelegatePool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.staker !== undefined && (obj.staker = message.staker);
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d;
         var message = createBaseMsgDelegatePool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.staker = (_c = object.staker) !== null && _c !== void 0 ? _c : "";
-        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : 0;
+        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };
@@ -526,7 +526,7 @@ exports.MsgDelegatePoolResponse = {
     }
 };
 function createBaseMsgWithdrawPool() {
-    return { creator: "", id: 0, staker: "" };
+    return { creator: "", id: "0", staker: "" };
 }
 exports.MsgWithdrawPool = {
     encode: function (message, writer) {
@@ -534,7 +534,7 @@ exports.MsgWithdrawPool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         if (message.staker !== "") {
@@ -553,7 +553,7 @@ exports.MsgWithdrawPool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.staker = reader.string();
@@ -568,14 +568,14 @@ exports.MsgWithdrawPool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
@@ -583,7 +583,7 @@ exports.MsgWithdrawPool = {
         var _a, _b, _c;
         var message = createBaseMsgWithdrawPool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.staker = (_c = object.staker) !== null && _c !== void 0 ? _c : "";
         return message;
     }
@@ -623,7 +623,7 @@ exports.MsgWithdrawPoolResponse = {
     }
 };
 function createBaseMsgUndelegatePool() {
-    return { creator: "", id: 0, staker: "", amount: 0 };
+    return { creator: "", id: "0", staker: "", amount: "0" };
 }
 exports.MsgUndelegatePool = {
     encode: function (message, writer) {
@@ -631,13 +631,13 @@ exports.MsgUndelegatePool = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         if (message.staker !== "") {
             writer.uint32(26).string(message.staker);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(32).uint64(message.amount);
         }
         return writer;
@@ -653,13 +653,13 @@ exports.MsgUndelegatePool = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.staker = reader.string();
                     break;
                 case 4:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -671,26 +671,26 @@ exports.MsgUndelegatePool = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
-            amount: isSet(object.amount) ? Number(object.amount) : 0
+            amount: isSet(object.amount) ? String(object.amount) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.staker !== undefined && (obj.staker = message.staker);
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d;
         var message = createBaseMsgUndelegatePool();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.staker = (_c = object.staker) !== null && _c !== void 0 ? _c : "";
-        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : 0;
+        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };
@@ -731,11 +731,11 @@ exports.MsgUndelegatePoolResponse = {
 function createBaseMsgSubmitBundleProposal() {
     return {
         creator: "",
-        id: 0,
+        id: "0",
         bundleId: "",
-        byteSize: 0,
-        fromHeight: 0,
-        bundleSize: 0
+        byteSize: "0",
+        fromHeight: "0",
+        bundleSize: "0"
     };
 }
 exports.MsgSubmitBundleProposal = {
@@ -744,19 +744,19 @@ exports.MsgSubmitBundleProposal = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         if (message.bundleId !== "") {
             writer.uint32(26).string(message.bundleId);
         }
-        if (message.byteSize !== 0) {
+        if (message.byteSize !== "0") {
             writer.uint32(32).uint64(message.byteSize);
         }
-        if (message.fromHeight !== 0) {
+        if (message.fromHeight !== "0") {
             writer.uint32(40).uint64(message.fromHeight);
         }
-        if (message.bundleSize !== 0) {
+        if (message.bundleSize !== "0") {
             writer.uint32(48).uint64(message.bundleSize);
         }
         return writer;
@@ -772,19 +772,19 @@ exports.MsgSubmitBundleProposal = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.bundleId = reader.string();
                     break;
                 case 4:
-                    message.byteSize = longToNumber(reader.uint64());
+                    message.byteSize = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.fromHeight = longToNumber(reader.uint64());
+                    message.fromHeight = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.bundleSize = longToNumber(reader.uint64());
+                    message.bundleSize = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -796,35 +796,32 @@ exports.MsgSubmitBundleProposal = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-            byteSize: isSet(object.byteSize) ? Number(object.byteSize) : 0,
-            fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0,
-            bundleSize: isSet(object.bundleSize) ? Number(object.bundleSize) : 0
+            byteSize: isSet(object.byteSize) ? String(object.byteSize) : "0",
+            fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
+            bundleSize: isSet(object.bundleSize) ? String(object.bundleSize) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-        message.byteSize !== undefined &&
-            (obj.byteSize = Math.round(message.byteSize));
-        message.fromHeight !== undefined &&
-            (obj.fromHeight = Math.round(message.fromHeight));
-        message.bundleSize !== undefined &&
-            (obj.bundleSize = Math.round(message.bundleSize));
+        message.byteSize !== undefined && (obj.byteSize = message.byteSize);
+        message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
+        message.bundleSize !== undefined && (obj.bundleSize = message.bundleSize);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f;
         var message = createBaseMsgSubmitBundleProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
-        message.byteSize = (_d = object.byteSize) !== null && _d !== void 0 ? _d : 0;
-        message.fromHeight = (_e = object.fromHeight) !== null && _e !== void 0 ? _e : 0;
-        message.bundleSize = (_f = object.bundleSize) !== null && _f !== void 0 ? _f : 0;
+        message.byteSize = (_d = object.byteSize) !== null && _d !== void 0 ? _d : "0";
+        message.fromHeight = (_e = object.fromHeight) !== null && _e !== void 0 ? _e : "0";
+        message.bundleSize = (_f = object.bundleSize) !== null && _f !== void 0 ? _f : "0";
         return message;
     }
 };
@@ -863,7 +860,7 @@ exports.MsgSubmitBundleProposalResponse = {
     }
 };
 function createBaseMsgVoteProposal() {
-    return { creator: "", id: 0, bundleId: "", vote: 0 };
+    return { creator: "", id: "0", bundleId: "", vote: "0" };
 }
 exports.MsgVoteProposal = {
     encode: function (message, writer) {
@@ -871,13 +868,13 @@ exports.MsgVoteProposal = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         if (message.bundleId !== "") {
             writer.uint32(26).string(message.bundleId);
         }
-        if (message.vote !== 0) {
+        if (message.vote !== "0") {
             writer.uint32(32).uint64(message.vote);
         }
         return writer;
@@ -893,13 +890,13 @@ exports.MsgVoteProposal = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.bundleId = reader.string();
                     break;
                 case 4:
-                    message.vote = longToNumber(reader.uint64());
+                    message.vote = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -911,26 +908,26 @@ exports.MsgVoteProposal = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-            vote: isSet(object.vote) ? Number(object.vote) : 0
+            vote: isSet(object.vote) ? String(object.vote) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-        message.vote !== undefined && (obj.vote = Math.round(message.vote));
+        message.vote !== undefined && (obj.vote = message.vote);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d;
         var message = createBaseMsgVoteProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
-        message.vote = (_d = object.vote) !== null && _d !== void 0 ? _d : 0;
+        message.vote = (_d = object.vote) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };
@@ -969,7 +966,7 @@ exports.MsgVoteProposalResponse = {
     }
 };
 function createBaseMsgClaimUploaderRole() {
-    return { creator: "", id: 0 };
+    return { creator: "", id: "0" };
 }
 exports.MsgClaimUploaderRole = {
     encode: function (message, writer) {
@@ -977,7 +974,7 @@ exports.MsgClaimUploaderRole = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         return writer;
@@ -993,7 +990,7 @@ exports.MsgClaimUploaderRole = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1005,20 +1002,20 @@ exports.MsgClaimUploaderRole = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0
+            id: isSet(object.id) ? String(object.id) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseMsgClaimUploaderRole();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         return message;
     }
 };
@@ -1059,7 +1056,7 @@ exports.MsgClaimUploaderRoleResponse = {
 function createBaseMsgUpdateMetadata() {
     return {
         creator: "",
-        id: 0,
+        id: "0",
         commission: "",
         moniker: "",
         website: "",
@@ -1072,7 +1069,7 @@ exports.MsgUpdateMetadata = {
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
         if (message.commission !== "") {
@@ -1100,7 +1097,7 @@ exports.MsgUpdateMetadata = {
                     message.creator = reader.string();
                     break;
                 case 2:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.commission = reader.string();
@@ -1124,7 +1121,7 @@ exports.MsgUpdateMetadata = {
     fromJSON: function (object) {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
-            id: isSet(object.id) ? Number(object.id) : 0,
+            id: isSet(object.id) ? String(object.id) : "0",
             commission: isSet(object.commission) ? String(object.commission) : "",
             moniker: isSet(object.moniker) ? String(object.moniker) : "",
             website: isSet(object.website) ? String(object.website) : "",
@@ -1134,7 +1131,7 @@ exports.MsgUpdateMetadata = {
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         message.commission !== undefined && (obj.commission = message.commission);
         message.moniker !== undefined && (obj.moniker = message.moniker);
         message.website !== undefined && (obj.website = message.website);
@@ -1145,7 +1142,7 @@ exports.MsgUpdateMetadata = {
         var _a, _b, _c, _d, _e, _f;
         var message = createBaseMsgUpdateMetadata();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
-        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : 0;
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.commission = (_c = object.commission) !== null && _c !== void 0 ? _c : "";
         message.moniker = (_d = object.moniker) !== null && _d !== void 0 ? _d : "";
         message.website = (_e = object.website) !== null && _e !== void 0 ? _e : "";
@@ -1282,22 +1279,8 @@ var MsgClientImpl = /** @class */ (function () {
     return MsgClientImpl;
 }());
 exports.MsgClientImpl = MsgClientImpl;
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

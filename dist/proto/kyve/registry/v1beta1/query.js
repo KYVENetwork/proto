@@ -117,12 +117,12 @@ exports.QueryParamsResponse = {
     }
 };
 function createBaseQueryPoolRequest() {
-    return { id: 0 };
+    return { id: "0" };
 }
 exports.QueryPoolRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.id !== 0) {
+        if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
         return writer;
@@ -135,7 +135,7 @@ exports.QueryPoolRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.id = longToNumber(reader.uint64());
+                    message.id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -146,18 +146,18 @@ exports.QueryPoolRequest = {
     },
     fromJSON: function (object) {
         return {
-            id: isSet(object.id) ? Number(object.id) : 0
+            id: isSet(object.id) ? String(object.id) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.id !== undefined && (obj.id = Math.round(message.id));
+        message.id !== undefined && (obj.id = message.id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryPoolRequest();
-        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : 0;
+        message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -360,12 +360,12 @@ exports.QueryPoolsResponse = {
     }
 };
 function createBaseQueryFundersListRequest() {
-    return { poolId: 0 };
+    return { poolId: "0" };
 }
 exports.QueryFundersListRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         return writer;
@@ -378,7 +378,7 @@ exports.QueryFundersListRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -389,18 +389,18 @@ exports.QueryFundersListRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryFundersListRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -460,12 +460,12 @@ exports.QueryFundersListResponse = {
     }
 };
 function createBaseQueryFunderRequest() {
-    return { poolId: 0, funder: "" };
+    return { poolId: "0", funder: "" };
 }
 exports.QueryFunderRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         if (message.funder !== "") {
@@ -481,7 +481,7 @@ exports.QueryFunderRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
                     message.funder = reader.string();
@@ -495,20 +495,20 @@ exports.QueryFunderRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             funder: isSet(object.funder) ? String(object.funder) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.funder !== undefined && (obj.funder = message.funder);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryFunderRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.funder = (_b = object.funder) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -562,12 +562,12 @@ exports.QueryFunderResponse = {
     }
 };
 function createBaseQueryStakersListRequest() {
-    return { poolId: 0 };
+    return { poolId: "0" };
 }
 exports.QueryStakersListRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         return writer;
@@ -580,7 +580,7 @@ exports.QueryStakersListRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -591,18 +591,18 @@ exports.QueryStakersListRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryStakersListRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -663,12 +663,12 @@ exports.QueryStakersListResponse = {
     }
 };
 function createBaseQueryStakerRequest() {
-    return { poolId: 0, staker: "" };
+    return { poolId: "0", staker: "" };
 }
 exports.QueryStakerRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         if (message.staker !== "") {
@@ -684,7 +684,7 @@ exports.QueryStakerRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
@@ -698,20 +698,20 @@ exports.QueryStakerRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryStakerRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -771,15 +771,15 @@ exports.QueryStakerResponse = {
 function createBaseStakerResponse() {
     return {
         staker: "",
-        poolId: 0,
+        poolId: "0",
         account: "",
-        amount: 0,
-        totalDelegation: 0,
+        amount: "0",
+        totalDelegation: "0",
         commission: "",
         moniker: "",
         website: "",
         logo: "",
-        points: 0
+        points: "0"
     };
 }
 exports.StakerResponse = {
@@ -788,16 +788,16 @@ exports.StakerResponse = {
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         if (message.account !== "") {
             writer.uint32(26).string(message.account);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(32).uint64(message.amount);
         }
-        if (message.totalDelegation !== 0) {
+        if (message.totalDelegation !== "0") {
             writer.uint32(40).uint64(message.totalDelegation);
         }
         if (message.commission !== "") {
@@ -812,7 +812,7 @@ exports.StakerResponse = {
         if (message.logo !== "") {
             writer.uint32(74).string(message.logo);
         }
-        if (message.points !== 0) {
+        if (message.points !== "0") {
             writer.uint32(80).uint64(message.points);
         }
         return writer;
@@ -828,16 +828,16 @@ exports.StakerResponse = {
                     message.staker = reader.string();
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
                     message.account = reader.string();
                     break;
                 case 4:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.totalDelegation = longToNumber(reader.uint64());
+                    message.totalDelegation = longToString(reader.uint64());
                     break;
                 case 6:
                     message.commission = reader.string();
@@ -852,7 +852,7 @@ exports.StakerResponse = {
                     message.logo = reader.string();
                     break;
                 case 10:
-                    message.points = longToNumber(reader.uint64());
+                    message.points = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -864,47 +864,47 @@ exports.StakerResponse = {
     fromJSON: function (object) {
         return {
             staker: isSet(object.staker) ? String(object.staker) : "",
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             account: isSet(object.account) ? String(object.account) : "",
-            amount: isSet(object.amount) ? Number(object.amount) : 0,
+            amount: isSet(object.amount) ? String(object.amount) : "0",
             totalDelegation: isSet(object.totalDelegation)
-                ? Number(object.totalDelegation)
-                : 0,
+                ? String(object.totalDelegation)
+                : "0",
             commission: isSet(object.commission) ? String(object.commission) : "",
             moniker: isSet(object.moniker) ? String(object.moniker) : "",
             website: isSet(object.website) ? String(object.website) : "",
             logo: isSet(object.logo) ? String(object.logo) : "",
-            points: isSet(object.points) ? Number(object.points) : 0
+            points: isSet(object.points) ? String(object.points) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.staker !== undefined && (obj.staker = message.staker);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.account !== undefined && (obj.account = message.account);
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.amount !== undefined && (obj.amount = message.amount);
         message.totalDelegation !== undefined &&
-            (obj.totalDelegation = Math.round(message.totalDelegation));
+            (obj.totalDelegation = message.totalDelegation);
         message.commission !== undefined && (obj.commission = message.commission);
         message.moniker !== undefined && (obj.moniker = message.moniker);
         message.website !== undefined && (obj.website = message.website);
         message.logo !== undefined && (obj.logo = message.logo);
-        message.points !== undefined && (obj.points = Math.round(message.points));
+        message.points !== undefined && (obj.points = message.points);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         var message = createBaseStakerResponse();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : 0;
+        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
         message.account = (_c = object.account) !== null && _c !== void 0 ? _c : "";
-        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : 0;
-        message.totalDelegation = (_e = object.totalDelegation) !== null && _e !== void 0 ? _e : 0;
+        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
+        message.totalDelegation = (_e = object.totalDelegation) !== null && _e !== void 0 ? _e : "0";
         message.commission = (_f = object.commission) !== null && _f !== void 0 ? _f : "";
         message.moniker = (_g = object.moniker) !== null && _g !== void 0 ? _g : "";
         message.website = (_h = object.website) !== null && _h !== void 0 ? _h : "";
         message.logo = (_j = object.logo) !== null && _j !== void 0 ? _j : "";
-        message.points = (_k = object.points) !== null && _k !== void 0 ? _k : 0;
+        message.points = (_k = object.points) !== null && _k !== void 0 ? _k : "0";
         return message;
     }
 };
@@ -1006,7 +1006,7 @@ exports.QueryProposalResponse = {
     }
 };
 function createBaseQueryProposalsRequest() {
-    return { pagination: undefined, poolId: 0 };
+    return { pagination: undefined, poolId: "0" };
 }
 exports.QueryProposalsRequest = {
     encode: function (message, writer) {
@@ -1014,7 +1014,7 @@ exports.QueryProposalsRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         return writer;
@@ -1030,7 +1030,7 @@ exports.QueryProposalsRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1044,7 +1044,7 @@ exports.QueryProposalsRequest = {
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined,
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0"
         };
     },
     toJSON: function (message) {
@@ -1053,7 +1053,7 @@ exports.QueryProposalsRequest = {
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
                 : undefined);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         return obj;
     },
     fromPartial: function (object) {
@@ -1063,7 +1063,7 @@ exports.QueryProposalsRequest = {
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
                 : undefined;
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -1141,15 +1141,15 @@ exports.QueryProposalsResponse = {
     }
 };
 function createBaseQueryProposalByHeightRequest() {
-    return { poolId: 0, height: 0 };
+    return { poolId: "0", height: "0" };
 }
 exports.QueryProposalByHeightRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
-        if (message.height !== 0) {
+        if (message.height !== "0") {
             writer.uint32(16).uint64(message.height);
         }
         return writer;
@@ -1162,10 +1162,10 @@ exports.QueryProposalByHeightRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.height = longToNumber(reader.uint64());
+                    message.height = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1176,21 +1176,21 @@ exports.QueryProposalByHeightRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
-            height: isSet(object.height) ? Number(object.height) : 0
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            height: isSet(object.height) ? String(object.height) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
-        message.height !== undefined && (obj.height = Math.round(message.height));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.height !== undefined && (obj.height = message.height);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryProposalByHeightRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
-        message.height = (_b = object.height) !== null && _b !== void 0 ? _b : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.height = (_b = object.height) !== null && _b !== void 0 ? _b : "0";
         return message;
     }
 };
@@ -1247,18 +1247,18 @@ exports.QueryProposalByHeightResponse = {
     }
 };
 function createBaseQueryCanProposeRequest() {
-    return { poolId: 0, proposer: "", fromHeight: 0 };
+    return { poolId: "0", proposer: "", fromHeight: "0" };
 }
 exports.QueryCanProposeRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         if (message.proposer !== "") {
             writer.uint32(18).string(message.proposer);
         }
-        if (message.fromHeight !== 0) {
+        if (message.fromHeight !== "0") {
             writer.uint32(24).uint64(message.fromHeight);
         }
         return writer;
@@ -1271,13 +1271,13 @@ exports.QueryCanProposeRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
                     message.proposer = reader.string();
                     break;
                 case 3:
-                    message.fromHeight = longToNumber(reader.uint64());
+                    message.fromHeight = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1288,25 +1288,24 @@ exports.QueryCanProposeRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             proposer: isSet(object.proposer) ? String(object.proposer) : "",
-            fromHeight: isSet(object.fromHeight) ? Number(object.fromHeight) : 0
+            fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.proposer !== undefined && (obj.proposer = message.proposer);
-        message.fromHeight !== undefined &&
-            (obj.fromHeight = Math.round(message.fromHeight));
+        message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryCanProposeRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.proposer = (_b = object.proposer) !== null && _b !== void 0 ? _b : "";
-        message.fromHeight = (_c = object.fromHeight) !== null && _c !== void 0 ? _c : 0;
+        message.fromHeight = (_c = object.fromHeight) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
@@ -1365,12 +1364,12 @@ exports.QueryCanProposeResponse = {
     }
 };
 function createBaseQueryCanVoteRequest() {
-    return { poolId: 0, voter: "", bundleId: "" };
+    return { poolId: "0", voter: "", bundleId: "" };
 }
 exports.QueryCanVoteRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         if (message.voter !== "") {
@@ -1389,7 +1388,7 @@ exports.QueryCanVoteRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
                     message.voter = reader.string();
@@ -1406,14 +1405,14 @@ exports.QueryCanVoteRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             voter: isSet(object.voter) ? String(object.voter) : "",
             bundleId: isSet(object.bundleId) ? String(object.bundleId) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.voter !== undefined && (obj.voter = message.voter);
         message.bundleId !== undefined && (obj.bundleId = message.bundleId);
         return obj;
@@ -1421,7 +1420,7 @@ exports.QueryCanVoteRequest = {
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryCanVoteRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.voter = (_b = object.voter) !== null && _b !== void 0 ? _b : "";
         message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
         return message;
@@ -1482,12 +1481,12 @@ exports.QueryCanVoteResponse = {
     }
 };
 function createBaseQueryStakeInfoRequest() {
-    return { poolId: 0, staker: "" };
+    return { poolId: "0", staker: "" };
 }
 exports.QueryStakeInfoRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         if (message.staker !== "") {
@@ -1503,7 +1502,7 @@ exports.QueryStakeInfoRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
@@ -1517,20 +1516,20 @@ exports.QueryStakeInfoRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryStakeInfoRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -1651,29 +1650,29 @@ exports.QueryAccountAssetsRequest = {
 };
 function createBaseQueryAccountAssetsResponse() {
     return {
-        balance: 0,
-        protocolStaking: 0,
-        protocolDelegation: 0,
-        protocolRewards: 0,
-        protocolFunding: 0
+        balance: "0",
+        protocolStaking: "0",
+        protocolDelegation: "0",
+        protocolRewards: "0",
+        protocolFunding: "0"
     };
 }
 exports.QueryAccountAssetsResponse = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.balance !== 0) {
+        if (message.balance !== "0") {
             writer.uint32(8).uint64(message.balance);
         }
-        if (message.protocolStaking !== 0) {
+        if (message.protocolStaking !== "0") {
             writer.uint32(16).uint64(message.protocolStaking);
         }
-        if (message.protocolDelegation !== 0) {
+        if (message.protocolDelegation !== "0") {
             writer.uint32(24).uint64(message.protocolDelegation);
         }
-        if (message.protocolRewards !== 0) {
+        if (message.protocolRewards !== "0") {
             writer.uint32(48).uint64(message.protocolRewards);
         }
-        if (message.protocolFunding !== 0) {
+        if (message.protocolFunding !== "0") {
             writer.uint32(56).uint64(message.protocolFunding);
         }
         return writer;
@@ -1686,19 +1685,19 @@ exports.QueryAccountAssetsResponse = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.balance = longToNumber(reader.uint64());
+                    message.balance = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.protocolStaking = longToNumber(reader.uint64());
+                    message.protocolStaking = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.protocolDelegation = longToNumber(reader.uint64());
+                    message.protocolDelegation = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.protocolRewards = longToNumber(reader.uint64());
+                    message.protocolRewards = longToString(reader.uint64());
                     break;
                 case 7:
-                    message.protocolFunding = longToNumber(reader.uint64());
+                    message.protocolFunding = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1709,43 +1708,42 @@ exports.QueryAccountAssetsResponse = {
     },
     fromJSON: function (object) {
         return {
-            balance: isSet(object.balance) ? Number(object.balance) : 0,
+            balance: isSet(object.balance) ? String(object.balance) : "0",
             protocolStaking: isSet(object.protocolStaking)
-                ? Number(object.protocolStaking)
-                : 0,
+                ? String(object.protocolStaking)
+                : "0",
             protocolDelegation: isSet(object.protocolDelegation)
-                ? Number(object.protocolDelegation)
-                : 0,
+                ? String(object.protocolDelegation)
+                : "0",
             protocolRewards: isSet(object.protocolRewards)
-                ? Number(object.protocolRewards)
-                : 0,
+                ? String(object.protocolRewards)
+                : "0",
             protocolFunding: isSet(object.protocolFunding)
-                ? Number(object.protocolFunding)
-                : 0
+                ? String(object.protocolFunding)
+                : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.balance !== undefined &&
-            (obj.balance = Math.round(message.balance));
+        message.balance !== undefined && (obj.balance = message.balance);
         message.protocolStaking !== undefined &&
-            (obj.protocolStaking = Math.round(message.protocolStaking));
+            (obj.protocolStaking = message.protocolStaking);
         message.protocolDelegation !== undefined &&
-            (obj.protocolDelegation = Math.round(message.protocolDelegation));
+            (obj.protocolDelegation = message.protocolDelegation);
         message.protocolRewards !== undefined &&
-            (obj.protocolRewards = Math.round(message.protocolRewards));
+            (obj.protocolRewards = message.protocolRewards);
         message.protocolFunding !== undefined &&
-            (obj.protocolFunding = Math.round(message.protocolFunding));
+            (obj.protocolFunding = message.protocolFunding);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e;
         var message = createBaseQueryAccountAssetsResponse();
-        message.balance = (_a = object.balance) !== null && _a !== void 0 ? _a : 0;
-        message.protocolStaking = (_b = object.protocolStaking) !== null && _b !== void 0 ? _b : 0;
-        message.protocolDelegation = (_c = object.protocolDelegation) !== null && _c !== void 0 ? _c : 0;
-        message.protocolRewards = (_d = object.protocolRewards) !== null && _d !== void 0 ? _d : 0;
-        message.protocolFunding = (_e = object.protocolFunding) !== null && _e !== void 0 ? _e : 0;
+        message.balance = (_a = object.balance) !== null && _a !== void 0 ? _a : "0";
+        message.protocolStaking = (_b = object.protocolStaking) !== null && _b !== void 0 ? _b : "0";
+        message.protocolDelegation = (_c = object.protocolDelegation) !== null && _c !== void 0 ? _c : "0";
+        message.protocolRewards = (_d = object.protocolRewards) !== null && _d !== void 0 ? _d : "0";
+        message.protocolFunding = (_e = object.protocolFunding) !== null && _e !== void 0 ? _e : "0";
         return message;
     }
 };
@@ -1884,7 +1882,7 @@ exports.QueryAccountFundedListResponse = {
     }
 };
 function createBaseFunded() {
-    return { account: "", amount: 0, pool: undefined };
+    return { account: "", amount: "0", pool: undefined };
 }
 exports.Funded = {
     encode: function (message, writer) {
@@ -1892,7 +1890,7 @@ exports.Funded = {
         if (message.account !== "") {
             writer.uint32(10).string(message.account);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(16).uint64(message.amount);
         }
         if (message.pool !== undefined) {
@@ -1911,7 +1909,7 @@ exports.Funded = {
                     message.account = reader.string();
                     break;
                 case 2:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 case 3:
                     message.pool = registry_1.Pool.decode(reader, reader.uint32());
@@ -1926,14 +1924,14 @@ exports.Funded = {
     fromJSON: function (object) {
         return {
             account: isSet(object.account) ? String(object.account) : "",
-            amount: isSet(object.amount) ? Number(object.amount) : 0,
+            amount: isSet(object.amount) ? String(object.amount) : "0",
             pool: isSet(object.pool) ? registry_1.Pool.fromJSON(object.pool) : undefined
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.account !== undefined && (obj.account = message.account);
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.amount !== undefined && (obj.amount = message.amount);
         message.pool !== undefined &&
             (obj.pool = message.pool ? registry_1.Pool.toJSON(message.pool) : undefined);
         return obj;
@@ -1942,7 +1940,7 @@ exports.Funded = {
         var _a, _b;
         var message = createBaseFunded();
         message.account = (_a = object.account) !== null && _a !== void 0 ? _a : "";
-        message.amount = (_b = object.amount) !== null && _b !== void 0 ? _b : 0;
+        message.amount = (_b = object.amount) !== null && _b !== void 0 ? _b : "0";
         message.pool =
             object.pool !== undefined && object.pool !== null
                 ? registry_1.Pool.fromPartial(object.pool)
@@ -2085,7 +2083,7 @@ exports.QueryAccountStakedListResponse = {
     }
 };
 function createBaseStaked() {
-    return { staker: "", poolId: 0, account: "", amount: 0, pool: undefined };
+    return { staker: "", poolId: "0", account: "", amount: "0", pool: undefined };
 }
 exports.Staked = {
     encode: function (message, writer) {
@@ -2093,13 +2091,13 @@ exports.Staked = {
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         if (message.account !== "") {
             writer.uint32(26).string(message.account);
         }
-        if (message.amount !== 0) {
+        if (message.amount !== "0") {
             writer.uint32(32).uint64(message.amount);
         }
         if (message.pool !== undefined) {
@@ -2118,13 +2116,13 @@ exports.Staked = {
                     message.staker = reader.string();
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
                     message.account = reader.string();
                     break;
                 case 4:
-                    message.amount = longToNumber(reader.uint64());
+                    message.amount = longToString(reader.uint64());
                     break;
                 case 6:
                     message.pool = registry_1.Pool.decode(reader, reader.uint32());
@@ -2139,18 +2137,18 @@ exports.Staked = {
     fromJSON: function (object) {
         return {
             staker: isSet(object.staker) ? String(object.staker) : "",
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             account: isSet(object.account) ? String(object.account) : "",
-            amount: isSet(object.amount) ? Number(object.amount) : 0,
+            amount: isSet(object.amount) ? String(object.amount) : "0",
             pool: isSet(object.pool) ? registry_1.Pool.fromJSON(object.pool) : undefined
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.staker !== undefined && (obj.staker = message.staker);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.account !== undefined && (obj.account = message.account);
-        message.amount !== undefined && (obj.amount = Math.round(message.amount));
+        message.amount !== undefined && (obj.amount = message.amount);
         message.pool !== undefined &&
             (obj.pool = message.pool ? registry_1.Pool.toJSON(message.pool) : undefined);
         return obj;
@@ -2159,9 +2157,9 @@ exports.Staked = {
         var _a, _b, _c, _d;
         var message = createBaseStaked();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : 0;
+        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
         message.account = (_c = object.account) !== null && _c !== void 0 ? _c : "";
-        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : 0;
+        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
         message.pool =
             object.pool !== undefined && object.pool !== null
                 ? registry_1.Pool.fromPartial(object.pool)
@@ -2305,12 +2303,12 @@ exports.QueryAccountDelegationListResponse = {
     }
 };
 function createBaseQueryDelegatorRequest() {
-    return { poolId: 0, staker: "", delegator: "" };
+    return { poolId: "0", staker: "", delegator: "" };
 }
 exports.QueryDelegatorRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(8).uint64(message.poolId);
         }
         if (message.staker !== "") {
@@ -2329,7 +2327,7 @@ exports.QueryDelegatorRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
@@ -2346,14 +2344,14 @@ exports.QueryDelegatorRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
             delegator: isSet(object.delegator) ? String(object.delegator) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.staker !== undefined && (obj.staker = message.staker);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         return obj;
@@ -2361,7 +2359,7 @@ exports.QueryDelegatorRequest = {
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryDelegatorRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         message.delegator = (_c = object.delegator) !== null && _c !== void 0 ? _c : "";
         return message;
@@ -2423,8 +2421,8 @@ function createBaseDelegatorResponse() {
     return {
         account: "",
         pool: undefined,
-        currentReward: 0,
-        delegationAmount: 0,
+        currentReward: "0",
+        delegationAmount: "0",
         staker: "",
         delegationPoolData: undefined
     };
@@ -2438,10 +2436,10 @@ exports.DelegatorResponse = {
         if (message.pool !== undefined) {
             registry_1.Pool.encode(message.pool, writer.uint32(18).fork()).ldelim();
         }
-        if (message.currentReward !== 0) {
+        if (message.currentReward !== "0") {
             writer.uint32(24).uint64(message.currentReward);
         }
-        if (message.delegationAmount !== 0) {
+        if (message.delegationAmount !== "0") {
             writer.uint32(32).uint64(message.delegationAmount);
         }
         if (message.staker !== "") {
@@ -2466,10 +2464,10 @@ exports.DelegatorResponse = {
                     message.pool = registry_1.Pool.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.currentReward = longToNumber(reader.uint64());
+                    message.currentReward = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.delegationAmount = longToNumber(reader.uint64());
+                    message.delegationAmount = longToString(reader.uint64());
                     break;
                 case 5:
                     message.staker = reader.string();
@@ -2489,11 +2487,11 @@ exports.DelegatorResponse = {
             account: isSet(object.account) ? String(object.account) : "",
             pool: isSet(object.pool) ? registry_1.Pool.fromJSON(object.pool) : undefined,
             currentReward: isSet(object.currentReward)
-                ? Number(object.currentReward)
-                : 0,
+                ? String(object.currentReward)
+                : "0",
             delegationAmount: isSet(object.delegationAmount)
-                ? Number(object.delegationAmount)
-                : 0,
+                ? String(object.delegationAmount)
+                : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
             delegationPoolData: isSet(object.delegationPoolData)
                 ? registry_1.DelegationPoolData.fromJSON(object.delegationPoolData)
@@ -2506,9 +2504,9 @@ exports.DelegatorResponse = {
         message.pool !== undefined &&
             (obj.pool = message.pool ? registry_1.Pool.toJSON(message.pool) : undefined);
         message.currentReward !== undefined &&
-            (obj.currentReward = Math.round(message.currentReward));
+            (obj.currentReward = message.currentReward);
         message.delegationAmount !== undefined &&
-            (obj.delegationAmount = Math.round(message.delegationAmount));
+            (obj.delegationAmount = message.delegationAmount);
         message.staker !== undefined && (obj.staker = message.staker);
         message.delegationPoolData !== undefined &&
             (obj.delegationPoolData = message.delegationPoolData
@@ -2524,8 +2522,8 @@ exports.DelegatorResponse = {
             object.pool !== undefined && object.pool !== null
                 ? registry_1.Pool.fromPartial(object.pool)
                 : undefined;
-        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : 0;
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : 0;
+        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : "0";
+        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
         message.staker = (_d = object.staker) !== null && _d !== void 0 ? _d : "";
         message.delegationPoolData =
             object.delegationPoolData !== undefined &&
@@ -2536,7 +2534,7 @@ exports.DelegatorResponse = {
     }
 };
 function createBaseQueryDelegatorsByPoolAndStakerRequest() {
-    return { pagination: undefined, poolId: 0, staker: "" };
+    return { pagination: undefined, poolId: "0", staker: "" };
 }
 exports.QueryDelegatorsByPoolAndStakerRequest = {
     encode: function (message, writer) {
@@ -2544,7 +2542,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         if (message.staker !== "") {
@@ -2563,7 +2561,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
                     message.staker = reader.string();
@@ -2580,7 +2578,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined,
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
@@ -2590,7 +2588,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
                 : undefined);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
@@ -2601,7 +2599,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
                 : undefined;
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -2717,7 +2715,12 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
     }
 };
 function createBaseStakerDelegatorResponse() {
-    return { delegator: "", currentReward: 0, delegationAmount: 0, staker: "" };
+    return {
+        delegator: "",
+        currentReward: "0",
+        delegationAmount: "0",
+        staker: ""
+    };
 }
 exports.StakerDelegatorResponse = {
     encode: function (message, writer) {
@@ -2725,10 +2728,10 @@ exports.StakerDelegatorResponse = {
         if (message.delegator !== "") {
             writer.uint32(10).string(message.delegator);
         }
-        if (message.currentReward !== 0) {
+        if (message.currentReward !== "0") {
             writer.uint32(16).uint64(message.currentReward);
         }
-        if (message.delegationAmount !== 0) {
+        if (message.delegationAmount !== "0") {
             writer.uint32(24).uint64(message.delegationAmount);
         }
         if (message.staker !== "") {
@@ -2747,10 +2750,10 @@ exports.StakerDelegatorResponse = {
                     message.delegator = reader.string();
                     break;
                 case 2:
-                    message.currentReward = longToNumber(reader.uint64());
+                    message.currentReward = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.delegationAmount = longToNumber(reader.uint64());
+                    message.delegationAmount = longToString(reader.uint64());
                     break;
                 case 4:
                     message.staker = reader.string();
@@ -2766,11 +2769,11 @@ exports.StakerDelegatorResponse = {
         return {
             delegator: isSet(object.delegator) ? String(object.delegator) : "",
             currentReward: isSet(object.currentReward)
-                ? Number(object.currentReward)
-                : 0,
+                ? String(object.currentReward)
+                : "0",
             delegationAmount: isSet(object.delegationAmount)
-                ? Number(object.delegationAmount)
-                : 0,
+                ? String(object.delegationAmount)
+                : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
@@ -2778,9 +2781,9 @@ exports.StakerDelegatorResponse = {
         var obj = {};
         message.delegator !== undefined && (obj.delegator = message.delegator);
         message.currentReward !== undefined &&
-            (obj.currentReward = Math.round(message.currentReward));
+            (obj.currentReward = message.currentReward);
         message.delegationAmount !== undefined &&
-            (obj.delegationAmount = Math.round(message.delegationAmount));
+            (obj.delegationAmount = message.delegationAmount);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
@@ -2788,14 +2791,14 @@ exports.StakerDelegatorResponse = {
         var _a, _b, _c, _d;
         var message = createBaseStakerDelegatorResponse();
         message.delegator = (_a = object.delegator) !== null && _a !== void 0 ? _a : "";
-        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : 0;
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : 0;
+        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : "0";
+        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
         message.staker = (_d = object.staker) !== null && _d !== void 0 ? _d : "";
         return message;
     }
 };
 function createBaseQueryStakersByPoolAndDelegatorRequest() {
-    return { pagination: undefined, poolId: 0, delegator: "" };
+    return { pagination: undefined, poolId: "0", delegator: "" };
 }
 exports.QueryStakersByPoolAndDelegatorRequest = {
     encode: function (message, writer) {
@@ -2803,7 +2806,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.poolId !== 0) {
+        if (message.poolId !== "0") {
             writer.uint32(16).uint64(message.poolId);
         }
         if (message.delegator !== "") {
@@ -2822,7 +2825,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.poolId = longToNumber(reader.uint64());
+                    message.poolId = longToString(reader.uint64());
                     break;
                 case 3:
                     message.delegator = reader.string();
@@ -2839,7 +2842,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined,
-            poolId: isSet(object.poolId) ? Number(object.poolId) : 0,
+            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
             delegator: isSet(object.delegator) ? String(object.delegator) : ""
         };
     },
@@ -2849,7 +2852,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
                 : undefined);
-        message.poolId !== undefined && (obj.poolId = Math.round(message.poolId));
+        message.poolId !== undefined && (obj.poolId = message.poolId);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         return obj;
     },
@@ -2860,7 +2863,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
                 : undefined;
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : 0;
+        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
         message.delegator = (_b = object.delegator) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -2966,10 +2969,10 @@ exports.QueryStakersByPoolAndDelegatorResponse = {
 function createBaseDelegationForStakerResponse() {
     return {
         staker: "",
-        currentReward: 0,
-        delegationAmount: 0,
-        totalDelegationAmount: 0,
-        delegatorCount: 0
+        currentReward: "0",
+        delegationAmount: "0",
+        totalDelegationAmount: "0",
+        delegatorCount: "0"
     };
 }
 exports.DelegationForStakerResponse = {
@@ -2978,16 +2981,16 @@ exports.DelegationForStakerResponse = {
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
-        if (message.currentReward !== 0) {
+        if (message.currentReward !== "0") {
             writer.uint32(16).uint64(message.currentReward);
         }
-        if (message.delegationAmount !== 0) {
+        if (message.delegationAmount !== "0") {
             writer.uint32(24).uint64(message.delegationAmount);
         }
-        if (message.totalDelegationAmount !== 0) {
+        if (message.totalDelegationAmount !== "0") {
             writer.uint32(32).uint64(message.totalDelegationAmount);
         }
-        if (message.delegatorCount !== 0) {
+        if (message.delegatorCount !== "0") {
             writer.uint32(40).uint64(message.delegatorCount);
         }
         return writer;
@@ -3003,16 +3006,16 @@ exports.DelegationForStakerResponse = {
                     message.staker = reader.string();
                     break;
                 case 2:
-                    message.currentReward = longToNumber(reader.uint64());
+                    message.currentReward = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.delegationAmount = longToNumber(reader.uint64());
+                    message.delegationAmount = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.totalDelegationAmount = longToNumber(reader.uint64());
+                    message.totalDelegationAmount = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.delegatorCount = longToNumber(reader.uint64());
+                    message.delegatorCount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3025,40 +3028,40 @@ exports.DelegationForStakerResponse = {
         return {
             staker: isSet(object.staker) ? String(object.staker) : "",
             currentReward: isSet(object.currentReward)
-                ? Number(object.currentReward)
-                : 0,
+                ? String(object.currentReward)
+                : "0",
             delegationAmount: isSet(object.delegationAmount)
-                ? Number(object.delegationAmount)
-                : 0,
+                ? String(object.delegationAmount)
+                : "0",
             totalDelegationAmount: isSet(object.totalDelegationAmount)
-                ? Number(object.totalDelegationAmount)
-                : 0,
+                ? String(object.totalDelegationAmount)
+                : "0",
             delegatorCount: isSet(object.delegatorCount)
-                ? Number(object.delegatorCount)
-                : 0
+                ? String(object.delegatorCount)
+                : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.staker !== undefined && (obj.staker = message.staker);
         message.currentReward !== undefined &&
-            (obj.currentReward = Math.round(message.currentReward));
+            (obj.currentReward = message.currentReward);
         message.delegationAmount !== undefined &&
-            (obj.delegationAmount = Math.round(message.delegationAmount));
+            (obj.delegationAmount = message.delegationAmount);
         message.totalDelegationAmount !== undefined &&
-            (obj.totalDelegationAmount = Math.round(message.totalDelegationAmount));
+            (obj.totalDelegationAmount = message.totalDelegationAmount);
         message.delegatorCount !== undefined &&
-            (obj.delegatorCount = Math.round(message.delegatorCount));
+            (obj.delegatorCount = message.delegatorCount);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e;
         var message = createBaseDelegationForStakerResponse();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
-        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : 0;
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : 0;
-        message.totalDelegationAmount = (_d = object.totalDelegationAmount) !== null && _d !== void 0 ? _d : 0;
-        message.delegatorCount = (_e = object.delegatorCount) !== null && _e !== void 0 ? _e : 0;
+        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : "0";
+        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
+        message.totalDelegationAmount = (_d = object.totalDelegationAmount) !== null && _d !== void 0 ? _d : "0";
+        message.delegatorCount = (_e = object.delegatorCount) !== null && _e !== void 0 ? _e : "0";
         return message;
     }
 };
@@ -3229,22 +3232,8 @@ var QueryClientImpl = /** @class */ (function () {
     return QueryClientImpl;
 }());
 exports.QueryClientImpl = QueryClientImpl;
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

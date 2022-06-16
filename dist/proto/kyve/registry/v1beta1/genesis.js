@@ -37,7 +37,7 @@ function createBaseGenesisState() {
     return {
         params: undefined,
         poolList: [],
-        poolCount: 0,
+        poolCount: "0",
         funderList: [],
         stakerList: [],
         delegatorList: [],
@@ -58,7 +58,7 @@ exports.GenesisState = {
             var v = _a[_i];
             registry_1.Pool.encode(v, writer.uint32(18).fork()).ldelim();
         }
-        if (message.poolCount !== 0) {
+        if (message.poolCount !== "0") {
             writer.uint32(24).uint64(message.poolCount);
         }
         for (var _b = 0, _c = message.funderList; _b < _c.length; _b++) {
@@ -108,7 +108,7 @@ exports.GenesisState = {
                     message.poolList.push(registry_1.Pool.decode(reader, reader.uint32()));
                     break;
                 case 3:
-                    message.poolCount = longToNumber(reader.uint64());
+                    message.poolCount = longToString(reader.uint64());
                     break;
                 case 4:
                     message.funderList.push(registry_1.Funder.decode(reader, reader.uint32()));
@@ -147,7 +147,7 @@ exports.GenesisState = {
             poolList: Array.isArray(object === null || object === void 0 ? void 0 : object.poolList)
                 ? object.poolList.map(function (e) { return registry_1.Pool.fromJSON(e); })
                 : [],
-            poolCount: isSet(object.poolCount) ? Number(object.poolCount) : 0,
+            poolCount: isSet(object.poolCount) ? String(object.poolCount) : "0",
             funderList: Array.isArray(object === null || object === void 0 ? void 0 : object.funderList)
                 ? object.funderList.map(function (e) { return registry_1.Funder.fromJSON(e); })
                 : [],
@@ -190,8 +190,7 @@ exports.GenesisState = {
         else {
             obj.poolList = [];
         }
-        message.poolCount !== undefined &&
-            (obj.poolCount = Math.round(message.poolCount));
+        message.poolCount !== undefined && (obj.poolCount = message.poolCount);
         if (message.funderList) {
             obj.funderList = message.funderList.map(function (e) {
                 return e ? registry_1.Funder.toJSON(e) : undefined;
@@ -262,7 +261,7 @@ exports.GenesisState = {
                 ? params_1.Params.fromPartial(object.params)
                 : undefined;
         message.poolList = ((_a = object.poolList) === null || _a === void 0 ? void 0 : _a.map(function (e) { return registry_1.Pool.fromPartial(e); })) || [];
-        message.poolCount = (_b = object.poolCount) !== null && _b !== void 0 ? _b : 0;
+        message.poolCount = (_b = object.poolCount) !== null && _b !== void 0 ? _b : "0";
         message.funderList =
             ((_c = object.funderList) === null || _c === void 0 ? void 0 : _c.map(function (e) { return registry_1.Funder.fromPartial(e); })) || [];
         message.stakerList =
@@ -289,22 +288,8 @@ exports.GenesisState = {
         return message;
     }
 };
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

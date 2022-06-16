@@ -3,6 +3,7 @@ import Long from "long";
 import * as _m0 from "protobufjs/minimal";
 import { Params } from "../../../kyve/registry/v1beta1/params";
 import {
+  UnbondingState,
   Pool,
   Funder,
   Staker,
@@ -10,7 +11,6 @@ import {
   DelegationPoolData,
   DelegationEntries,
   Proposal,
-  UnbondingState,
   UnbondingEntries,
 } from "../../../kyve/registry/v1beta1/registry";
 
@@ -19,11 +19,11 @@ export const protobufPackage = "kyve.registry.v1beta1";
 /** GenesisState defines the registry module's genesis state. */
 export interface GenesisState {
   /** params defines all the parameters of the module. */
-  params: Params | undefined;
+  params?: Params;
   /** pool_list ... */
   poolList: Pool[];
   /** pool_count ... */
-  poolCount: number;
+  poolCount: string;
   /** funder_list ... */
   funderList: Funder[];
   /** staker_list ... */
@@ -37,7 +37,7 @@ export interface GenesisState {
   /** proposal_list ... */
   proposalList: Proposal[];
   /** unbonding_state ... */
-  unbondingState: UnbondingState | undefined;
+  unbondingState?: UnbondingState;
   /** unbonding_entries ... */
   unbondingEntries: UnbondingEntries[];
 }
@@ -46,7 +46,7 @@ function createBaseGenesisState(): GenesisState {
   return {
     params: undefined,
     poolList: [],
-    poolCount: 0,
+    poolCount: "0",
     funderList: [],
     stakerList: [],
     delegatorList: [],
@@ -69,7 +69,7 @@ export const GenesisState = {
     for (const v of message.poolList) {
       Pool.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    if (message.poolCount !== 0) {
+    if (message.poolCount !== "0") {
       writer.uint32(24).uint64(message.poolCount);
     }
     for (const v of message.funderList) {
@@ -116,7 +116,7 @@ export const GenesisState = {
           message.poolList.push(Pool.decode(reader, reader.uint32()));
           break;
         case 3:
-          message.poolCount = longToNumber(reader.uint64() as Long);
+          message.poolCount = longToString(reader.uint64() as Long);
           break;
         case 4:
           message.funderList.push(Funder.decode(reader, reader.uint32()));
@@ -165,7 +165,7 @@ export const GenesisState = {
       poolList: Array.isArray(object?.poolList)
         ? object.poolList.map((e: any) => Pool.fromJSON(e))
         : [],
-      poolCount: isSet(object.poolCount) ? Number(object.poolCount) : 0,
+      poolCount: isSet(object.poolCount) ? String(object.poolCount) : "0",
       funderList: Array.isArray(object?.funderList)
         ? object.funderList.map((e: any) => Funder.fromJSON(e))
         : [],
@@ -208,8 +208,7 @@ export const GenesisState = {
     } else {
       obj.poolList = [];
     }
-    message.poolCount !== undefined &&
-      (obj.poolCount = Math.round(message.poolCount));
+    message.poolCount !== undefined && (obj.poolCount = message.poolCount);
     if (message.funderList) {
       obj.funderList = message.funderList.map((e) =>
         e ? Funder.toJSON(e) : undefined
@@ -275,7 +274,7 @@ export const GenesisState = {
         ? Params.fromPartial(object.params)
         : undefined;
     message.poolList = object.poolList?.map((e) => Pool.fromPartial(e)) || [];
-    message.poolCount = object.poolCount ?? 0;
+    message.poolCount = object.poolCount ?? "0";
     message.funderList =
       object.funderList?.map((e) => Funder.fromPartial(e)) || [];
     message.stakerList =
@@ -302,17 +301,6 @@ export const GenesisState = {
     return message;
   },
 };
-
-declare var self: any | undefined;
-declare var window: any | undefined;
-declare var global: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
-  throw "Unable to locate global object";
-})();
 
 type Builtin =
   | Date
@@ -341,11 +329,8 @@ export type Exact<P, I extends P> = P extends Builtin
         never
       >;
 
-function longToNumber(long: Long): number {
-  if (long.gt(Number.MAX_SAFE_INTEGER)) {
-    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-  }
-  return long.toNumber();
+function longToString(long: Long) {
+  return long.toString();
 }
 
 if (_m0.util.Long !== Long) {
