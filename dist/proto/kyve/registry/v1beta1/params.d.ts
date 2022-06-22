@@ -3,19 +3,19 @@ export declare const protobufPackage = "kyve.registry.v1beta1";
 /** Params defines the set of params for the registry module. */
 export interface Params {
     /** vote_slash ... */
-    voteSlash: string;
+    vote_slash: string;
     /** upload_slash ... */
-    uploadSlash: string;
+    upload_slash: string;
     /** timeout_slash ... */
-    timeoutSlash: string;
+    timeout_slash: string;
     /** upload_timeout ... */
-    uploadTimeout: string;
+    upload_timeout: string;
     /** storage_cost ... */
-    storageCost: string;
+    storage_cost: string;
     /** network_fee ... */
-    networkFee: string;
+    network_fee: string;
     /** max_points ... */
-    maxPoints: string;
+    max_points: string;
 }
 export declare const Params: {
     encode(message: Params, writer?: _m0.Writer): _m0.Writer;
@@ -23,21 +23,21 @@ export declare const Params: {
     fromJSON(object: any): Params;
     toJSON(message: Params): unknown;
     fromPartial<I extends {
-        voteSlash?: string | undefined;
-        uploadSlash?: string | undefined;
-        timeoutSlash?: string | undefined;
-        uploadTimeout?: string | undefined;
-        storageCost?: string | undefined;
-        networkFee?: string | undefined;
-        maxPoints?: string | undefined;
+        vote_slash?: string | undefined;
+        upload_slash?: string | undefined;
+        timeout_slash?: string | undefined;
+        upload_timeout?: string | undefined;
+        storage_cost?: string | undefined;
+        network_fee?: string | undefined;
+        max_points?: string | undefined;
     } & {
-        voteSlash?: string | undefined;
-        uploadSlash?: string | undefined;
-        timeoutSlash?: string | undefined;
-        uploadTimeout?: string | undefined;
-        storageCost?: string | undefined;
-        networkFee?: string | undefined;
-        maxPoints?: string | undefined;
+        vote_slash?: string | undefined;
+        upload_slash?: string | undefined;
+        timeout_slash?: string | undefined;
+        upload_timeout?: string | undefined;
+        storage_cost?: string | undefined;
+        network_fee?: string | undefined;
+        max_points?: string | undefined;
     } & Record<Exclude<keyof I, keyof Params>, never>>(object: I): Params;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;

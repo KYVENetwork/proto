@@ -5,23 +5,23 @@ export interface BundleProposal {
     /** uploader ... */
     uploader: string;
     /** next_uploader ... */
-    nextUploader: string;
+    next_uploader: string;
     /** bundle_id ... */
-    bundleId: string;
+    bundle_id: string;
     /** byte_size ... */
-    byteSize: string;
+    byte_size: string;
     /** from_height ... */
-    fromHeight: string;
+    from_height: string;
     /** to_height ... */
-    toHeight: string;
+    to_height: string;
     /** created_at ... */
-    createdAt: string;
+    created_at: string;
     /** voters_valid ... */
-    votersValid: string[];
+    voters_valid: string[];
     /** voters_invalid ... */
-    votersInvalid: string[];
+    voters_invalid: string[];
     /** voters_abstain ... */
-    votersAbstain: string[];
+    voters_abstain: string[];
 }
 /** Protocol ... */
 export interface Protocol {
@@ -30,7 +30,7 @@ export interface Protocol {
     /** binaries ... */
     binaries: string;
     /** last_upgrade ... */
-    lastUpgrade: string;
+    last_upgrade: string;
 }
 /** Upgrade ... */
 export interface UpgradePlan {
@@ -39,7 +39,7 @@ export interface UpgradePlan {
     /** binaries ... */
     binaries: string;
     /** scheduled_at ... */
-    scheduledAt: string;
+    scheduled_at: string;
     /** duration ... */
     duration: string;
 }
@@ -52,7 +52,7 @@ export interface DelegationEntries {
     /** staker ... */
     staker: string;
     /** k_index ... */
-    kIndex: string;
+    k_index: string;
 }
 /** DelegationPoolData ... */
 export interface DelegationPoolData {
@@ -61,24 +61,24 @@ export interface DelegationPoolData {
     /** staker ... */
     staker: string;
     /** current_rewards ... */
-    currentRewards: string;
+    current_rewards: string;
     /** total_delegation ... */
-    totalDelegation: string;
+    total_delegation: string;
     /** latest_index_k ... */
-    latestIndexK: string;
+    latest_index_k: string;
     /** delegator_count ... */
-    delegatorCount: string;
+    delegator_count: string;
     /** latest_index_was_undelegation ... */
-    latestIndexWasUndelegation: boolean;
+    latest_index_was_undelegation: boolean;
 }
 /** Delegator ... */
 export interface Delegator {
     /** id ... */
     id: string;
     /** k_index ... */
-    kIndex: string;
+    k_index: string;
     /** delegation_amount ... */
-    delegationAmount: string;
+    delegation_amount: string;
     /** staker ... */
     staker: string;
     /** delegator ... */
@@ -89,7 +89,7 @@ export interface Funder {
     /** account ... */
     account: string;
     /** fund_id ... */
-    poolId: string;
+    pool_id: string;
     /** amount ... */
     amount: string;
 }
@@ -114,69 +114,69 @@ export interface Pool {
     /** config ... */
     config: string;
     /** height_archived ... */
-    heightArchived: string;
+    height_archived: string;
     /** bytes_archived ... */
-    bytesArchived: string;
+    bytes_archived: string;
     /** total_bundles ... */
-    totalBundles: string;
+    total_bundles: string;
     /** total_bundle_rewards ... */
-    totalBundleRewards: string;
+    total_bundle_rewards: string;
     /** start_height ... */
-    startHeight: string;
+    start_height: string;
     /** upload_interval ... */
-    uploadInterval: string;
+    upload_interval: string;
     /** operating_cost ... */
-    operatingCost: string;
+    operating_cost: string;
     /** paused ... */
     paused: boolean;
     /** funders ... */
     funders: string[];
     /** lowest_funder ... */
-    lowestFunder: string;
+    lowest_funder: string;
     /** total_funds ... */
-    totalFunds: string;
+    total_funds: string;
     /** stakers ... */
     stakers: string[];
     /** lowest_staker ... */
-    lowestStaker: string;
+    lowest_staker: string;
     /** total_stake ... */
-    totalStake: string;
+    total_stake: string;
     /** total_delegation ... */
-    totalDelegation: string;
+    total_delegation: string;
     /** bundle_proposal ... */
-    bundleProposal?: BundleProposal;
+    bundle_proposal?: BundleProposal;
     /** max_bundle_size ... */
-    maxBundleSize: string;
+    max_bundle_size: string;
     /** protocol ... */
     protocol?: Protocol;
     /** upgrade_plan ... */
-    upgradePlan?: UpgradePlan;
+    upgrade_plan?: UpgradePlan;
 }
 /** Proposal ... */
 export interface Proposal {
     /** bundle_id ... */
-    bundleId: string;
+    bundle_id: string;
     /** pool_id ... */
-    poolId: string;
+    pool_id: string;
     /** uploader ... */
     uploader: string;
     /** from_height ... */
-    fromHeight: string;
+    from_height: string;
     /** to_height ... */
-    toHeight: string;
+    to_height: string;
     /** finalized_at ... */
-    finalizedAt: string;
+    finalized_at: string;
 }
 /** Staker ... */
 export interface Staker {
     /** staker ... */
     account: string;
     /** pool_id ... */
-    poolId: string;
+    pool_id: string;
     /** amount ... */
     amount: string;
     /** unbonding_amount ... */
-    unbondingAmount: string;
+    unbonding_amount: string;
     /** commission ... */
     commission: string;
     /** moniker ... */
@@ -193,22 +193,22 @@ export interface UnbondingEntries {
     /** index ... */
     index: string;
     /** pool_id ... */
-    poolId: string;
+    pool_id: string;
     /** staker ... */
     staker: string;
     /** delegator ... */
     delegator: string;
     /** creation_time ... */
-    creationTime: string;
+    creation_time: string;
     /** amount ... */
     amount: string;
 }
 /** UnbondingState stores the state for the unbonding of stakes and delegations. */
 export interface UnbondingState {
     /** low_index ... */
-    lowIndex: string;
+    low_index: string;
     /** high_index ... */
-    highIndex: string;
+    high_index: string;
 }
 export declare const BundleProposal: {
     encode(message: BundleProposal, writer?: _m0.Writer): _m0.Writer;
@@ -217,26 +217,26 @@ export declare const BundleProposal: {
     toJSON(message: BundleProposal): unknown;
     fromPartial<I extends {
         uploader?: string | undefined;
-        nextUploader?: string | undefined;
-        bundleId?: string | undefined;
-        byteSize?: string | undefined;
-        fromHeight?: string | undefined;
-        toHeight?: string | undefined;
-        createdAt?: string | undefined;
-        votersValid?: string[] | undefined;
-        votersInvalid?: string[] | undefined;
-        votersAbstain?: string[] | undefined;
+        next_uploader?: string | undefined;
+        bundle_id?: string | undefined;
+        byte_size?: string | undefined;
+        from_height?: string | undefined;
+        to_height?: string | undefined;
+        created_at?: string | undefined;
+        voters_valid?: string[] | undefined;
+        voters_invalid?: string[] | undefined;
+        voters_abstain?: string[] | undefined;
     } & {
         uploader?: string | undefined;
-        nextUploader?: string | undefined;
-        bundleId?: string | undefined;
-        byteSize?: string | undefined;
-        fromHeight?: string | undefined;
-        toHeight?: string | undefined;
-        createdAt?: string | undefined;
-        votersValid?: (string[] & string[] & Record<Exclude<keyof I["votersValid"], keyof string[]>, never>) | undefined;
-        votersInvalid?: (string[] & string[] & Record<Exclude<keyof I["votersInvalid"], keyof string[]>, never>) | undefined;
-        votersAbstain?: (string[] & string[] & Record<Exclude<keyof I["votersAbstain"], keyof string[]>, never>) | undefined;
+        next_uploader?: string | undefined;
+        bundle_id?: string | undefined;
+        byte_size?: string | undefined;
+        from_height?: string | undefined;
+        to_height?: string | undefined;
+        created_at?: string | undefined;
+        voters_valid?: (string[] & string[] & Record<Exclude<keyof I["voters_valid"], keyof string[]>, never>) | undefined;
+        voters_invalid?: (string[] & string[] & Record<Exclude<keyof I["voters_invalid"], keyof string[]>, never>) | undefined;
+        voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["voters_abstain"], keyof string[]>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof BundleProposal>, never>>(object: I): BundleProposal;
 };
 export declare const Protocol: {
@@ -247,11 +247,11 @@ export declare const Protocol: {
     fromPartial<I extends {
         version?: string | undefined;
         binaries?: string | undefined;
-        lastUpgrade?: string | undefined;
+        last_upgrade?: string | undefined;
     } & {
         version?: string | undefined;
         binaries?: string | undefined;
-        lastUpgrade?: string | undefined;
+        last_upgrade?: string | undefined;
     } & Record<Exclude<keyof I, keyof Protocol>, never>>(object: I): Protocol;
 };
 export declare const UpgradePlan: {
@@ -262,12 +262,12 @@ export declare const UpgradePlan: {
     fromPartial<I extends {
         version?: string | undefined;
         binaries?: string | undefined;
-        scheduledAt?: string | undefined;
+        scheduled_at?: string | undefined;
         duration?: string | undefined;
     } & {
         version?: string | undefined;
         binaries?: string | undefined;
-        scheduledAt?: string | undefined;
+        scheduled_at?: string | undefined;
         duration?: string | undefined;
     } & Record<Exclude<keyof I, keyof UpgradePlan>, never>>(object: I): UpgradePlan;
 };
@@ -280,12 +280,12 @@ export declare const DelegationEntries: {
         id?: string | undefined;
         balance?: string | undefined;
         staker?: string | undefined;
-        kIndex?: string | undefined;
+        k_index?: string | undefined;
     } & {
         id?: string | undefined;
         balance?: string | undefined;
         staker?: string | undefined;
-        kIndex?: string | undefined;
+        k_index?: string | undefined;
     } & Record<Exclude<keyof I, keyof DelegationEntries>, never>>(object: I): DelegationEntries;
 };
 export declare const DelegationPoolData: {
@@ -296,19 +296,19 @@ export declare const DelegationPoolData: {
     fromPartial<I extends {
         id?: string | undefined;
         staker?: string | undefined;
-        currentRewards?: string | undefined;
-        totalDelegation?: string | undefined;
-        latestIndexK?: string | undefined;
-        delegatorCount?: string | undefined;
-        latestIndexWasUndelegation?: boolean | undefined;
+        current_rewards?: string | undefined;
+        total_delegation?: string | undefined;
+        latest_index_k?: string | undefined;
+        delegator_count?: string | undefined;
+        latest_index_was_undelegation?: boolean | undefined;
     } & {
         id?: string | undefined;
         staker?: string | undefined;
-        currentRewards?: string | undefined;
-        totalDelegation?: string | undefined;
-        latestIndexK?: string | undefined;
-        delegatorCount?: string | undefined;
-        latestIndexWasUndelegation?: boolean | undefined;
+        current_rewards?: string | undefined;
+        total_delegation?: string | undefined;
+        latest_index_k?: string | undefined;
+        delegator_count?: string | undefined;
+        latest_index_was_undelegation?: boolean | undefined;
     } & Record<Exclude<keyof I, keyof DelegationPoolData>, never>>(object: I): DelegationPoolData;
 };
 export declare const Delegator: {
@@ -318,14 +318,14 @@ export declare const Delegator: {
     toJSON(message: Delegator): unknown;
     fromPartial<I extends {
         id?: string | undefined;
-        kIndex?: string | undefined;
-        delegationAmount?: string | undefined;
+        k_index?: string | undefined;
+        delegation_amount?: string | undefined;
         staker?: string | undefined;
         delegator?: string | undefined;
     } & {
         id?: string | undefined;
-        kIndex?: string | undefined;
-        delegationAmount?: string | undefined;
+        k_index?: string | undefined;
+        delegation_amount?: string | undefined;
         staker?: string | undefined;
         delegator?: string | undefined;
     } & Record<Exclude<keyof I, keyof Delegator>, never>>(object: I): Delegator;
@@ -337,11 +337,11 @@ export declare const Funder: {
     toJSON(message: Funder): unknown;
     fromPartial<I extends {
         account?: string | undefined;
-        poolId?: string | undefined;
+        pool_id?: string | undefined;
         amount?: string | undefined;
     } & {
         account?: string | undefined;
-        poolId?: string | undefined;
+        pool_id?: string | undefined;
         amount?: string | undefined;
     } & Record<Exclude<keyof I, keyof Funder>, never>>(object: I): Funder;
 };
@@ -358,43 +358,43 @@ export declare const Pool: {
         logo?: string | undefined;
         versions?: string | undefined;
         config?: string | undefined;
-        heightArchived?: string | undefined;
-        bytesArchived?: string | undefined;
-        totalBundles?: string | undefined;
-        totalBundleRewards?: string | undefined;
-        startHeight?: string | undefined;
-        uploadInterval?: string | undefined;
-        operatingCost?: string | undefined;
+        height_archived?: string | undefined;
+        bytes_archived?: string | undefined;
+        total_bundles?: string | undefined;
+        total_bundle_rewards?: string | undefined;
+        start_height?: string | undefined;
+        upload_interval?: string | undefined;
+        operating_cost?: string | undefined;
         paused?: boolean | undefined;
         funders?: string[] | undefined;
-        lowestFunder?: string | undefined;
-        totalFunds?: string | undefined;
+        lowest_funder?: string | undefined;
+        total_funds?: string | undefined;
         stakers?: string[] | undefined;
-        lowestStaker?: string | undefined;
-        totalStake?: string | undefined;
-        totalDelegation?: string | undefined;
-        bundleProposal?: {
+        lowest_staker?: string | undefined;
+        total_stake?: string | undefined;
+        total_delegation?: string | undefined;
+        bundle_proposal?: {
             uploader?: string | undefined;
-            nextUploader?: string | undefined;
-            bundleId?: string | undefined;
-            byteSize?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            createdAt?: string | undefined;
-            votersValid?: string[] | undefined;
-            votersInvalid?: string[] | undefined;
-            votersAbstain?: string[] | undefined;
+            next_uploader?: string | undefined;
+            bundle_id?: string | undefined;
+            byte_size?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            created_at?: string | undefined;
+            voters_valid?: string[] | undefined;
+            voters_invalid?: string[] | undefined;
+            voters_abstain?: string[] | undefined;
         } | undefined;
-        maxBundleSize?: string | undefined;
+        max_bundle_size?: string | undefined;
         protocol?: {
             version?: string | undefined;
             binaries?: string | undefined;
-            lastUpgrade?: string | undefined;
+            last_upgrade?: string | undefined;
         } | undefined;
-        upgradePlan?: {
+        upgrade_plan?: {
             version?: string | undefined;
             binaries?: string | undefined;
-            scheduledAt?: string | undefined;
+            scheduled_at?: string | undefined;
             duration?: string | undefined;
         } | undefined;
     } & {
@@ -405,65 +405,65 @@ export declare const Pool: {
         logo?: string | undefined;
         versions?: string | undefined;
         config?: string | undefined;
-        heightArchived?: string | undefined;
-        bytesArchived?: string | undefined;
-        totalBundles?: string | undefined;
-        totalBundleRewards?: string | undefined;
-        startHeight?: string | undefined;
-        uploadInterval?: string | undefined;
-        operatingCost?: string | undefined;
+        height_archived?: string | undefined;
+        bytes_archived?: string | undefined;
+        total_bundles?: string | undefined;
+        total_bundle_rewards?: string | undefined;
+        start_height?: string | undefined;
+        upload_interval?: string | undefined;
+        operating_cost?: string | undefined;
         paused?: boolean | undefined;
         funders?: (string[] & string[] & Record<Exclude<keyof I["funders"], keyof string[]>, never>) | undefined;
-        lowestFunder?: string | undefined;
-        totalFunds?: string | undefined;
+        lowest_funder?: string | undefined;
+        total_funds?: string | undefined;
         stakers?: (string[] & string[] & Record<Exclude<keyof I["stakers"], keyof string[]>, never>) | undefined;
-        lowestStaker?: string | undefined;
-        totalStake?: string | undefined;
-        totalDelegation?: string | undefined;
-        bundleProposal?: ({
+        lowest_staker?: string | undefined;
+        total_stake?: string | undefined;
+        total_delegation?: string | undefined;
+        bundle_proposal?: ({
             uploader?: string | undefined;
-            nextUploader?: string | undefined;
-            bundleId?: string | undefined;
-            byteSize?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            createdAt?: string | undefined;
-            votersValid?: string[] | undefined;
-            votersInvalid?: string[] | undefined;
-            votersAbstain?: string[] | undefined;
+            next_uploader?: string | undefined;
+            bundle_id?: string | undefined;
+            byte_size?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            created_at?: string | undefined;
+            voters_valid?: string[] | undefined;
+            voters_invalid?: string[] | undefined;
+            voters_abstain?: string[] | undefined;
         } & {
             uploader?: string | undefined;
-            nextUploader?: string | undefined;
-            bundleId?: string | undefined;
-            byteSize?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            createdAt?: string | undefined;
-            votersValid?: (string[] & string[] & Record<Exclude<keyof I["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-        } & Record<Exclude<keyof I["bundleProposal"], keyof BundleProposal>, never>) | undefined;
-        maxBundleSize?: string | undefined;
+            next_uploader?: string | undefined;
+            bundle_id?: string | undefined;
+            byte_size?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            created_at?: string | undefined;
+            voters_valid?: (string[] & string[] & Record<Exclude<keyof I["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+        } & Record<Exclude<keyof I["bundle_proposal"], keyof BundleProposal>, never>) | undefined;
+        max_bundle_size?: string | undefined;
         protocol?: ({
             version?: string | undefined;
             binaries?: string | undefined;
-            lastUpgrade?: string | undefined;
+            last_upgrade?: string | undefined;
         } & {
             version?: string | undefined;
             binaries?: string | undefined;
-            lastUpgrade?: string | undefined;
+            last_upgrade?: string | undefined;
         } & Record<Exclude<keyof I["protocol"], keyof Protocol>, never>) | undefined;
-        upgradePlan?: ({
+        upgrade_plan?: ({
             version?: string | undefined;
             binaries?: string | undefined;
-            scheduledAt?: string | undefined;
+            scheduled_at?: string | undefined;
             duration?: string | undefined;
         } & {
             version?: string | undefined;
             binaries?: string | undefined;
-            scheduledAt?: string | undefined;
+            scheduled_at?: string | undefined;
             duration?: string | undefined;
-        } & Record<Exclude<keyof I["upgradePlan"], keyof UpgradePlan>, never>) | undefined;
+        } & Record<Exclude<keyof I["upgrade_plan"], keyof UpgradePlan>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof Pool>, never>>(object: I): Pool;
 };
 export declare const Proposal: {
@@ -472,19 +472,19 @@ export declare const Proposal: {
     fromJSON(object: any): Proposal;
     toJSON(message: Proposal): unknown;
     fromPartial<I extends {
-        bundleId?: string | undefined;
-        poolId?: string | undefined;
+        bundle_id?: string | undefined;
+        pool_id?: string | undefined;
         uploader?: string | undefined;
-        fromHeight?: string | undefined;
-        toHeight?: string | undefined;
-        finalizedAt?: string | undefined;
+        from_height?: string | undefined;
+        to_height?: string | undefined;
+        finalized_at?: string | undefined;
     } & {
-        bundleId?: string | undefined;
-        poolId?: string | undefined;
+        bundle_id?: string | undefined;
+        pool_id?: string | undefined;
         uploader?: string | undefined;
-        fromHeight?: string | undefined;
-        toHeight?: string | undefined;
-        finalizedAt?: string | undefined;
+        from_height?: string | undefined;
+        to_height?: string | undefined;
+        finalized_at?: string | undefined;
     } & Record<Exclude<keyof I, keyof Proposal>, never>>(object: I): Proposal;
 };
 export declare const Staker: {
@@ -494,9 +494,9 @@ export declare const Staker: {
     toJSON(message: Staker): unknown;
     fromPartial<I extends {
         account?: string | undefined;
-        poolId?: string | undefined;
+        pool_id?: string | undefined;
         amount?: string | undefined;
-        unbondingAmount?: string | undefined;
+        unbonding_amount?: string | undefined;
         commission?: string | undefined;
         moniker?: string | undefined;
         website?: string | undefined;
@@ -504,9 +504,9 @@ export declare const Staker: {
         points?: string | undefined;
     } & {
         account?: string | undefined;
-        poolId?: string | undefined;
+        pool_id?: string | undefined;
         amount?: string | undefined;
-        unbondingAmount?: string | undefined;
+        unbonding_amount?: string | undefined;
         commission?: string | undefined;
         moniker?: string | undefined;
         website?: string | undefined;
@@ -521,17 +521,17 @@ export declare const UnbondingEntries: {
     toJSON(message: UnbondingEntries): unknown;
     fromPartial<I extends {
         index?: string | undefined;
-        poolId?: string | undefined;
+        pool_id?: string | undefined;
         staker?: string | undefined;
         delegator?: string | undefined;
-        creationTime?: string | undefined;
+        creation_time?: string | undefined;
         amount?: string | undefined;
     } & {
         index?: string | undefined;
-        poolId?: string | undefined;
+        pool_id?: string | undefined;
         staker?: string | undefined;
         delegator?: string | undefined;
-        creationTime?: string | undefined;
+        creation_time?: string | undefined;
         amount?: string | undefined;
     } & Record<Exclude<keyof I, keyof UnbondingEntries>, never>>(object: I): UnbondingEntries;
 };
@@ -541,11 +541,11 @@ export declare const UnbondingState: {
     fromJSON(object: any): UnbondingState;
     toJSON(message: UnbondingState): unknown;
     fromPartial<I extends {
-        lowIndex?: string | undefined;
-        highIndex?: string | undefined;
+        low_index?: string | undefined;
+        high_index?: string | undefined;
     } & {
-        lowIndex?: string | undefined;
-        highIndex?: string | undefined;
+        low_index?: string | undefined;
+        high_index?: string | undefined;
     } & Record<Exclude<keyof I, keyof UnbondingState>, never>>(object: I): UnbondingState;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;

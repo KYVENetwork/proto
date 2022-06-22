@@ -17,13 +17,13 @@ export interface CreatePoolProposal {
     /** config ... */
     config: string;
     /** start_height ... */
-    startHeight: string;
+    start_height: string;
     /** upload_interval ... */
-    uploadInterval: string;
+    upload_interval: string;
     /** operating_cost ... */
-    operatingCost: string;
+    operating_cost: string;
     /** max_bundle_size ... */
-    maxBundleSize: string;
+    max_bundle_size: string;
     /** binaries ... */
     binaries: string;
 }
@@ -46,11 +46,11 @@ export interface UpdatePoolProposal {
     /** config ... */
     config: string;
     /** upload_interval ... */
-    uploadInterval: string;
+    upload_interval: string;
     /** operating_cost ... */
-    operatingCost: string;
+    operating_cost: string;
     /** max_bundle_size ... */
-    maxBundleSize: string;
+    max_bundle_size: string;
 }
 /** PausePoolProposal is a gov Content type for pausing a pool. */
 export interface PausePoolProposal {
@@ -81,7 +81,7 @@ export interface SchedulePoolUpgradeProposal {
     /** version ... */
     version: string;
     /** scheduled_at ... */
-    scheduledAt: string;
+    scheduled_at: string;
     /** duration ... */
     duration: string;
     /** binaries ... */
@@ -109,10 +109,10 @@ export declare const CreatePoolProposal: {
         logo?: string | undefined;
         version?: string | undefined;
         config?: string | undefined;
-        startHeight?: string | undefined;
-        uploadInterval?: string | undefined;
-        operatingCost?: string | undefined;
-        maxBundleSize?: string | undefined;
+        start_height?: string | undefined;
+        upload_interval?: string | undefined;
+        operating_cost?: string | undefined;
+        max_bundle_size?: string | undefined;
         binaries?: string | undefined;
     } & {
         title?: string | undefined;
@@ -122,10 +122,10 @@ export declare const CreatePoolProposal: {
         logo?: string | undefined;
         version?: string | undefined;
         config?: string | undefined;
-        startHeight?: string | undefined;
-        uploadInterval?: string | undefined;
-        operatingCost?: string | undefined;
-        maxBundleSize?: string | undefined;
+        start_height?: string | undefined;
+        upload_interval?: string | undefined;
+        operating_cost?: string | undefined;
+        max_bundle_size?: string | undefined;
         binaries?: string | undefined;
     } & Record<Exclude<keyof I, keyof CreatePoolProposal>, never>>(object: I): CreatePoolProposal;
 };
@@ -143,9 +143,9 @@ export declare const UpdatePoolProposal: {
         logo?: string | undefined;
         versions?: string | undefined;
         config?: string | undefined;
-        uploadInterval?: string | undefined;
-        operatingCost?: string | undefined;
-        maxBundleSize?: string | undefined;
+        upload_interval?: string | undefined;
+        operating_cost?: string | undefined;
+        max_bundle_size?: string | undefined;
     } & {
         title?: string | undefined;
         description?: string | undefined;
@@ -155,9 +155,9 @@ export declare const UpdatePoolProposal: {
         logo?: string | undefined;
         versions?: string | undefined;
         config?: string | undefined;
-        uploadInterval?: string | undefined;
-        operatingCost?: string | undefined;
-        maxBundleSize?: string | undefined;
+        upload_interval?: string | undefined;
+        operating_cost?: string | undefined;
+        max_bundle_size?: string | undefined;
     } & Record<Exclude<keyof I, keyof UpdatePoolProposal>, never>>(object: I): UpdatePoolProposal;
 };
 export declare const PausePoolProposal: {
@@ -200,7 +200,7 @@ export declare const SchedulePoolUpgradeProposal: {
         description?: string | undefined;
         runtime?: string | undefined;
         version?: string | undefined;
-        scheduledAt?: string | undefined;
+        scheduled_at?: string | undefined;
         duration?: string | undefined;
         binaries?: string | undefined;
     } & {
@@ -208,7 +208,7 @@ export declare const SchedulePoolUpgradeProposal: {
         description?: string | undefined;
         runtime?: string | undefined;
         version?: string | undefined;
-        scheduledAt?: string | undefined;
+        scheduled_at?: string | undefined;
         duration?: string | undefined;
         binaries?: string | undefined;
     } & Record<Exclude<keyof I, keyof SchedulePoolUpgradeProposal>, never>>(object: I): SchedulePoolUpgradeProposal;

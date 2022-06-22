@@ -6,8 +6,8 @@ OUT_DIR="./src/proto"
 KYVE_PROTO='./chain/proto'
 protoc --plugin="protoc-gen-ts_proto=${PROTOC_GEN_TS_PROTO_PATH}" \
 --ts_proto_out="${OUT_DIR}" \
---ts_proto_out="${PROTO_DIR}" \
---ts_proto_opt="esModuleInterop=true,forceLong=string,useOptionals=messages" \
+--ts_proto_opt="esModuleInterop=true,forceLong=string,useOptionals=messages,snakeToCamel=false" \
 --proto_path="$PROTO_DIR" \
 --proto_path="$KYVE_PROTO" \
+$(find ${PROTO_DIR}  -path -prune -o -name '*.proto' -print0 | xargs -0) \
 $(find ${KYVE_PROTO}  -path -prune -o -name '*.proto' -print0 | xargs -0)

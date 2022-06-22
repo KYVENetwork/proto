@@ -174,17 +174,17 @@ export declare namespace kyve {
                 fromPartial<I_14 extends {
                     creator?: string | undefined;
                     id?: string | undefined;
-                    bundleId?: string | undefined;
-                    byteSize?: string | undefined;
-                    fromHeight?: string | undefined;
-                    bundleSize?: string | undefined;
+                    bundle_id?: string | undefined;
+                    byte_size?: string | undefined;
+                    from_height?: string | undefined;
+                    bundle_size?: string | undefined;
                 } & {
                     creator?: string | undefined;
                     id?: string | undefined;
-                    bundleId?: string | undefined;
-                    byteSize?: string | undefined;
-                    fromHeight?: string | undefined;
-                    bundleSize?: string | undefined;
+                    bundle_id?: string | undefined;
+                    byte_size?: string | undefined;
+                    from_height?: string | undefined;
+                    bundle_size?: string | undefined;
                 } & Record<Exclude<keyof I_14, keyof kyveTx.MsgSubmitBundleProposal>, never>>(object: I_14): kyveTx.MsgSubmitBundleProposal;
             };
             MsgSubmitBundleProposalResponse: {
@@ -202,12 +202,12 @@ export declare namespace kyve {
                 fromPartial<I_16 extends {
                     creator?: string | undefined;
                     id?: string | undefined;
-                    bundleId?: string | undefined;
+                    bundle_id?: string | undefined;
                     vote?: string | undefined;
                 } & {
                     creator?: string | undefined;
                     id?: string | undefined;
-                    bundleId?: string | undefined;
+                    bundle_id?: string | undefined;
                     vote?: string | undefined;
                 } & Record<Exclude<keyof I_16, keyof kyveTx.MsgVoteProposal>, never>>(object: I_16): kyveTx.MsgVoteProposal;
             };
@@ -274,26 +274,26 @@ export declare namespace kyve {
                 toJSON(message: kyveRegistry.BundleProposal): unknown;
                 fromPartial<I_22 extends {
                     uploader?: string | undefined;
-                    nextUploader?: string | undefined;
-                    bundleId?: string | undefined;
-                    byteSize?: string | undefined;
-                    fromHeight?: string | undefined;
-                    toHeight?: string | undefined;
-                    createdAt?: string | undefined;
-                    votersValid?: string[] | undefined;
-                    votersInvalid?: string[] | undefined;
-                    votersAbstain?: string[] | undefined;
+                    next_uploader?: string | undefined;
+                    bundle_id?: string | undefined;
+                    byte_size?: string | undefined;
+                    from_height?: string | undefined;
+                    to_height?: string | undefined;
+                    created_at?: string | undefined;
+                    voters_valid?: string[] | undefined;
+                    voters_invalid?: string[] | undefined;
+                    voters_abstain?: string[] | undefined;
                 } & {
                     uploader?: string | undefined;
-                    nextUploader?: string | undefined;
-                    bundleId?: string | undefined;
-                    byteSize?: string | undefined;
-                    fromHeight?: string | undefined;
-                    toHeight?: string | undefined;
-                    createdAt?: string | undefined;
-                    votersValid?: (string[] & string[] & Record<Exclude<keyof I_22["votersValid"], keyof string[]>, never>) | undefined;
-                    votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_22["votersInvalid"], keyof string[]>, never>) | undefined;
-                    votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_22["votersAbstain"], keyof string[]>, never>) | undefined;
+                    next_uploader?: string | undefined;
+                    bundle_id?: string | undefined;
+                    byte_size?: string | undefined;
+                    from_height?: string | undefined;
+                    to_height?: string | undefined;
+                    created_at?: string | undefined;
+                    voters_valid?: (string[] & string[] & Record<Exclude<keyof I_22["voters_valid"], keyof string[]>, never>) | undefined;
+                    voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_22["voters_invalid"], keyof string[]>, never>) | undefined;
+                    voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_22["voters_abstain"], keyof string[]>, never>) | undefined;
                 } & Record<Exclude<keyof I_22, keyof kyveRegistry.BundleProposal>, never>>(object: I_22): kyveRegistry.BundleProposal;
             };
             Protocol: {
@@ -304,11 +304,11 @@ export declare namespace kyve {
                 fromPartial<I_23 extends {
                     version?: string | undefined;
                     binaries?: string | undefined;
-                    lastUpgrade?: string | undefined;
+                    last_upgrade?: string | undefined;
                 } & {
                     version?: string | undefined;
                     binaries?: string | undefined;
-                    lastUpgrade?: string | undefined;
+                    last_upgrade?: string | undefined;
                 } & Record<Exclude<keyof I_23, keyof kyveRegistry.Protocol>, never>>(object: I_23): kyveRegistry.Protocol;
             };
             UpgradePlan: {
@@ -319,12 +319,12 @@ export declare namespace kyve {
                 fromPartial<I_24 extends {
                     version?: string | undefined;
                     binaries?: string | undefined;
-                    scheduledAt?: string | undefined;
+                    scheduled_at?: string | undefined;
                     duration?: string | undefined;
                 } & {
                     version?: string | undefined;
                     binaries?: string | undefined;
-                    scheduledAt?: string | undefined;
+                    scheduled_at?: string | undefined;
                     duration?: string | undefined;
                 } & Record<Exclude<keyof I_24, keyof kyveRegistry.UpgradePlan>, never>>(object: I_24): kyveRegistry.UpgradePlan;
             };
@@ -337,12 +337,12 @@ export declare namespace kyve {
                     id?: string | undefined;
                     balance?: string | undefined;
                     staker?: string | undefined;
-                    kIndex?: string | undefined;
+                    k_index?: string | undefined;
                 } & {
                     id?: string | undefined;
                     balance?: string | undefined;
                     staker?: string | undefined;
-                    kIndex?: string | undefined;
+                    k_index?: string | undefined;
                 } & Record<Exclude<keyof I_25, keyof kyveRegistry.DelegationEntries>, never>>(object: I_25): kyveRegistry.DelegationEntries;
             };
             DelegationPoolData: {
@@ -353,19 +353,19 @@ export declare namespace kyve {
                 fromPartial<I_26 extends {
                     id?: string | undefined;
                     staker?: string | undefined;
-                    currentRewards?: string | undefined;
-                    totalDelegation?: string | undefined;
-                    latestIndexK?: string | undefined;
-                    delegatorCount?: string | undefined;
-                    latestIndexWasUndelegation?: boolean | undefined;
+                    current_rewards?: string | undefined;
+                    total_delegation?: string | undefined;
+                    latest_index_k?: string | undefined;
+                    delegator_count?: string | undefined;
+                    latest_index_was_undelegation?: boolean | undefined;
                 } & {
                     id?: string | undefined;
                     staker?: string | undefined;
-                    currentRewards?: string | undefined;
-                    totalDelegation?: string | undefined;
-                    latestIndexK?: string | undefined;
-                    delegatorCount?: string | undefined;
-                    latestIndexWasUndelegation?: boolean | undefined;
+                    current_rewards?: string | undefined;
+                    total_delegation?: string | undefined;
+                    latest_index_k?: string | undefined;
+                    delegator_count?: string | undefined;
+                    latest_index_was_undelegation?: boolean | undefined;
                 } & Record<Exclude<keyof I_26, keyof kyveRegistry.DelegationPoolData>, never>>(object: I_26): kyveRegistry.DelegationPoolData;
             };
             Delegator: {
@@ -375,14 +375,14 @@ export declare namespace kyve {
                 toJSON(message: kyveRegistry.Delegator): unknown;
                 fromPartial<I_27 extends {
                     id?: string | undefined;
-                    kIndex?: string | undefined;
-                    delegationAmount?: string | undefined;
+                    k_index?: string | undefined;
+                    delegation_amount?: string | undefined;
                     staker?: string | undefined;
                     delegator?: string | undefined;
                 } & {
                     id?: string | undefined;
-                    kIndex?: string | undefined;
-                    delegationAmount?: string | undefined;
+                    k_index?: string | undefined;
+                    delegation_amount?: string | undefined;
                     staker?: string | undefined;
                     delegator?: string | undefined;
                 } & Record<Exclude<keyof I_27, keyof kyveRegistry.Delegator>, never>>(object: I_27): kyveRegistry.Delegator;
@@ -394,11 +394,11 @@ export declare namespace kyve {
                 toJSON(message: kyveRegistry.Funder): unknown;
                 fromPartial<I_28 extends {
                     account?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     amount?: string | undefined;
                 } & {
                     account?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     amount?: string | undefined;
                 } & Record<Exclude<keyof I_28, keyof kyveRegistry.Funder>, never>>(object: I_28): kyveRegistry.Funder;
             };
@@ -415,43 +415,43 @@ export declare namespace kyve {
                     logo?: string | undefined;
                     versions?: string | undefined;
                     config?: string | undefined;
-                    heightArchived?: string | undefined;
-                    bytesArchived?: string | undefined;
-                    totalBundles?: string | undefined;
-                    totalBundleRewards?: string | undefined;
-                    startHeight?: string | undefined;
-                    uploadInterval?: string | undefined;
-                    operatingCost?: string | undefined;
+                    height_archived?: string | undefined;
+                    bytes_archived?: string | undefined;
+                    total_bundles?: string | undefined;
+                    total_bundle_rewards?: string | undefined;
+                    start_height?: string | undefined;
+                    upload_interval?: string | undefined;
+                    operating_cost?: string | undefined;
                     paused?: boolean | undefined;
                     funders?: string[] | undefined;
-                    lowestFunder?: string | undefined;
-                    totalFunds?: string | undefined;
+                    lowest_funder?: string | undefined;
+                    total_funds?: string | undefined;
                     stakers?: string[] | undefined;
-                    lowestStaker?: string | undefined;
-                    totalStake?: string | undefined;
-                    totalDelegation?: string | undefined;
-                    bundleProposal?: {
+                    lowest_staker?: string | undefined;
+                    total_stake?: string | undefined;
+                    total_delegation?: string | undefined;
+                    bundle_proposal?: {
                         uploader?: string | undefined;
-                        nextUploader?: string | undefined;
-                        bundleId?: string | undefined;
-                        byteSize?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        createdAt?: string | undefined;
-                        votersValid?: string[] | undefined;
-                        votersInvalid?: string[] | undefined;
-                        votersAbstain?: string[] | undefined;
+                        next_uploader?: string | undefined;
+                        bundle_id?: string | undefined;
+                        byte_size?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        created_at?: string | undefined;
+                        voters_valid?: string[] | undefined;
+                        voters_invalid?: string[] | undefined;
+                        voters_abstain?: string[] | undefined;
                     } | undefined;
-                    maxBundleSize?: string | undefined;
+                    max_bundle_size?: string | undefined;
                     protocol?: {
                         version?: string | undefined;
                         binaries?: string | undefined;
-                        lastUpgrade?: string | undefined;
+                        last_upgrade?: string | undefined;
                     } | undefined;
-                    upgradePlan?: {
+                    upgrade_plan?: {
                         version?: string | undefined;
                         binaries?: string | undefined;
-                        scheduledAt?: string | undefined;
+                        scheduled_at?: string | undefined;
                         duration?: string | undefined;
                     } | undefined;
                 } & {
@@ -462,65 +462,65 @@ export declare namespace kyve {
                     logo?: string | undefined;
                     versions?: string | undefined;
                     config?: string | undefined;
-                    heightArchived?: string | undefined;
-                    bytesArchived?: string | undefined;
-                    totalBundles?: string | undefined;
-                    totalBundleRewards?: string | undefined;
-                    startHeight?: string | undefined;
-                    uploadInterval?: string | undefined;
-                    operatingCost?: string | undefined;
+                    height_archived?: string | undefined;
+                    bytes_archived?: string | undefined;
+                    total_bundles?: string | undefined;
+                    total_bundle_rewards?: string | undefined;
+                    start_height?: string | undefined;
+                    upload_interval?: string | undefined;
+                    operating_cost?: string | undefined;
                     paused?: boolean | undefined;
                     funders?: (string[] & string[] & Record<Exclude<keyof I_29["funders"], keyof string[]>, never>) | undefined;
-                    lowestFunder?: string | undefined;
-                    totalFunds?: string | undefined;
+                    lowest_funder?: string | undefined;
+                    total_funds?: string | undefined;
                     stakers?: (string[] & string[] & Record<Exclude<keyof I_29["stakers"], keyof string[]>, never>) | undefined;
-                    lowestStaker?: string | undefined;
-                    totalStake?: string | undefined;
-                    totalDelegation?: string | undefined;
-                    bundleProposal?: ({
+                    lowest_staker?: string | undefined;
+                    total_stake?: string | undefined;
+                    total_delegation?: string | undefined;
+                    bundle_proposal?: ({
                         uploader?: string | undefined;
-                        nextUploader?: string | undefined;
-                        bundleId?: string | undefined;
-                        byteSize?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        createdAt?: string | undefined;
-                        votersValid?: string[] | undefined;
-                        votersInvalid?: string[] | undefined;
-                        votersAbstain?: string[] | undefined;
+                        next_uploader?: string | undefined;
+                        bundle_id?: string | undefined;
+                        byte_size?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        created_at?: string | undefined;
+                        voters_valid?: string[] | undefined;
+                        voters_invalid?: string[] | undefined;
+                        voters_abstain?: string[] | undefined;
                     } & {
                         uploader?: string | undefined;
-                        nextUploader?: string | undefined;
-                        bundleId?: string | undefined;
-                        byteSize?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        createdAt?: string | undefined;
-                        votersValid?: (string[] & string[] & Record<Exclude<keyof I_29["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                        votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_29["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                        votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_29["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                    } & Record<Exclude<keyof I_29["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                    maxBundleSize?: string | undefined;
+                        next_uploader?: string | undefined;
+                        bundle_id?: string | undefined;
+                        byte_size?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        created_at?: string | undefined;
+                        voters_valid?: (string[] & string[] & Record<Exclude<keyof I_29["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                        voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_29["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                        voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_29["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                    } & Record<Exclude<keyof I_29["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                    max_bundle_size?: string | undefined;
                     protocol?: ({
                         version?: string | undefined;
                         binaries?: string | undefined;
-                        lastUpgrade?: string | undefined;
+                        last_upgrade?: string | undefined;
                     } & {
                         version?: string | undefined;
                         binaries?: string | undefined;
-                        lastUpgrade?: string | undefined;
+                        last_upgrade?: string | undefined;
                     } & Record<Exclude<keyof I_29["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                    upgradePlan?: ({
+                    upgrade_plan?: ({
                         version?: string | undefined;
                         binaries?: string | undefined;
-                        scheduledAt?: string | undefined;
+                        scheduled_at?: string | undefined;
                         duration?: string | undefined;
                     } & {
                         version?: string | undefined;
                         binaries?: string | undefined;
-                        scheduledAt?: string | undefined;
+                        scheduled_at?: string | undefined;
                         duration?: string | undefined;
-                    } & Record<Exclude<keyof I_29["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                    } & Record<Exclude<keyof I_29["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                 } & Record<Exclude<keyof I_29, keyof kyveRegistry.Pool>, never>>(object: I_29): kyveRegistry.Pool;
             };
             Proposal: {
@@ -529,19 +529,19 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveRegistry.Proposal;
                 toJSON(message: kyveRegistry.Proposal): unknown;
                 fromPartial<I_30 extends {
-                    bundleId?: string | undefined;
-                    poolId?: string | undefined;
+                    bundle_id?: string | undefined;
+                    pool_id?: string | undefined;
                     uploader?: string | undefined;
-                    fromHeight?: string | undefined;
-                    toHeight?: string | undefined;
-                    finalizedAt?: string | undefined;
+                    from_height?: string | undefined;
+                    to_height?: string | undefined;
+                    finalized_at?: string | undefined;
                 } & {
-                    bundleId?: string | undefined;
-                    poolId?: string | undefined;
+                    bundle_id?: string | undefined;
+                    pool_id?: string | undefined;
                     uploader?: string | undefined;
-                    fromHeight?: string | undefined;
-                    toHeight?: string | undefined;
-                    finalizedAt?: string | undefined;
+                    from_height?: string | undefined;
+                    to_height?: string | undefined;
+                    finalized_at?: string | undefined;
                 } & Record<Exclude<keyof I_30, keyof kyveRegistry.Proposal>, never>>(object: I_30): kyveRegistry.Proposal;
             };
             Staker: {
@@ -551,9 +551,9 @@ export declare namespace kyve {
                 toJSON(message: kyveRegistry.Staker): unknown;
                 fromPartial<I_31 extends {
                     account?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     amount?: string | undefined;
-                    unbondingAmount?: string | undefined;
+                    unbonding_amount?: string | undefined;
                     commission?: string | undefined;
                     moniker?: string | undefined;
                     website?: string | undefined;
@@ -561,9 +561,9 @@ export declare namespace kyve {
                     points?: string | undefined;
                 } & {
                     account?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     amount?: string | undefined;
-                    unbondingAmount?: string | undefined;
+                    unbonding_amount?: string | undefined;
                     commission?: string | undefined;
                     moniker?: string | undefined;
                     website?: string | undefined;
@@ -578,17 +578,17 @@ export declare namespace kyve {
                 toJSON(message: kyveRegistry.UnbondingEntries): unknown;
                 fromPartial<I_32 extends {
                     index?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                     delegator?: string | undefined;
-                    creationTime?: string | undefined;
+                    creation_time?: string | undefined;
                     amount?: string | undefined;
                 } & {
                     index?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                     delegator?: string | undefined;
-                    creationTime?: string | undefined;
+                    creation_time?: string | undefined;
                     amount?: string | undefined;
                 } & Record<Exclude<keyof I_32, keyof kyveRegistry.UnbondingEntries>, never>>(object: I_32): kyveRegistry.UnbondingEntries;
             };
@@ -598,11 +598,11 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveRegistry.UnbondingState;
                 toJSON(message: kyveRegistry.UnbondingState): unknown;
                 fromPartial<I_33 extends {
-                    lowIndex?: string | undefined;
-                    highIndex?: string | undefined;
+                    low_index?: string | undefined;
+                    high_index?: string | undefined;
                 } & {
-                    lowIndex?: string | undefined;
-                    highIndex?: string | undefined;
+                    low_index?: string | undefined;
+                    high_index?: string | undefined;
                 } & Record<Exclude<keyof I_33, keyof kyveRegistry.UnbondingState>, never>>(object: I_33): kyveRegistry.UnbondingState;
             };
             QueryParamsRequest: {
@@ -619,31 +619,31 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.QueryParamsResponse): unknown;
                 fromPartial<I_35 extends {
                     params?: {
-                        voteSlash?: string | undefined;
-                        uploadSlash?: string | undefined;
-                        timeoutSlash?: string | undefined;
-                        uploadTimeout?: string | undefined;
-                        storageCost?: string | undefined;
-                        networkFee?: string | undefined;
-                        maxPoints?: string | undefined;
+                        vote_slash?: string | undefined;
+                        upload_slash?: string | undefined;
+                        timeout_slash?: string | undefined;
+                        upload_timeout?: string | undefined;
+                        storage_cost?: string | undefined;
+                        network_fee?: string | undefined;
+                        max_points?: string | undefined;
                     } | undefined;
                 } & {
                     params?: ({
-                        voteSlash?: string | undefined;
-                        uploadSlash?: string | undefined;
-                        timeoutSlash?: string | undefined;
-                        uploadTimeout?: string | undefined;
-                        storageCost?: string | undefined;
-                        networkFee?: string | undefined;
-                        maxPoints?: string | undefined;
+                        vote_slash?: string | undefined;
+                        upload_slash?: string | undefined;
+                        timeout_slash?: string | undefined;
+                        upload_timeout?: string | undefined;
+                        storage_cost?: string | undefined;
+                        network_fee?: string | undefined;
+                        max_points?: string | undefined;
                     } & {
-                        voteSlash?: string | undefined;
-                        uploadSlash?: string | undefined;
-                        timeoutSlash?: string | undefined;
-                        uploadTimeout?: string | undefined;
-                        storageCost?: string | undefined;
-                        networkFee?: string | undefined;
-                        maxPoints?: string | undefined;
+                        vote_slash?: string | undefined;
+                        upload_slash?: string | undefined;
+                        timeout_slash?: string | undefined;
+                        upload_timeout?: string | undefined;
+                        storage_cost?: string | undefined;
+                        network_fee?: string | undefined;
+                        max_points?: string | undefined;
                     } & Record<Exclude<keyof I_35["params"], keyof kyveParams.Params>, never>) | undefined;
                 } & Record<Exclude<keyof I_35, "params">, never>>(object: I_35): kyveQuery.QueryParamsResponse;
             };
@@ -672,43 +672,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } | undefined;
@@ -721,43 +721,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -768,65 +768,65 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_37["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_37["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_37["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_37["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_37["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_37["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_37["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
                 } & Record<Exclude<keyof I_37, "pool">, never>>(object: I_37): kyveQuery.QueryPoolResponse;
             };
@@ -840,7 +840,7 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                     search?: string | undefined;
@@ -851,13 +851,13 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_38["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                     search?: string | undefined;
@@ -879,48 +879,48 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -932,43 +932,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     }[] & ({
@@ -979,43 +979,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -1026,65 +1026,65 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_39["pools"][number]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_39["pools"][number]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_39["pools"][number]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_39["pools"][number]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_39["pools"][number]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_39["pools"][number]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_39["pools"][number], keyof kyveRegistry.Pool>, never>)[] & Record<Exclude<keyof I_39["pools"], keyof {
                         id?: string | undefined;
                         creator?: string | undefined;
@@ -1093,51 +1093,51 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_39["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_39, keyof kyveQuery.QueryPoolsResponse>, never>>(object: I_39): kyveQuery.QueryPoolsResponse;
@@ -1148,10 +1148,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryFundersListRequest;
                 toJSON(message: kyveQuery.QueryFundersListRequest): unknown;
                 fromPartial<I_40 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
-                } & Record<Exclude<keyof I_40, "poolId">, never>>(object: I_40): kyveQuery.QueryFundersListRequest;
+                    pool_id?: string | undefined;
+                } & Record<Exclude<keyof I_40, "pool_id">, never>>(object: I_40): kyveQuery.QueryFundersListRequest;
             };
             QueryFundersListResponse: {
                 encode(message: kyveQuery.QueryFundersListResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1161,25 +1161,25 @@ export declare namespace kyve {
                 fromPartial<I_41 extends {
                     funders?: {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
                 } & {
                     funders?: ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     }[] & ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     } & {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     } & Record<Exclude<keyof I_41["funders"][number], keyof kyveRegistry.Funder>, never>)[] & Record<Exclude<keyof I_41["funders"], keyof {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     }[]>, never>) | undefined;
                 } & Record<Exclude<keyof I_41, "funders">, never>>(object: I_41): kyveQuery.QueryFundersListResponse;
@@ -1190,10 +1190,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryFunderRequest;
                 toJSON(message: kyveQuery.QueryFunderRequest): unknown;
                 fromPartial<I_42 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     funder?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     funder?: string | undefined;
                 } & Record<Exclude<keyof I_42, keyof kyveQuery.QueryFunderRequest>, never>>(object: I_42): kyveQuery.QueryFunderRequest;
             };
@@ -1205,17 +1205,17 @@ export declare namespace kyve {
                 fromPartial<I_43 extends {
                     funder?: {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     } | undefined;
                 } & {
                     funder?: ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     } & {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     } & Record<Exclude<keyof I_43["funder"], keyof kyveRegistry.Funder>, never>) | undefined;
                 } & Record<Exclude<keyof I_43, "funder">, never>>(object: I_43): kyveQuery.QueryFunderResponse;
@@ -1226,10 +1226,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryStakersListRequest;
                 toJSON(message: kyveQuery.QueryStakersListRequest): unknown;
                 fromPartial<I_44 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
-                } & Record<Exclude<keyof I_44, "poolId">, never>>(object: I_44): kyveQuery.QueryStakersListRequest;
+                    pool_id?: string | undefined;
+                } & Record<Exclude<keyof I_44, "pool_id">, never>>(object: I_44): kyveQuery.QueryStakersListRequest;
             };
             QueryStakersListResponse: {
                 encode(message: kyveQuery.QueryStakersListResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1239,10 +1239,10 @@ export declare namespace kyve {
                 fromPartial<I_45 extends {
                     stakers?: {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1252,10 +1252,10 @@ export declare namespace kyve {
                 } & {
                     stakers?: ({
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1263,10 +1263,10 @@ export declare namespace kyve {
                         points?: string | undefined;
                     }[] & ({
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1274,10 +1274,10 @@ export declare namespace kyve {
                         points?: string | undefined;
                     } & {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1285,10 +1285,10 @@ export declare namespace kyve {
                         points?: string | undefined;
                     } & Record<Exclude<keyof I_45["stakers"][number], keyof kyveQuery.StakerResponse>, never>)[] & Record<Exclude<keyof I_45["stakers"], keyof {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1303,10 +1303,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryStakerRequest;
                 toJSON(message: kyveQuery.QueryStakerRequest): unknown;
                 fromPartial<I_46 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                 } & Record<Exclude<keyof I_46, keyof kyveQuery.QueryStakerRequest>, never>>(object: I_46): kyveQuery.QueryStakerRequest;
             };
@@ -1318,10 +1318,10 @@ export declare namespace kyve {
                 fromPartial<I_47 extends {
                     staker?: {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1331,10 +1331,10 @@ export declare namespace kyve {
                 } & {
                     staker?: ({
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1342,10 +1342,10 @@ export declare namespace kyve {
                         points?: string | undefined;
                     } & {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
-                        totalDelegation?: string | undefined;
+                        total_delegation?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -1361,10 +1361,10 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.StakerResponse): unknown;
                 fromPartial<I_48 extends {
                     staker?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     account?: string | undefined;
                     amount?: string | undefined;
-                    totalDelegation?: string | undefined;
+                    total_delegation?: string | undefined;
                     commission?: string | undefined;
                     moniker?: string | undefined;
                     website?: string | undefined;
@@ -1372,10 +1372,10 @@ export declare namespace kyve {
                     points?: string | undefined;
                 } & {
                     staker?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     account?: string | undefined;
                     amount?: string | undefined;
-                    totalDelegation?: string | undefined;
+                    total_delegation?: string | undefined;
                     commission?: string | undefined;
                     moniker?: string | undefined;
                     website?: string | undefined;
@@ -1389,10 +1389,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryProposalRequest;
                 toJSON(message: kyveQuery.QueryProposalRequest): unknown;
                 fromPartial<I_49 extends {
-                    bundleId?: string | undefined;
+                    bundle_id?: string | undefined;
                 } & {
-                    bundleId?: string | undefined;
-                } & Record<Exclude<keyof I_49, "bundleId">, never>>(object: I_49): kyveQuery.QueryProposalRequest;
+                    bundle_id?: string | undefined;
+                } & Record<Exclude<keyof I_49, "bundle_id">, never>>(object: I_49): kyveQuery.QueryProposalRequest;
             };
             QueryProposalResponse: {
                 encode(message: kyveQuery.QueryProposalResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1401,28 +1401,28 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.QueryProposalResponse): unknown;
                 fromPartial<I_50 extends {
                     proposal?: {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } | undefined;
                 } & {
                     proposal?: ({
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & Record<Exclude<keyof I_50["proposal"], keyof kyveRegistry.Proposal>, never>) | undefined;
                 } & Record<Exclude<keyof I_50, "proposal">, never>>(object: I_50): kyveQuery.QueryProposalResponse;
             };
@@ -1436,25 +1436,25 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                 } & {
                     pagination?: ({
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_51["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                 } & Record<Exclude<keyof I_51, keyof kyveQuery.QueryProposalsRequest>, never>>(object: I_51): kyveQuery.QueryProposalsRequest;
             };
             QueryProposalsResponse: {
@@ -1464,52 +1464,52 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.QueryProposalsResponse): unknown;
                 fromPartial<I_52 extends {
                     proposals?: {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
                     proposals?: ({
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     }[] & ({
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & Record<Exclude<keyof I_52["proposals"][number], keyof kyveRegistry.Proposal>, never>)[] & Record<Exclude<keyof I_52["proposals"], keyof {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_52["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_52, keyof kyveQuery.QueryProposalsResponse>, never>>(object: I_52): kyveQuery.QueryProposalsResponse;
@@ -1520,10 +1520,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryProposalByHeightRequest;
                 toJSON(message: kyveQuery.QueryProposalByHeightRequest): unknown;
                 fromPartial<I_53 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     height?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     height?: string | undefined;
                 } & Record<Exclude<keyof I_53, keyof kyveQuery.QueryProposalByHeightRequest>, never>>(object: I_53): kyveQuery.QueryProposalByHeightRequest;
             };
@@ -1534,28 +1534,28 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.QueryProposalByHeightResponse): unknown;
                 fromPartial<I_54 extends {
                     proposal?: {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } | undefined;
                 } & {
                     proposal?: ({
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & Record<Exclude<keyof I_54["proposal"], keyof kyveRegistry.Proposal>, never>) | undefined;
                 } & Record<Exclude<keyof I_54, "proposal">, never>>(object: I_54): kyveQuery.QueryProposalByHeightResponse;
             };
@@ -1565,13 +1565,13 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryCanProposeRequest;
                 toJSON(message: kyveQuery.QueryCanProposeRequest): unknown;
                 fromPartial<I_55 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     proposer?: string | undefined;
-                    fromHeight?: string | undefined;
+                    from_height?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     proposer?: string | undefined;
-                    fromHeight?: string | undefined;
+                    from_height?: string | undefined;
                 } & Record<Exclude<keyof I_55, keyof kyveQuery.QueryCanProposeRequest>, never>>(object: I_55): kyveQuery.QueryCanProposeRequest;
             };
             QueryCanProposeResponse: {
@@ -1593,13 +1593,13 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryCanVoteRequest;
                 toJSON(message: kyveQuery.QueryCanVoteRequest): unknown;
                 fromPartial<I_57 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     voter?: string | undefined;
-                    bundleId?: string | undefined;
+                    bundle_id?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     voter?: string | undefined;
-                    bundleId?: string | undefined;
+                    bundle_id?: string | undefined;
                 } & Record<Exclude<keyof I_57, keyof kyveQuery.QueryCanVoteRequest>, never>>(object: I_57): kyveQuery.QueryCanVoteRequest;
             };
             QueryCanVoteResponse: {
@@ -1621,10 +1621,10 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryStakeInfoRequest;
                 toJSON(message: kyveQuery.QueryStakeInfoRequest): unknown;
                 fromPartial<I_59 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                 } & Record<Exclude<keyof I_59, keyof kyveQuery.QueryStakeInfoRequest>, never>>(object: I_59): kyveQuery.QueryStakeInfoRequest;
             };
@@ -1635,12 +1635,12 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.QueryStakeInfoResponse): unknown;
                 fromPartial<I_60 extends {
                     balance?: string | undefined;
-                    currentStake?: string | undefined;
-                    minimumStake?: string | undefined;
+                    current_stake?: string | undefined;
+                    minimum_stake?: string | undefined;
                 } & {
                     balance?: string | undefined;
-                    currentStake?: string | undefined;
-                    minimumStake?: string | undefined;
+                    current_stake?: string | undefined;
+                    minimum_stake?: string | undefined;
                 } & Record<Exclude<keyof I_60, keyof kyveQuery.QueryStakeInfoResponse>, never>>(object: I_60): kyveQuery.QueryStakeInfoResponse;
             };
             QueryAccountAssetsRequest: {
@@ -1661,16 +1661,16 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.QueryAccountAssetsResponse): unknown;
                 fromPartial<I_62 extends {
                     balance?: string | undefined;
-                    protocolStaking?: string | undefined;
-                    protocolDelegation?: string | undefined;
-                    protocolRewards?: string | undefined;
-                    protocolFunding?: string | undefined;
+                    protocol_staking?: string | undefined;
+                    protocol_delegation?: string | undefined;
+                    protocol_rewards?: string | undefined;
+                    protocol_funding?: string | undefined;
                 } & {
                     balance?: string | undefined;
-                    protocolStaking?: string | undefined;
-                    protocolDelegation?: string | undefined;
-                    protocolRewards?: string | undefined;
-                    protocolFunding?: string | undefined;
+                    protocol_staking?: string | undefined;
+                    protocol_delegation?: string | undefined;
+                    protocol_rewards?: string | undefined;
+                    protocol_funding?: string | undefined;
                 } & Record<Exclude<keyof I_62, keyof kyveQuery.QueryAccountAssetsResponse>, never>>(object: I_62): kyveQuery.QueryAccountAssetsResponse;
             };
             QueryAccountFundedListRequest: {
@@ -1683,7 +1683,7 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                     address?: string | undefined;
@@ -1692,13 +1692,13 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_63["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                     address?: string | undefined;
@@ -1721,49 +1721,49 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -1778,43 +1778,43 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
@@ -1829,43 +1829,43 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
@@ -1880,43 +1880,43 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } & {
@@ -1927,65 +1927,65 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["funders"], keyof string[]>, never>) | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: ({
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: ({
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } & {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                                votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                                votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                            } & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                            maxBundleSize?: string | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                                voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                                voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                            } & Record<Exclude<keyof I_64["funded"][number]["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: ({
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } & {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } & Record<Exclude<keyof I_64["funded"][number]["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                            upgradePlan?: ({
+                            upgrade_plan?: ({
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } & {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
-                            } & Record<Exclude<keyof I_64["funded"][number]["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                            } & Record<Exclude<keyof I_64["funded"][number]["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                         } & Record<Exclude<keyof I_64["funded"][number]["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
                     } & Record<Exclude<keyof I_64["funded"][number], keyof kyveQuery.Funded>, never>)[] & Record<Exclude<keyof I_64["funded"], keyof {
                         account?: string | undefined;
@@ -1998,52 +1998,52 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_64["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_64, keyof kyveQuery.QueryAccountFundedListResponse>, never>>(object: I_64): kyveQuery.QueryAccountFundedListResponse;
@@ -2064,43 +2064,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } | undefined;
@@ -2115,43 +2115,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -2162,65 +2162,65 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_65["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_65["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_65["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_65["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_65["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_65["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_65["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
                 } & Record<Exclude<keyof I_65, keyof kyveQuery.Funded>, never>>(object: I_65): kyveQuery.Funded;
             };
@@ -2234,7 +2234,7 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                     address?: string | undefined;
@@ -2243,13 +2243,13 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_66["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                     address?: string | undefined;
@@ -2263,7 +2263,7 @@ export declare namespace kyve {
                 fromPartial<I_67 extends {
                     staked?: {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
                         pool?: {
@@ -2274,55 +2274,55 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
                     staked?: ({
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
                         pool?: {
@@ -2333,49 +2333,49 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
                     }[] & ({
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
                         pool?: {
@@ -2386,49 +2386,49 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
                     } & {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
                         pool?: ({
@@ -2439,43 +2439,43 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } & {
@@ -2486,69 +2486,69 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["funders"], keyof string[]>, never>) | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: ({
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: ({
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } & {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                                votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                                votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                            } & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                            maxBundleSize?: string | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                                voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                                voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                            } & Record<Exclude<keyof I_67["staked"][number]["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: ({
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } & {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } & Record<Exclude<keyof I_67["staked"][number]["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                            upgradePlan?: ({
+                            upgrade_plan?: ({
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } & {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
-                            } & Record<Exclude<keyof I_67["staked"][number]["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                            } & Record<Exclude<keyof I_67["staked"][number]["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                         } & Record<Exclude<keyof I_67["staked"][number]["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
                     } & Record<Exclude<keyof I_67["staked"][number], keyof kyveQuery.Staked>, never>)[] & Record<Exclude<keyof I_67["staked"], keyof {
                         staker?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         account?: string | undefined;
                         amount?: string | undefined;
                         pool?: {
@@ -2559,52 +2559,52 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_67["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_67, keyof kyveQuery.QueryAccountStakedListResponse>, never>>(object: I_67): kyveQuery.QueryAccountStakedListResponse;
@@ -2616,7 +2616,7 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.Staked): unknown;
                 fromPartial<I_68 extends {
                     staker?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     account?: string | undefined;
                     amount?: string | undefined;
                     pool?: {
@@ -2627,49 +2627,49 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } | undefined;
                 } & {
                     staker?: string | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     account?: string | undefined;
                     amount?: string | undefined;
                     pool?: ({
@@ -2680,43 +2680,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -2727,65 +2727,65 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_68["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_68["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_68["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_68["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_68["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_68["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_68["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
                 } & Record<Exclude<keyof I_68, keyof kyveQuery.Staked>, never>>(object: I_68): kyveQuery.Staked;
             };
@@ -2799,7 +2799,7 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                     address?: string | undefined;
@@ -2808,13 +2808,13 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_69["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                     address?: string | undefined;
@@ -2836,61 +2836,61 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
-                        delegationPoolData?: {
+                        delegation_pool_data?: {
                             id?: string | undefined;
                             staker?: string | undefined;
-                            currentRewards?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            latestIndexK?: string | undefined;
-                            delegatorCount?: string | undefined;
-                            latestIndexWasUndelegation?: boolean | undefined;
+                            current_rewards?: string | undefined;
+                            total_delegation?: string | undefined;
+                            latest_index_k?: string | undefined;
+                            delegator_count?: string | undefined;
+                            latest_index_was_undelegation?: boolean | undefined;
                         } | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -2904,57 +2904,57 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
-                        delegationPoolData?: {
+                        delegation_pool_data?: {
                             id?: string | undefined;
                             staker?: string | undefined;
-                            currentRewards?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            latestIndexK?: string | undefined;
-                            delegatorCount?: string | undefined;
-                            latestIndexWasUndelegation?: boolean | undefined;
+                            current_rewards?: string | undefined;
+                            total_delegation?: string | undefined;
+                            latest_index_k?: string | undefined;
+                            delegator_count?: string | undefined;
+                            latest_index_was_undelegation?: boolean | undefined;
                         } | undefined;
                     }[] & ({
                         account?: string | undefined;
@@ -2966,57 +2966,57 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
-                        delegationPoolData?: {
+                        delegation_pool_data?: {
                             id?: string | undefined;
                             staker?: string | undefined;
-                            currentRewards?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            latestIndexK?: string | undefined;
-                            delegatorCount?: string | undefined;
-                            latestIndexWasUndelegation?: boolean | undefined;
+                            current_rewards?: string | undefined;
+                            total_delegation?: string | undefined;
+                            latest_index_k?: string | undefined;
+                            delegator_count?: string | undefined;
+                            latest_index_was_undelegation?: boolean | undefined;
                         } | undefined;
                     } & {
                         account?: string | undefined;
@@ -3028,43 +3028,43 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } & {
@@ -3075,86 +3075,86 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["funders"], keyof string[]>, never>) | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: ({
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: ({
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } & {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                                votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                                votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                            } & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                            maxBundleSize?: string | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                                voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                                voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                            } & Record<Exclude<keyof I_70["delegations"][number]["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: ({
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } & {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } & Record<Exclude<keyof I_70["delegations"][number]["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                            upgradePlan?: ({
+                            upgrade_plan?: ({
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } & {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
-                            } & Record<Exclude<keyof I_70["delegations"][number]["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                            } & Record<Exclude<keyof I_70["delegations"][number]["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                         } & Record<Exclude<keyof I_70["delegations"][number]["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
-                        delegationPoolData?: ({
+                        delegation_pool_data?: ({
                             id?: string | undefined;
                             staker?: string | undefined;
-                            currentRewards?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            latestIndexK?: string | undefined;
-                            delegatorCount?: string | undefined;
-                            latestIndexWasUndelegation?: boolean | undefined;
+                            current_rewards?: string | undefined;
+                            total_delegation?: string | undefined;
+                            latest_index_k?: string | undefined;
+                            delegator_count?: string | undefined;
+                            latest_index_was_undelegation?: boolean | undefined;
                         } & {
                             id?: string | undefined;
                             staker?: string | undefined;
-                            currentRewards?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            latestIndexK?: string | undefined;
-                            delegatorCount?: string | undefined;
-                            latestIndexWasUndelegation?: boolean | undefined;
-                        } & Record<Exclude<keyof I_70["delegations"][number]["delegationPoolData"], keyof kyveRegistry.DelegationPoolData>, never>) | undefined;
+                            current_rewards?: string | undefined;
+                            total_delegation?: string | undefined;
+                            latest_index_k?: string | undefined;
+                            delegator_count?: string | undefined;
+                            latest_index_was_undelegation?: boolean | undefined;
+                        } & Record<Exclude<keyof I_70["delegations"][number]["delegation_pool_data"], keyof kyveRegistry.DelegationPoolData>, never>) | undefined;
                     } & Record<Exclude<keyof I_70["delegations"][number], keyof kyveQuery.DelegatorResponse>, never>)[] & Record<Exclude<keyof I_70["delegations"], keyof {
                         account?: string | undefined;
                         pool?: {
@@ -3165,64 +3165,64 @@ export declare namespace kyve {
                             logo?: string | undefined;
                             versions?: string | undefined;
                             config?: string | undefined;
-                            heightArchived?: string | undefined;
-                            bytesArchived?: string | undefined;
-                            totalBundles?: string | undefined;
-                            totalBundleRewards?: string | undefined;
-                            startHeight?: string | undefined;
-                            uploadInterval?: string | undefined;
-                            operatingCost?: string | undefined;
+                            height_archived?: string | undefined;
+                            bytes_archived?: string | undefined;
+                            total_bundles?: string | undefined;
+                            total_bundle_rewards?: string | undefined;
+                            start_height?: string | undefined;
+                            upload_interval?: string | undefined;
+                            operating_cost?: string | undefined;
                             paused?: boolean | undefined;
                             funders?: string[] | undefined;
-                            lowestFunder?: string | undefined;
-                            totalFunds?: string | undefined;
+                            lowest_funder?: string | undefined;
+                            total_funds?: string | undefined;
                             stakers?: string[] | undefined;
-                            lowestStaker?: string | undefined;
-                            totalStake?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            bundleProposal?: {
+                            lowest_staker?: string | undefined;
+                            total_stake?: string | undefined;
+                            total_delegation?: string | undefined;
+                            bundle_proposal?: {
                                 uploader?: string | undefined;
-                                nextUploader?: string | undefined;
-                                bundleId?: string | undefined;
-                                byteSize?: string | undefined;
-                                fromHeight?: string | undefined;
-                                toHeight?: string | undefined;
-                                createdAt?: string | undefined;
-                                votersValid?: string[] | undefined;
-                                votersInvalid?: string[] | undefined;
-                                votersAbstain?: string[] | undefined;
+                                next_uploader?: string | undefined;
+                                bundle_id?: string | undefined;
+                                byte_size?: string | undefined;
+                                from_height?: string | undefined;
+                                to_height?: string | undefined;
+                                created_at?: string | undefined;
+                                voters_valid?: string[] | undefined;
+                                voters_invalid?: string[] | undefined;
+                                voters_abstain?: string[] | undefined;
                             } | undefined;
-                            maxBundleSize?: string | undefined;
+                            max_bundle_size?: string | undefined;
                             protocol?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                lastUpgrade?: string | undefined;
+                                last_upgrade?: string | undefined;
                             } | undefined;
-                            upgradePlan?: {
+                            upgrade_plan?: {
                                 version?: string | undefined;
                                 binaries?: string | undefined;
-                                scheduledAt?: string | undefined;
+                                scheduled_at?: string | undefined;
                                 duration?: string | undefined;
                             } | undefined;
                         } | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
-                        delegationPoolData?: {
+                        delegation_pool_data?: {
                             id?: string | undefined;
                             staker?: string | undefined;
-                            currentRewards?: string | undefined;
-                            totalDelegation?: string | undefined;
-                            latestIndexK?: string | undefined;
-                            delegatorCount?: string | undefined;
-                            latestIndexWasUndelegation?: boolean | undefined;
+                            current_rewards?: string | undefined;
+                            total_delegation?: string | undefined;
+                            latest_index_k?: string | undefined;
+                            delegator_count?: string | undefined;
+                            latest_index_was_undelegation?: boolean | undefined;
                         } | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_70["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_70, keyof kyveQuery.QueryAccountDelegationListResponse>, never>>(object: I_70): kyveQuery.QueryAccountDelegationListResponse;
@@ -3233,11 +3233,11 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveQuery.QueryDelegatorRequest;
                 toJSON(message: kyveQuery.QueryDelegatorRequest): unknown;
                 fromPartial<I_71 extends {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                     delegator?: string | undefined;
                 } & {
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                     delegator?: string | undefined;
                 } & Record<Exclude<keyof I_71, keyof kyveQuery.QueryDelegatorRequest>, never>>(object: I_71): kyveQuery.QueryDelegatorRequest;
@@ -3250,20 +3250,20 @@ export declare namespace kyve {
                 fromPartial<I_72 extends {
                     delegator?: {
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     } | undefined;
                 } & {
                     delegator?: ({
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     } & {
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     } & Record<Exclude<keyof I_72["delegator"], keyof kyveQuery.StakerDelegatorResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_72, "delegator">, never>>(object: I_72): kyveQuery.QueryDelegatorResponse;
@@ -3283,57 +3283,57 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } | undefined;
-                    currentReward?: string | undefined;
-                    delegationAmount?: string | undefined;
+                    current_reward?: string | undefined;
+                    delegation_amount?: string | undefined;
                     staker?: string | undefined;
-                    delegationPoolData?: {
+                    delegation_pool_data?: {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     } | undefined;
                 } & {
                     account?: string | undefined;
@@ -3345,43 +3345,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -3392,86 +3392,86 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_73["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_73["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_73["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_73["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_73["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_73["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_73["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
-                    currentReward?: string | undefined;
-                    delegationAmount?: string | undefined;
+                    current_reward?: string | undefined;
+                    delegation_amount?: string | undefined;
                     staker?: string | undefined;
-                    delegationPoolData?: ({
+                    delegation_pool_data?: ({
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     } & {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
-                    } & Record<Exclude<keyof I_73["delegationPoolData"], keyof kyveRegistry.DelegationPoolData>, never>) | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
+                    } & Record<Exclude<keyof I_73["delegation_pool_data"], keyof kyveRegistry.DelegationPoolData>, never>) | undefined;
                 } & Record<Exclude<keyof I_73, keyof kyveQuery.DelegatorResponse>, never>>(object: I_73): kyveQuery.DelegatorResponse;
             };
             QueryDelegatorsByPoolAndStakerRequest: {
@@ -3484,26 +3484,26 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                 } & {
                     pagination?: ({
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_74["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     staker?: string | undefined;
                 } & Record<Exclude<keyof I_74, keyof kyveQuery.QueryDelegatorsByPoolAndStakerRequest>, never>>(object: I_74): kyveQuery.QueryDelegatorsByPoolAndStakerRequest;
             };
@@ -3515,8 +3515,8 @@ export declare namespace kyve {
                 fromPartial<I_75 extends {
                     delegators?: {
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     }[] | undefined;
                     pool?: {
@@ -3527,79 +3527,79 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } | undefined;
-                    delegationPoolData?: {
+                    delegation_pool_data?: {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     } | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
                     delegators?: ({
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     }[] & ({
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     } & {
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     } & Record<Exclude<keyof I_75["delegators"][number], keyof kyveQuery.StakerDelegatorResponse>, never>)[] & Record<Exclude<keyof I_75["delegators"], keyof {
                         delegator?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                     }[]>, never>) | undefined;
                     pool?: ({
@@ -3610,43 +3610,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -3657,88 +3657,88 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_75["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_75["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_75["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_75["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_75["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_75["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_75["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
-                    delegationPoolData?: ({
+                    delegation_pool_data?: ({
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     } & {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
-                    } & Record<Exclude<keyof I_75["delegationPoolData"], keyof kyveRegistry.DelegationPoolData>, never>) | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
+                    } & Record<Exclude<keyof I_75["delegation_pool_data"], keyof kyveRegistry.DelegationPoolData>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_75["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_75, keyof kyveQuery.QueryDelegatorsByPoolAndStakerResponse>, never>>(object: I_75): kyveQuery.QueryDelegatorsByPoolAndStakerResponse;
@@ -3750,13 +3750,13 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.StakerDelegatorResponse): unknown;
                 fromPartial<I_76 extends {
                     delegator?: string | undefined;
-                    currentReward?: string | undefined;
-                    delegationAmount?: string | undefined;
+                    current_reward?: string | undefined;
+                    delegation_amount?: string | undefined;
                     staker?: string | undefined;
                 } & {
                     delegator?: string | undefined;
-                    currentReward?: string | undefined;
-                    delegationAmount?: string | undefined;
+                    current_reward?: string | undefined;
+                    delegation_amount?: string | undefined;
                     staker?: string | undefined;
                 } & Record<Exclude<keyof I_76, keyof kyveQuery.StakerDelegatorResponse>, never>>(object: I_76): kyveQuery.StakerDelegatorResponse;
             };
@@ -3770,26 +3770,26 @@ export declare namespace kyve {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     delegator?: string | undefined;
                 } & {
                     pagination?: ({
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_77["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
-                    poolId?: string | undefined;
+                    pool_id?: string | undefined;
                     delegator?: string | undefined;
                 } & Record<Exclude<keyof I_77, keyof kyveQuery.QueryStakersByPoolAndDelegatorRequest>, never>>(object: I_77): kyveQuery.QueryStakersByPoolAndDelegatorRequest;
             };
@@ -3808,55 +3808,55 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } | undefined;
                     stakers?: {
                         staker?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
-                        totalDelegationAmount?: string | undefined;
-                        delegatorCount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
+                        total_delegation_amount?: string | undefined;
+                        delegator_count?: string | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -3869,43 +3869,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -3916,96 +3916,96 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_78["pool"]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_78["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_78["pool"]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & Record<Exclude<keyof I_78["pool"]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_78["pool"]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                        } & Record<Exclude<keyof I_78["pool"]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
                     } & Record<Exclude<keyof I_78["pool"], keyof kyveRegistry.Pool>, never>) | undefined;
                     stakers?: ({
                         staker?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
-                        totalDelegationAmount?: string | undefined;
-                        delegatorCount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
+                        total_delegation_amount?: string | undefined;
+                        delegator_count?: string | undefined;
                     }[] & ({
                         staker?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
-                        totalDelegationAmount?: string | undefined;
-                        delegatorCount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
+                        total_delegation_amount?: string | undefined;
+                        delegator_count?: string | undefined;
                     } & {
                         staker?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
-                        totalDelegationAmount?: string | undefined;
-                        delegatorCount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
+                        total_delegation_amount?: string | undefined;
+                        delegator_count?: string | undefined;
                     } & Record<Exclude<keyof I_78["stakers"][number], keyof kyveQuery.DelegationForStakerResponse>, never>)[] & Record<Exclude<keyof I_78["stakers"], keyof {
                         staker?: string | undefined;
-                        currentReward?: string | undefined;
-                        delegationAmount?: string | undefined;
-                        totalDelegationAmount?: string | undefined;
-                        delegatorCount?: string | undefined;
+                        current_reward?: string | undefined;
+                        delegation_amount?: string | undefined;
+                        total_delegation_amount?: string | undefined;
+                        delegator_count?: string | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_78["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_78, keyof kyveQuery.QueryStakersByPoolAndDelegatorResponse>, never>>(object: I_78): kyveQuery.QueryStakersByPoolAndDelegatorResponse;
@@ -4017,16 +4017,16 @@ export declare namespace kyve {
                 toJSON(message: kyveQuery.DelegationForStakerResponse): unknown;
                 fromPartial<I_79 extends {
                     staker?: string | undefined;
-                    currentReward?: string | undefined;
-                    delegationAmount?: string | undefined;
-                    totalDelegationAmount?: string | undefined;
-                    delegatorCount?: string | undefined;
+                    current_reward?: string | undefined;
+                    delegation_amount?: string | undefined;
+                    total_delegation_amount?: string | undefined;
+                    delegator_count?: string | undefined;
                 } & {
                     staker?: string | undefined;
-                    currentReward?: string | undefined;
-                    delegationAmount?: string | undefined;
-                    totalDelegationAmount?: string | undefined;
-                    delegatorCount?: string | undefined;
+                    current_reward?: string | undefined;
+                    delegation_amount?: string | undefined;
+                    total_delegation_amount?: string | undefined;
+                    delegator_count?: string | undefined;
                 } & Record<Exclude<keyof I_79, keyof kyveQuery.DelegationForStakerResponse>, never>>(object: I_79): kyveQuery.DelegationForStakerResponse;
             };
             QueryClientImpl: typeof kyveQuery.QueryClientImpl;
@@ -4036,21 +4036,21 @@ export declare namespace kyve {
                 fromJSON(object: any): kyveParams.Params;
                 toJSON(message: kyveParams.Params): unknown;
                 fromPartial<I_80 extends {
-                    voteSlash?: string | undefined;
-                    uploadSlash?: string | undefined;
-                    timeoutSlash?: string | undefined;
-                    uploadTimeout?: string | undefined;
-                    storageCost?: string | undefined;
-                    networkFee?: string | undefined;
-                    maxPoints?: string | undefined;
+                    vote_slash?: string | undefined;
+                    upload_slash?: string | undefined;
+                    timeout_slash?: string | undefined;
+                    upload_timeout?: string | undefined;
+                    storage_cost?: string | undefined;
+                    network_fee?: string | undefined;
+                    max_points?: string | undefined;
                 } & {
-                    voteSlash?: string | undefined;
-                    uploadSlash?: string | undefined;
-                    timeoutSlash?: string | undefined;
-                    uploadTimeout?: string | undefined;
-                    storageCost?: string | undefined;
-                    networkFee?: string | undefined;
-                    maxPoints?: string | undefined;
+                    vote_slash?: string | undefined;
+                    upload_slash?: string | undefined;
+                    timeout_slash?: string | undefined;
+                    upload_timeout?: string | undefined;
+                    storage_cost?: string | undefined;
+                    network_fee?: string | undefined;
+                    max_points?: string | undefined;
                 } & Record<Exclude<keyof I_80, keyof kyveParams.Params>, never>>(object: I_80): kyveParams.Params;
             };
             CreatePoolProposal: {
@@ -4066,10 +4066,10 @@ export declare namespace kyve {
                     logo?: string | undefined;
                     version?: string | undefined;
                     config?: string | undefined;
-                    startHeight?: string | undefined;
-                    uploadInterval?: string | undefined;
-                    operatingCost?: string | undefined;
-                    maxBundleSize?: string | undefined;
+                    start_height?: string | undefined;
+                    upload_interval?: string | undefined;
+                    operating_cost?: string | undefined;
+                    max_bundle_size?: string | undefined;
                     binaries?: string | undefined;
                 } & {
                     title?: string | undefined;
@@ -4079,10 +4079,10 @@ export declare namespace kyve {
                     logo?: string | undefined;
                     version?: string | undefined;
                     config?: string | undefined;
-                    startHeight?: string | undefined;
-                    uploadInterval?: string | undefined;
-                    operatingCost?: string | undefined;
-                    maxBundleSize?: string | undefined;
+                    start_height?: string | undefined;
+                    upload_interval?: string | undefined;
+                    operating_cost?: string | undefined;
+                    max_bundle_size?: string | undefined;
                     binaries?: string | undefined;
                 } & Record<Exclude<keyof I_81, keyof kyveGov.CreatePoolProposal>, never>>(object: I_81): kyveGov.CreatePoolProposal;
             };
@@ -4100,9 +4100,9 @@ export declare namespace kyve {
                     logo?: string | undefined;
                     versions?: string | undefined;
                     config?: string | undefined;
-                    uploadInterval?: string | undefined;
-                    operatingCost?: string | undefined;
-                    maxBundleSize?: string | undefined;
+                    upload_interval?: string | undefined;
+                    operating_cost?: string | undefined;
+                    max_bundle_size?: string | undefined;
                 } & {
                     title?: string | undefined;
                     description?: string | undefined;
@@ -4112,9 +4112,9 @@ export declare namespace kyve {
                     logo?: string | undefined;
                     versions?: string | undefined;
                     config?: string | undefined;
-                    uploadInterval?: string | undefined;
-                    operatingCost?: string | undefined;
-                    maxBundleSize?: string | undefined;
+                    upload_interval?: string | undefined;
+                    operating_cost?: string | undefined;
+                    max_bundle_size?: string | undefined;
                 } & Record<Exclude<keyof I_82, keyof kyveGov.UpdatePoolProposal>, never>>(object: I_82): kyveGov.UpdatePoolProposal;
             };
             PausePoolProposal: {
@@ -4157,7 +4157,7 @@ export declare namespace kyve {
                     description?: string | undefined;
                     runtime?: string | undefined;
                     version?: string | undefined;
-                    scheduledAt?: string | undefined;
+                    scheduled_at?: string | undefined;
                     duration?: string | undefined;
                     binaries?: string | undefined;
                 } & {
@@ -4165,7 +4165,7 @@ export declare namespace kyve {
                     description?: string | undefined;
                     runtime?: string | undefined;
                     version?: string | undefined;
-                    scheduledAt?: string | undefined;
+                    scheduled_at?: string | undefined;
                     duration?: string | undefined;
                     binaries?: string | undefined;
                 } & Record<Exclude<keyof I_85, keyof kyveGov.SchedulePoolUpgradeProposal>, never>>(object: I_85): kyveGov.SchedulePoolUpgradeProposal;
@@ -4192,15 +4192,15 @@ export declare namespace kyve {
                 toJSON(message: genesisKyve.GenesisState): unknown;
                 fromPartial<I_87 extends {
                     params?: {
-                        voteSlash?: string | undefined;
-                        uploadSlash?: string | undefined;
-                        timeoutSlash?: string | undefined;
-                        uploadTimeout?: string | undefined;
-                        storageCost?: string | undefined;
-                        networkFee?: string | undefined;
-                        maxPoints?: string | undefined;
+                        vote_slash?: string | undefined;
+                        upload_slash?: string | undefined;
+                        timeout_slash?: string | undefined;
+                        upload_timeout?: string | undefined;
+                        storage_cost?: string | undefined;
+                        network_fee?: string | undefined;
+                        max_points?: string | undefined;
                     } | undefined;
-                    poolList?: {
+                    pool_list?: {
                         id?: string | undefined;
                         creator?: string | undefined;
                         name?: string | undefined;
@@ -4208,124 +4208,124 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     }[] | undefined;
-                    poolCount?: string | undefined;
-                    funderList?: {
+                    pool_count?: string | undefined;
+                    funder_list?: {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
-                    stakerList?: {
+                    staker_list?: {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
-                        unbondingAmount?: string | undefined;
+                        unbonding_amount?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
                         logo?: string | undefined;
                         points?: string | undefined;
                     }[] | undefined;
-                    delegatorList?: {
+                    delegator_list?: {
                         id?: string | undefined;
-                        kIndex?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        k_index?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
                     }[] | undefined;
-                    delegationPoolDataList?: {
+                    delegation_pool_data_list?: {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     }[] | undefined;
-                    delegationEntriesList?: {
+                    delegation_entries_list?: {
                         id?: string | undefined;
                         balance?: string | undefined;
                         staker?: string | undefined;
-                        kIndex?: string | undefined;
+                        k_index?: string | undefined;
                     }[] | undefined;
-                    proposalList?: {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                    proposal_list?: {
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     }[] | undefined;
-                    unbondingState?: {
-                        lowIndex?: string | undefined;
-                        highIndex?: string | undefined;
+                    unbonding_state?: {
+                        low_index?: string | undefined;
+                        high_index?: string | undefined;
                     } | undefined;
-                    unbondingEntries?: {
+                    unbonding_entries?: {
                         index?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
-                        creationTime?: string | undefined;
+                        creation_time?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
                 } & {
                     params?: ({
-                        voteSlash?: string | undefined;
-                        uploadSlash?: string | undefined;
-                        timeoutSlash?: string | undefined;
-                        uploadTimeout?: string | undefined;
-                        storageCost?: string | undefined;
-                        networkFee?: string | undefined;
-                        maxPoints?: string | undefined;
+                        vote_slash?: string | undefined;
+                        upload_slash?: string | undefined;
+                        timeout_slash?: string | undefined;
+                        upload_timeout?: string | undefined;
+                        storage_cost?: string | undefined;
+                        network_fee?: string | undefined;
+                        max_points?: string | undefined;
                     } & {
-                        voteSlash?: string | undefined;
-                        uploadSlash?: string | undefined;
-                        timeoutSlash?: string | undefined;
-                        uploadTimeout?: string | undefined;
-                        storageCost?: string | undefined;
-                        networkFee?: string | undefined;
-                        maxPoints?: string | undefined;
+                        vote_slash?: string | undefined;
+                        upload_slash?: string | undefined;
+                        timeout_slash?: string | undefined;
+                        upload_timeout?: string | undefined;
+                        storage_cost?: string | undefined;
+                        network_fee?: string | undefined;
+                        max_points?: string | undefined;
                     } & Record<Exclude<keyof I_87["params"], keyof kyveParams.Params>, never>) | undefined;
-                    poolList?: ({
+                    pool_list?: ({
                         id?: string | undefined;
                         creator?: string | undefined;
                         name?: string | undefined;
@@ -4333,43 +4333,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     }[] & ({
@@ -4380,43 +4380,43 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     } & {
@@ -4427,66 +4427,66 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
-                        funders?: (string[] & string[] & Record<Exclude<keyof I_87["poolList"][number]["funders"], keyof string[]>, never>) | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
-                        stakers?: (string[] & string[] & Record<Exclude<keyof I_87["poolList"][number]["stakers"], keyof string[]>, never>) | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: ({
+                        funders?: (string[] & string[] & Record<Exclude<keyof I_87["pool_list"][number]["funders"], keyof string[]>, never>) | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
+                        stakers?: (string[] & string[] & Record<Exclude<keyof I_87["pool_list"][number]["stakers"], keyof string[]>, never>) | undefined;
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: ({
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } & {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: (string[] & string[] & Record<Exclude<keyof I_87["poolList"][number]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                            votersInvalid?: (string[] & string[] & Record<Exclude<keyof I_87["poolList"][number]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                            votersAbstain?: (string[] & string[] & Record<Exclude<keyof I_87["poolList"][number]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-                        } & Record<Exclude<keyof I_87["poolList"][number]["bundleProposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
-                        maxBundleSize?: string | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: (string[] & string[] & Record<Exclude<keyof I_87["pool_list"][number]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                            voters_invalid?: (string[] & string[] & Record<Exclude<keyof I_87["pool_list"][number]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                            voters_abstain?: (string[] & string[] & Record<Exclude<keyof I_87["pool_list"][number]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+                        } & Record<Exclude<keyof I_87["pool_list"][number]["bundle_proposal"], keyof kyveRegistry.BundleProposal>, never>) | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
-                        } & Record<Exclude<keyof I_87["poolList"][number]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
-                        upgradePlan?: ({
+                            last_upgrade?: string | undefined;
+                        } & Record<Exclude<keyof I_87["pool_list"][number]["protocol"], keyof kyveRegistry.Protocol>, never>) | undefined;
+                        upgrade_plan?: ({
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } & {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
-                        } & Record<Exclude<keyof I_87["poolList"][number]["upgradePlan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
-                    } & Record<Exclude<keyof I_87["poolList"][number], keyof kyveRegistry.Pool>, never>)[] & Record<Exclude<keyof I_87["poolList"], keyof {
+                        } & Record<Exclude<keyof I_87["pool_list"][number]["upgrade_plan"], keyof kyveRegistry.UpgradePlan>, never>) | undefined;
+                    } & Record<Exclude<keyof I_87["pool_list"][number], keyof kyveRegistry.Pool>, never>)[] & Record<Exclude<keyof I_87["pool_list"], keyof {
                         id?: string | undefined;
                         creator?: string | undefined;
                         name?: string | undefined;
@@ -4494,69 +4494,69 @@ export declare namespace kyve {
                         logo?: string | undefined;
                         versions?: string | undefined;
                         config?: string | undefined;
-                        heightArchived?: string | undefined;
-                        bytesArchived?: string | undefined;
-                        totalBundles?: string | undefined;
-                        totalBundleRewards?: string | undefined;
-                        startHeight?: string | undefined;
-                        uploadInterval?: string | undefined;
-                        operatingCost?: string | undefined;
+                        height_archived?: string | undefined;
+                        bytes_archived?: string | undefined;
+                        total_bundles?: string | undefined;
+                        total_bundle_rewards?: string | undefined;
+                        start_height?: string | undefined;
+                        upload_interval?: string | undefined;
+                        operating_cost?: string | undefined;
                         paused?: boolean | undefined;
                         funders?: string[] | undefined;
-                        lowestFunder?: string | undefined;
-                        totalFunds?: string | undefined;
+                        lowest_funder?: string | undefined;
+                        total_funds?: string | undefined;
                         stakers?: string[] | undefined;
-                        lowestStaker?: string | undefined;
-                        totalStake?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        bundleProposal?: {
+                        lowest_staker?: string | undefined;
+                        total_stake?: string | undefined;
+                        total_delegation?: string | undefined;
+                        bundle_proposal?: {
                             uploader?: string | undefined;
-                            nextUploader?: string | undefined;
-                            bundleId?: string | undefined;
-                            byteSize?: string | undefined;
-                            fromHeight?: string | undefined;
-                            toHeight?: string | undefined;
-                            createdAt?: string | undefined;
-                            votersValid?: string[] | undefined;
-                            votersInvalid?: string[] | undefined;
-                            votersAbstain?: string[] | undefined;
+                            next_uploader?: string | undefined;
+                            bundle_id?: string | undefined;
+                            byte_size?: string | undefined;
+                            from_height?: string | undefined;
+                            to_height?: string | undefined;
+                            created_at?: string | undefined;
+                            voters_valid?: string[] | undefined;
+                            voters_invalid?: string[] | undefined;
+                            voters_abstain?: string[] | undefined;
                         } | undefined;
-                        maxBundleSize?: string | undefined;
+                        max_bundle_size?: string | undefined;
                         protocol?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            lastUpgrade?: string | undefined;
+                            last_upgrade?: string | undefined;
                         } | undefined;
-                        upgradePlan?: {
+                        upgrade_plan?: {
                             version?: string | undefined;
                             binaries?: string | undefined;
-                            scheduledAt?: string | undefined;
+                            scheduled_at?: string | undefined;
                             duration?: string | undefined;
                         } | undefined;
                     }[]>, never>) | undefined;
-                    poolCount?: string | undefined;
-                    funderList?: ({
+                    pool_count?: string | undefined;
+                    funder_list?: ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     }[] & ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     } & {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
-                    } & Record<Exclude<keyof I_87["funderList"][number], keyof kyveRegistry.Funder>, never>)[] & Record<Exclude<keyof I_87["funderList"], keyof {
+                    } & Record<Exclude<keyof I_87["funder_list"][number], keyof kyveRegistry.Funder>, never>)[] & Record<Exclude<keyof I_87["funder_list"], keyof {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
                     }[]>, never>) | undefined;
-                    stakerList?: ({
+                    staker_list?: ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
-                        unbondingAmount?: string | undefined;
+                        unbonding_amount?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -4564,9 +4564,9 @@ export declare namespace kyve {
                         points?: string | undefined;
                     }[] & ({
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
-                        unbondingAmount?: string | undefined;
+                        unbonding_amount?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
@@ -4574,167 +4574,167 @@ export declare namespace kyve {
                         points?: string | undefined;
                     } & {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
-                        unbondingAmount?: string | undefined;
+                        unbonding_amount?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
                         logo?: string | undefined;
                         points?: string | undefined;
-                    } & Record<Exclude<keyof I_87["stakerList"][number], keyof kyveRegistry.Staker>, never>)[] & Record<Exclude<keyof I_87["stakerList"], keyof {
+                    } & Record<Exclude<keyof I_87["staker_list"][number], keyof kyveRegistry.Staker>, never>)[] & Record<Exclude<keyof I_87["staker_list"], keyof {
                         account?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         amount?: string | undefined;
-                        unbondingAmount?: string | undefined;
+                        unbonding_amount?: string | undefined;
                         commission?: string | undefined;
                         moniker?: string | undefined;
                         website?: string | undefined;
                         logo?: string | undefined;
                         points?: string | undefined;
                     }[]>, never>) | undefined;
-                    delegatorList?: ({
+                    delegator_list?: ({
                         id?: string | undefined;
-                        kIndex?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        k_index?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
                     }[] & ({
                         id?: string | undefined;
-                        kIndex?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        k_index?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
                     } & {
                         id?: string | undefined;
-                        kIndex?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        k_index?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
-                    } & Record<Exclude<keyof I_87["delegatorList"][number], keyof kyveRegistry.Delegator>, never>)[] & Record<Exclude<keyof I_87["delegatorList"], keyof {
+                    } & Record<Exclude<keyof I_87["delegator_list"][number], keyof kyveRegistry.Delegator>, never>)[] & Record<Exclude<keyof I_87["delegator_list"], keyof {
                         id?: string | undefined;
-                        kIndex?: string | undefined;
-                        delegationAmount?: string | undefined;
+                        k_index?: string | undefined;
+                        delegation_amount?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
                     }[]>, never>) | undefined;
-                    delegationPoolDataList?: ({
+                    delegation_pool_data_list?: ({
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     }[] & ({
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     } & {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
-                    } & Record<Exclude<keyof I_87["delegationPoolDataList"][number], keyof kyveRegistry.DelegationPoolData>, never>)[] & Record<Exclude<keyof I_87["delegationPoolDataList"], keyof {
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
+                    } & Record<Exclude<keyof I_87["delegation_pool_data_list"][number], keyof kyveRegistry.DelegationPoolData>, never>)[] & Record<Exclude<keyof I_87["delegation_pool_data_list"], keyof {
                         id?: string | undefined;
                         staker?: string | undefined;
-                        currentRewards?: string | undefined;
-                        totalDelegation?: string | undefined;
-                        latestIndexK?: string | undefined;
-                        delegatorCount?: string | undefined;
-                        latestIndexWasUndelegation?: boolean | undefined;
+                        current_rewards?: string | undefined;
+                        total_delegation?: string | undefined;
+                        latest_index_k?: string | undefined;
+                        delegator_count?: string | undefined;
+                        latest_index_was_undelegation?: boolean | undefined;
                     }[]>, never>) | undefined;
-                    delegationEntriesList?: ({
+                    delegation_entries_list?: ({
                         id?: string | undefined;
                         balance?: string | undefined;
                         staker?: string | undefined;
-                        kIndex?: string | undefined;
+                        k_index?: string | undefined;
                     }[] & ({
                         id?: string | undefined;
                         balance?: string | undefined;
                         staker?: string | undefined;
-                        kIndex?: string | undefined;
+                        k_index?: string | undefined;
                     } & {
                         id?: string | undefined;
                         balance?: string | undefined;
                         staker?: string | undefined;
-                        kIndex?: string | undefined;
-                    } & Record<Exclude<keyof I_87["delegationEntriesList"][number], keyof kyveRegistry.DelegationEntries>, never>)[] & Record<Exclude<keyof I_87["delegationEntriesList"], keyof {
+                        k_index?: string | undefined;
+                    } & Record<Exclude<keyof I_87["delegation_entries_list"][number], keyof kyveRegistry.DelegationEntries>, never>)[] & Record<Exclude<keyof I_87["delegation_entries_list"], keyof {
                         id?: string | undefined;
                         balance?: string | undefined;
                         staker?: string | undefined;
-                        kIndex?: string | undefined;
+                        k_index?: string | undefined;
                     }[]>, never>) | undefined;
-                    proposalList?: ({
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                    proposal_list?: ({
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     }[] & ({
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     } & {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
-                    } & Record<Exclude<keyof I_87["proposalList"][number], keyof kyveRegistry.Proposal>, never>)[] & Record<Exclude<keyof I_87["proposalList"], keyof {
-                        bundleId?: string | undefined;
-                        poolId?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
+                    } & Record<Exclude<keyof I_87["proposal_list"][number], keyof kyveRegistry.Proposal>, never>)[] & Record<Exclude<keyof I_87["proposal_list"], keyof {
+                        bundle_id?: string | undefined;
+                        pool_id?: string | undefined;
                         uploader?: string | undefined;
-                        fromHeight?: string | undefined;
-                        toHeight?: string | undefined;
-                        finalizedAt?: string | undefined;
+                        from_height?: string | undefined;
+                        to_height?: string | undefined;
+                        finalized_at?: string | undefined;
                     }[]>, never>) | undefined;
-                    unbondingState?: ({
-                        lowIndex?: string | undefined;
-                        highIndex?: string | undefined;
+                    unbonding_state?: ({
+                        low_index?: string | undefined;
+                        high_index?: string | undefined;
                     } & {
-                        lowIndex?: string | undefined;
-                        highIndex?: string | undefined;
-                    } & Record<Exclude<keyof I_87["unbondingState"], keyof kyveRegistry.UnbondingState>, never>) | undefined;
-                    unbondingEntries?: ({
+                        low_index?: string | undefined;
+                        high_index?: string | undefined;
+                    } & Record<Exclude<keyof I_87["unbonding_state"], keyof kyveRegistry.UnbondingState>, never>) | undefined;
+                    unbonding_entries?: ({
                         index?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
-                        creationTime?: string | undefined;
+                        creation_time?: string | undefined;
                         amount?: string | undefined;
                     }[] & ({
                         index?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
-                        creationTime?: string | undefined;
+                        creation_time?: string | undefined;
                         amount?: string | undefined;
                     } & {
                         index?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
-                        creationTime?: string | undefined;
+                        creation_time?: string | undefined;
                         amount?: string | undefined;
-                    } & Record<Exclude<keyof I_87["unbondingEntries"][number], keyof kyveRegistry.UnbondingEntries>, never>)[] & Record<Exclude<keyof I_87["unbondingEntries"], keyof {
+                    } & Record<Exclude<keyof I_87["unbonding_entries"][number], keyof kyveRegistry.UnbondingEntries>, never>)[] & Record<Exclude<keyof I_87["unbonding_entries"], keyof {
                         index?: string | undefined;
-                        poolId?: string | undefined;
+                        pool_id?: string | undefined;
                         staker?: string | undefined;
                         delegator?: string | undefined;
-                        creationTime?: string | undefined;
+                        creation_time?: string | undefined;
                         amount?: string | undefined;
                     }[]>, never>) | undefined;
                 } & Record<Exclude<keyof I_87, keyof genesisKyve.GenesisState>, never>>(object: I_87): genesisKyve.GenesisState;

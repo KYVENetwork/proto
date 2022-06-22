@@ -732,10 +732,10 @@ function createBaseMsgSubmitBundleProposal() {
     return {
         creator: "",
         id: "0",
-        bundleId: "",
-        byteSize: "0",
-        fromHeight: "0",
-        bundleSize: "0"
+        bundle_id: "",
+        byte_size: "0",
+        from_height: "0",
+        bundle_size: "0"
     };
 }
 exports.MsgSubmitBundleProposal = {
@@ -747,17 +747,17 @@ exports.MsgSubmitBundleProposal = {
         if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.bundleId !== "") {
-            writer.uint32(26).string(message.bundleId);
+        if (message.bundle_id !== "") {
+            writer.uint32(26).string(message.bundle_id);
         }
-        if (message.byteSize !== "0") {
-            writer.uint32(32).uint64(message.byteSize);
+        if (message.byte_size !== "0") {
+            writer.uint32(32).uint64(message.byte_size);
         }
-        if (message.fromHeight !== "0") {
-            writer.uint32(40).uint64(message.fromHeight);
+        if (message.from_height !== "0") {
+            writer.uint32(40).uint64(message.from_height);
         }
-        if (message.bundleSize !== "0") {
-            writer.uint32(48).uint64(message.bundleSize);
+        if (message.bundle_size !== "0") {
+            writer.uint32(48).uint64(message.bundle_size);
         }
         return writer;
     },
@@ -775,16 +775,16 @@ exports.MsgSubmitBundleProposal = {
                     message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.bundleId = reader.string();
+                    message.bundle_id = reader.string();
                     break;
                 case 4:
-                    message.byteSize = longToString(reader.uint64());
+                    message.byte_size = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.fromHeight = longToString(reader.uint64());
+                    message.from_height = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.bundleSize = longToString(reader.uint64());
+                    message.bundle_size = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -797,20 +797,22 @@ exports.MsgSubmitBundleProposal = {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
             id: isSet(object.id) ? String(object.id) : "0",
-            bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
-            byteSize: isSet(object.byteSize) ? String(object.byteSize) : "0",
-            fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0",
-            bundleSize: isSet(object.bundleSize) ? String(object.bundleSize) : "0"
+            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+            byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
+            from_height: isSet(object.from_height) ? String(object.from_height) : "0",
+            bundle_size: isSet(object.bundle_size) ? String(object.bundle_size) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
         message.id !== undefined && (obj.id = message.id);
-        message.bundleId !== undefined && (obj.bundleId = message.bundleId);
-        message.byteSize !== undefined && (obj.byteSize = message.byteSize);
-        message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
-        message.bundleSize !== undefined && (obj.bundleSize = message.bundleSize);
+        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.byte_size !== undefined && (obj.byte_size = message.byte_size);
+        message.from_height !== undefined &&
+            (obj.from_height = message.from_height);
+        message.bundle_size !== undefined &&
+            (obj.bundle_size = message.bundle_size);
         return obj;
     },
     fromPartial: function (object) {
@@ -818,10 +820,10 @@ exports.MsgSubmitBundleProposal = {
         var message = createBaseMsgSubmitBundleProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
-        message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
-        message.byteSize = (_d = object.byteSize) !== null && _d !== void 0 ? _d : "0";
-        message.fromHeight = (_e = object.fromHeight) !== null && _e !== void 0 ? _e : "0";
-        message.bundleSize = (_f = object.bundleSize) !== null && _f !== void 0 ? _f : "0";
+        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
+        message.byte_size = (_d = object.byte_size) !== null && _d !== void 0 ? _d : "0";
+        message.from_height = (_e = object.from_height) !== null && _e !== void 0 ? _e : "0";
+        message.bundle_size = (_f = object.bundle_size) !== null && _f !== void 0 ? _f : "0";
         return message;
     }
 };
@@ -860,7 +862,7 @@ exports.MsgSubmitBundleProposalResponse = {
     }
 };
 function createBaseMsgVoteProposal() {
-    return { creator: "", id: "0", bundleId: "", vote: "0" };
+    return { creator: "", id: "0", bundle_id: "", vote: "0" };
 }
 exports.MsgVoteProposal = {
     encode: function (message, writer) {
@@ -871,8 +873,8 @@ exports.MsgVoteProposal = {
         if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.bundleId !== "") {
-            writer.uint32(26).string(message.bundleId);
+        if (message.bundle_id !== "") {
+            writer.uint32(26).string(message.bundle_id);
         }
         if (message.vote !== "0") {
             writer.uint32(32).uint64(message.vote);
@@ -893,7 +895,7 @@ exports.MsgVoteProposal = {
                     message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.bundleId = reader.string();
+                    message.bundle_id = reader.string();
                     break;
                 case 4:
                     message.vote = longToString(reader.uint64());
@@ -909,7 +911,7 @@ exports.MsgVoteProposal = {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
             id: isSet(object.id) ? String(object.id) : "0",
-            bundleId: isSet(object.bundleId) ? String(object.bundleId) : "",
+            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
             vote: isSet(object.vote) ? String(object.vote) : "0"
         };
     },
@@ -917,7 +919,7 @@ exports.MsgVoteProposal = {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
         message.id !== undefined && (obj.id = message.id);
-        message.bundleId !== undefined && (obj.bundleId = message.bundleId);
+        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
         message.vote !== undefined && (obj.vote = message.vote);
         return obj;
     },
@@ -926,7 +928,7 @@ exports.MsgVoteProposal = {
         var message = createBaseMsgVoteProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
-        message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
+        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
         message.vote = (_d = object.vote) !== null && _d !== void 0 ? _d : "0";
         return message;
     }

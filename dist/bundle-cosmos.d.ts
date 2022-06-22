@@ -479,7 +479,7 @@ export declare namespace cosmos {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                 } & {
@@ -490,13 +490,13 @@ export declare namespace cosmos {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_5["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                 } & Record<Exclude<keyof I_5, keyof cosmosQuery.QueryProposalsRequest>, never>>(object: I_5): cosmosQuery.QueryProposalsRequest;
@@ -530,7 +530,7 @@ export declare namespace cosmos {
                         votingEndTime?: Date | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -637,10 +637,10 @@ export declare namespace cosmos {
                         votingEndTime?: Date | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_6["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_6, keyof cosmosQuery.QueryProposalsResponse>, never>>(object: I_6): cosmosQuery.QueryProposalsResponse;
@@ -713,7 +713,7 @@ export declare namespace cosmos {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                 } & {
@@ -722,13 +722,13 @@ export declare namespace cosmos {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_9["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                 } & Record<Exclude<keyof I_9, keyof cosmosQuery.QueryVotesRequest>, never>>(object: I_9): cosmosQuery.QueryVotesRequest;
@@ -749,7 +749,7 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -796,10 +796,10 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_10["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_10, keyof cosmosQuery.QueryVotesResponse>, never>>(object: I_10): cosmosQuery.QueryVotesResponse;
@@ -964,7 +964,7 @@ export declare namespace cosmos {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } | undefined;
                 } & {
@@ -973,13 +973,13 @@ export declare namespace cosmos {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
                         limit?: string | undefined;
-                        countTotal?: boolean | undefined;
+                        count_total?: boolean | undefined;
                         reverse?: boolean | undefined;
                     } & Record<Exclude<keyof I_15["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageRequest>, never>) | undefined;
                 } & Record<Exclude<keyof I_15, keyof cosmosQuery.QueryDepositsRequest>, never>>(object: I_15): cosmosQuery.QueryDepositsRequest;
@@ -999,7 +999,7 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[] | undefined;
                     pagination?: {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } | undefined;
                 } & {
@@ -1042,10 +1042,10 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & {
-                        nextKey?: Uint8Array | undefined;
+                        next_key?: Uint8Array | undefined;
                         total?: string | undefined;
                     } & Record<Exclude<keyof I_16["pagination"], keyof import("./proto/cosmos/base/query/v1beta1/pagination").PageResponse>, never>) | undefined;
                 } & Record<Exclude<keyof I_16, keyof cosmosQuery.QueryDepositsResponse>, never>>(object: I_16): cosmosQuery.QueryDepositsResponse;

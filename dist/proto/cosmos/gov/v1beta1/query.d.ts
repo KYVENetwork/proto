@@ -224,7 +224,7 @@ export declare const QueryProposalsRequest: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } | undefined;
     } & {
@@ -235,13 +235,13 @@ export declare const QueryProposalsRequest: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } & {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } & Record<Exclude<keyof I["pagination"], keyof PageRequest>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryProposalsRequest>, never>>(object: I): QueryProposalsRequest;
@@ -275,7 +275,7 @@ export declare const QueryProposalsResponse: {
             votingEndTime?: Date | undefined;
         }[] | undefined;
         pagination?: {
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } | undefined;
     } & {
@@ -382,10 +382,10 @@ export declare const QueryProposalsResponse: {
             votingEndTime?: Date | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } & {
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } & Record<Exclude<keyof I["pagination"], keyof PageResponse>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryProposalsResponse>, never>>(object: I): QueryProposalsResponse;
@@ -458,7 +458,7 @@ export declare const QueryVotesRequest: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } | undefined;
     } & {
@@ -467,13 +467,13 @@ export declare const QueryVotesRequest: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } & {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } & Record<Exclude<keyof I["pagination"], keyof PageRequest>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryVotesRequest>, never>>(object: I): QueryVotesRequest;
@@ -494,7 +494,7 @@ export declare const QueryVotesResponse: {
             }[] | undefined;
         }[] | undefined;
         pagination?: {
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } | undefined;
     } & {
@@ -541,10 +541,10 @@ export declare const QueryVotesResponse: {
             }[] | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } & {
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } & Record<Exclude<keyof I["pagination"], keyof PageResponse>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryVotesResponse>, never>>(object: I): QueryVotesResponse;
@@ -709,7 +709,7 @@ export declare const QueryDepositsRequest: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } | undefined;
     } & {
@@ -718,13 +718,13 @@ export declare const QueryDepositsRequest: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } & {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
             limit?: string | undefined;
-            countTotal?: boolean | undefined;
+            count_total?: boolean | undefined;
             reverse?: boolean | undefined;
         } & Record<Exclude<keyof I["pagination"], keyof PageRequest>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryDepositsRequest>, never>>(object: I): QueryDepositsRequest;
@@ -744,7 +744,7 @@ export declare const QueryDepositsResponse: {
             }[] | undefined;
         }[] | undefined;
         pagination?: {
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } | undefined;
     } & {
@@ -787,10 +787,10 @@ export declare const QueryDepositsResponse: {
             }[] | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } & {
-            nextKey?: Uint8Array | undefined;
+            next_key?: Uint8Array | undefined;
             total?: string | undefined;
         } & Record<Exclude<keyof I["pagination"], keyof PageResponse>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryDepositsResponse>, never>>(object: I): QueryDepositsResponse;

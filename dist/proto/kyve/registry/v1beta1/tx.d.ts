@@ -95,13 +95,13 @@ export interface MsgSubmitBundleProposal {
     /** id ... */
     id: string;
     /** bundle_id ... */
-    bundleId: string;
+    bundle_id: string;
     /** byte_size ... */
-    byteSize: string;
+    byte_size: string;
     /** from_height */
-    fromHeight: string;
+    from_height: string;
     /** bundle_size ... */
-    bundleSize: string;
+    bundle_size: string;
 }
 /** MsgSubmitBundleProposalResponse defines the Msg/SubmitBundleProposal response type. */
 export interface MsgSubmitBundleProposalResponse {
@@ -113,7 +113,7 @@ export interface MsgVoteProposal {
     /** id ... */
     id: string;
     /** bundle_id ... */
-    bundleId: string;
+    bundle_id: string;
     /** vote ... */
     vote: string;
 }
@@ -314,17 +314,17 @@ export declare const MsgSubmitBundleProposal: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        bundleId?: string | undefined;
-        byteSize?: string | undefined;
-        fromHeight?: string | undefined;
-        bundleSize?: string | undefined;
+        bundle_id?: string | undefined;
+        byte_size?: string | undefined;
+        from_height?: string | undefined;
+        bundle_size?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        bundleId?: string | undefined;
-        byteSize?: string | undefined;
-        fromHeight?: string | undefined;
-        bundleSize?: string | undefined;
+        bundle_id?: string | undefined;
+        byte_size?: string | undefined;
+        from_height?: string | undefined;
+        bundle_size?: string | undefined;
     } & Record<Exclude<keyof I, keyof MsgSubmitBundleProposal>, never>>(object: I): MsgSubmitBundleProposal;
 };
 export declare const MsgSubmitBundleProposalResponse: {
@@ -342,12 +342,12 @@ export declare const MsgVoteProposal: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        bundleId?: string | undefined;
+        bundle_id?: string | undefined;
         vote?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        bundleId?: string | undefined;
+        bundle_id?: string | undefined;
         vote?: string | undefined;
     } & Record<Exclude<keyof I, keyof MsgVoteProposal>, never>>(object: I): MsgVoteProposal;
 };

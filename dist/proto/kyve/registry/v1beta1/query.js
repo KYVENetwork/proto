@@ -360,13 +360,13 @@ exports.QueryPoolsResponse = {
     }
 };
 function createBaseQueryFundersListRequest() {
-    return { poolId: "0" };
+    return { pool_id: "0" };
 }
 exports.QueryFundersListRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         return writer;
     },
@@ -378,7 +378,7 @@ exports.QueryFundersListRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -389,18 +389,18 @@ exports.QueryFundersListRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0"
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryFundersListRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -460,13 +460,13 @@ exports.QueryFundersListResponse = {
     }
 };
 function createBaseQueryFunderRequest() {
-    return { poolId: "0", funder: "" };
+    return { pool_id: "0", funder: "" };
 }
 exports.QueryFunderRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.funder !== "") {
             writer.uint32(18).string(message.funder);
@@ -481,7 +481,7 @@ exports.QueryFunderRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.funder = reader.string();
@@ -495,20 +495,20 @@ exports.QueryFunderRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             funder: isSet(object.funder) ? String(object.funder) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.funder !== undefined && (obj.funder = message.funder);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryFunderRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.funder = (_b = object.funder) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -562,13 +562,13 @@ exports.QueryFunderResponse = {
     }
 };
 function createBaseQueryStakersListRequest() {
-    return { poolId: "0" };
+    return { pool_id: "0" };
 }
 exports.QueryStakersListRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         return writer;
     },
@@ -580,7 +580,7 @@ exports.QueryStakersListRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -591,18 +591,18 @@ exports.QueryStakersListRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0"
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryStakersListRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -663,13 +663,13 @@ exports.QueryStakersListResponse = {
     }
 };
 function createBaseQueryStakerRequest() {
-    return { poolId: "0", staker: "" };
+    return { pool_id: "0", staker: "" };
 }
 exports.QueryStakerRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.staker !== "") {
             writer.uint32(18).string(message.staker);
@@ -684,7 +684,7 @@ exports.QueryStakerRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
@@ -698,20 +698,20 @@ exports.QueryStakerRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryStakerRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -771,10 +771,10 @@ exports.QueryStakerResponse = {
 function createBaseStakerResponse() {
     return {
         staker: "",
-        poolId: "0",
+        pool_id: "0",
         account: "",
         amount: "0",
-        totalDelegation: "0",
+        total_delegation: "0",
         commission: "",
         moniker: "",
         website: "",
@@ -788,8 +788,8 @@ exports.StakerResponse = {
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
-        if (message.poolId !== "0") {
-            writer.uint32(16).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
         }
         if (message.account !== "") {
             writer.uint32(26).string(message.account);
@@ -797,8 +797,8 @@ exports.StakerResponse = {
         if (message.amount !== "0") {
             writer.uint32(32).uint64(message.amount);
         }
-        if (message.totalDelegation !== "0") {
-            writer.uint32(40).uint64(message.totalDelegation);
+        if (message.total_delegation !== "0") {
+            writer.uint32(40).uint64(message.total_delegation);
         }
         if (message.commission !== "") {
             writer.uint32(50).string(message.commission);
@@ -828,7 +828,7 @@ exports.StakerResponse = {
                     message.staker = reader.string();
                     break;
                 case 2:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.account = reader.string();
@@ -837,7 +837,7 @@ exports.StakerResponse = {
                     message.amount = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.totalDelegation = longToString(reader.uint64());
+                    message.total_delegation = longToString(reader.uint64());
                     break;
                 case 6:
                     message.commission = reader.string();
@@ -864,11 +864,11 @@ exports.StakerResponse = {
     fromJSON: function (object) {
         return {
             staker: isSet(object.staker) ? String(object.staker) : "",
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             account: isSet(object.account) ? String(object.account) : "",
             amount: isSet(object.amount) ? String(object.amount) : "0",
-            totalDelegation: isSet(object.totalDelegation)
-                ? String(object.totalDelegation)
+            total_delegation: isSet(object.total_delegation)
+                ? String(object.total_delegation)
                 : "0",
             commission: isSet(object.commission) ? String(object.commission) : "",
             moniker: isSet(object.moniker) ? String(object.moniker) : "",
@@ -880,11 +880,11 @@ exports.StakerResponse = {
     toJSON: function (message) {
         var obj = {};
         message.staker !== undefined && (obj.staker = message.staker);
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.account !== undefined && (obj.account = message.account);
         message.amount !== undefined && (obj.amount = message.amount);
-        message.totalDelegation !== undefined &&
-            (obj.totalDelegation = message.totalDelegation);
+        message.total_delegation !== undefined &&
+            (obj.total_delegation = message.total_delegation);
         message.commission !== undefined && (obj.commission = message.commission);
         message.moniker !== undefined && (obj.moniker = message.moniker);
         message.website !== undefined && (obj.website = message.website);
@@ -896,10 +896,10 @@ exports.StakerResponse = {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         var message = createBaseStakerResponse();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
+        message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
         message.account = (_c = object.account) !== null && _c !== void 0 ? _c : "";
         message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
-        message.totalDelegation = (_e = object.totalDelegation) !== null && _e !== void 0 ? _e : "0";
+        message.total_delegation = (_e = object.total_delegation) !== null && _e !== void 0 ? _e : "0";
         message.commission = (_f = object.commission) !== null && _f !== void 0 ? _f : "";
         message.moniker = (_g = object.moniker) !== null && _g !== void 0 ? _g : "";
         message.website = (_h = object.website) !== null && _h !== void 0 ? _h : "";
@@ -909,13 +909,13 @@ exports.StakerResponse = {
     }
 };
 function createBaseQueryProposalRequest() {
-    return { bundleId: "" };
+    return { bundle_id: "" };
 }
 exports.QueryProposalRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.bundleId !== "") {
-            writer.uint32(10).string(message.bundleId);
+        if (message.bundle_id !== "") {
+            writer.uint32(10).string(message.bundle_id);
         }
         return writer;
     },
@@ -927,7 +927,7 @@ exports.QueryProposalRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.bundleId = reader.string();
+                    message.bundle_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -938,18 +938,18 @@ exports.QueryProposalRequest = {
     },
     fromJSON: function (object) {
         return {
-            bundleId: isSet(object.bundleId) ? String(object.bundleId) : ""
+            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.bundleId !== undefined && (obj.bundleId = message.bundleId);
+        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryProposalRequest();
-        message.bundleId = (_a = object.bundleId) !== null && _a !== void 0 ? _a : "";
+        message.bundle_id = (_a = object.bundle_id) !== null && _a !== void 0 ? _a : "";
         return message;
     }
 };
@@ -1006,7 +1006,7 @@ exports.QueryProposalResponse = {
     }
 };
 function createBaseQueryProposalsRequest() {
-    return { pagination: undefined, poolId: "0" };
+    return { pagination: undefined, pool_id: "0" };
 }
 exports.QueryProposalsRequest = {
     encode: function (message, writer) {
@@ -1014,8 +1014,8 @@ exports.QueryProposalsRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.poolId !== "0") {
-            writer.uint32(16).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
         }
         return writer;
     },
@@ -1030,7 +1030,7 @@ exports.QueryProposalsRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1044,7 +1044,7 @@ exports.QueryProposalsRequest = {
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined,
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0"
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0"
         };
     },
     toJSON: function (message) {
@@ -1053,7 +1053,7 @@ exports.QueryProposalsRequest = {
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
                 : undefined);
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         return obj;
     },
     fromPartial: function (object) {
@@ -1063,7 +1063,7 @@ exports.QueryProposalsRequest = {
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
                 : undefined;
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -1141,13 +1141,13 @@ exports.QueryProposalsResponse = {
     }
 };
 function createBaseQueryProposalByHeightRequest() {
-    return { poolId: "0", height: "0" };
+    return { pool_id: "0", height: "0" };
 }
 exports.QueryProposalByHeightRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.height !== "0") {
             writer.uint32(16).uint64(message.height);
@@ -1162,7 +1162,7 @@ exports.QueryProposalByHeightRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.height = longToString(reader.uint64());
@@ -1176,20 +1176,20 @@ exports.QueryProposalByHeightRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             height: isSet(object.height) ? String(object.height) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.height !== undefined && (obj.height = message.height);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryProposalByHeightRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.height = (_b = object.height) !== null && _b !== void 0 ? _b : "0";
         return message;
     }
@@ -1247,19 +1247,19 @@ exports.QueryProposalByHeightResponse = {
     }
 };
 function createBaseQueryCanProposeRequest() {
-    return { poolId: "0", proposer: "", fromHeight: "0" };
+    return { pool_id: "0", proposer: "", from_height: "0" };
 }
 exports.QueryCanProposeRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.proposer !== "") {
             writer.uint32(18).string(message.proposer);
         }
-        if (message.fromHeight !== "0") {
-            writer.uint32(24).uint64(message.fromHeight);
+        if (message.from_height !== "0") {
+            writer.uint32(24).uint64(message.from_height);
         }
         return writer;
     },
@@ -1271,13 +1271,13 @@ exports.QueryCanProposeRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.proposer = reader.string();
                     break;
                 case 3:
-                    message.fromHeight = longToString(reader.uint64());
+                    message.from_height = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1288,24 +1288,25 @@ exports.QueryCanProposeRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             proposer: isSet(object.proposer) ? String(object.proposer) : "",
-            fromHeight: isSet(object.fromHeight) ? String(object.fromHeight) : "0"
+            from_height: isSet(object.from_height) ? String(object.from_height) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.proposer !== undefined && (obj.proposer = message.proposer);
-        message.fromHeight !== undefined && (obj.fromHeight = message.fromHeight);
+        message.from_height !== undefined &&
+            (obj.from_height = message.from_height);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryCanProposeRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.proposer = (_b = object.proposer) !== null && _b !== void 0 ? _b : "";
-        message.fromHeight = (_c = object.fromHeight) !== null && _c !== void 0 ? _c : "0";
+        message.from_height = (_c = object.from_height) !== null && _c !== void 0 ? _c : "0";
         return message;
     }
 };
@@ -1364,19 +1365,19 @@ exports.QueryCanProposeResponse = {
     }
 };
 function createBaseQueryCanVoteRequest() {
-    return { poolId: "0", voter: "", bundleId: "" };
+    return { pool_id: "0", voter: "", bundle_id: "" };
 }
 exports.QueryCanVoteRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.voter !== "") {
             writer.uint32(18).string(message.voter);
         }
-        if (message.bundleId !== "") {
-            writer.uint32(26).string(message.bundleId);
+        if (message.bundle_id !== "") {
+            writer.uint32(26).string(message.bundle_id);
         }
         return writer;
     },
@@ -1388,13 +1389,13 @@ exports.QueryCanVoteRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.voter = reader.string();
                     break;
                 case 3:
-                    message.bundleId = reader.string();
+                    message.bundle_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1405,24 +1406,24 @@ exports.QueryCanVoteRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             voter: isSet(object.voter) ? String(object.voter) : "",
-            bundleId: isSet(object.bundleId) ? String(object.bundleId) : ""
+            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.voter !== undefined && (obj.voter = message.voter);
-        message.bundleId !== undefined && (obj.bundleId = message.bundleId);
+        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryCanVoteRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.voter = (_b = object.voter) !== null && _b !== void 0 ? _b : "";
-        message.bundleId = (_c = object.bundleId) !== null && _c !== void 0 ? _c : "";
+        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
         return message;
     }
 };
@@ -1481,13 +1482,13 @@ exports.QueryCanVoteResponse = {
     }
 };
 function createBaseQueryStakeInfoRequest() {
-    return { poolId: "0", staker: "" };
+    return { pool_id: "0", staker: "" };
 }
 exports.QueryStakeInfoRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.staker !== "") {
             writer.uint32(18).string(message.staker);
@@ -1502,7 +1503,7 @@ exports.QueryStakeInfoRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
@@ -1516,26 +1517,26 @@ exports.QueryStakeInfoRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryStakeInfoRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         return message;
     }
 };
 function createBaseQueryStakeInfoResponse() {
-    return { balance: "", currentStake: "", minimumStake: "" };
+    return { balance: "", current_stake: "", minimum_stake: "" };
 }
 exports.QueryStakeInfoResponse = {
     encode: function (message, writer) {
@@ -1543,11 +1544,11 @@ exports.QueryStakeInfoResponse = {
         if (message.balance !== "") {
             writer.uint32(10).string(message.balance);
         }
-        if (message.currentStake !== "") {
-            writer.uint32(18).string(message.currentStake);
+        if (message.current_stake !== "") {
+            writer.uint32(18).string(message.current_stake);
         }
-        if (message.minimumStake !== "") {
-            writer.uint32(26).string(message.minimumStake);
+        if (message.minimum_stake !== "") {
+            writer.uint32(26).string(message.minimum_stake);
         }
         return writer;
     },
@@ -1562,10 +1563,10 @@ exports.QueryStakeInfoResponse = {
                     message.balance = reader.string();
                     break;
                 case 2:
-                    message.currentStake = reader.string();
+                    message.current_stake = reader.string();
                     break;
                 case 3:
-                    message.minimumStake = reader.string();
+                    message.minimum_stake = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1577,29 +1578,29 @@ exports.QueryStakeInfoResponse = {
     fromJSON: function (object) {
         return {
             balance: isSet(object.balance) ? String(object.balance) : "",
-            currentStake: isSet(object.currentStake)
-                ? String(object.currentStake)
+            current_stake: isSet(object.current_stake)
+                ? String(object.current_stake)
                 : "",
-            minimumStake: isSet(object.minimumStake)
-                ? String(object.minimumStake)
+            minimum_stake: isSet(object.minimum_stake)
+                ? String(object.minimum_stake)
                 : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.balance !== undefined && (obj.balance = message.balance);
-        message.currentStake !== undefined &&
-            (obj.currentStake = message.currentStake);
-        message.minimumStake !== undefined &&
-            (obj.minimumStake = message.minimumStake);
+        message.current_stake !== undefined &&
+            (obj.current_stake = message.current_stake);
+        message.minimum_stake !== undefined &&
+            (obj.minimum_stake = message.minimum_stake);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryStakeInfoResponse();
         message.balance = (_a = object.balance) !== null && _a !== void 0 ? _a : "";
-        message.currentStake = (_b = object.currentStake) !== null && _b !== void 0 ? _b : "";
-        message.minimumStake = (_c = object.minimumStake) !== null && _c !== void 0 ? _c : "";
+        message.current_stake = (_b = object.current_stake) !== null && _b !== void 0 ? _b : "";
+        message.minimum_stake = (_c = object.minimum_stake) !== null && _c !== void 0 ? _c : "";
         return message;
     }
 };
@@ -1651,10 +1652,10 @@ exports.QueryAccountAssetsRequest = {
 function createBaseQueryAccountAssetsResponse() {
     return {
         balance: "0",
-        protocolStaking: "0",
-        protocolDelegation: "0",
-        protocolRewards: "0",
-        protocolFunding: "0"
+        protocol_staking: "0",
+        protocol_delegation: "0",
+        protocol_rewards: "0",
+        protocol_funding: "0"
     };
 }
 exports.QueryAccountAssetsResponse = {
@@ -1663,17 +1664,17 @@ exports.QueryAccountAssetsResponse = {
         if (message.balance !== "0") {
             writer.uint32(8).uint64(message.balance);
         }
-        if (message.protocolStaking !== "0") {
-            writer.uint32(16).uint64(message.protocolStaking);
+        if (message.protocol_staking !== "0") {
+            writer.uint32(16).uint64(message.protocol_staking);
         }
-        if (message.protocolDelegation !== "0") {
-            writer.uint32(24).uint64(message.protocolDelegation);
+        if (message.protocol_delegation !== "0") {
+            writer.uint32(24).uint64(message.protocol_delegation);
         }
-        if (message.protocolRewards !== "0") {
-            writer.uint32(48).uint64(message.protocolRewards);
+        if (message.protocol_rewards !== "0") {
+            writer.uint32(48).uint64(message.protocol_rewards);
         }
-        if (message.protocolFunding !== "0") {
-            writer.uint32(56).uint64(message.protocolFunding);
+        if (message.protocol_funding !== "0") {
+            writer.uint32(56).uint64(message.protocol_funding);
         }
         return writer;
     },
@@ -1688,16 +1689,16 @@ exports.QueryAccountAssetsResponse = {
                     message.balance = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.protocolStaking = longToString(reader.uint64());
+                    message.protocol_staking = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.protocolDelegation = longToString(reader.uint64());
+                    message.protocol_delegation = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.protocolRewards = longToString(reader.uint64());
+                    message.protocol_rewards = longToString(reader.uint64());
                     break;
                 case 7:
-                    message.protocolFunding = longToString(reader.uint64());
+                    message.protocol_funding = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1709,41 +1710,41 @@ exports.QueryAccountAssetsResponse = {
     fromJSON: function (object) {
         return {
             balance: isSet(object.balance) ? String(object.balance) : "0",
-            protocolStaking: isSet(object.protocolStaking)
-                ? String(object.protocolStaking)
+            protocol_staking: isSet(object.protocol_staking)
+                ? String(object.protocol_staking)
                 : "0",
-            protocolDelegation: isSet(object.protocolDelegation)
-                ? String(object.protocolDelegation)
+            protocol_delegation: isSet(object.protocol_delegation)
+                ? String(object.protocol_delegation)
                 : "0",
-            protocolRewards: isSet(object.protocolRewards)
-                ? String(object.protocolRewards)
+            protocol_rewards: isSet(object.protocol_rewards)
+                ? String(object.protocol_rewards)
                 : "0",
-            protocolFunding: isSet(object.protocolFunding)
-                ? String(object.protocolFunding)
+            protocol_funding: isSet(object.protocol_funding)
+                ? String(object.protocol_funding)
                 : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.balance !== undefined && (obj.balance = message.balance);
-        message.protocolStaking !== undefined &&
-            (obj.protocolStaking = message.protocolStaking);
-        message.protocolDelegation !== undefined &&
-            (obj.protocolDelegation = message.protocolDelegation);
-        message.protocolRewards !== undefined &&
-            (obj.protocolRewards = message.protocolRewards);
-        message.protocolFunding !== undefined &&
-            (obj.protocolFunding = message.protocolFunding);
+        message.protocol_staking !== undefined &&
+            (obj.protocol_staking = message.protocol_staking);
+        message.protocol_delegation !== undefined &&
+            (obj.protocol_delegation = message.protocol_delegation);
+        message.protocol_rewards !== undefined &&
+            (obj.protocol_rewards = message.protocol_rewards);
+        message.protocol_funding !== undefined &&
+            (obj.protocol_funding = message.protocol_funding);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e;
         var message = createBaseQueryAccountAssetsResponse();
         message.balance = (_a = object.balance) !== null && _a !== void 0 ? _a : "0";
-        message.protocolStaking = (_b = object.protocolStaking) !== null && _b !== void 0 ? _b : "0";
-        message.protocolDelegation = (_c = object.protocolDelegation) !== null && _c !== void 0 ? _c : "0";
-        message.protocolRewards = (_d = object.protocolRewards) !== null && _d !== void 0 ? _d : "0";
-        message.protocolFunding = (_e = object.protocolFunding) !== null && _e !== void 0 ? _e : "0";
+        message.protocol_staking = (_b = object.protocol_staking) !== null && _b !== void 0 ? _b : "0";
+        message.protocol_delegation = (_c = object.protocol_delegation) !== null && _c !== void 0 ? _c : "0";
+        message.protocol_rewards = (_d = object.protocol_rewards) !== null && _d !== void 0 ? _d : "0";
+        message.protocol_funding = (_e = object.protocol_funding) !== null && _e !== void 0 ? _e : "0";
         return message;
     }
 };
@@ -2083,7 +2084,13 @@ exports.QueryAccountStakedListResponse = {
     }
 };
 function createBaseStaked() {
-    return { staker: "", poolId: "0", account: "", amount: "0", pool: undefined };
+    return {
+        staker: "",
+        pool_id: "0",
+        account: "",
+        amount: "0",
+        pool: undefined
+    };
 }
 exports.Staked = {
     encode: function (message, writer) {
@@ -2091,8 +2098,8 @@ exports.Staked = {
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
-        if (message.poolId !== "0") {
-            writer.uint32(16).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
         }
         if (message.account !== "") {
             writer.uint32(26).string(message.account);
@@ -2116,7 +2123,7 @@ exports.Staked = {
                     message.staker = reader.string();
                     break;
                 case 2:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.account = reader.string();
@@ -2137,7 +2144,7 @@ exports.Staked = {
     fromJSON: function (object) {
         return {
             staker: isSet(object.staker) ? String(object.staker) : "",
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             account: isSet(object.account) ? String(object.account) : "",
             amount: isSet(object.amount) ? String(object.amount) : "0",
             pool: isSet(object.pool) ? registry_1.Pool.fromJSON(object.pool) : undefined
@@ -2146,7 +2153,7 @@ exports.Staked = {
     toJSON: function (message) {
         var obj = {};
         message.staker !== undefined && (obj.staker = message.staker);
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.account !== undefined && (obj.account = message.account);
         message.amount !== undefined && (obj.amount = message.amount);
         message.pool !== undefined &&
@@ -2157,7 +2164,7 @@ exports.Staked = {
         var _a, _b, _c, _d;
         var message = createBaseStaked();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
-        message.poolId = (_b = object.poolId) !== null && _b !== void 0 ? _b : "0";
+        message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
         message.account = (_c = object.account) !== null && _c !== void 0 ? _c : "";
         message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
         message.pool =
@@ -2303,13 +2310,13 @@ exports.QueryAccountDelegationListResponse = {
     }
 };
 function createBaseQueryDelegatorRequest() {
-    return { poolId: "0", staker: "", delegator: "" };
+    return { pool_id: "0", staker: "", delegator: "" };
 }
 exports.QueryDelegatorRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.poolId !== "0") {
-            writer.uint32(8).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
         }
         if (message.staker !== "") {
             writer.uint32(18).string(message.staker);
@@ -2327,7 +2334,7 @@ exports.QueryDelegatorRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.staker = reader.string();
@@ -2344,14 +2351,14 @@ exports.QueryDelegatorRequest = {
     },
     fromJSON: function (object) {
         return {
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
             delegator: isSet(object.delegator) ? String(object.delegator) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.staker !== undefined && (obj.staker = message.staker);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         return obj;
@@ -2359,7 +2366,7 @@ exports.QueryDelegatorRequest = {
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryDelegatorRequest();
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         message.delegator = (_c = object.delegator) !== null && _c !== void 0 ? _c : "";
         return message;
@@ -2421,10 +2428,10 @@ function createBaseDelegatorResponse() {
     return {
         account: "",
         pool: undefined,
-        currentReward: "0",
-        delegationAmount: "0",
+        current_reward: "0",
+        delegation_amount: "0",
         staker: "",
-        delegationPoolData: undefined
+        delegation_pool_data: undefined
     };
 }
 exports.DelegatorResponse = {
@@ -2436,17 +2443,17 @@ exports.DelegatorResponse = {
         if (message.pool !== undefined) {
             registry_1.Pool.encode(message.pool, writer.uint32(18).fork()).ldelim();
         }
-        if (message.currentReward !== "0") {
-            writer.uint32(24).uint64(message.currentReward);
+        if (message.current_reward !== "0") {
+            writer.uint32(24).uint64(message.current_reward);
         }
-        if (message.delegationAmount !== "0") {
-            writer.uint32(32).uint64(message.delegationAmount);
+        if (message.delegation_amount !== "0") {
+            writer.uint32(32).uint64(message.delegation_amount);
         }
         if (message.staker !== "") {
             writer.uint32(42).string(message.staker);
         }
-        if (message.delegationPoolData !== undefined) {
-            registry_1.DelegationPoolData.encode(message.delegationPoolData, writer.uint32(50).fork()).ldelim();
+        if (message.delegation_pool_data !== undefined) {
+            registry_1.DelegationPoolData.encode(message.delegation_pool_data, writer.uint32(50).fork()).ldelim();
         }
         return writer;
     },
@@ -2464,16 +2471,16 @@ exports.DelegatorResponse = {
                     message.pool = registry_1.Pool.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.currentReward = longToString(reader.uint64());
+                    message.current_reward = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.delegationAmount = longToString(reader.uint64());
+                    message.delegation_amount = longToString(reader.uint64());
                     break;
                 case 5:
                     message.staker = reader.string();
                     break;
                 case 6:
-                    message.delegationPoolData = registry_1.DelegationPoolData.decode(reader, reader.uint32());
+                    message.delegation_pool_data = registry_1.DelegationPoolData.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2486,15 +2493,15 @@ exports.DelegatorResponse = {
         return {
             account: isSet(object.account) ? String(object.account) : "",
             pool: isSet(object.pool) ? registry_1.Pool.fromJSON(object.pool) : undefined,
-            currentReward: isSet(object.currentReward)
-                ? String(object.currentReward)
+            current_reward: isSet(object.current_reward)
+                ? String(object.current_reward)
                 : "0",
-            delegationAmount: isSet(object.delegationAmount)
-                ? String(object.delegationAmount)
+            delegation_amount: isSet(object.delegation_amount)
+                ? String(object.delegation_amount)
                 : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
-            delegationPoolData: isSet(object.delegationPoolData)
-                ? registry_1.DelegationPoolData.fromJSON(object.delegationPoolData)
+            delegation_pool_data: isSet(object.delegation_pool_data)
+                ? registry_1.DelegationPoolData.fromJSON(object.delegation_pool_data)
                 : undefined
         };
     },
@@ -2503,14 +2510,14 @@ exports.DelegatorResponse = {
         message.account !== undefined && (obj.account = message.account);
         message.pool !== undefined &&
             (obj.pool = message.pool ? registry_1.Pool.toJSON(message.pool) : undefined);
-        message.currentReward !== undefined &&
-            (obj.currentReward = message.currentReward);
-        message.delegationAmount !== undefined &&
-            (obj.delegationAmount = message.delegationAmount);
+        message.current_reward !== undefined &&
+            (obj.current_reward = message.current_reward);
+        message.delegation_amount !== undefined &&
+            (obj.delegation_amount = message.delegation_amount);
         message.staker !== undefined && (obj.staker = message.staker);
-        message.delegationPoolData !== undefined &&
-            (obj.delegationPoolData = message.delegationPoolData
-                ? registry_1.DelegationPoolData.toJSON(message.delegationPoolData)
+        message.delegation_pool_data !== undefined &&
+            (obj.delegation_pool_data = message.delegation_pool_data
+                ? registry_1.DelegationPoolData.toJSON(message.delegation_pool_data)
                 : undefined);
         return obj;
     },
@@ -2522,19 +2529,19 @@ exports.DelegatorResponse = {
             object.pool !== undefined && object.pool !== null
                 ? registry_1.Pool.fromPartial(object.pool)
                 : undefined;
-        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : "0";
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
+        message.current_reward = (_b = object.current_reward) !== null && _b !== void 0 ? _b : "0";
+        message.delegation_amount = (_c = object.delegation_amount) !== null && _c !== void 0 ? _c : "0";
         message.staker = (_d = object.staker) !== null && _d !== void 0 ? _d : "";
-        message.delegationPoolData =
-            object.delegationPoolData !== undefined &&
-                object.delegationPoolData !== null
-                ? registry_1.DelegationPoolData.fromPartial(object.delegationPoolData)
+        message.delegation_pool_data =
+            object.delegation_pool_data !== undefined &&
+                object.delegation_pool_data !== null
+                ? registry_1.DelegationPoolData.fromPartial(object.delegation_pool_data)
                 : undefined;
         return message;
     }
 };
 function createBaseQueryDelegatorsByPoolAndStakerRequest() {
-    return { pagination: undefined, poolId: "0", staker: "" };
+    return { pagination: undefined, pool_id: "0", staker: "" };
 }
 exports.QueryDelegatorsByPoolAndStakerRequest = {
     encode: function (message, writer) {
@@ -2542,8 +2549,8 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.poolId !== "0") {
-            writer.uint32(16).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
         }
         if (message.staker !== "") {
             writer.uint32(26).string(message.staker);
@@ -2561,7 +2568,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.staker = reader.string();
@@ -2578,7 +2585,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined,
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
     },
@@ -2588,7 +2595,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
                 : undefined);
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
@@ -2599,7 +2606,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
                 : undefined;
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -2608,7 +2615,7 @@ function createBaseQueryDelegatorsByPoolAndStakerResponse() {
     return {
         delegators: [],
         pool: undefined,
-        delegationPoolData: undefined,
+        delegation_pool_data: undefined,
         pagination: undefined
     };
 }
@@ -2622,8 +2629,8 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
         if (message.pool !== undefined) {
             registry_1.Pool.encode(message.pool, writer.uint32(18).fork()).ldelim();
         }
-        if (message.delegationPoolData !== undefined) {
-            registry_1.DelegationPoolData.encode(message.delegationPoolData, writer.uint32(26).fork()).ldelim();
+        if (message.delegation_pool_data !== undefined) {
+            registry_1.DelegationPoolData.encode(message.delegation_pool_data, writer.uint32(26).fork()).ldelim();
         }
         if (message.pagination !== undefined) {
             pagination_1.PageResponse.encode(message.pagination, writer.uint32(34).fork()).ldelim();
@@ -2644,7 +2651,7 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
                     message.pool = registry_1.Pool.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.delegationPoolData = registry_1.DelegationPoolData.decode(reader, reader.uint32());
+                    message.delegation_pool_data = registry_1.DelegationPoolData.decode(reader, reader.uint32());
                     break;
                 case 4:
                     message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
@@ -2662,8 +2669,8 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
                 ? object.delegators.map(function (e) { return exports.StakerDelegatorResponse.fromJSON(e); })
                 : [],
             pool: isSet(object.pool) ? registry_1.Pool.fromJSON(object.pool) : undefined,
-            delegationPoolData: isSet(object.delegationPoolData)
-                ? registry_1.DelegationPoolData.fromJSON(object.delegationPoolData)
+            delegation_pool_data: isSet(object.delegation_pool_data)
+                ? registry_1.DelegationPoolData.fromJSON(object.delegation_pool_data)
                 : undefined,
             pagination: isSet(object.pagination)
                 ? pagination_1.PageResponse.fromJSON(object.pagination)
@@ -2682,9 +2689,9 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
         }
         message.pool !== undefined &&
             (obj.pool = message.pool ? registry_1.Pool.toJSON(message.pool) : undefined);
-        message.delegationPoolData !== undefined &&
-            (obj.delegationPoolData = message.delegationPoolData
-                ? registry_1.DelegationPoolData.toJSON(message.delegationPoolData)
+        message.delegation_pool_data !== undefined &&
+            (obj.delegation_pool_data = message.delegation_pool_data
+                ? registry_1.DelegationPoolData.toJSON(message.delegation_pool_data)
                 : undefined);
         message.pagination !== undefined &&
             (obj.pagination = message.pagination
@@ -2702,10 +2709,10 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
             object.pool !== undefined && object.pool !== null
                 ? registry_1.Pool.fromPartial(object.pool)
                 : undefined;
-        message.delegationPoolData =
-            object.delegationPoolData !== undefined &&
-                object.delegationPoolData !== null
-                ? registry_1.DelegationPoolData.fromPartial(object.delegationPoolData)
+        message.delegation_pool_data =
+            object.delegation_pool_data !== undefined &&
+                object.delegation_pool_data !== null
+                ? registry_1.DelegationPoolData.fromPartial(object.delegation_pool_data)
                 : undefined;
         message.pagination =
             object.pagination !== undefined && object.pagination !== null
@@ -2717,8 +2724,8 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
 function createBaseStakerDelegatorResponse() {
     return {
         delegator: "",
-        currentReward: "0",
-        delegationAmount: "0",
+        current_reward: "0",
+        delegation_amount: "0",
         staker: ""
     };
 }
@@ -2728,11 +2735,11 @@ exports.StakerDelegatorResponse = {
         if (message.delegator !== "") {
             writer.uint32(10).string(message.delegator);
         }
-        if (message.currentReward !== "0") {
-            writer.uint32(16).uint64(message.currentReward);
+        if (message.current_reward !== "0") {
+            writer.uint32(16).uint64(message.current_reward);
         }
-        if (message.delegationAmount !== "0") {
-            writer.uint32(24).uint64(message.delegationAmount);
+        if (message.delegation_amount !== "0") {
+            writer.uint32(24).uint64(message.delegation_amount);
         }
         if (message.staker !== "") {
             writer.uint32(34).string(message.staker);
@@ -2750,10 +2757,10 @@ exports.StakerDelegatorResponse = {
                     message.delegator = reader.string();
                     break;
                 case 2:
-                    message.currentReward = longToString(reader.uint64());
+                    message.current_reward = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.delegationAmount = longToString(reader.uint64());
+                    message.delegation_amount = longToString(reader.uint64());
                     break;
                 case 4:
                     message.staker = reader.string();
@@ -2768,11 +2775,11 @@ exports.StakerDelegatorResponse = {
     fromJSON: function (object) {
         return {
             delegator: isSet(object.delegator) ? String(object.delegator) : "",
-            currentReward: isSet(object.currentReward)
-                ? String(object.currentReward)
+            current_reward: isSet(object.current_reward)
+                ? String(object.current_reward)
                 : "0",
-            delegationAmount: isSet(object.delegationAmount)
-                ? String(object.delegationAmount)
+            delegation_amount: isSet(object.delegation_amount)
+                ? String(object.delegation_amount)
                 : "0",
             staker: isSet(object.staker) ? String(object.staker) : ""
         };
@@ -2780,10 +2787,10 @@ exports.StakerDelegatorResponse = {
     toJSON: function (message) {
         var obj = {};
         message.delegator !== undefined && (obj.delegator = message.delegator);
-        message.currentReward !== undefined &&
-            (obj.currentReward = message.currentReward);
-        message.delegationAmount !== undefined &&
-            (obj.delegationAmount = message.delegationAmount);
+        message.current_reward !== undefined &&
+            (obj.current_reward = message.current_reward);
+        message.delegation_amount !== undefined &&
+            (obj.delegation_amount = message.delegation_amount);
         message.staker !== undefined && (obj.staker = message.staker);
         return obj;
     },
@@ -2791,14 +2798,14 @@ exports.StakerDelegatorResponse = {
         var _a, _b, _c, _d;
         var message = createBaseStakerDelegatorResponse();
         message.delegator = (_a = object.delegator) !== null && _a !== void 0 ? _a : "";
-        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : "0";
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
+        message.current_reward = (_b = object.current_reward) !== null && _b !== void 0 ? _b : "0";
+        message.delegation_amount = (_c = object.delegation_amount) !== null && _c !== void 0 ? _c : "0";
         message.staker = (_d = object.staker) !== null && _d !== void 0 ? _d : "";
         return message;
     }
 };
 function createBaseQueryStakersByPoolAndDelegatorRequest() {
-    return { pagination: undefined, poolId: "0", delegator: "" };
+    return { pagination: undefined, pool_id: "0", delegator: "" };
 }
 exports.QueryStakersByPoolAndDelegatorRequest = {
     encode: function (message, writer) {
@@ -2806,8 +2813,8 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
-        if (message.poolId !== "0") {
-            writer.uint32(16).uint64(message.poolId);
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
         }
         if (message.delegator !== "") {
             writer.uint32(26).string(message.delegator);
@@ -2825,7 +2832,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.poolId = longToString(reader.uint64());
+                    message.pool_id = longToString(reader.uint64());
                     break;
                 case 3:
                     message.delegator = reader.string();
@@ -2842,7 +2849,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined,
-            poolId: isSet(object.poolId) ? String(object.poolId) : "0",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             delegator: isSet(object.delegator) ? String(object.delegator) : ""
         };
     },
@@ -2852,7 +2859,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
                 : undefined);
-        message.poolId !== undefined && (obj.poolId = message.poolId);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.delegator !== undefined && (obj.delegator = message.delegator);
         return obj;
     },
@@ -2863,7 +2870,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
                 : undefined;
-        message.poolId = (_a = object.poolId) !== null && _a !== void 0 ? _a : "0";
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.delegator = (_b = object.delegator) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -2969,10 +2976,10 @@ exports.QueryStakersByPoolAndDelegatorResponse = {
 function createBaseDelegationForStakerResponse() {
     return {
         staker: "",
-        currentReward: "0",
-        delegationAmount: "0",
-        totalDelegationAmount: "0",
-        delegatorCount: "0"
+        current_reward: "0",
+        delegation_amount: "0",
+        total_delegation_amount: "0",
+        delegator_count: "0"
     };
 }
 exports.DelegationForStakerResponse = {
@@ -2981,17 +2988,17 @@ exports.DelegationForStakerResponse = {
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
-        if (message.currentReward !== "0") {
-            writer.uint32(16).uint64(message.currentReward);
+        if (message.current_reward !== "0") {
+            writer.uint32(16).uint64(message.current_reward);
         }
-        if (message.delegationAmount !== "0") {
-            writer.uint32(24).uint64(message.delegationAmount);
+        if (message.delegation_amount !== "0") {
+            writer.uint32(24).uint64(message.delegation_amount);
         }
-        if (message.totalDelegationAmount !== "0") {
-            writer.uint32(32).uint64(message.totalDelegationAmount);
+        if (message.total_delegation_amount !== "0") {
+            writer.uint32(32).uint64(message.total_delegation_amount);
         }
-        if (message.delegatorCount !== "0") {
-            writer.uint32(40).uint64(message.delegatorCount);
+        if (message.delegator_count !== "0") {
+            writer.uint32(40).uint64(message.delegator_count);
         }
         return writer;
     },
@@ -3006,16 +3013,16 @@ exports.DelegationForStakerResponse = {
                     message.staker = reader.string();
                     break;
                 case 2:
-                    message.currentReward = longToString(reader.uint64());
+                    message.current_reward = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.delegationAmount = longToString(reader.uint64());
+                    message.delegation_amount = longToString(reader.uint64());
                     break;
                 case 4:
-                    message.totalDelegationAmount = longToString(reader.uint64());
+                    message.total_delegation_amount = longToString(reader.uint64());
                     break;
                 case 5:
-                    message.delegatorCount = longToString(reader.uint64());
+                    message.delegator_count = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3027,41 +3034,41 @@ exports.DelegationForStakerResponse = {
     fromJSON: function (object) {
         return {
             staker: isSet(object.staker) ? String(object.staker) : "",
-            currentReward: isSet(object.currentReward)
-                ? String(object.currentReward)
+            current_reward: isSet(object.current_reward)
+                ? String(object.current_reward)
                 : "0",
-            delegationAmount: isSet(object.delegationAmount)
-                ? String(object.delegationAmount)
+            delegation_amount: isSet(object.delegation_amount)
+                ? String(object.delegation_amount)
                 : "0",
-            totalDelegationAmount: isSet(object.totalDelegationAmount)
-                ? String(object.totalDelegationAmount)
+            total_delegation_amount: isSet(object.total_delegation_amount)
+                ? String(object.total_delegation_amount)
                 : "0",
-            delegatorCount: isSet(object.delegatorCount)
-                ? String(object.delegatorCount)
+            delegator_count: isSet(object.delegator_count)
+                ? String(object.delegator_count)
                 : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.staker !== undefined && (obj.staker = message.staker);
-        message.currentReward !== undefined &&
-            (obj.currentReward = message.currentReward);
-        message.delegationAmount !== undefined &&
-            (obj.delegationAmount = message.delegationAmount);
-        message.totalDelegationAmount !== undefined &&
-            (obj.totalDelegationAmount = message.totalDelegationAmount);
-        message.delegatorCount !== undefined &&
-            (obj.delegatorCount = message.delegatorCount);
+        message.current_reward !== undefined &&
+            (obj.current_reward = message.current_reward);
+        message.delegation_amount !== undefined &&
+            (obj.delegation_amount = message.delegation_amount);
+        message.total_delegation_amount !== undefined &&
+            (obj.total_delegation_amount = message.total_delegation_amount);
+        message.delegator_count !== undefined &&
+            (obj.delegator_count = message.delegator_count);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e;
         var message = createBaseDelegationForStakerResponse();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
-        message.currentReward = (_b = object.currentReward) !== null && _b !== void 0 ? _b : "0";
-        message.delegationAmount = (_c = object.delegationAmount) !== null && _c !== void 0 ? _c : "0";
-        message.totalDelegationAmount = (_d = object.totalDelegationAmount) !== null && _d !== void 0 ? _d : "0";
-        message.delegatorCount = (_e = object.delegatorCount) !== null && _e !== void 0 ? _e : "0";
+        message.current_reward = (_b = object.current_reward) !== null && _b !== void 0 ? _b : "0";
+        message.delegation_amount = (_c = object.delegation_amount) !== null && _c !== void 0 ? _c : "0";
+        message.total_delegation_amount = (_d = object.total_delegation_amount) !== null && _d !== void 0 ? _d : "0";
+        message.delegator_count = (_e = object.delegator_count) !== null && _e !== void 0 ? _e : "0";
         return message;
     }
 };

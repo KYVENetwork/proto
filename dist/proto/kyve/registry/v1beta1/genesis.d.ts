@@ -7,25 +7,25 @@ export interface GenesisState {
     /** params defines all the parameters of the module. */
     params?: Params;
     /** pool_list ... */
-    poolList: Pool[];
+    pool_list: Pool[];
     /** pool_count ... */
-    poolCount: string;
+    pool_count: string;
     /** funder_list ... */
-    funderList: Funder[];
+    funder_list: Funder[];
     /** staker_list ... */
-    stakerList: Staker[];
+    staker_list: Staker[];
     /** delegator_list ... */
-    delegatorList: Delegator[];
+    delegator_list: Delegator[];
     /** delegation_pool_data_list ... */
-    delegationPoolDataList: DelegationPoolData[];
+    delegation_pool_data_list: DelegationPoolData[];
     /** delegation_entries_list ... */
-    delegationEntriesList: DelegationEntries[];
+    delegation_entries_list: DelegationEntries[];
     /** proposal_list ... */
-    proposalList: Proposal[];
+    proposal_list: Proposal[];
     /** unbonding_state ... */
-    unbondingState?: UnbondingState;
+    unbonding_state?: UnbondingState;
     /** unbonding_entries ... */
-    unbondingEntries: UnbondingEntries[];
+    unbonding_entries: UnbondingEntries[];
 }
 export declare const GenesisState: {
     encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
@@ -34,15 +34,15 @@ export declare const GenesisState: {
     toJSON(message: GenesisState): unknown;
     fromPartial<I extends {
         params?: {
-            voteSlash?: string | undefined;
-            uploadSlash?: string | undefined;
-            timeoutSlash?: string | undefined;
-            uploadTimeout?: string | undefined;
-            storageCost?: string | undefined;
-            networkFee?: string | undefined;
-            maxPoints?: string | undefined;
+            vote_slash?: string | undefined;
+            upload_slash?: string | undefined;
+            timeout_slash?: string | undefined;
+            upload_timeout?: string | undefined;
+            storage_cost?: string | undefined;
+            network_fee?: string | undefined;
+            max_points?: string | undefined;
         } | undefined;
-        poolList?: {
+        pool_list?: {
             id?: string | undefined;
             creator?: string | undefined;
             name?: string | undefined;
@@ -50,124 +50,124 @@ export declare const GenesisState: {
             logo?: string | undefined;
             versions?: string | undefined;
             config?: string | undefined;
-            heightArchived?: string | undefined;
-            bytesArchived?: string | undefined;
-            totalBundles?: string | undefined;
-            totalBundleRewards?: string | undefined;
-            startHeight?: string | undefined;
-            uploadInterval?: string | undefined;
-            operatingCost?: string | undefined;
+            height_archived?: string | undefined;
+            bytes_archived?: string | undefined;
+            total_bundles?: string | undefined;
+            total_bundle_rewards?: string | undefined;
+            start_height?: string | undefined;
+            upload_interval?: string | undefined;
+            operating_cost?: string | undefined;
             paused?: boolean | undefined;
             funders?: string[] | undefined;
-            lowestFunder?: string | undefined;
-            totalFunds?: string | undefined;
+            lowest_funder?: string | undefined;
+            total_funds?: string | undefined;
             stakers?: string[] | undefined;
-            lowestStaker?: string | undefined;
-            totalStake?: string | undefined;
-            totalDelegation?: string | undefined;
-            bundleProposal?: {
+            lowest_staker?: string | undefined;
+            total_stake?: string | undefined;
+            total_delegation?: string | undefined;
+            bundle_proposal?: {
                 uploader?: string | undefined;
-                nextUploader?: string | undefined;
-                bundleId?: string | undefined;
-                byteSize?: string | undefined;
-                fromHeight?: string | undefined;
-                toHeight?: string | undefined;
-                createdAt?: string | undefined;
-                votersValid?: string[] | undefined;
-                votersInvalid?: string[] | undefined;
-                votersAbstain?: string[] | undefined;
+                next_uploader?: string | undefined;
+                bundle_id?: string | undefined;
+                byte_size?: string | undefined;
+                from_height?: string | undefined;
+                to_height?: string | undefined;
+                created_at?: string | undefined;
+                voters_valid?: string[] | undefined;
+                voters_invalid?: string[] | undefined;
+                voters_abstain?: string[] | undefined;
             } | undefined;
-            maxBundleSize?: string | undefined;
+            max_bundle_size?: string | undefined;
             protocol?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                lastUpgrade?: string | undefined;
+                last_upgrade?: string | undefined;
             } | undefined;
-            upgradePlan?: {
+            upgrade_plan?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                scheduledAt?: string | undefined;
+                scheduled_at?: string | undefined;
                 duration?: string | undefined;
             } | undefined;
         }[] | undefined;
-        poolCount?: string | undefined;
-        funderList?: {
+        pool_count?: string | undefined;
+        funder_list?: {
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
         }[] | undefined;
-        stakerList?: {
+        staker_list?: {
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
-            unbondingAmount?: string | undefined;
+            unbonding_amount?: string | undefined;
             commission?: string | undefined;
             moniker?: string | undefined;
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
         }[] | undefined;
-        delegatorList?: {
+        delegator_list?: {
             id?: string | undefined;
-            kIndex?: string | undefined;
-            delegationAmount?: string | undefined;
+            k_index?: string | undefined;
+            delegation_amount?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
         }[] | undefined;
-        delegationPoolDataList?: {
+        delegation_pool_data_list?: {
             id?: string | undefined;
             staker?: string | undefined;
-            currentRewards?: string | undefined;
-            totalDelegation?: string | undefined;
-            latestIndexK?: string | undefined;
-            delegatorCount?: string | undefined;
-            latestIndexWasUndelegation?: boolean | undefined;
+            current_rewards?: string | undefined;
+            total_delegation?: string | undefined;
+            latest_index_k?: string | undefined;
+            delegator_count?: string | undefined;
+            latest_index_was_undelegation?: boolean | undefined;
         }[] | undefined;
-        delegationEntriesList?: {
+        delegation_entries_list?: {
             id?: string | undefined;
             balance?: string | undefined;
             staker?: string | undefined;
-            kIndex?: string | undefined;
+            k_index?: string | undefined;
         }[] | undefined;
-        proposalList?: {
-            bundleId?: string | undefined;
-            poolId?: string | undefined;
+        proposal_list?: {
+            bundle_id?: string | undefined;
+            pool_id?: string | undefined;
             uploader?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            finalizedAt?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            finalized_at?: string | undefined;
         }[] | undefined;
-        unbondingState?: {
-            lowIndex?: string | undefined;
-            highIndex?: string | undefined;
+        unbonding_state?: {
+            low_index?: string | undefined;
+            high_index?: string | undefined;
         } | undefined;
-        unbondingEntries?: {
+        unbonding_entries?: {
             index?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
-            creationTime?: string | undefined;
+            creation_time?: string | undefined;
             amount?: string | undefined;
         }[] | undefined;
     } & {
         params?: ({
-            voteSlash?: string | undefined;
-            uploadSlash?: string | undefined;
-            timeoutSlash?: string | undefined;
-            uploadTimeout?: string | undefined;
-            storageCost?: string | undefined;
-            networkFee?: string | undefined;
-            maxPoints?: string | undefined;
+            vote_slash?: string | undefined;
+            upload_slash?: string | undefined;
+            timeout_slash?: string | undefined;
+            upload_timeout?: string | undefined;
+            storage_cost?: string | undefined;
+            network_fee?: string | undefined;
+            max_points?: string | undefined;
         } & {
-            voteSlash?: string | undefined;
-            uploadSlash?: string | undefined;
-            timeoutSlash?: string | undefined;
-            uploadTimeout?: string | undefined;
-            storageCost?: string | undefined;
-            networkFee?: string | undefined;
-            maxPoints?: string | undefined;
+            vote_slash?: string | undefined;
+            upload_slash?: string | undefined;
+            timeout_slash?: string | undefined;
+            upload_timeout?: string | undefined;
+            storage_cost?: string | undefined;
+            network_fee?: string | undefined;
+            max_points?: string | undefined;
         } & Record<Exclude<keyof I["params"], keyof Params>, never>) | undefined;
-        poolList?: ({
+        pool_list?: ({
             id?: string | undefined;
             creator?: string | undefined;
             name?: string | undefined;
@@ -175,43 +175,43 @@ export declare const GenesisState: {
             logo?: string | undefined;
             versions?: string | undefined;
             config?: string | undefined;
-            heightArchived?: string | undefined;
-            bytesArchived?: string | undefined;
-            totalBundles?: string | undefined;
-            totalBundleRewards?: string | undefined;
-            startHeight?: string | undefined;
-            uploadInterval?: string | undefined;
-            operatingCost?: string | undefined;
+            height_archived?: string | undefined;
+            bytes_archived?: string | undefined;
+            total_bundles?: string | undefined;
+            total_bundle_rewards?: string | undefined;
+            start_height?: string | undefined;
+            upload_interval?: string | undefined;
+            operating_cost?: string | undefined;
             paused?: boolean | undefined;
             funders?: string[] | undefined;
-            lowestFunder?: string | undefined;
-            totalFunds?: string | undefined;
+            lowest_funder?: string | undefined;
+            total_funds?: string | undefined;
             stakers?: string[] | undefined;
-            lowestStaker?: string | undefined;
-            totalStake?: string | undefined;
-            totalDelegation?: string | undefined;
-            bundleProposal?: {
+            lowest_staker?: string | undefined;
+            total_stake?: string | undefined;
+            total_delegation?: string | undefined;
+            bundle_proposal?: {
                 uploader?: string | undefined;
-                nextUploader?: string | undefined;
-                bundleId?: string | undefined;
-                byteSize?: string | undefined;
-                fromHeight?: string | undefined;
-                toHeight?: string | undefined;
-                createdAt?: string | undefined;
-                votersValid?: string[] | undefined;
-                votersInvalid?: string[] | undefined;
-                votersAbstain?: string[] | undefined;
+                next_uploader?: string | undefined;
+                bundle_id?: string | undefined;
+                byte_size?: string | undefined;
+                from_height?: string | undefined;
+                to_height?: string | undefined;
+                created_at?: string | undefined;
+                voters_valid?: string[] | undefined;
+                voters_invalid?: string[] | undefined;
+                voters_abstain?: string[] | undefined;
             } | undefined;
-            maxBundleSize?: string | undefined;
+            max_bundle_size?: string | undefined;
             protocol?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                lastUpgrade?: string | undefined;
+                last_upgrade?: string | undefined;
             } | undefined;
-            upgradePlan?: {
+            upgrade_plan?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                scheduledAt?: string | undefined;
+                scheduled_at?: string | undefined;
                 duration?: string | undefined;
             } | undefined;
         }[] & ({
@@ -222,43 +222,43 @@ export declare const GenesisState: {
             logo?: string | undefined;
             versions?: string | undefined;
             config?: string | undefined;
-            heightArchived?: string | undefined;
-            bytesArchived?: string | undefined;
-            totalBundles?: string | undefined;
-            totalBundleRewards?: string | undefined;
-            startHeight?: string | undefined;
-            uploadInterval?: string | undefined;
-            operatingCost?: string | undefined;
+            height_archived?: string | undefined;
+            bytes_archived?: string | undefined;
+            total_bundles?: string | undefined;
+            total_bundle_rewards?: string | undefined;
+            start_height?: string | undefined;
+            upload_interval?: string | undefined;
+            operating_cost?: string | undefined;
             paused?: boolean | undefined;
             funders?: string[] | undefined;
-            lowestFunder?: string | undefined;
-            totalFunds?: string | undefined;
+            lowest_funder?: string | undefined;
+            total_funds?: string | undefined;
             stakers?: string[] | undefined;
-            lowestStaker?: string | undefined;
-            totalStake?: string | undefined;
-            totalDelegation?: string | undefined;
-            bundleProposal?: {
+            lowest_staker?: string | undefined;
+            total_stake?: string | undefined;
+            total_delegation?: string | undefined;
+            bundle_proposal?: {
                 uploader?: string | undefined;
-                nextUploader?: string | undefined;
-                bundleId?: string | undefined;
-                byteSize?: string | undefined;
-                fromHeight?: string | undefined;
-                toHeight?: string | undefined;
-                createdAt?: string | undefined;
-                votersValid?: string[] | undefined;
-                votersInvalid?: string[] | undefined;
-                votersAbstain?: string[] | undefined;
+                next_uploader?: string | undefined;
+                bundle_id?: string | undefined;
+                byte_size?: string | undefined;
+                from_height?: string | undefined;
+                to_height?: string | undefined;
+                created_at?: string | undefined;
+                voters_valid?: string[] | undefined;
+                voters_invalid?: string[] | undefined;
+                voters_abstain?: string[] | undefined;
             } | undefined;
-            maxBundleSize?: string | undefined;
+            max_bundle_size?: string | undefined;
             protocol?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                lastUpgrade?: string | undefined;
+                last_upgrade?: string | undefined;
             } | undefined;
-            upgradePlan?: {
+            upgrade_plan?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                scheduledAt?: string | undefined;
+                scheduled_at?: string | undefined;
                 duration?: string | undefined;
             } | undefined;
         } & {
@@ -269,66 +269,66 @@ export declare const GenesisState: {
             logo?: string | undefined;
             versions?: string | undefined;
             config?: string | undefined;
-            heightArchived?: string | undefined;
-            bytesArchived?: string | undefined;
-            totalBundles?: string | undefined;
-            totalBundleRewards?: string | undefined;
-            startHeight?: string | undefined;
-            uploadInterval?: string | undefined;
-            operatingCost?: string | undefined;
+            height_archived?: string | undefined;
+            bytes_archived?: string | undefined;
+            total_bundles?: string | undefined;
+            total_bundle_rewards?: string | undefined;
+            start_height?: string | undefined;
+            upload_interval?: string | undefined;
+            operating_cost?: string | undefined;
             paused?: boolean | undefined;
-            funders?: (string[] & string[] & Record<Exclude<keyof I["poolList"][number]["funders"], keyof string[]>, never>) | undefined;
-            lowestFunder?: string | undefined;
-            totalFunds?: string | undefined;
-            stakers?: (string[] & string[] & Record<Exclude<keyof I["poolList"][number]["stakers"], keyof string[]>, never>) | undefined;
-            lowestStaker?: string | undefined;
-            totalStake?: string | undefined;
-            totalDelegation?: string | undefined;
-            bundleProposal?: ({
+            funders?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["funders"], keyof string[]>, never>) | undefined;
+            lowest_funder?: string | undefined;
+            total_funds?: string | undefined;
+            stakers?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["stakers"], keyof string[]>, never>) | undefined;
+            lowest_staker?: string | undefined;
+            total_stake?: string | undefined;
+            total_delegation?: string | undefined;
+            bundle_proposal?: ({
                 uploader?: string | undefined;
-                nextUploader?: string | undefined;
-                bundleId?: string | undefined;
-                byteSize?: string | undefined;
-                fromHeight?: string | undefined;
-                toHeight?: string | undefined;
-                createdAt?: string | undefined;
-                votersValid?: string[] | undefined;
-                votersInvalid?: string[] | undefined;
-                votersAbstain?: string[] | undefined;
+                next_uploader?: string | undefined;
+                bundle_id?: string | undefined;
+                byte_size?: string | undefined;
+                from_height?: string | undefined;
+                to_height?: string | undefined;
+                created_at?: string | undefined;
+                voters_valid?: string[] | undefined;
+                voters_invalid?: string[] | undefined;
+                voters_abstain?: string[] | undefined;
             } & {
                 uploader?: string | undefined;
-                nextUploader?: string | undefined;
-                bundleId?: string | undefined;
-                byteSize?: string | undefined;
-                fromHeight?: string | undefined;
-                toHeight?: string | undefined;
-                createdAt?: string | undefined;
-                votersValid?: (string[] & string[] & Record<Exclude<keyof I["poolList"][number]["bundleProposal"]["votersValid"], keyof string[]>, never>) | undefined;
-                votersInvalid?: (string[] & string[] & Record<Exclude<keyof I["poolList"][number]["bundleProposal"]["votersInvalid"], keyof string[]>, never>) | undefined;
-                votersAbstain?: (string[] & string[] & Record<Exclude<keyof I["poolList"][number]["bundleProposal"]["votersAbstain"], keyof string[]>, never>) | undefined;
-            } & Record<Exclude<keyof I["poolList"][number]["bundleProposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
-            maxBundleSize?: string | undefined;
+                next_uploader?: string | undefined;
+                bundle_id?: string | undefined;
+                byte_size?: string | undefined;
+                from_height?: string | undefined;
+                to_height?: string | undefined;
+                created_at?: string | undefined;
+                voters_valid?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"]["voters_valid"], keyof string[]>, never>) | undefined;
+                voters_invalid?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"]["voters_invalid"], keyof string[]>, never>) | undefined;
+                voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
+            } & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
+            max_bundle_size?: string | undefined;
             protocol?: ({
                 version?: string | undefined;
                 binaries?: string | undefined;
-                lastUpgrade?: string | undefined;
+                last_upgrade?: string | undefined;
             } & {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                lastUpgrade?: string | undefined;
-            } & Record<Exclude<keyof I["poolList"][number]["protocol"], keyof import("../../../kyve/registry/v1beta1/registry").Protocol>, never>) | undefined;
-            upgradePlan?: ({
+                last_upgrade?: string | undefined;
+            } & Record<Exclude<keyof I["pool_list"][number]["protocol"], keyof import("../../../kyve/registry/v1beta1/registry").Protocol>, never>) | undefined;
+            upgrade_plan?: ({
                 version?: string | undefined;
                 binaries?: string | undefined;
-                scheduledAt?: string | undefined;
+                scheduled_at?: string | undefined;
                 duration?: string | undefined;
             } & {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                scheduledAt?: string | undefined;
+                scheduled_at?: string | undefined;
                 duration?: string | undefined;
-            } & Record<Exclude<keyof I["poolList"][number]["upgradePlan"], keyof import("../../../kyve/registry/v1beta1/registry").UpgradePlan>, never>) | undefined;
-        } & Record<Exclude<keyof I["poolList"][number], keyof Pool>, never>)[] & Record<Exclude<keyof I["poolList"], keyof {
+            } & Record<Exclude<keyof I["pool_list"][number]["upgrade_plan"], keyof import("../../../kyve/registry/v1beta1/registry").UpgradePlan>, never>) | undefined;
+        } & Record<Exclude<keyof I["pool_list"][number], keyof Pool>, never>)[] & Record<Exclude<keyof I["pool_list"], keyof {
             id?: string | undefined;
             creator?: string | undefined;
             name?: string | undefined;
@@ -336,69 +336,69 @@ export declare const GenesisState: {
             logo?: string | undefined;
             versions?: string | undefined;
             config?: string | undefined;
-            heightArchived?: string | undefined;
-            bytesArchived?: string | undefined;
-            totalBundles?: string | undefined;
-            totalBundleRewards?: string | undefined;
-            startHeight?: string | undefined;
-            uploadInterval?: string | undefined;
-            operatingCost?: string | undefined;
+            height_archived?: string | undefined;
+            bytes_archived?: string | undefined;
+            total_bundles?: string | undefined;
+            total_bundle_rewards?: string | undefined;
+            start_height?: string | undefined;
+            upload_interval?: string | undefined;
+            operating_cost?: string | undefined;
             paused?: boolean | undefined;
             funders?: string[] | undefined;
-            lowestFunder?: string | undefined;
-            totalFunds?: string | undefined;
+            lowest_funder?: string | undefined;
+            total_funds?: string | undefined;
             stakers?: string[] | undefined;
-            lowestStaker?: string | undefined;
-            totalStake?: string | undefined;
-            totalDelegation?: string | undefined;
-            bundleProposal?: {
+            lowest_staker?: string | undefined;
+            total_stake?: string | undefined;
+            total_delegation?: string | undefined;
+            bundle_proposal?: {
                 uploader?: string | undefined;
-                nextUploader?: string | undefined;
-                bundleId?: string | undefined;
-                byteSize?: string | undefined;
-                fromHeight?: string | undefined;
-                toHeight?: string | undefined;
-                createdAt?: string | undefined;
-                votersValid?: string[] | undefined;
-                votersInvalid?: string[] | undefined;
-                votersAbstain?: string[] | undefined;
+                next_uploader?: string | undefined;
+                bundle_id?: string | undefined;
+                byte_size?: string | undefined;
+                from_height?: string | undefined;
+                to_height?: string | undefined;
+                created_at?: string | undefined;
+                voters_valid?: string[] | undefined;
+                voters_invalid?: string[] | undefined;
+                voters_abstain?: string[] | undefined;
             } | undefined;
-            maxBundleSize?: string | undefined;
+            max_bundle_size?: string | undefined;
             protocol?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                lastUpgrade?: string | undefined;
+                last_upgrade?: string | undefined;
             } | undefined;
-            upgradePlan?: {
+            upgrade_plan?: {
                 version?: string | undefined;
                 binaries?: string | undefined;
-                scheduledAt?: string | undefined;
+                scheduled_at?: string | undefined;
                 duration?: string | undefined;
             } | undefined;
         }[]>, never>) | undefined;
-        poolCount?: string | undefined;
-        funderList?: ({
+        pool_count?: string | undefined;
+        funder_list?: ({
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
         }[] & ({
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
         } & {
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
-        } & Record<Exclude<keyof I["funderList"][number], keyof Funder>, never>)[] & Record<Exclude<keyof I["funderList"], keyof {
+        } & Record<Exclude<keyof I["funder_list"][number], keyof Funder>, never>)[] & Record<Exclude<keyof I["funder_list"], keyof {
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
         }[]>, never>) | undefined;
-        stakerList?: ({
+        staker_list?: ({
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
-            unbondingAmount?: string | undefined;
+            unbonding_amount?: string | undefined;
             commission?: string | undefined;
             moniker?: string | undefined;
             website?: string | undefined;
@@ -406,9 +406,9 @@ export declare const GenesisState: {
             points?: string | undefined;
         }[] & ({
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
-            unbondingAmount?: string | undefined;
+            unbonding_amount?: string | undefined;
             commission?: string | undefined;
             moniker?: string | undefined;
             website?: string | undefined;
@@ -416,167 +416,167 @@ export declare const GenesisState: {
             points?: string | undefined;
         } & {
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
-            unbondingAmount?: string | undefined;
+            unbonding_amount?: string | undefined;
             commission?: string | undefined;
             moniker?: string | undefined;
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
-        } & Record<Exclude<keyof I["stakerList"][number], keyof Staker>, never>)[] & Record<Exclude<keyof I["stakerList"], keyof {
+        } & Record<Exclude<keyof I["staker_list"][number], keyof Staker>, never>)[] & Record<Exclude<keyof I["staker_list"], keyof {
             account?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             amount?: string | undefined;
-            unbondingAmount?: string | undefined;
+            unbonding_amount?: string | undefined;
             commission?: string | undefined;
             moniker?: string | undefined;
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
         }[]>, never>) | undefined;
-        delegatorList?: ({
+        delegator_list?: ({
             id?: string | undefined;
-            kIndex?: string | undefined;
-            delegationAmount?: string | undefined;
+            k_index?: string | undefined;
+            delegation_amount?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
         }[] & ({
             id?: string | undefined;
-            kIndex?: string | undefined;
-            delegationAmount?: string | undefined;
+            k_index?: string | undefined;
+            delegation_amount?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
         } & {
             id?: string | undefined;
-            kIndex?: string | undefined;
-            delegationAmount?: string | undefined;
+            k_index?: string | undefined;
+            delegation_amount?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
-        } & Record<Exclude<keyof I["delegatorList"][number], keyof Delegator>, never>)[] & Record<Exclude<keyof I["delegatorList"], keyof {
+        } & Record<Exclude<keyof I["delegator_list"][number], keyof Delegator>, never>)[] & Record<Exclude<keyof I["delegator_list"], keyof {
             id?: string | undefined;
-            kIndex?: string | undefined;
-            delegationAmount?: string | undefined;
+            k_index?: string | undefined;
+            delegation_amount?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
         }[]>, never>) | undefined;
-        delegationPoolDataList?: ({
+        delegation_pool_data_list?: ({
             id?: string | undefined;
             staker?: string | undefined;
-            currentRewards?: string | undefined;
-            totalDelegation?: string | undefined;
-            latestIndexK?: string | undefined;
-            delegatorCount?: string | undefined;
-            latestIndexWasUndelegation?: boolean | undefined;
+            current_rewards?: string | undefined;
+            total_delegation?: string | undefined;
+            latest_index_k?: string | undefined;
+            delegator_count?: string | undefined;
+            latest_index_was_undelegation?: boolean | undefined;
         }[] & ({
             id?: string | undefined;
             staker?: string | undefined;
-            currentRewards?: string | undefined;
-            totalDelegation?: string | undefined;
-            latestIndexK?: string | undefined;
-            delegatorCount?: string | undefined;
-            latestIndexWasUndelegation?: boolean | undefined;
+            current_rewards?: string | undefined;
+            total_delegation?: string | undefined;
+            latest_index_k?: string | undefined;
+            delegator_count?: string | undefined;
+            latest_index_was_undelegation?: boolean | undefined;
         } & {
             id?: string | undefined;
             staker?: string | undefined;
-            currentRewards?: string | undefined;
-            totalDelegation?: string | undefined;
-            latestIndexK?: string | undefined;
-            delegatorCount?: string | undefined;
-            latestIndexWasUndelegation?: boolean | undefined;
-        } & Record<Exclude<keyof I["delegationPoolDataList"][number], keyof DelegationPoolData>, never>)[] & Record<Exclude<keyof I["delegationPoolDataList"], keyof {
+            current_rewards?: string | undefined;
+            total_delegation?: string | undefined;
+            latest_index_k?: string | undefined;
+            delegator_count?: string | undefined;
+            latest_index_was_undelegation?: boolean | undefined;
+        } & Record<Exclude<keyof I["delegation_pool_data_list"][number], keyof DelegationPoolData>, never>)[] & Record<Exclude<keyof I["delegation_pool_data_list"], keyof {
             id?: string | undefined;
             staker?: string | undefined;
-            currentRewards?: string | undefined;
-            totalDelegation?: string | undefined;
-            latestIndexK?: string | undefined;
-            delegatorCount?: string | undefined;
-            latestIndexWasUndelegation?: boolean | undefined;
+            current_rewards?: string | undefined;
+            total_delegation?: string | undefined;
+            latest_index_k?: string | undefined;
+            delegator_count?: string | undefined;
+            latest_index_was_undelegation?: boolean | undefined;
         }[]>, never>) | undefined;
-        delegationEntriesList?: ({
+        delegation_entries_list?: ({
             id?: string | undefined;
             balance?: string | undefined;
             staker?: string | undefined;
-            kIndex?: string | undefined;
+            k_index?: string | undefined;
         }[] & ({
             id?: string | undefined;
             balance?: string | undefined;
             staker?: string | undefined;
-            kIndex?: string | undefined;
+            k_index?: string | undefined;
         } & {
             id?: string | undefined;
             balance?: string | undefined;
             staker?: string | undefined;
-            kIndex?: string | undefined;
-        } & Record<Exclude<keyof I["delegationEntriesList"][number], keyof DelegationEntries>, never>)[] & Record<Exclude<keyof I["delegationEntriesList"], keyof {
+            k_index?: string | undefined;
+        } & Record<Exclude<keyof I["delegation_entries_list"][number], keyof DelegationEntries>, never>)[] & Record<Exclude<keyof I["delegation_entries_list"], keyof {
             id?: string | undefined;
             balance?: string | undefined;
             staker?: string | undefined;
-            kIndex?: string | undefined;
+            k_index?: string | undefined;
         }[]>, never>) | undefined;
-        proposalList?: ({
-            bundleId?: string | undefined;
-            poolId?: string | undefined;
+        proposal_list?: ({
+            bundle_id?: string | undefined;
+            pool_id?: string | undefined;
             uploader?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            finalizedAt?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            finalized_at?: string | undefined;
         }[] & ({
-            bundleId?: string | undefined;
-            poolId?: string | undefined;
+            bundle_id?: string | undefined;
+            pool_id?: string | undefined;
             uploader?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            finalizedAt?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            finalized_at?: string | undefined;
         } & {
-            bundleId?: string | undefined;
-            poolId?: string | undefined;
+            bundle_id?: string | undefined;
+            pool_id?: string | undefined;
             uploader?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            finalizedAt?: string | undefined;
-        } & Record<Exclude<keyof I["proposalList"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposalList"], keyof {
-            bundleId?: string | undefined;
-            poolId?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            finalized_at?: string | undefined;
+        } & Record<Exclude<keyof I["proposal_list"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposal_list"], keyof {
+            bundle_id?: string | undefined;
+            pool_id?: string | undefined;
             uploader?: string | undefined;
-            fromHeight?: string | undefined;
-            toHeight?: string | undefined;
-            finalizedAt?: string | undefined;
+            from_height?: string | undefined;
+            to_height?: string | undefined;
+            finalized_at?: string | undefined;
         }[]>, never>) | undefined;
-        unbondingState?: ({
-            lowIndex?: string | undefined;
-            highIndex?: string | undefined;
+        unbonding_state?: ({
+            low_index?: string | undefined;
+            high_index?: string | undefined;
         } & {
-            lowIndex?: string | undefined;
-            highIndex?: string | undefined;
-        } & Record<Exclude<keyof I["unbondingState"], keyof UnbondingState>, never>) | undefined;
-        unbondingEntries?: ({
+            low_index?: string | undefined;
+            high_index?: string | undefined;
+        } & Record<Exclude<keyof I["unbonding_state"], keyof UnbondingState>, never>) | undefined;
+        unbonding_entries?: ({
             index?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
-            creationTime?: string | undefined;
+            creation_time?: string | undefined;
             amount?: string | undefined;
         }[] & ({
             index?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
-            creationTime?: string | undefined;
+            creation_time?: string | undefined;
             amount?: string | undefined;
         } & {
             index?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
-            creationTime?: string | undefined;
+            creation_time?: string | undefined;
             amount?: string | undefined;
-        } & Record<Exclude<keyof I["unbondingEntries"][number], keyof UnbondingEntries>, never>)[] & Record<Exclude<keyof I["unbondingEntries"], keyof {
+        } & Record<Exclude<keyof I["unbonding_entries"][number], keyof UnbondingEntries>, never>)[] & Record<Exclude<keyof I["unbonding_entries"], keyof {
             index?: string | undefined;
-            poolId?: string | undefined;
+            pool_id?: string | undefined;
             staker?: string | undefined;
             delegator?: string | undefined;
-            creationTime?: string | undefined;
+            creation_time?: string | undefined;
             amount?: string | undefined;
         }[]>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof GenesisState>, never>>(object: I): GenesisState;
