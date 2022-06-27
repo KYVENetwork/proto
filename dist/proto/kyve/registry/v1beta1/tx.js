@@ -26,11 +26,61 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.MsgClientImpl = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.protobufPackage = void 0;
+exports.MsgClientImpl = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.voteTypeToJSON = exports.voteTypeFromJSON = exports.VoteType = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
+/** VoteType ... */
+var VoteType;
+(function (VoteType) {
+    /** VOTE_TYPE_UNSPECIFIED - VOTE_TYPE_UNSPECIFIED ... */
+    VoteType[VoteType["VOTE_TYPE_UNSPECIFIED"] = 0] = "VOTE_TYPE_UNSPECIFIED";
+    /** VOTE_TYPE_YES - VOTE_TYPE_YES ... */
+    VoteType[VoteType["VOTE_TYPE_YES"] = 1] = "VOTE_TYPE_YES";
+    /** VOTE_TYPE_NO - VOTE_TYPE_NO ... */
+    VoteType[VoteType["VOTE_TYPE_NO"] = 2] = "VOTE_TYPE_NO";
+    /** VOTE_TYPE_ABSTAIN - VOTE_TYPE_ABSTAIN ... */
+    VoteType[VoteType["VOTE_TYPE_ABSTAIN"] = 3] = "VOTE_TYPE_ABSTAIN";
+    VoteType[VoteType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(VoteType = exports.VoteType || (exports.VoteType = {}));
+function voteTypeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "VOTE_TYPE_UNSPECIFIED":
+            return VoteType.VOTE_TYPE_UNSPECIFIED;
+        case 1:
+        case "VOTE_TYPE_YES":
+            return VoteType.VOTE_TYPE_YES;
+        case 2:
+        case "VOTE_TYPE_NO":
+            return VoteType.VOTE_TYPE_NO;
+        case 3:
+        case "VOTE_TYPE_ABSTAIN":
+            return VoteType.VOTE_TYPE_ABSTAIN;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return VoteType.UNRECOGNIZED;
+    }
+}
+exports.voteTypeFromJSON = voteTypeFromJSON;
+function voteTypeToJSON(object) {
+    switch (object) {
+        case VoteType.VOTE_TYPE_UNSPECIFIED:
+            return "VOTE_TYPE_UNSPECIFIED";
+        case VoteType.VOTE_TYPE_YES:
+            return "VOTE_TYPE_YES";
+        case VoteType.VOTE_TYPE_NO:
+            return "VOTE_TYPE_NO";
+        case VoteType.VOTE_TYPE_ABSTAIN:
+            return "VOTE_TYPE_ABSTAIN";
+        case VoteType.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
+exports.voteTypeToJSON = voteTypeToJSON;
 function createBaseMsgFundPool() {
     return { creator: "", id: "0", amount: "0" };
 }
@@ -735,7 +785,10 @@ function createBaseMsgSubmitBundleProposal() {
         bundle_id: "",
         byte_size: "0",
         from_height: "0",
-        bundle_size: "0"
+        to_height: "0",
+        from_key: "",
+        to_key: "",
+        to_value: ""
     };
 }
 exports.MsgSubmitBundleProposal = {
@@ -756,8 +809,17 @@ exports.MsgSubmitBundleProposal = {
         if (message.from_height !== "0") {
             writer.uint32(40).uint64(message.from_height);
         }
-        if (message.bundle_size !== "0") {
-            writer.uint32(48).uint64(message.bundle_size);
+        if (message.to_height !== "0") {
+            writer.uint32(48).uint64(message.to_height);
+        }
+        if (message.from_key !== "") {
+            writer.uint32(58).string(message.from_key);
+        }
+        if (message.to_key !== "") {
+            writer.uint32(66).string(message.to_key);
+        }
+        if (message.to_value !== "") {
+            writer.uint32(74).string(message.to_value);
         }
         return writer;
     },
@@ -784,7 +846,16 @@ exports.MsgSubmitBundleProposal = {
                     message.from_height = longToString(reader.uint64());
                     break;
                 case 6:
-                    message.bundle_size = longToString(reader.uint64());
+                    message.to_height = longToString(reader.uint64());
+                    break;
+                case 7:
+                    message.from_key = reader.string();
+                    break;
+                case 8:
+                    message.to_key = reader.string();
+                    break;
+                case 9:
+                    message.to_value = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -800,7 +871,10 @@ exports.MsgSubmitBundleProposal = {
             bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
             byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
             from_height: isSet(object.from_height) ? String(object.from_height) : "0",
-            bundle_size: isSet(object.bundle_size) ? String(object.bundle_size) : "0"
+            to_height: isSet(object.to_height) ? String(object.to_height) : "0",
+            from_key: isSet(object.from_key) ? String(object.from_key) : "",
+            to_key: isSet(object.to_key) ? String(object.to_key) : "",
+            to_value: isSet(object.to_value) ? String(object.to_value) : ""
         };
     },
     toJSON: function (message) {
@@ -811,19 +885,24 @@ exports.MsgSubmitBundleProposal = {
         message.byte_size !== undefined && (obj.byte_size = message.byte_size);
         message.from_height !== undefined &&
             (obj.from_height = message.from_height);
-        message.bundle_size !== undefined &&
-            (obj.bundle_size = message.bundle_size);
+        message.to_height !== undefined && (obj.to_height = message.to_height);
+        message.from_key !== undefined && (obj.from_key = message.from_key);
+        message.to_key !== undefined && (obj.to_key = message.to_key);
+        message.to_value !== undefined && (obj.to_value = message.to_value);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         var message = createBaseMsgSubmitBundleProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
         message.byte_size = (_d = object.byte_size) !== null && _d !== void 0 ? _d : "0";
         message.from_height = (_e = object.from_height) !== null && _e !== void 0 ? _e : "0";
-        message.bundle_size = (_f = object.bundle_size) !== null && _f !== void 0 ? _f : "0";
+        message.to_height = (_f = object.to_height) !== null && _f !== void 0 ? _f : "0";
+        message.from_key = (_g = object.from_key) !== null && _g !== void 0 ? _g : "";
+        message.to_key = (_h = object.to_key) !== null && _h !== void 0 ? _h : "";
+        message.to_value = (_j = object.to_value) !== null && _j !== void 0 ? _j : "";
         return message;
     }
 };
@@ -862,7 +941,7 @@ exports.MsgSubmitBundleProposalResponse = {
     }
 };
 function createBaseMsgVoteProposal() {
-    return { creator: "", id: "0", bundle_id: "", vote: "0" };
+    return { creator: "", id: "0", bundle_id: "", vote: 0 };
 }
 exports.MsgVoteProposal = {
     encode: function (message, writer) {
@@ -876,8 +955,8 @@ exports.MsgVoteProposal = {
         if (message.bundle_id !== "") {
             writer.uint32(26).string(message.bundle_id);
         }
-        if (message.vote !== "0") {
-            writer.uint32(32).uint64(message.vote);
+        if (message.vote !== 0) {
+            writer.uint32(32).int32(message.vote);
         }
         return writer;
     },
@@ -898,7 +977,7 @@ exports.MsgVoteProposal = {
                     message.bundle_id = reader.string();
                     break;
                 case 4:
-                    message.vote = longToString(reader.uint64());
+                    message.vote = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -912,7 +991,7 @@ exports.MsgVoteProposal = {
             creator: isSet(object.creator) ? String(object.creator) : "",
             id: isSet(object.id) ? String(object.id) : "0",
             bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
-            vote: isSet(object.vote) ? String(object.vote) : "0"
+            vote: isSet(object.vote) ? voteTypeFromJSON(object.vote) : 0
         };
     },
     toJSON: function (message) {
@@ -920,7 +999,7 @@ exports.MsgVoteProposal = {
         message.creator !== undefined && (obj.creator = message.creator);
         message.id !== undefined && (obj.id = message.id);
         message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
-        message.vote !== undefined && (obj.vote = message.vote);
+        message.vote !== undefined && (obj.vote = voteTypeToJSON(message.vote));
         return obj;
     },
     fromPartial: function (object) {
@@ -929,7 +1008,7 @@ exports.MsgVoteProposal = {
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
         message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
-        message.vote = (_d = object.vote) !== null && _d !== void 0 ? _d : "0";
+        message.vote = (_d = object.vote) !== null && _d !== void 0 ? _d : 0;
         return message;
     }
 };

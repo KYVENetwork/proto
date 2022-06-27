@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.UnbondingState = exports.UnbondingEntries = exports.Staker = exports.Proposal = exports.Pool = exports.Funder = exports.Delegator = exports.DelegationPoolData = exports.DelegationEntries = exports.UpgradePlan = exports.Protocol = exports.BundleProposal = exports.protobufPackage = void 0;
+exports.UnbondingDelegationQueueState = exports.UnbondingDelegationQueueEntry = exports.UnbondingStakingQueueState = exports.UnbondingStaker = exports.UnbondingStakingQueueEntry = exports.Staker = exports.Proposal = exports.Pool = exports.Funder = exports.Delegator = exports.DelegationPoolData = exports.DelegationEntries = exports.UpgradePlan = exports.Protocol = exports.BundleProposal = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -42,7 +42,9 @@ function createBaseBundleProposal() {
         created_at: "0",
         voters_valid: [],
         voters_invalid: [],
-        voters_abstain: []
+        voters_abstain: [],
+        to_key: "",
+        to_value: ""
     };
 }
 exports.BundleProposal = {
@@ -80,6 +82,12 @@ exports.BundleProposal = {
         for (var _d = 0, _e = message.voters_abstain; _d < _e.length; _d++) {
             var v = _e[_d];
             writer.uint32(82).string(v);
+        }
+        if (message.to_key !== "") {
+            writer.uint32(90).string(message.to_key);
+        }
+        if (message.to_value !== "") {
+            writer.uint32(98).string(message.to_value);
         }
         return writer;
     },
@@ -120,6 +128,12 @@ exports.BundleProposal = {
                 case 10:
                     message.voters_abstain.push(reader.string());
                     break;
+                case 11:
+                    message.to_key = reader.string();
+                    break;
+                case 12:
+                    message.to_value = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -146,7 +160,9 @@ exports.BundleProposal = {
                 : [],
             voters_abstain: Array.isArray(object === null || object === void 0 ? void 0 : object.voters_abstain)
                 ? object.voters_abstain.map(function (e) { return String(e); })
-                : []
+                : [],
+            to_key: isSet(object.to_key) ? String(object.to_key) : "",
+            to_value: isSet(object.to_value) ? String(object.to_value) : ""
         };
     },
     toJSON: function (message) {
@@ -178,10 +194,12 @@ exports.BundleProposal = {
         else {
             obj.voters_abstain = [];
         }
+        message.to_key !== undefined && (obj.to_key = message.to_key);
+        message.to_value !== undefined && (obj.to_value = message.to_value);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         var message = createBaseBundleProposal();
         message.uploader = (_a = object.uploader) !== null && _a !== void 0 ? _a : "";
         message.next_uploader = (_b = object.next_uploader) !== null && _b !== void 0 ? _b : "";
@@ -193,6 +211,8 @@ exports.BundleProposal = {
         message.voters_valid = ((_h = object.voters_valid) === null || _h === void 0 ? void 0 : _h.map(function (e) { return e; })) || [];
         message.voters_invalid = ((_j = object.voters_invalid) === null || _j === void 0 ? void 0 : _j.map(function (e) { return e; })) || [];
         message.voters_abstain = ((_k = object.voters_abstain) === null || _k === void 0 ? void 0 : _k.map(function (e) { return e; })) || [];
+        message.to_key = (_l = object.to_key) !== null && _l !== void 0 ? _l : "";
+        message.to_value = (_m = object.to_value) !== null && _m !== void 0 ? _m : "";
         return message;
     }
 };
@@ -695,8 +715,8 @@ function createBasePool() {
         logo: "",
         versions: "",
         config: "",
-        height_archived: "0",
-        bytes_archived: "0",
+        current_height: "0",
+        total_bytes: "0",
         total_bundles: "0",
         total_bundle_rewards: "0",
         start_height: "0",
@@ -713,7 +733,10 @@ function createBasePool() {
         bundle_proposal: undefined,
         max_bundle_size: "0",
         protocol: undefined,
-        upgrade_plan: undefined
+        upgrade_plan: undefined,
+        start_key: "",
+        current_key: "",
+        current_value: ""
     };
 }
 exports.Pool = {
@@ -740,11 +763,11 @@ exports.Pool = {
         if (message.config !== "") {
             writer.uint32(58).string(message.config);
         }
-        if (message.height_archived !== "0") {
-            writer.uint32(64).uint64(message.height_archived);
+        if (message.current_height !== "0") {
+            writer.uint32(64).uint64(message.current_height);
         }
-        if (message.bytes_archived !== "0") {
-            writer.uint32(72).uint64(message.bytes_archived);
+        if (message.total_bytes !== "0") {
+            writer.uint32(72).uint64(message.total_bytes);
         }
         if (message.total_bundles !== "0") {
             writer.uint32(80).uint64(message.total_bundles);
@@ -799,6 +822,15 @@ exports.Pool = {
         if (message.upgrade_plan !== undefined) {
             exports.UpgradePlan.encode(message.upgrade_plan, writer.uint32(210).fork()).ldelim();
         }
+        if (message.start_key !== "") {
+            writer.uint32(218).string(message.start_key);
+        }
+        if (message.current_key !== "") {
+            writer.uint32(226).string(message.current_key);
+        }
+        if (message.current_value !== "") {
+            writer.uint32(234).string(message.current_value);
+        }
         return writer;
     },
     decode: function (input, length) {
@@ -830,10 +862,10 @@ exports.Pool = {
                     message.config = reader.string();
                     break;
                 case 8:
-                    message.height_archived = longToString(reader.uint64());
+                    message.current_height = longToString(reader.uint64());
                     break;
                 case 9:
-                    message.bytes_archived = longToString(reader.uint64());
+                    message.total_bytes = longToString(reader.uint64());
                     break;
                 case 10:
                     message.total_bundles = longToString(reader.uint64());
@@ -886,6 +918,15 @@ exports.Pool = {
                 case 26:
                     message.upgrade_plan = exports.UpgradePlan.decode(reader, reader.uint32());
                     break;
+                case 27:
+                    message.start_key = reader.string();
+                    break;
+                case 28:
+                    message.current_key = reader.string();
+                    break;
+                case 29:
+                    message.current_value = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -902,12 +943,10 @@ exports.Pool = {
             logo: isSet(object.logo) ? String(object.logo) : "",
             versions: isSet(object.versions) ? String(object.versions) : "",
             config: isSet(object.config) ? String(object.config) : "",
-            height_archived: isSet(object.height_archived)
-                ? String(object.height_archived)
+            current_height: isSet(object.current_height)
+                ? String(object.current_height)
                 : "0",
-            bytes_archived: isSet(object.bytes_archived)
-                ? String(object.bytes_archived)
-                : "0",
+            total_bytes: isSet(object.total_bytes) ? String(object.total_bytes) : "0",
             total_bundles: isSet(object.total_bundles)
                 ? String(object.total_bundles)
                 : "0",
@@ -952,7 +991,12 @@ exports.Pool = {
                 : undefined,
             upgrade_plan: isSet(object.upgrade_plan)
                 ? exports.UpgradePlan.fromJSON(object.upgrade_plan)
-                : undefined
+                : undefined,
+            start_key: isSet(object.start_key) ? String(object.start_key) : "",
+            current_key: isSet(object.current_key) ? String(object.current_key) : "",
+            current_value: isSet(object.current_value)
+                ? String(object.current_value)
+                : ""
         };
     },
     toJSON: function (message) {
@@ -964,10 +1008,10 @@ exports.Pool = {
         message.logo !== undefined && (obj.logo = message.logo);
         message.versions !== undefined && (obj.versions = message.versions);
         message.config !== undefined && (obj.config = message.config);
-        message.height_archived !== undefined &&
-            (obj.height_archived = message.height_archived);
-        message.bytes_archived !== undefined &&
-            (obj.bytes_archived = message.bytes_archived);
+        message.current_height !== undefined &&
+            (obj.current_height = message.current_height);
+        message.total_bytes !== undefined &&
+            (obj.total_bytes = message.total_bytes);
         message.total_bundles !== undefined &&
             (obj.total_bundles = message.total_bundles);
         message.total_bundle_rewards !== undefined &&
@@ -1015,10 +1059,15 @@ exports.Pool = {
             (obj.upgrade_plan = message.upgrade_plan
                 ? exports.UpgradePlan.toJSON(message.upgrade_plan)
                 : undefined);
+        message.start_key !== undefined && (obj.start_key = message.start_key);
+        message.current_key !== undefined &&
+            (obj.current_key = message.current_key);
+        message.current_value !== undefined &&
+            (obj.current_value = message.current_value);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1;
         var message = createBasePool();
         message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
         message.creator = (_b = object.creator) !== null && _b !== void 0 ? _b : "";
@@ -1027,8 +1076,8 @@ exports.Pool = {
         message.logo = (_e = object.logo) !== null && _e !== void 0 ? _e : "";
         message.versions = (_f = object.versions) !== null && _f !== void 0 ? _f : "";
         message.config = (_g = object.config) !== null && _g !== void 0 ? _g : "";
-        message.height_archived = (_h = object.height_archived) !== null && _h !== void 0 ? _h : "0";
-        message.bytes_archived = (_j = object.bytes_archived) !== null && _j !== void 0 ? _j : "0";
+        message.current_height = (_h = object.current_height) !== null && _h !== void 0 ? _h : "0";
+        message.total_bytes = (_j = object.total_bytes) !== null && _j !== void 0 ? _j : "0";
         message.total_bundles = (_k = object.total_bundles) !== null && _k !== void 0 ? _k : "0";
         message.total_bundle_rewards = (_l = object.total_bundle_rewards) !== null && _l !== void 0 ? _l : "0";
         message.start_height = (_m = object.start_height) !== null && _m !== void 0 ? _m : "0";
@@ -1055,6 +1104,9 @@ exports.Pool = {
             object.upgrade_plan !== undefined && object.upgrade_plan !== null
                 ? exports.UpgradePlan.fromPartial(object.upgrade_plan)
                 : undefined;
+        message.start_key = (_z = object.start_key) !== null && _z !== void 0 ? _z : "";
+        message.current_key = (_0 = object.current_key) !== null && _0 !== void 0 ? _0 : "";
+        message.current_value = (_1 = object.current_value) !== null && _1 !== void 0 ? _1 : "";
         return message;
     }
 };
@@ -1065,7 +1117,10 @@ function createBaseProposal() {
         uploader: "",
         from_height: "0",
         to_height: "0",
-        finalized_at: "0"
+        finalized_at: "0",
+        id: "0",
+        key: "",
+        value: ""
     };
 }
 exports.Proposal = {
@@ -1088,6 +1143,15 @@ exports.Proposal = {
         }
         if (message.finalized_at !== "0") {
             writer.uint32(48).uint64(message.finalized_at);
+        }
+        if (message.id !== "0") {
+            writer.uint32(56).uint64(message.id);
+        }
+        if (message.key !== "") {
+            writer.uint32(66).string(message.key);
+        }
+        if (message.value !== "") {
+            writer.uint32(74).string(message.value);
         }
         return writer;
     },
@@ -1116,6 +1180,15 @@ exports.Proposal = {
                 case 6:
                     message.finalized_at = longToString(reader.uint64());
                     break;
+                case 7:
+                    message.id = longToString(reader.uint64());
+                    break;
+                case 8:
+                    message.key = reader.string();
+                    break;
+                case 9:
+                    message.value = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -1132,7 +1205,10 @@ exports.Proposal = {
             to_height: isSet(object.to_height) ? String(object.to_height) : "0",
             finalized_at: isSet(object.finalized_at)
                 ? String(object.finalized_at)
-                : "0"
+                : "0",
+            id: isSet(object.id) ? String(object.id) : "0",
+            key: isSet(object.key) ? String(object.key) : "",
+            value: isSet(object.value) ? String(object.value) : ""
         };
     },
     toJSON: function (message) {
@@ -1145,10 +1221,13 @@ exports.Proposal = {
         message.to_height !== undefined && (obj.to_height = message.to_height);
         message.finalized_at !== undefined &&
             (obj.finalized_at = message.finalized_at);
+        message.id !== undefined && (obj.id = message.id);
+        message.key !== undefined && (obj.key = message.key);
+        message.value !== undefined && (obj.value = message.value);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         var message = createBaseProposal();
         message.bundle_id = (_a = object.bundle_id) !== null && _a !== void 0 ? _a : "";
         message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
@@ -1156,6 +1235,9 @@ exports.Proposal = {
         message.from_height = (_d = object.from_height) !== null && _d !== void 0 ? _d : "0";
         message.to_height = (_e = object.to_height) !== null && _e !== void 0 ? _e : "0";
         message.finalized_at = (_f = object.finalized_at) !== null && _f !== void 0 ? _f : "0";
+        message.id = (_g = object.id) !== null && _g !== void 0 ? _g : "0";
+        message.key = (_h = object.key) !== null && _h !== void 0 ? _h : "";
+        message.value = (_j = object.value) !== null && _j !== void 0 ? _j : "";
         return message;
     }
 };
@@ -1289,43 +1371,39 @@ exports.Staker = {
         return message;
     }
 };
-function createBaseUnbondingEntries() {
+function createBaseUnbondingStakingQueueEntry() {
     return {
         index: "0",
-        pool_id: "0",
         staker: "",
-        delegator: "",
-        creation_time: "0",
-        amount: "0"
+        pool_id: "0",
+        amount: "0",
+        creation_time: "0"
     };
 }
-exports.UnbondingEntries = {
+exports.UnbondingStakingQueueEntry = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
         if (message.index !== "0") {
             writer.uint32(8).uint64(message.index);
         }
-        if (message.pool_id !== "0") {
-            writer.uint32(16).uint64(message.pool_id);
-        }
         if (message.staker !== "") {
-            writer.uint32(26).string(message.staker);
+            writer.uint32(18).string(message.staker);
         }
-        if (message.delegator !== "") {
-            writer.uint32(34).string(message.delegator);
+        if (message.pool_id !== "0") {
+            writer.uint32(24).uint64(message.pool_id);
+        }
+        if (message.amount !== "0") {
+            writer.uint32(32).uint64(message.amount);
         }
         if (message.creation_time !== "0") {
             writer.uint32(40).uint64(message.creation_time);
-        }
-        if (message.amount !== "0") {
-            writer.uint32(48).uint64(message.amount);
         }
         return writer;
     },
     decode: function (input, length) {
         var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
-        var message = createBaseUnbondingEntries();
+        var message = createBaseUnbondingStakingQueueEntry();
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
@@ -1333,19 +1411,16 @@ exports.UnbondingEntries = {
                     message.index = longToString(reader.uint64());
                     break;
                 case 2:
-                    message.pool_id = longToString(reader.uint64());
-                    break;
-                case 3:
                     message.staker = reader.string();
                     break;
+                case 3:
+                    message.pool_id = longToString(reader.uint64());
+                    break;
                 case 4:
-                    message.delegator = reader.string();
+                    message.amount = longToString(reader.uint64());
                     break;
                 case 5:
                     message.creation_time = longToString(reader.uint64());
-                    break;
-                case 6:
-                    message.amount = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1357,42 +1432,105 @@ exports.UnbondingEntries = {
     fromJSON: function (object) {
         return {
             index: isSet(object.index) ? String(object.index) : "0",
-            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
-            delegator: isSet(object.delegator) ? String(object.delegator) : "",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0",
             creation_time: isSet(object.creation_time)
                 ? String(object.creation_time)
-                : "0",
-            amount: isSet(object.amount) ? String(object.amount) : "0"
+                : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.index !== undefined && (obj.index = message.index);
-        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.staker !== undefined && (obj.staker = message.staker);
-        message.delegator !== undefined && (obj.delegator = message.delegator);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        message.amount !== undefined && (obj.amount = message.amount);
         message.creation_time !== undefined &&
             (obj.creation_time = message.creation_time);
-        message.amount !== undefined && (obj.amount = message.amount);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f;
-        var message = createBaseUnbondingEntries();
+        var _a, _b, _c, _d, _e;
+        var message = createBaseUnbondingStakingQueueEntry();
         message.index = (_a = object.index) !== null && _a !== void 0 ? _a : "0";
-        message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
-        message.staker = (_c = object.staker) !== null && _c !== void 0 ? _c : "";
-        message.delegator = (_d = object.delegator) !== null && _d !== void 0 ? _d : "";
+        message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
+        message.pool_id = (_c = object.pool_id) !== null && _c !== void 0 ? _c : "0";
+        message.amount = (_d = object.amount) !== null && _d !== void 0 ? _d : "0";
         message.creation_time = (_e = object.creation_time) !== null && _e !== void 0 ? _e : "0";
-        message.amount = (_f = object.amount) !== null && _f !== void 0 ? _f : "0";
         return message;
     }
 };
-function createBaseUnbondingState() {
+function createBaseUnbondingStaker() {
+    return { staker: "", pool_id: "0", unbonding_amount: "0" };
+}
+exports.UnbondingStaker = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.staker !== "") {
+            writer.uint32(10).string(message.staker);
+        }
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
+        }
+        if (message.unbonding_amount !== "0") {
+            writer.uint32(24).uint64(message.unbonding_amount);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseUnbondingStaker();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.staker = reader.string();
+                    break;
+                case 2:
+                    message.pool_id = longToString(reader.uint64());
+                    break;
+                case 3:
+                    message.unbonding_amount = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            staker: isSet(object.staker) ? String(object.staker) : "",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+            unbonding_amount: isSet(object.unbonding_amount)
+                ? String(object.unbonding_amount)
+                : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.staker !== undefined && (obj.staker = message.staker);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        message.unbonding_amount !== undefined &&
+            (obj.unbonding_amount = message.unbonding_amount);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c;
+        var message = createBaseUnbondingStaker();
+        message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
+        message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
+        message.unbonding_amount = (_c = object.unbonding_amount) !== null && _c !== void 0 ? _c : "0";
+        return message;
+    }
+};
+function createBaseUnbondingStakingQueueState() {
     return { low_index: "0", high_index: "0" };
 }
-exports.UnbondingState = {
+exports.UnbondingStakingQueueState = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
         if (message.low_index !== "0") {
@@ -1406,7 +1544,7 @@ exports.UnbondingState = {
     decode: function (input, length) {
         var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
-        var message = createBaseUnbondingState();
+        var message = createBaseUnbondingStakingQueueState();
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
@@ -1437,7 +1575,161 @@ exports.UnbondingState = {
     },
     fromPartial: function (object) {
         var _a, _b;
-        var message = createBaseUnbondingState();
+        var message = createBaseUnbondingStakingQueueState();
+        message.low_index = (_a = object.low_index) !== null && _a !== void 0 ? _a : "0";
+        message.high_index = (_b = object.high_index) !== null && _b !== void 0 ? _b : "0";
+        return message;
+    }
+};
+function createBaseUnbondingDelegationQueueEntry() {
+    return {
+        index: "0",
+        staker: "",
+        delegator: "",
+        pool_id: "0",
+        amount: "0",
+        creation_time: "0"
+    };
+}
+exports.UnbondingDelegationQueueEntry = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.index !== "0") {
+            writer.uint32(8).uint64(message.index);
+        }
+        if (message.staker !== "") {
+            writer.uint32(18).string(message.staker);
+        }
+        if (message.delegator !== "") {
+            writer.uint32(26).string(message.delegator);
+        }
+        if (message.pool_id !== "0") {
+            writer.uint32(32).uint64(message.pool_id);
+        }
+        if (message.amount !== "0") {
+            writer.uint32(40).uint64(message.amount);
+        }
+        if (message.creation_time !== "0") {
+            writer.uint32(48).uint64(message.creation_time);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseUnbondingDelegationQueueEntry();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.index = longToString(reader.uint64());
+                    break;
+                case 2:
+                    message.staker = reader.string();
+                    break;
+                case 3:
+                    message.delegator = reader.string();
+                    break;
+                case 4:
+                    message.pool_id = longToString(reader.uint64());
+                    break;
+                case 5:
+                    message.amount = longToString(reader.uint64());
+                    break;
+                case 6:
+                    message.creation_time = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            index: isSet(object.index) ? String(object.index) : "0",
+            staker: isSet(object.staker) ? String(object.staker) : "",
+            delegator: isSet(object.delegator) ? String(object.delegator) : "",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+            amount: isSet(object.amount) ? String(object.amount) : "0",
+            creation_time: isSet(object.creation_time)
+                ? String(object.creation_time)
+                : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.index !== undefined && (obj.index = message.index);
+        message.staker !== undefined && (obj.staker = message.staker);
+        message.delegator !== undefined && (obj.delegator = message.delegator);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        message.amount !== undefined && (obj.amount = message.amount);
+        message.creation_time !== undefined &&
+            (obj.creation_time = message.creation_time);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c, _d, _e, _f;
+        var message = createBaseUnbondingDelegationQueueEntry();
+        message.index = (_a = object.index) !== null && _a !== void 0 ? _a : "0";
+        message.staker = (_b = object.staker) !== null && _b !== void 0 ? _b : "";
+        message.delegator = (_c = object.delegator) !== null && _c !== void 0 ? _c : "";
+        message.pool_id = (_d = object.pool_id) !== null && _d !== void 0 ? _d : "0";
+        message.amount = (_e = object.amount) !== null && _e !== void 0 ? _e : "0";
+        message.creation_time = (_f = object.creation_time) !== null && _f !== void 0 ? _f : "0";
+        return message;
+    }
+};
+function createBaseUnbondingDelegationQueueState() {
+    return { low_index: "0", high_index: "0" };
+}
+exports.UnbondingDelegationQueueState = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.low_index !== "0") {
+            writer.uint32(8).uint64(message.low_index);
+        }
+        if (message.high_index !== "0") {
+            writer.uint32(16).uint64(message.high_index);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseUnbondingDelegationQueueState();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.low_index = longToString(reader.uint64());
+                    break;
+                case 2:
+                    message.high_index = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            low_index: isSet(object.low_index) ? String(object.low_index) : "0",
+            high_index: isSet(object.high_index) ? String(object.high_index) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.low_index !== undefined && (obj.low_index = message.low_index);
+        message.high_index !== undefined && (obj.high_index = message.high_index);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b;
+        var message = createBaseUnbondingDelegationQueueState();
         message.low_index = (_a = object.low_index) !== null && _a !== void 0 ? _a : "0";
         message.high_index = (_b = object.high_index) !== null && _b !== void 0 ? _b : "0";
         return message;

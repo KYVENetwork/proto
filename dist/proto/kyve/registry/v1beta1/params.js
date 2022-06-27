@@ -39,7 +39,9 @@ function createBaseParams() {
         upload_timeout: "0",
         storage_cost: "0",
         network_fee: "",
-        max_points: "0"
+        max_points: "0",
+        unbonding_staking_time: "0",
+        unbonding_delegation_time: "0"
     };
 }
 exports.Params = {
@@ -65,6 +67,12 @@ exports.Params = {
         }
         if (message.max_points !== "0") {
             writer.uint32(72).uint64(message.max_points);
+        }
+        if (message.unbonding_staking_time !== "0") {
+            writer.uint32(80).uint64(message.unbonding_staking_time);
+        }
+        if (message.unbonding_delegation_time !== "0") {
+            writer.uint32(88).uint64(message.unbonding_delegation_time);
         }
         return writer;
     },
@@ -96,6 +104,12 @@ exports.Params = {
                 case 9:
                     message.max_points = longToString(reader.uint64());
                     break;
+                case 10:
+                    message.unbonding_staking_time = longToString(reader.uint64());
+                    break;
+                case 11:
+                    message.unbonding_delegation_time = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -119,7 +133,13 @@ exports.Params = {
                 ? String(object.storage_cost)
                 : "0",
             network_fee: isSet(object.network_fee) ? String(object.network_fee) : "",
-            max_points: isSet(object.max_points) ? String(object.max_points) : "0"
+            max_points: isSet(object.max_points) ? String(object.max_points) : "0",
+            unbonding_staking_time: isSet(object.unbonding_staking_time)
+                ? String(object.unbonding_staking_time)
+                : "0",
+            unbonding_delegation_time: isSet(object.unbonding_delegation_time)
+                ? String(object.unbonding_delegation_time)
+                : "0"
         };
     },
     toJSON: function (message) {
@@ -136,10 +156,14 @@ exports.Params = {
         message.network_fee !== undefined &&
             (obj.network_fee = message.network_fee);
         message.max_points !== undefined && (obj.max_points = message.max_points);
+        message.unbonding_staking_time !== undefined &&
+            (obj.unbonding_staking_time = message.unbonding_staking_time);
+        message.unbonding_delegation_time !== undefined &&
+            (obj.unbonding_delegation_time = message.unbonding_delegation_time);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         var message = createBaseParams();
         message.vote_slash = (_a = object.vote_slash) !== null && _a !== void 0 ? _a : "";
         message.upload_slash = (_b = object.upload_slash) !== null && _b !== void 0 ? _b : "";
@@ -148,6 +172,8 @@ exports.Params = {
         message.storage_cost = (_e = object.storage_cost) !== null && _e !== void 0 ? _e : "0";
         message.network_fee = (_f = object.network_fee) !== null && _f !== void 0 ? _f : "";
         message.max_points = (_g = object.max_points) !== null && _g !== void 0 ? _g : "0";
+        message.unbonding_staking_time = (_h = object.unbonding_staking_time) !== null && _h !== void 0 ? _h : "0";
+        message.unbonding_delegation_time = (_j = object.unbonding_delegation_time) !== null && _j !== void 0 ? _j : "0";
         return message;
     }
 };

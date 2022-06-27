@@ -90,7 +90,7 @@ export interface Timestamp {
      * 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
      * 9999-12-31T23:59:59Z inclusive.
      */
-    seconds: number;
+    seconds: string;
     /**
      * Non-negative fractions of a second at nanosecond resolution. Negative
      * second values with fractions must still have non-negative nanos values
@@ -105,10 +105,10 @@ export declare const Timestamp: {
     fromJSON(object: any): Timestamp;
     toJSON(message: Timestamp): unknown;
     fromPartial<I extends {
-        seconds?: number | undefined;
+        seconds?: string | undefined;
         nanos?: number | undefined;
     } & {
-        seconds?: number | undefined;
+        seconds?: string | undefined;
         nanos?: number | undefined;
     } & Record<Exclude<keyof I, keyof Timestamp>, never>>(object: I): Timestamp;
 };

@@ -32,12 +32,12 @@ var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "google.protobuf";
 function createBaseTimestamp() {
-    return { seconds: 0, nanos: 0 };
+    return { seconds: "0", nanos: 0 };
 }
 exports.Timestamp = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.seconds !== 0) {
+        if (message.seconds !== "0") {
             writer.uint32(8).int64(message.seconds);
         }
         if (message.nanos !== 0) {
@@ -53,7 +53,7 @@ exports.Timestamp = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.seconds = longToNumber(reader.int64());
+                    message.seconds = longToString(reader.int64());
                     break;
                 case 2:
                     message.nanos = reader.int32();
@@ -67,41 +67,26 @@ exports.Timestamp = {
     },
     fromJSON: function (object) {
         return {
-            seconds: isSet(object.seconds) ? Number(object.seconds) : 0,
+            seconds: isSet(object.seconds) ? String(object.seconds) : "0",
             nanos: isSet(object.nanos) ? Number(object.nanos) : 0
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.seconds !== undefined &&
-            (obj.seconds = Math.round(message.seconds));
+        message.seconds !== undefined && (obj.seconds = message.seconds);
         message.nanos !== undefined && (obj.nanos = Math.round(message.nanos));
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseTimestamp();
-        message.seconds = (_a = object.seconds) !== null && _a !== void 0 ? _a : 0;
+        message.seconds = (_a = object.seconds) !== null && _a !== void 0 ? _a : "0";
         message.nanos = (_b = object.nanos) !== null && _b !== void 0 ? _b : 0;
         return message;
     }
 };
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

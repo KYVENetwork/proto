@@ -111,7 +111,7 @@ export interface Any {
      * Schemes other than `http`, `https` (or the empty scheme) might be
      * used with implementation specific semantics.
      */
-    typeUrl: string;
+    type_url: string;
     /** Must be a valid serialized protocol buffer of the above specified type. */
     value: Uint8Array;
 }
@@ -121,10 +121,10 @@ export declare const Any: {
     fromJSON(object: any): Any;
     toJSON(message: Any): unknown;
     fromPartial<I extends {
-        typeUrl?: string | undefined;
+        type_url?: string | undefined;
         value?: Uint8Array | undefined;
     } & {
-        typeUrl?: string | undefined;
+        type_url?: string | undefined;
         value?: Uint8Array | undefined;
     } & Record<Exclude<keyof I, keyof Any>, never>>(object: I): Any;
 };

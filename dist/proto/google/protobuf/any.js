@@ -32,13 +32,13 @@ var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "google.protobuf";
 function createBaseAny() {
-    return { typeUrl: "", value: new Uint8Array() };
+    return { type_url: "", value: new Uint8Array() };
 }
 exports.Any = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.typeUrl !== "") {
-            writer.uint32(10).string(message.typeUrl);
+        if (message.type_url !== "") {
+            writer.uint32(10).string(message.type_url);
         }
         if (message.value.length !== 0) {
             writer.uint32(18).bytes(message.value);
@@ -53,7 +53,7 @@ exports.Any = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.typeUrl = reader.string();
+                    message.type_url = reader.string();
                     break;
                 case 2:
                     message.value = reader.bytes();
@@ -67,7 +67,7 @@ exports.Any = {
     },
     fromJSON: function (object) {
         return {
-            typeUrl: isSet(object.typeUrl) ? String(object.typeUrl) : "",
+            type_url: isSet(object.type_url) ? String(object.type_url) : "",
             value: isSet(object.value)
                 ? bytesFromBase64(object.value)
                 : new Uint8Array()
@@ -75,7 +75,7 @@ exports.Any = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.typeUrl !== undefined && (obj.typeUrl = message.typeUrl);
+        message.type_url !== undefined && (obj.type_url = message.type_url);
         message.value !== undefined &&
             (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
         return obj;
@@ -83,7 +83,7 @@ exports.Any = {
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseAny();
-        message.typeUrl = (_a = object.typeUrl) !== null && _a !== void 0 ? _a : "";
+        message.type_url = (_a = object.type_url) !== null && _a !== void 0 ? _a : "";
         message.value = (_b = object.value) !== null && _b !== void 0 ? _b : new Uint8Array();
         return message;
     }

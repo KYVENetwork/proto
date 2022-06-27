@@ -34,13 +34,13 @@ var gov_1 = require("../../../cosmos/gov/v1beta1/gov");
 var pagination_1 = require("../../../cosmos/base/query/v1beta1/pagination");
 exports.protobufPackage = "cosmos.gov.v1beta1";
 function createBaseQueryProposalRequest() {
-    return { proposalId: 0 };
+    return { proposal_id: "0" };
 }
 exports.QueryProposalRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalId !== 0) {
-            writer.uint32(8).uint64(message.proposalId);
+        if (message.proposal_id !== "0") {
+            writer.uint32(8).uint64(message.proposal_id);
         }
         return writer;
     },
@@ -52,7 +52,7 @@ exports.QueryProposalRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalId = longToNumber(reader.uint64());
+                    message.proposal_id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -63,19 +63,19 @@ exports.QueryProposalRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalId: isSet(object.proposalId) ? Number(object.proposalId) : 0
+            proposal_id: isSet(object.proposal_id) ? String(object.proposal_id) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalId !== undefined &&
-            (obj.proposalId = Math.round(message.proposalId));
+        message.proposal_id !== undefined &&
+            (obj.proposal_id = message.proposal_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryProposalRequest();
-        message.proposalId = (_a = object.proposalId) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -132,13 +132,18 @@ exports.QueryProposalResponse = {
     }
 };
 function createBaseQueryProposalsRequest() {
-    return { proposalStatus: 0, voter: "", depositor: "", pagination: undefined };
+    return {
+        proposal_status: 0,
+        voter: "",
+        depositor: "",
+        pagination: undefined
+    };
 }
 exports.QueryProposalsRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalStatus !== 0) {
-            writer.uint32(8).int32(message.proposalStatus);
+        if (message.proposal_status !== 0) {
+            writer.uint32(8).int32(message.proposal_status);
         }
         if (message.voter !== "") {
             writer.uint32(18).string(message.voter);
@@ -159,7 +164,7 @@ exports.QueryProposalsRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalStatus = reader.int32();
+                    message.proposal_status = reader.int32();
                     break;
                 case 2:
                     message.voter = reader.string();
@@ -179,8 +184,8 @@ exports.QueryProposalsRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalStatus: isSet(object.proposalStatus)
-                ? (0, gov_1.proposalStatusFromJSON)(object.proposalStatus)
+            proposal_status: isSet(object.proposal_status)
+                ? (0, gov_1.proposalStatusFromJSON)(object.proposal_status)
                 : 0,
             voter: isSet(object.voter) ? String(object.voter) : "",
             depositor: isSet(object.depositor) ? String(object.depositor) : "",
@@ -191,8 +196,8 @@ exports.QueryProposalsRequest = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalStatus !== undefined &&
-            (obj.proposalStatus = (0, gov_1.proposalStatusToJSON)(message.proposalStatus));
+        message.proposal_status !== undefined &&
+            (obj.proposal_status = (0, gov_1.proposalStatusToJSON)(message.proposal_status));
         message.voter !== undefined && (obj.voter = message.voter);
         message.depositor !== undefined && (obj.depositor = message.depositor);
         message.pagination !== undefined &&
@@ -204,7 +209,7 @@ exports.QueryProposalsRequest = {
     fromPartial: function (object) {
         var _a, _b, _c;
         var message = createBaseQueryProposalsRequest();
-        message.proposalStatus = (_a = object.proposalStatus) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_status = (_a = object.proposal_status) !== null && _a !== void 0 ? _a : 0;
         message.voter = (_b = object.voter) !== null && _b !== void 0 ? _b : "";
         message.depositor = (_c = object.depositor) !== null && _c !== void 0 ? _c : "";
         message.pagination =
@@ -288,13 +293,13 @@ exports.QueryProposalsResponse = {
     }
 };
 function createBaseQueryVoteRequest() {
-    return { proposalId: 0, voter: "" };
+    return { proposal_id: "0", voter: "" };
 }
 exports.QueryVoteRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalId !== 0) {
-            writer.uint32(8).uint64(message.proposalId);
+        if (message.proposal_id !== "0") {
+            writer.uint32(8).uint64(message.proposal_id);
         }
         if (message.voter !== "") {
             writer.uint32(18).string(message.voter);
@@ -309,7 +314,7 @@ exports.QueryVoteRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalId = longToNumber(reader.uint64());
+                    message.proposal_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.voter = reader.string();
@@ -323,21 +328,21 @@ exports.QueryVoteRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalId: isSet(object.proposalId) ? Number(object.proposalId) : 0,
+            proposal_id: isSet(object.proposal_id) ? String(object.proposal_id) : "0",
             voter: isSet(object.voter) ? String(object.voter) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalId !== undefined &&
-            (obj.proposalId = Math.round(message.proposalId));
+        message.proposal_id !== undefined &&
+            (obj.proposal_id = message.proposal_id);
         message.voter !== undefined && (obj.voter = message.voter);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryVoteRequest();
-        message.proposalId = (_a = object.proposalId) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         message.voter = (_b = object.voter) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -391,13 +396,13 @@ exports.QueryVoteResponse = {
     }
 };
 function createBaseQueryVotesRequest() {
-    return { proposalId: 0, pagination: undefined };
+    return { proposal_id: "0", pagination: undefined };
 }
 exports.QueryVotesRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalId !== 0) {
-            writer.uint32(8).uint64(message.proposalId);
+        if (message.proposal_id !== "0") {
+            writer.uint32(8).uint64(message.proposal_id);
         }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -412,7 +417,7 @@ exports.QueryVotesRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalId = longToNumber(reader.uint64());
+                    message.proposal_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
@@ -426,7 +431,7 @@ exports.QueryVotesRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalId: isSet(object.proposalId) ? Number(object.proposalId) : 0,
+            proposal_id: isSet(object.proposal_id) ? String(object.proposal_id) : "0",
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined
@@ -434,8 +439,8 @@ exports.QueryVotesRequest = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalId !== undefined &&
-            (obj.proposalId = Math.round(message.proposalId));
+        message.proposal_id !== undefined &&
+            (obj.proposal_id = message.proposal_id);
         message.pagination !== undefined &&
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
@@ -445,7 +450,7 @@ exports.QueryVotesRequest = {
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryVotesRequest();
-        message.proposalId = (_a = object.proposalId) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         message.pagination =
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
@@ -524,13 +529,13 @@ exports.QueryVotesResponse = {
     }
 };
 function createBaseQueryParamsRequest() {
-    return { paramsType: "" };
+    return { params_type: "" };
 }
 exports.QueryParamsRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.paramsType !== "") {
-            writer.uint32(10).string(message.paramsType);
+        if (message.params_type !== "") {
+            writer.uint32(10).string(message.params_type);
         }
         return writer;
     },
@@ -542,7 +547,7 @@ exports.QueryParamsRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.paramsType = reader.string();
+                    message.params_type = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -553,39 +558,40 @@ exports.QueryParamsRequest = {
     },
     fromJSON: function (object) {
         return {
-            paramsType: isSet(object.paramsType) ? String(object.paramsType) : ""
+            params_type: isSet(object.params_type) ? String(object.params_type) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.paramsType !== undefined && (obj.paramsType = message.paramsType);
+        message.params_type !== undefined &&
+            (obj.params_type = message.params_type);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryParamsRequest();
-        message.paramsType = (_a = object.paramsType) !== null && _a !== void 0 ? _a : "";
+        message.params_type = (_a = object.params_type) !== null && _a !== void 0 ? _a : "";
         return message;
     }
 };
 function createBaseQueryParamsResponse() {
     return {
-        votingParams: undefined,
-        depositParams: undefined,
-        tallyParams: undefined
+        voting_params: undefined,
+        deposit_params: undefined,
+        tally_params: undefined
     };
 }
 exports.QueryParamsResponse = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.votingParams !== undefined) {
-            gov_1.VotingParams.encode(message.votingParams, writer.uint32(10).fork()).ldelim();
+        if (message.voting_params !== undefined) {
+            gov_1.VotingParams.encode(message.voting_params, writer.uint32(10).fork()).ldelim();
         }
-        if (message.depositParams !== undefined) {
-            gov_1.DepositParams.encode(message.depositParams, writer.uint32(18).fork()).ldelim();
+        if (message.deposit_params !== undefined) {
+            gov_1.DepositParams.encode(message.deposit_params, writer.uint32(18).fork()).ldelim();
         }
-        if (message.tallyParams !== undefined) {
-            gov_1.TallyParams.encode(message.tallyParams, writer.uint32(26).fork()).ldelim();
+        if (message.tally_params !== undefined) {
+            gov_1.TallyParams.encode(message.tally_params, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -597,13 +603,13 @@ exports.QueryParamsResponse = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.votingParams = gov_1.VotingParams.decode(reader, reader.uint32());
+                    message.voting_params = gov_1.VotingParams.decode(reader, reader.uint32());
                     break;
                 case 2:
-                    message.depositParams = gov_1.DepositParams.decode(reader, reader.uint32());
+                    message.deposit_params = gov_1.DepositParams.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.tallyParams = gov_1.TallyParams.decode(reader, reader.uint32());
+                    message.tally_params = gov_1.TallyParams.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -614,58 +620,58 @@ exports.QueryParamsResponse = {
     },
     fromJSON: function (object) {
         return {
-            votingParams: isSet(object.votingParams)
-                ? gov_1.VotingParams.fromJSON(object.votingParams)
+            voting_params: isSet(object.voting_params)
+                ? gov_1.VotingParams.fromJSON(object.voting_params)
                 : undefined,
-            depositParams: isSet(object.depositParams)
-                ? gov_1.DepositParams.fromJSON(object.depositParams)
+            deposit_params: isSet(object.deposit_params)
+                ? gov_1.DepositParams.fromJSON(object.deposit_params)
                 : undefined,
-            tallyParams: isSet(object.tallyParams)
-                ? gov_1.TallyParams.fromJSON(object.tallyParams)
+            tally_params: isSet(object.tally_params)
+                ? gov_1.TallyParams.fromJSON(object.tally_params)
                 : undefined
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.votingParams !== undefined &&
-            (obj.votingParams = message.votingParams
-                ? gov_1.VotingParams.toJSON(message.votingParams)
+        message.voting_params !== undefined &&
+            (obj.voting_params = message.voting_params
+                ? gov_1.VotingParams.toJSON(message.voting_params)
                 : undefined);
-        message.depositParams !== undefined &&
-            (obj.depositParams = message.depositParams
-                ? gov_1.DepositParams.toJSON(message.depositParams)
+        message.deposit_params !== undefined &&
+            (obj.deposit_params = message.deposit_params
+                ? gov_1.DepositParams.toJSON(message.deposit_params)
                 : undefined);
-        message.tallyParams !== undefined &&
-            (obj.tallyParams = message.tallyParams
-                ? gov_1.TallyParams.toJSON(message.tallyParams)
+        message.tally_params !== undefined &&
+            (obj.tally_params = message.tally_params
+                ? gov_1.TallyParams.toJSON(message.tally_params)
                 : undefined);
         return obj;
     },
     fromPartial: function (object) {
         var message = createBaseQueryParamsResponse();
-        message.votingParams =
-            object.votingParams !== undefined && object.votingParams !== null
-                ? gov_1.VotingParams.fromPartial(object.votingParams)
+        message.voting_params =
+            object.voting_params !== undefined && object.voting_params !== null
+                ? gov_1.VotingParams.fromPartial(object.voting_params)
                 : undefined;
-        message.depositParams =
-            object.depositParams !== undefined && object.depositParams !== null
-                ? gov_1.DepositParams.fromPartial(object.depositParams)
+        message.deposit_params =
+            object.deposit_params !== undefined && object.deposit_params !== null
+                ? gov_1.DepositParams.fromPartial(object.deposit_params)
                 : undefined;
-        message.tallyParams =
-            object.tallyParams !== undefined && object.tallyParams !== null
-                ? gov_1.TallyParams.fromPartial(object.tallyParams)
+        message.tally_params =
+            object.tally_params !== undefined && object.tally_params !== null
+                ? gov_1.TallyParams.fromPartial(object.tally_params)
                 : undefined;
         return message;
     }
 };
 function createBaseQueryDepositRequest() {
-    return { proposalId: 0, depositor: "" };
+    return { proposal_id: "0", depositor: "" };
 }
 exports.QueryDepositRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalId !== 0) {
-            writer.uint32(8).uint64(message.proposalId);
+        if (message.proposal_id !== "0") {
+            writer.uint32(8).uint64(message.proposal_id);
         }
         if (message.depositor !== "") {
             writer.uint32(18).string(message.depositor);
@@ -680,7 +686,7 @@ exports.QueryDepositRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalId = longToNumber(reader.uint64());
+                    message.proposal_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.depositor = reader.string();
@@ -694,21 +700,21 @@ exports.QueryDepositRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalId: isSet(object.proposalId) ? Number(object.proposalId) : 0,
+            proposal_id: isSet(object.proposal_id) ? String(object.proposal_id) : "0",
             depositor: isSet(object.depositor) ? String(object.depositor) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalId !== undefined &&
-            (obj.proposalId = Math.round(message.proposalId));
+        message.proposal_id !== undefined &&
+            (obj.proposal_id = message.proposal_id);
         message.depositor !== undefined && (obj.depositor = message.depositor);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseQueryDepositRequest();
-        message.proposalId = (_a = object.proposalId) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         message.depositor = (_b = object.depositor) !== null && _b !== void 0 ? _b : "";
         return message;
     }
@@ -766,13 +772,13 @@ exports.QueryDepositResponse = {
     }
 };
 function createBaseQueryDepositsRequest() {
-    return { proposalId: 0, pagination: undefined };
+    return { proposal_id: "0", pagination: undefined };
 }
 exports.QueryDepositsRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalId !== 0) {
-            writer.uint32(8).uint64(message.proposalId);
+        if (message.proposal_id !== "0") {
+            writer.uint32(8).uint64(message.proposal_id);
         }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
@@ -787,7 +793,7 @@ exports.QueryDepositsRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalId = longToNumber(reader.uint64());
+                    message.proposal_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
@@ -801,7 +807,7 @@ exports.QueryDepositsRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalId: isSet(object.proposalId) ? Number(object.proposalId) : 0,
+            proposal_id: isSet(object.proposal_id) ? String(object.proposal_id) : "0",
             pagination: isSet(object.pagination)
                 ? pagination_1.PageRequest.fromJSON(object.pagination)
                 : undefined
@@ -809,8 +815,8 @@ exports.QueryDepositsRequest = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalId !== undefined &&
-            (obj.proposalId = Math.round(message.proposalId));
+        message.proposal_id !== undefined &&
+            (obj.proposal_id = message.proposal_id);
         message.pagination !== undefined &&
             (obj.pagination = message.pagination
                 ? pagination_1.PageRequest.toJSON(message.pagination)
@@ -820,7 +826,7 @@ exports.QueryDepositsRequest = {
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryDepositsRequest();
-        message.proposalId = (_a = object.proposalId) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         message.pagination =
             object.pagination !== undefined && object.pagination !== null
                 ? pagination_1.PageRequest.fromPartial(object.pagination)
@@ -902,13 +908,13 @@ exports.QueryDepositsResponse = {
     }
 };
 function createBaseQueryTallyResultRequest() {
-    return { proposalId: 0 };
+    return { proposal_id: "0" };
 }
 exports.QueryTallyResultRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.proposalId !== 0) {
-            writer.uint32(8).uint64(message.proposalId);
+        if (message.proposal_id !== "0") {
+            writer.uint32(8).uint64(message.proposal_id);
         }
         return writer;
     },
@@ -920,7 +926,7 @@ exports.QueryTallyResultRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.proposalId = longToNumber(reader.uint64());
+                    message.proposal_id = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -931,19 +937,19 @@ exports.QueryTallyResultRequest = {
     },
     fromJSON: function (object) {
         return {
-            proposalId: isSet(object.proposalId) ? Number(object.proposalId) : 0
+            proposal_id: isSet(object.proposal_id) ? String(object.proposal_id) : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.proposalId !== undefined &&
-            (obj.proposalId = Math.round(message.proposalId));
+        message.proposal_id !== undefined &&
+            (obj.proposal_id = message.proposal_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryTallyResultRequest();
-        message.proposalId = (_a = object.proposalId) !== null && _a !== void 0 ? _a : 0;
+        message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         return message;
     }
 };
@@ -1070,22 +1076,8 @@ var QueryClientImpl = /** @class */ (function () {
     return QueryClientImpl;
 }());
 exports.QueryClientImpl = QueryClientImpl;
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

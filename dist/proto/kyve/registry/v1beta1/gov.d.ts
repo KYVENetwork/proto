@@ -16,7 +16,11 @@ export interface CreatePoolProposal {
     version: string;
     /** config ... */
     config: string;
-    /** start_height ... */
+    /**
+     * start_height ...
+     *
+     * @deprecated
+     */
     start_height: string;
     /** upload_interval ... */
     upload_interval: string;
@@ -26,6 +30,8 @@ export interface CreatePoolProposal {
     max_bundle_size: string;
     /** binaries ... */
     binaries: string;
+    /** start_key ... */
+    start_key: string;
 }
 /** UpdatePoolProposal is a gov Content type for updating a pool. */
 export interface UpdatePoolProposal {
@@ -41,7 +47,11 @@ export interface UpdatePoolProposal {
     runtime: string;
     /** logo ... */
     logo: string;
-    /** versions ... (deprecated) */
+    /**
+     * versions ...
+     *
+     * @deprecated
+     */
     versions: string;
     /** config ... */
     config: string;
@@ -114,6 +124,7 @@ export declare const CreatePoolProposal: {
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
         binaries?: string | undefined;
+        start_key?: string | undefined;
     } & {
         title?: string | undefined;
         description?: string | undefined;
@@ -127,6 +138,7 @@ export declare const CreatePoolProposal: {
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
         binaries?: string | undefined;
+        start_key?: string | undefined;
     } & Record<Exclude<keyof I, keyof CreatePoolProposal>, never>>(object: I): CreatePoolProposal;
 };
 export declare const UpdatePoolProposal: {

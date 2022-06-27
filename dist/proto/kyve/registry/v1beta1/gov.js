@@ -44,7 +44,8 @@ function createBaseCreatePoolProposal() {
         upload_interval: "0",
         operating_cost: "0",
         max_bundle_size: "0",
-        binaries: ""
+        binaries: "",
+        start_key: ""
     };
 }
 exports.CreatePoolProposal = {
@@ -85,6 +86,9 @@ exports.CreatePoolProposal = {
         }
         if (message.binaries !== "") {
             writer.uint32(98).string(message.binaries);
+        }
+        if (message.start_key !== "") {
+            writer.uint32(106).string(message.start_key);
         }
         return writer;
     },
@@ -131,6 +135,9 @@ exports.CreatePoolProposal = {
                 case 12:
                     message.binaries = reader.string();
                     break;
+                case 13:
+                    message.start_key = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -159,7 +166,8 @@ exports.CreatePoolProposal = {
             max_bundle_size: isSet(object.max_bundle_size)
                 ? String(object.max_bundle_size)
                 : "0",
-            binaries: isSet(object.binaries) ? String(object.binaries) : ""
+            binaries: isSet(object.binaries) ? String(object.binaries) : "",
+            start_key: isSet(object.start_key) ? String(object.start_key) : ""
         };
     },
     toJSON: function (message) {
@@ -181,10 +189,11 @@ exports.CreatePoolProposal = {
         message.max_bundle_size !== undefined &&
             (obj.max_bundle_size = message.max_bundle_size);
         message.binaries !== undefined && (obj.binaries = message.binaries);
+        message.start_key !== undefined && (obj.start_key = message.start_key);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         var message = createBaseCreatePoolProposal();
         message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
         message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
@@ -198,6 +207,7 @@ exports.CreatePoolProposal = {
         message.operating_cost = (_k = object.operating_cost) !== null && _k !== void 0 ? _k : "0";
         message.max_bundle_size = (_l = object.max_bundle_size) !== null && _l !== void 0 ? _l : "0";
         message.binaries = (_m = object.binaries) !== null && _m !== void 0 ? _m : "";
+        message.start_key = (_o = object.start_key) !== null && _o !== void 0 ? _o : "";
         return message;
     }
 };

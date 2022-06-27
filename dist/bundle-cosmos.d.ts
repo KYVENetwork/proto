@@ -63,9 +63,9 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosGenesis.GenesisState;
                 toJSON(message: cosmosGenesis.GenesisState): unknown;
                 fromPartial<I_2 extends {
-                    startingProposalId?: number | undefined;
+                    starting_proposal_id?: string | undefined;
                     deposits?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
@@ -73,7 +73,7 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[] | undefined;
                     votes?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -82,66 +82,66 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[] | undefined;
                     proposals?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     }[] | undefined;
-                    depositParams?: {
-                        minDeposit?: {
+                    deposit_params?: {
+                        min_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        maxDepositPeriod?: {
-                            seconds?: number | undefined;
+                        max_deposit_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } | undefined;
-                    votingParams?: {
-                        votingPeriod?: {
-                            seconds?: number | undefined;
+                    voting_params?: {
+                        voting_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } | undefined;
-                    tallyParams?: {
+                    tally_params?: {
                         quorum?: Uint8Array | undefined;
                         threshold?: Uint8Array | undefined;
-                        vetoThreshold?: Uint8Array | undefined;
+                        veto_threshold?: Uint8Array | undefined;
                     } | undefined;
                 } & {
-                    startingProposalId?: number | undefined;
+                    starting_proposal_id?: string | undefined;
                     deposits?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
                     }[] & ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: ({
                             denom?: string | undefined;
@@ -157,7 +157,7 @@ export declare namespace cosmos {
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
                     } & Record<Exclude<keyof I_2["deposits"][number], keyof cosmosGov.Deposit>, never>)[] & Record<Exclude<keyof I_2["deposits"], keyof {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
@@ -165,7 +165,7 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[]>, never>) | undefined;
                     votes?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -173,7 +173,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[] | undefined;
                     }[] & ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -181,7 +181,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[] | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: ({
@@ -198,7 +198,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[]>, never>) | undefined;
                     } & Record<Exclude<keyof I_2["votes"][number], keyof cosmosGov.Vote>, never>)[] & Record<Exclude<keyof I_2["votes"], keyof {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -207,71 +207,71 @@ export declare namespace cosmos {
                         }[] | undefined;
                     }[]>, never>) | undefined;
                     proposals?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     }[] & ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: ({
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } & {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } & Record<Exclude<keyof I_2["proposals"][number]["content"], keyof import("./proto/google/protobuf/any").Any>, never>) | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: ({
+                        final_tally_result?: ({
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } & {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
-                        } & Record<Exclude<keyof I_2["proposals"][number]["finalTallyResult"], keyof cosmosGov.TallyResult>, never>) | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: ({
+                            no_with_veto?: string | undefined;
+                        } & Record<Exclude<keyof I_2["proposals"][number]["final_tally_result"], keyof cosmosGov.TallyResult>, never>) | undefined;
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: ({
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] & ({
@@ -280,45 +280,45 @@ export declare namespace cosmos {
                         } & {
                             denom?: string | undefined;
                             amount?: string | undefined;
-                        } & Record<Exclude<keyof I_2["proposals"][number]["totalDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_2["proposals"][number]["totalDeposit"], keyof {
+                        } & Record<Exclude<keyof I_2["proposals"][number]["total_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_2["proposals"][number]["total_deposit"], keyof {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } & Record<Exclude<keyof I_2["proposals"][number], keyof cosmosGov.Proposal>, never>)[] & Record<Exclude<keyof I_2["proposals"], keyof {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     }[]>, never>) | undefined;
-                    depositParams?: ({
-                        minDeposit?: {
+                    deposit_params?: ({
+                        min_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        maxDepositPeriod?: {
-                            seconds?: number | undefined;
+                        max_deposit_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } & {
-                        minDeposit?: ({
+                        min_deposit?: ({
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] & ({
@@ -327,41 +327,41 @@ export declare namespace cosmos {
                         } & {
                             denom?: string | undefined;
                             amount?: string | undefined;
-                        } & Record<Exclude<keyof I_2["depositParams"]["minDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_2["depositParams"]["minDeposit"], keyof {
+                        } & Record<Exclude<keyof I_2["deposit_params"]["min_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_2["deposit_params"]["min_deposit"], keyof {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
-                        maxDepositPeriod?: ({
-                            seconds?: number | undefined;
+                        max_deposit_period?: ({
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } & {
-                            seconds?: number | undefined;
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
-                        } & Record<Exclude<keyof I_2["depositParams"]["maxDepositPeriod"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
-                    } & Record<Exclude<keyof I_2["depositParams"], keyof cosmosGov.DepositParams>, never>) | undefined;
-                    votingParams?: ({
-                        votingPeriod?: {
-                            seconds?: number | undefined;
+                        } & Record<Exclude<keyof I_2["deposit_params"]["max_deposit_period"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
+                    } & Record<Exclude<keyof I_2["deposit_params"], keyof cosmosGov.DepositParams>, never>) | undefined;
+                    voting_params?: ({
+                        voting_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } & {
-                        votingPeriod?: ({
-                            seconds?: number | undefined;
+                        voting_period?: ({
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } & {
-                            seconds?: number | undefined;
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
-                        } & Record<Exclude<keyof I_2["votingParams"]["votingPeriod"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
-                    } & Record<Exclude<keyof I_2["votingParams"], "votingPeriod">, never>) | undefined;
-                    tallyParams?: ({
+                        } & Record<Exclude<keyof I_2["voting_params"]["voting_period"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
+                    } & Record<Exclude<keyof I_2["voting_params"], "voting_period">, never>) | undefined;
+                    tally_params?: ({
                         quorum?: Uint8Array | undefined;
                         threshold?: Uint8Array | undefined;
-                        vetoThreshold?: Uint8Array | undefined;
+                        veto_threshold?: Uint8Array | undefined;
                     } & {
                         quorum?: Uint8Array | undefined;
                         threshold?: Uint8Array | undefined;
-                        vetoThreshold?: Uint8Array | undefined;
-                    } & Record<Exclude<keyof I_2["tallyParams"], keyof cosmosGov.TallyParams>, never>) | undefined;
+                        veto_threshold?: Uint8Array | undefined;
+                    } & Record<Exclude<keyof I_2["tally_params"], keyof cosmosGov.TallyParams>, never>) | undefined;
                 } & Record<Exclude<keyof I_2, keyof cosmosGenesis.GenesisState>, never>>(object: I_2): cosmosGenesis.GenesisState;
             };
             QueryProposalRequest: {
@@ -370,10 +370,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryProposalRequest;
                 toJSON(message: cosmosQuery.QueryProposalRequest): unknown;
                 fromPartial<I_3 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                 } & {
-                    proposalId?: number | undefined;
-                } & Record<Exclude<keyof I_3, "proposalId">, never>>(object: I_3): cosmosQuery.QueryProposalRequest;
+                    proposal_id?: string | undefined;
+                } & Record<Exclude<keyof I_3, "proposal_id">, never>>(object: I_3): cosmosQuery.QueryProposalRequest;
             };
             QueryProposalResponse: {
                 encode(message: cosmosQuery.QueryProposalResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -382,73 +382,73 @@ export declare namespace cosmos {
                 toJSON(message: cosmosQuery.QueryProposalResponse): unknown;
                 fromPartial<I_4 extends {
                     proposal?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } | undefined;
                 } & {
                     proposal?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: ({
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } & {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } & Record<Exclude<keyof I_4["proposal"]["content"], keyof import("./proto/google/protobuf/any").Any>, never>) | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: ({
+                        final_tally_result?: ({
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } & {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
-                        } & Record<Exclude<keyof I_4["proposal"]["finalTallyResult"], keyof cosmosGov.TallyResult>, never>) | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: ({
+                            no_with_veto?: string | undefined;
+                        } & Record<Exclude<keyof I_4["proposal"]["final_tally_result"], keyof cosmosGov.TallyResult>, never>) | undefined;
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: ({
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] & ({
@@ -457,12 +457,12 @@ export declare namespace cosmos {
                         } & {
                             denom?: string | undefined;
                             amount?: string | undefined;
-                        } & Record<Exclude<keyof I_4["proposal"]["totalDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_4["proposal"]["totalDeposit"], keyof {
+                        } & Record<Exclude<keyof I_4["proposal"]["total_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_4["proposal"]["total_deposit"], keyof {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } & Record<Exclude<keyof I_4["proposal"], keyof cosmosGov.Proposal>, never>) | undefined;
                 } & Record<Exclude<keyof I_4, "proposal">, never>>(object: I_4): cosmosQuery.QueryProposalResponse;
             };
@@ -472,7 +472,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryProposalsRequest;
                 toJSON(message: cosmosQuery.QueryProposalsRequest): unknown;
                 fromPartial<I_5 extends {
-                    proposalStatus?: cosmosGov.ProposalStatus | undefined;
+                    proposal_status?: cosmosGov.ProposalStatus | undefined;
                     voter?: string | undefined;
                     depositor?: string | undefined;
                     pagination?: {
@@ -483,7 +483,7 @@ export declare namespace cosmos {
                         reverse?: boolean | undefined;
                     } | undefined;
                 } & {
-                    proposalStatus?: cosmosGov.ProposalStatus | undefined;
+                    proposal_status?: cosmosGov.ProposalStatus | undefined;
                     voter?: string | undefined;
                     depositor?: string | undefined;
                     pagination?: ({
@@ -508,26 +508,26 @@ export declare namespace cosmos {
                 toJSON(message: cosmosQuery.QueryProposalsResponse): unknown;
                 fromPartial<I_6 extends {
                     proposals?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     }[] | undefined;
                     pagination?: {
                         next_key?: Uint8Array | undefined;
@@ -535,71 +535,71 @@ export declare namespace cosmos {
                     } | undefined;
                 } & {
                     proposals?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     }[] & ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: ({
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } & {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } & Record<Exclude<keyof I_6["proposals"][number]["content"], keyof import("./proto/google/protobuf/any").Any>, never>) | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: ({
+                        final_tally_result?: ({
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } & {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
-                        } & Record<Exclude<keyof I_6["proposals"][number]["finalTallyResult"], keyof cosmosGov.TallyResult>, never>) | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: ({
+                            no_with_veto?: string | undefined;
+                        } & Record<Exclude<keyof I_6["proposals"][number]["final_tally_result"], keyof cosmosGov.TallyResult>, never>) | undefined;
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: ({
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] & ({
@@ -608,33 +608,33 @@ export declare namespace cosmos {
                         } & {
                             denom?: string | undefined;
                             amount?: string | undefined;
-                        } & Record<Exclude<keyof I_6["proposals"][number]["totalDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_6["proposals"][number]["totalDeposit"], keyof {
+                        } & Record<Exclude<keyof I_6["proposals"][number]["total_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_6["proposals"][number]["total_deposit"], keyof {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     } & Record<Exclude<keyof I_6["proposals"][number], keyof cosmosGov.Proposal>, never>)[] & Record<Exclude<keyof I_6["proposals"], keyof {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         content?: {
-                            typeUrl?: string | undefined;
+                            type_url?: string | undefined;
                             value?: Uint8Array | undefined;
                         } | undefined;
                         status?: cosmosGov.ProposalStatus | undefined;
-                        finalTallyResult?: {
+                        final_tally_result?: {
                             yes?: string | undefined;
                             abstain?: string | undefined;
                             no?: string | undefined;
-                            noWithVeto?: string | undefined;
+                            no_with_veto?: string | undefined;
                         } | undefined;
-                        submitTime?: Date | undefined;
-                        depositEndTime?: Date | undefined;
-                        totalDeposit?: {
+                        submit_time?: Date | undefined;
+                        deposit_end_time?: Date | undefined;
+                        total_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        votingStartTime?: Date | undefined;
-                        votingEndTime?: Date | undefined;
+                        voting_start_time?: Date | undefined;
+                        voting_end_time?: Date | undefined;
                     }[]>, never>) | undefined;
                     pagination?: ({
                         next_key?: Uint8Array | undefined;
@@ -651,10 +651,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryVoteRequest;
                 toJSON(message: cosmosQuery.QueryVoteRequest): unknown;
                 fromPartial<I_7 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                 } & Record<Exclude<keyof I_7, keyof cosmosQuery.QueryVoteRequest>, never>>(object: I_7): cosmosQuery.QueryVoteRequest;
             };
@@ -665,7 +665,7 @@ export declare namespace cosmos {
                 toJSON(message: cosmosQuery.QueryVoteResponse): unknown;
                 fromPartial<I_8 extends {
                     vote?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -675,7 +675,7 @@ export declare namespace cosmos {
                     } | undefined;
                 } & {
                     vote?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -683,7 +683,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[] | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: ({
@@ -708,7 +708,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryVotesRequest;
                 toJSON(message: cosmosQuery.QueryVotesRequest): unknown;
                 fromPartial<I_9 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     pagination?: {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
@@ -717,7 +717,7 @@ export declare namespace cosmos {
                         reverse?: boolean | undefined;
                     } | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     pagination?: ({
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
@@ -740,7 +740,7 @@ export declare namespace cosmos {
                 toJSON(message: cosmosQuery.QueryVotesResponse): unknown;
                 fromPartial<I_10 extends {
                     votes?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -754,7 +754,7 @@ export declare namespace cosmos {
                     } | undefined;
                 } & {
                     votes?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -762,7 +762,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[] | undefined;
                     }[] & ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -770,7 +770,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[] | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: ({
@@ -787,7 +787,7 @@ export declare namespace cosmos {
                             weight?: string | undefined;
                         }[]>, never>) | undefined;
                     } & Record<Exclude<keyof I_10["votes"][number], keyof cosmosGov.Vote>, never>)[] & Record<Exclude<keyof I_10["votes"], keyof {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         voter?: string | undefined;
                         option?: cosmosGov.VoteOption | undefined;
                         options?: {
@@ -810,10 +810,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryParamsRequest;
                 toJSON(message: cosmosQuery.QueryParamsRequest): unknown;
                 fromPartial<I_11 extends {
-                    paramsType?: string | undefined;
+                    params_type?: string | undefined;
                 } & {
-                    paramsType?: string | undefined;
-                } & Record<Exclude<keyof I_11, "paramsType">, never>>(object: I_11): cosmosQuery.QueryParamsRequest;
+                    params_type?: string | undefined;
+                } & Record<Exclude<keyof I_11, "params_type">, never>>(object: I_11): cosmosQuery.QueryParamsRequest;
             };
             QueryParamsResponse: {
                 encode(message: cosmosQuery.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -821,53 +821,53 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryParamsResponse;
                 toJSON(message: cosmosQuery.QueryParamsResponse): unknown;
                 fromPartial<I_12 extends {
-                    votingParams?: {
-                        votingPeriod?: {
-                            seconds?: number | undefined;
+                    voting_params?: {
+                        voting_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } | undefined;
-                    depositParams?: {
-                        minDeposit?: {
+                    deposit_params?: {
+                        min_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        maxDepositPeriod?: {
-                            seconds?: number | undefined;
+                        max_deposit_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } | undefined;
-                    tallyParams?: {
+                    tally_params?: {
                         quorum?: Uint8Array | undefined;
                         threshold?: Uint8Array | undefined;
-                        vetoThreshold?: Uint8Array | undefined;
+                        veto_threshold?: Uint8Array | undefined;
                     } | undefined;
                 } & {
-                    votingParams?: ({
-                        votingPeriod?: {
-                            seconds?: number | undefined;
+                    voting_params?: ({
+                        voting_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } & {
-                        votingPeriod?: ({
-                            seconds?: number | undefined;
+                        voting_period?: ({
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } & {
-                            seconds?: number | undefined;
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
-                        } & Record<Exclude<keyof I_12["votingParams"]["votingPeriod"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
-                    } & Record<Exclude<keyof I_12["votingParams"], "votingPeriod">, never>) | undefined;
-                    depositParams?: ({
-                        minDeposit?: {
+                        } & Record<Exclude<keyof I_12["voting_params"]["voting_period"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
+                    } & Record<Exclude<keyof I_12["voting_params"], "voting_period">, never>) | undefined;
+                    deposit_params?: ({
+                        min_deposit?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
-                        maxDepositPeriod?: {
-                            seconds?: number | undefined;
+                        max_deposit_period?: {
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } | undefined;
                     } & {
-                        minDeposit?: ({
+                        min_deposit?: ({
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] & ({
@@ -876,27 +876,27 @@ export declare namespace cosmos {
                         } & {
                             denom?: string | undefined;
                             amount?: string | undefined;
-                        } & Record<Exclude<keyof I_12["depositParams"]["minDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_12["depositParams"]["minDeposit"], keyof {
+                        } & Record<Exclude<keyof I_12["deposit_params"]["min_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_12["deposit_params"]["min_deposit"], keyof {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
-                        maxDepositPeriod?: ({
-                            seconds?: number | undefined;
+                        max_deposit_period?: ({
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
                         } & {
-                            seconds?: number | undefined;
+                            seconds?: string | undefined;
                             nanos?: number | undefined;
-                        } & Record<Exclude<keyof I_12["depositParams"]["maxDepositPeriod"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
-                    } & Record<Exclude<keyof I_12["depositParams"], keyof cosmosGov.DepositParams>, never>) | undefined;
-                    tallyParams?: ({
+                        } & Record<Exclude<keyof I_12["deposit_params"]["max_deposit_period"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
+                    } & Record<Exclude<keyof I_12["deposit_params"], keyof cosmosGov.DepositParams>, never>) | undefined;
+                    tally_params?: ({
                         quorum?: Uint8Array | undefined;
                         threshold?: Uint8Array | undefined;
-                        vetoThreshold?: Uint8Array | undefined;
+                        veto_threshold?: Uint8Array | undefined;
                     } & {
                         quorum?: Uint8Array | undefined;
                         threshold?: Uint8Array | undefined;
-                        vetoThreshold?: Uint8Array | undefined;
-                    } & Record<Exclude<keyof I_12["tallyParams"], keyof cosmosGov.TallyParams>, never>) | undefined;
+                        veto_threshold?: Uint8Array | undefined;
+                    } & Record<Exclude<keyof I_12["tally_params"], keyof cosmosGov.TallyParams>, never>) | undefined;
                 } & Record<Exclude<keyof I_12, keyof cosmosQuery.QueryParamsResponse>, never>>(object: I_12): cosmosQuery.QueryParamsResponse;
             };
             QueryDepositRequest: {
@@ -905,10 +905,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryDepositRequest;
                 toJSON(message: cosmosQuery.QueryDepositRequest): unknown;
                 fromPartial<I_13 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     depositor?: string | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     depositor?: string | undefined;
                 } & Record<Exclude<keyof I_13, keyof cosmosQuery.QueryDepositRequest>, never>>(object: I_13): cosmosQuery.QueryDepositRequest;
             };
@@ -919,7 +919,7 @@ export declare namespace cosmos {
                 toJSON(message: cosmosQuery.QueryDepositResponse): unknown;
                 fromPartial<I_14 extends {
                     deposit?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
@@ -928,14 +928,14 @@ export declare namespace cosmos {
                     } | undefined;
                 } & {
                     deposit?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: ({
                             denom?: string | undefined;
@@ -959,7 +959,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryDepositsRequest;
                 toJSON(message: cosmosQuery.QueryDepositsRequest): unknown;
                 fromPartial<I_15 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     pagination?: {
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
@@ -968,7 +968,7 @@ export declare namespace cosmos {
                         reverse?: boolean | undefined;
                     } | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     pagination?: ({
                         key?: Uint8Array | undefined;
                         offset?: string | undefined;
@@ -991,7 +991,7 @@ export declare namespace cosmos {
                 toJSON(message: cosmosQuery.QueryDepositsResponse): unknown;
                 fromPartial<I_16 extends {
                     deposits?: {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
@@ -1004,21 +1004,21 @@ export declare namespace cosmos {
                     } | undefined;
                 } & {
                     deposits?: ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
                     }[] & ({
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
                             amount?: string | undefined;
                         }[] | undefined;
                     } & {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: ({
                             denom?: string | undefined;
@@ -1034,7 +1034,7 @@ export declare namespace cosmos {
                             amount?: string | undefined;
                         }[]>, never>) | undefined;
                     } & Record<Exclude<keyof I_16["deposits"][number], keyof cosmosGov.Deposit>, never>)[] & Record<Exclude<keyof I_16["deposits"], keyof {
-                        proposalId?: number | undefined;
+                        proposal_id?: string | undefined;
                         depositor?: string | undefined;
                         amount?: {
                             denom?: string | undefined;
@@ -1056,10 +1056,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosQuery.QueryTallyResultRequest;
                 toJSON(message: cosmosQuery.QueryTallyResultRequest): unknown;
                 fromPartial<I_17 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                 } & {
-                    proposalId?: number | undefined;
-                } & Record<Exclude<keyof I_17, "proposalId">, never>>(object: I_17): cosmosQuery.QueryTallyResultRequest;
+                    proposal_id?: string | undefined;
+                } & Record<Exclude<keyof I_17, "proposal_id">, never>>(object: I_17): cosmosQuery.QueryTallyResultRequest;
             };
             QueryTallyResultResponse: {
                 encode(message: cosmosQuery.QueryTallyResultResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1071,19 +1071,19 @@ export declare namespace cosmos {
                         yes?: string | undefined;
                         abstain?: string | undefined;
                         no?: string | undefined;
-                        noWithVeto?: string | undefined;
+                        no_with_veto?: string | undefined;
                     } | undefined;
                 } & {
                     tally?: ({
                         yes?: string | undefined;
                         abstain?: string | undefined;
                         no?: string | undefined;
-                        noWithVeto?: string | undefined;
+                        no_with_veto?: string | undefined;
                     } & {
                         yes?: string | undefined;
                         abstain?: string | undefined;
                         no?: string | undefined;
-                        noWithVeto?: string | undefined;
+                        no_with_veto?: string | undefined;
                     } & Record<Exclude<keyof I_18["tally"], keyof cosmosGov.TallyResult>, never>) | undefined;
                 } & Record<Exclude<keyof I_18, "tally">, never>>(object: I_18): cosmosQuery.QueryTallyResultResponse;
             };
@@ -1095,23 +1095,23 @@ export declare namespace cosmos {
                 toJSON(message: cosmosTx.MsgSubmitProposal): unknown;
                 fromPartial<I_19 extends {
                     content?: {
-                        typeUrl?: string | undefined;
+                        type_url?: string | undefined;
                         value?: Uint8Array | undefined;
                     } | undefined;
-                    initialDeposit?: {
+                    initial_deposit?: {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
                     proposer?: string | undefined;
                 } & {
                     content?: ({
-                        typeUrl?: string | undefined;
+                        type_url?: string | undefined;
                         value?: Uint8Array | undefined;
                     } & {
-                        typeUrl?: string | undefined;
+                        type_url?: string | undefined;
                         value?: Uint8Array | undefined;
                     } & Record<Exclude<keyof I_19["content"], keyof import("./proto/google/protobuf/any").Any>, never>) | undefined;
-                    initialDeposit?: ({
+                    initial_deposit?: ({
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] & ({
@@ -1120,7 +1120,7 @@ export declare namespace cosmos {
                     } & {
                         denom?: string | undefined;
                         amount?: string | undefined;
-                    } & Record<Exclude<keyof I_19["initialDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_19["initialDeposit"], keyof {
+                    } & Record<Exclude<keyof I_19["initial_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_19["initial_deposit"], keyof {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[]>, never>) | undefined;
@@ -1133,10 +1133,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosTx.MsgSubmitProposalResponse;
                 toJSON(message: cosmosTx.MsgSubmitProposalResponse): unknown;
                 fromPartial<I_20 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                 } & {
-                    proposalId?: number | undefined;
-                } & Record<Exclude<keyof I_20, "proposalId">, never>>(object: I_20): cosmosTx.MsgSubmitProposalResponse;
+                    proposal_id?: string | undefined;
+                } & Record<Exclude<keyof I_20, "proposal_id">, never>>(object: I_20): cosmosTx.MsgSubmitProposalResponse;
             };
             MsgVote: {
                 encode(message: cosmosTx.MsgVote, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1144,11 +1144,11 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosTx.MsgVote;
                 toJSON(message: cosmosTx.MsgVote): unknown;
                 fromPartial<I_21 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                     option?: cosmosGov.VoteOption | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                     option?: cosmosGov.VoteOption | undefined;
                 } & Record<Exclude<keyof I_21, keyof cosmosTx.MsgVote>, never>>(object: I_21): cosmosTx.MsgVote;
@@ -1166,14 +1166,14 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosTx.MsgVoteWeighted;
                 toJSON(message: cosmosTx.MsgVoteWeighted): unknown;
                 fromPartial<I_23 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                     options?: {
                         option?: cosmosGov.VoteOption | undefined;
                         weight?: string | undefined;
                     }[] | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                     options?: ({
                         option?: cosmosGov.VoteOption | undefined;
@@ -1203,14 +1203,14 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosTx.MsgDeposit;
                 toJSON(message: cosmosTx.MsgDeposit): unknown;
                 fromPartial<I_25 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     depositor?: string | undefined;
                     amount?: {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     depositor?: string | undefined;
                     amount?: ({
                         denom?: string | undefined;
@@ -1273,14 +1273,14 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosGov.Deposit;
                 toJSON(message: cosmosGov.Deposit): unknown;
                 fromPartial<I_29 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     depositor?: string | undefined;
                     amount?: {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     depositor?: string | undefined;
                     amount?: ({
                         denom?: string | undefined;
@@ -1303,50 +1303,50 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosGov.Proposal;
                 toJSON(message: cosmosGov.Proposal): unknown;
                 fromPartial<I_30 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     content?: {
-                        typeUrl?: string | undefined;
+                        type_url?: string | undefined;
                         value?: Uint8Array | undefined;
                     } | undefined;
                     status?: cosmosGov.ProposalStatus | undefined;
-                    finalTallyResult?: {
+                    final_tally_result?: {
                         yes?: string | undefined;
                         abstain?: string | undefined;
                         no?: string | undefined;
-                        noWithVeto?: string | undefined;
+                        no_with_veto?: string | undefined;
                     } | undefined;
-                    submitTime?: Date | undefined;
-                    depositEndTime?: Date | undefined;
-                    totalDeposit?: {
+                    submit_time?: Date | undefined;
+                    deposit_end_time?: Date | undefined;
+                    total_deposit?: {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
-                    votingStartTime?: Date | undefined;
-                    votingEndTime?: Date | undefined;
+                    voting_start_time?: Date | undefined;
+                    voting_end_time?: Date | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     content?: ({
-                        typeUrl?: string | undefined;
+                        type_url?: string | undefined;
                         value?: Uint8Array | undefined;
                     } & {
-                        typeUrl?: string | undefined;
+                        type_url?: string | undefined;
                         value?: Uint8Array | undefined;
                     } & Record<Exclude<keyof I_30["content"], keyof import("./proto/google/protobuf/any").Any>, never>) | undefined;
                     status?: cosmosGov.ProposalStatus | undefined;
-                    finalTallyResult?: ({
+                    final_tally_result?: ({
                         yes?: string | undefined;
                         abstain?: string | undefined;
                         no?: string | undefined;
-                        noWithVeto?: string | undefined;
+                        no_with_veto?: string | undefined;
                     } & {
                         yes?: string | undefined;
                         abstain?: string | undefined;
                         no?: string | undefined;
-                        noWithVeto?: string | undefined;
-                    } & Record<Exclude<keyof I_30["finalTallyResult"], keyof cosmosGov.TallyResult>, never>) | undefined;
-                    submitTime?: Date | undefined;
-                    depositEndTime?: Date | undefined;
-                    totalDeposit?: ({
+                        no_with_veto?: string | undefined;
+                    } & Record<Exclude<keyof I_30["final_tally_result"], keyof cosmosGov.TallyResult>, never>) | undefined;
+                    submit_time?: Date | undefined;
+                    deposit_end_time?: Date | undefined;
+                    total_deposit?: ({
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] & ({
@@ -1355,12 +1355,12 @@ export declare namespace cosmos {
                     } & {
                         denom?: string | undefined;
                         amount?: string | undefined;
-                    } & Record<Exclude<keyof I_30["totalDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_30["totalDeposit"], keyof {
+                    } & Record<Exclude<keyof I_30["total_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_30["total_deposit"], keyof {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[]>, never>) | undefined;
-                    votingStartTime?: Date | undefined;
-                    votingEndTime?: Date | undefined;
+                    voting_start_time?: Date | undefined;
+                    voting_end_time?: Date | undefined;
                 } & Record<Exclude<keyof I_30, keyof cosmosGov.Proposal>, never>>(object: I_30): cosmosGov.Proposal;
             };
             TallyResult: {
@@ -1372,12 +1372,12 @@ export declare namespace cosmos {
                     yes?: string | undefined;
                     abstain?: string | undefined;
                     no?: string | undefined;
-                    noWithVeto?: string | undefined;
+                    no_with_veto?: string | undefined;
                 } & {
                     yes?: string | undefined;
                     abstain?: string | undefined;
                     no?: string | undefined;
-                    noWithVeto?: string | undefined;
+                    no_with_veto?: string | undefined;
                 } & Record<Exclude<keyof I_31, keyof cosmosGov.TallyResult>, never>>(object: I_31): cosmosGov.TallyResult;
             };
             Vote: {
@@ -1386,7 +1386,7 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosGov.Vote;
                 toJSON(message: cosmosGov.Vote): unknown;
                 fromPartial<I_32 extends {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                     option?: cosmosGov.VoteOption | undefined;
                     options?: {
@@ -1394,7 +1394,7 @@ export declare namespace cosmos {
                         weight?: string | undefined;
                     }[] | undefined;
                 } & {
-                    proposalId?: number | undefined;
+                    proposal_id?: string | undefined;
                     voter?: string | undefined;
                     option?: cosmosGov.VoteOption | undefined;
                     options?: ({
@@ -1418,16 +1418,16 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosGov.DepositParams;
                 toJSON(message: cosmosGov.DepositParams): unknown;
                 fromPartial<I_33 extends {
-                    minDeposit?: {
+                    min_deposit?: {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] | undefined;
-                    maxDepositPeriod?: {
-                        seconds?: number | undefined;
+                    max_deposit_period?: {
+                        seconds?: string | undefined;
                         nanos?: number | undefined;
                     } | undefined;
                 } & {
-                    minDeposit?: ({
+                    min_deposit?: ({
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[] & ({
@@ -1436,17 +1436,17 @@ export declare namespace cosmos {
                     } & {
                         denom?: string | undefined;
                         amount?: string | undefined;
-                    } & Record<Exclude<keyof I_33["minDeposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_33["minDeposit"], keyof {
+                    } & Record<Exclude<keyof I_33["min_deposit"][number], keyof import("./proto/cosmos/base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I_33["min_deposit"], keyof {
                         denom?: string | undefined;
                         amount?: string | undefined;
                     }[]>, never>) | undefined;
-                    maxDepositPeriod?: ({
-                        seconds?: number | undefined;
+                    max_deposit_period?: ({
+                        seconds?: string | undefined;
                         nanos?: number | undefined;
                     } & {
-                        seconds?: number | undefined;
+                        seconds?: string | undefined;
                         nanos?: number | undefined;
-                    } & Record<Exclude<keyof I_33["maxDepositPeriod"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
+                    } & Record<Exclude<keyof I_33["max_deposit_period"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
                 } & Record<Exclude<keyof I_33, keyof cosmosGov.DepositParams>, never>>(object: I_33): cosmosGov.DepositParams;
             };
             VotingParams: {
@@ -1455,19 +1455,19 @@ export declare namespace cosmos {
                 fromJSON(object: any): cosmosGov.VotingParams;
                 toJSON(message: cosmosGov.VotingParams): unknown;
                 fromPartial<I_34 extends {
-                    votingPeriod?: {
-                        seconds?: number | undefined;
+                    voting_period?: {
+                        seconds?: string | undefined;
                         nanos?: number | undefined;
                     } | undefined;
                 } & {
-                    votingPeriod?: ({
-                        seconds?: number | undefined;
+                    voting_period?: ({
+                        seconds?: string | undefined;
                         nanos?: number | undefined;
                     } & {
-                        seconds?: number | undefined;
+                        seconds?: string | undefined;
                         nanos?: number | undefined;
-                    } & Record<Exclude<keyof I_34["votingPeriod"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
-                } & Record<Exclude<keyof I_34, "votingPeriod">, never>>(object: I_34): cosmosGov.VotingParams;
+                    } & Record<Exclude<keyof I_34["voting_period"], keyof import("./proto/google/protobuf/duration").Duration>, never>) | undefined;
+                } & Record<Exclude<keyof I_34, "voting_period">, never>>(object: I_34): cosmosGov.VotingParams;
             };
             TallyParams: {
                 encode(message: cosmosGov.TallyParams, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
@@ -1477,11 +1477,11 @@ export declare namespace cosmos {
                 fromPartial<I_35 extends {
                     quorum?: Uint8Array | undefined;
                     threshold?: Uint8Array | undefined;
-                    vetoThreshold?: Uint8Array | undefined;
+                    veto_threshold?: Uint8Array | undefined;
                 } & {
                     quorum?: Uint8Array | undefined;
                     threshold?: Uint8Array | undefined;
-                    vetoThreshold?: Uint8Array | undefined;
+                    veto_threshold?: Uint8Array | undefined;
                 } & Record<Exclude<keyof I_35, keyof cosmosGov.TallyParams>, never>>(object: I_35): cosmosGov.TallyParams;
             };
         };

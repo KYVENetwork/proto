@@ -1,10 +1,10 @@
 import * as _m0 from "protobufjs/minimal";
-import { Deposit, Vote, Proposal, DepositParams, VotingParams, TallyParams } from "../../../cosmos/gov/v1beta1/gov";
+import { DepositParams, VotingParams, TallyParams, Deposit, Vote, Proposal } from "../../../cosmos/gov/v1beta1/gov";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
     /** starting_proposal_id is the ID of the starting proposal. */
-    startingProposalId: number;
+    starting_proposal_id: string;
     /** deposits defines all the deposits present at genesis. */
     deposits: Deposit[];
     /** votes defines all the votes present at genesis. */
@@ -12,11 +12,11 @@ export interface GenesisState {
     /** proposals defines all the proposals present at genesis. */
     proposals: Proposal[];
     /** params defines all the paramaters of related to deposit. */
-    depositParams: DepositParams | undefined;
+    deposit_params?: DepositParams;
     /** params defines all the paramaters of related to voting. */
-    votingParams: VotingParams | undefined;
+    voting_params?: VotingParams;
     /** params defines all the paramaters of related to tally. */
-    tallyParams: TallyParams | undefined;
+    tally_params?: TallyParams;
 }
 export declare const GenesisState: {
     encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
@@ -24,9 +24,9 @@ export declare const GenesisState: {
     fromJSON(object: any): GenesisState;
     toJSON(message: GenesisState): unknown;
     fromPartial<I extends {
-        startingProposalId?: number | undefined;
+        starting_proposal_id?: string | undefined;
         deposits?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
@@ -34,7 +34,7 @@ export declare const GenesisState: {
             }[] | undefined;
         }[] | undefined;
         votes?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -43,66 +43,66 @@ export declare const GenesisState: {
             }[] | undefined;
         }[] | undefined;
         proposals?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         }[] | undefined;
-        depositParams?: {
-            minDeposit?: {
+        deposit_params?: {
+            min_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            maxDepositPeriod?: {
-                seconds?: number | undefined;
+            max_deposit_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } | undefined;
-        votingParams?: {
-            votingPeriod?: {
-                seconds?: number | undefined;
+        voting_params?: {
+            voting_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } | undefined;
-        tallyParams?: {
+        tally_params?: {
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
-            vetoThreshold?: Uint8Array | undefined;
+            veto_threshold?: Uint8Array | undefined;
         } | undefined;
     } & {
-        startingProposalId?: number | undefined;
+        starting_proposal_id?: string | undefined;
         deposits?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
         }[] & ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: ({
                 denom?: string | undefined;
@@ -118,7 +118,7 @@ export declare const GenesisState: {
                 amount?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["deposits"][number], keyof Deposit>, never>)[] & Record<Exclude<keyof I["deposits"], keyof {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
@@ -126,7 +126,7 @@ export declare const GenesisState: {
             }[] | undefined;
         }[]>, never>) | undefined;
         votes?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -134,7 +134,7 @@ export declare const GenesisState: {
                 weight?: string | undefined;
             }[] | undefined;
         }[] & ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -142,7 +142,7 @@ export declare const GenesisState: {
                 weight?: string | undefined;
             }[] | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: ({
@@ -159,7 +159,7 @@ export declare const GenesisState: {
                 weight?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["votes"][number], keyof Vote>, never>)[] & Record<Exclude<keyof I["votes"], keyof {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -168,71 +168,71 @@ export declare const GenesisState: {
             }[] | undefined;
         }[]>, never>) | undefined;
         proposals?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         }[] & ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: ({
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & Record<Exclude<keyof I["proposals"][number]["content"], keyof import("../../../google/protobuf/any").Any>, never>) | undefined;
             status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
-            finalTallyResult?: ({
+            final_tally_result?: ({
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } & {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
-            } & Record<Exclude<keyof I["proposals"][number]["finalTallyResult"], keyof import("../../../cosmos/gov/v1beta1/gov").TallyResult>, never>) | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: ({
+                no_with_veto?: string | undefined;
+            } & Record<Exclude<keyof I["proposals"][number]["final_tally_result"], keyof import("../../../cosmos/gov/v1beta1/gov").TallyResult>, never>) | undefined;
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: ({
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] & ({
@@ -241,45 +241,45 @@ export declare const GenesisState: {
             } & {
                 denom?: string | undefined;
                 amount?: string | undefined;
-            } & Record<Exclude<keyof I["proposals"][number]["totalDeposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["proposals"][number]["totalDeposit"], keyof {
+            } & Record<Exclude<keyof I["proposals"][number]["total_deposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["proposals"][number]["total_deposit"], keyof {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[]>, never>) | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         }[]>, never>) | undefined;
-        depositParams?: ({
-            minDeposit?: {
+        deposit_params?: ({
+            min_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            maxDepositPeriod?: {
-                seconds?: number | undefined;
+            max_deposit_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } & {
-            minDeposit?: ({
+            min_deposit?: ({
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] & ({
@@ -288,41 +288,41 @@ export declare const GenesisState: {
             } & {
                 denom?: string | undefined;
                 amount?: string | undefined;
-            } & Record<Exclude<keyof I["depositParams"]["minDeposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["depositParams"]["minDeposit"], keyof {
+            } & Record<Exclude<keyof I["deposit_params"]["min_deposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["deposit_params"]["min_deposit"], keyof {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[]>, never>) | undefined;
-            maxDepositPeriod?: ({
-                seconds?: number | undefined;
+            max_deposit_period?: ({
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } & {
-                seconds?: number | undefined;
+                seconds?: string | undefined;
                 nanos?: number | undefined;
-            } & Record<Exclude<keyof I["depositParams"]["maxDepositPeriod"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-        } & Record<Exclude<keyof I["depositParams"], keyof DepositParams>, never>) | undefined;
-        votingParams?: ({
-            votingPeriod?: {
-                seconds?: number | undefined;
+            } & Record<Exclude<keyof I["deposit_params"]["max_deposit_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+        } & Record<Exclude<keyof I["deposit_params"], keyof DepositParams>, never>) | undefined;
+        voting_params?: ({
+            voting_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } & {
-            votingPeriod?: ({
-                seconds?: number | undefined;
+            voting_period?: ({
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } & {
-                seconds?: number | undefined;
+                seconds?: string | undefined;
                 nanos?: number | undefined;
-            } & Record<Exclude<keyof I["votingParams"]["votingPeriod"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-        } & Record<Exclude<keyof I["votingParams"], "votingPeriod">, never>) | undefined;
-        tallyParams?: ({
+            } & Record<Exclude<keyof I["voting_params"]["voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+        } & Record<Exclude<keyof I["voting_params"], "voting_period">, never>) | undefined;
+        tally_params?: ({
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
-            vetoThreshold?: Uint8Array | undefined;
+            veto_threshold?: Uint8Array | undefined;
         } & {
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
-            vetoThreshold?: Uint8Array | undefined;
-        } & Record<Exclude<keyof I["tallyParams"], keyof TallyParams>, never>) | undefined;
+            veto_threshold?: Uint8Array | undefined;
+        } & Record<Exclude<keyof I["tally_params"], keyof TallyParams>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof GenesisState>, never>>(object: I): GenesisState;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;

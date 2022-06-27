@@ -1,5 +1,19 @@
 import * as _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "kyve.registry.v1beta1";
+/** VoteType ... */
+export declare enum VoteType {
+    /** VOTE_TYPE_UNSPECIFIED - VOTE_TYPE_UNSPECIFIED ... */
+    VOTE_TYPE_UNSPECIFIED = 0,
+    /** VOTE_TYPE_YES - VOTE_TYPE_YES ... */
+    VOTE_TYPE_YES = 1,
+    /** VOTE_TYPE_NO - VOTE_TYPE_NO ... */
+    VOTE_TYPE_NO = 2,
+    /** VOTE_TYPE_ABSTAIN - VOTE_TYPE_ABSTAIN ... */
+    VOTE_TYPE_ABSTAIN = 3,
+    UNRECOGNIZED = -1
+}
+export declare function voteTypeFromJSON(object: any): VoteType;
+export declare function voteTypeToJSON(object: VoteType): string;
 /** MsgFundPool defines a SDK message for funding a pool. */
 export interface MsgFundPool {
     /** creator ... */
@@ -100,8 +114,14 @@ export interface MsgSubmitBundleProposal {
     byte_size: string;
     /** from_height */
     from_height: string;
-    /** bundle_size ... */
-    bundle_size: string;
+    /** to_height ... */
+    to_height: string;
+    /** from_key */
+    from_key: string;
+    /** to_key ... */
+    to_key: string;
+    /** to_value ... */
+    to_value: string;
 }
 /** MsgSubmitBundleProposalResponse defines the Msg/SubmitBundleProposal response type. */
 export interface MsgSubmitBundleProposalResponse {
@@ -115,7 +135,7 @@ export interface MsgVoteProposal {
     /** bundle_id ... */
     bundle_id: string;
     /** vote ... */
-    vote: string;
+    vote: VoteType;
 }
 /** MsgVoteProposalResponse defines the Msg/VoteProposal response type. */
 export interface MsgVoteProposalResponse {
@@ -317,14 +337,20 @@ export declare const MsgSubmitBundleProposal: {
         bundle_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
-        bundle_size?: string | undefined;
+        to_height?: string | undefined;
+        from_key?: string | undefined;
+        to_key?: string | undefined;
+        to_value?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
         bundle_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
-        bundle_size?: string | undefined;
+        to_height?: string | undefined;
+        from_key?: string | undefined;
+        to_key?: string | undefined;
+        to_value?: string | undefined;
     } & Record<Exclude<keyof I, keyof MsgSubmitBundleProposal>, never>>(object: I): MsgSubmitBundleProposal;
 };
 export declare const MsgSubmitBundleProposalResponse: {
@@ -343,12 +369,12 @@ export declare const MsgVoteProposal: {
         creator?: string | undefined;
         id?: string | undefined;
         bundle_id?: string | undefined;
-        vote?: string | undefined;
+        vote?: VoteType | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
         bundle_id?: string | undefined;
-        vote?: string | undefined;
+        vote?: VoteType | undefined;
     } & Record<Exclude<keyof I, keyof MsgVoteProposal>, never>>(object: I): MsgVoteProposal;
 };
 export declare const MsgVoteProposalResponse: {
