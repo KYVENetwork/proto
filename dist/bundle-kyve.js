@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -35,16 +24,29 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 exports.__esModule = true;
 exports.kyve = void 0;
-var genesisKyve = __importStar(require("./proto/kyve/registry/v1beta1/genesis"));
-var kyveGov = __importStar(require("./proto/kyve/registry/v1beta1/gov"));
-var kyveParams = __importStar(require("./proto/kyve/registry/v1beta1/params"));
-var kyveQuery = __importStar(require("./proto/kyve/registry/v1beta1/query"));
-var kyveRegistry = __importStar(require("./proto/kyve/registry/v1beta1/registry"));
-var kyveTx = __importStar(require("./proto/kyve/registry/v1beta1/tx"));
+var _genesisKyve = __importStar(require("./proto/kyve/registry/v1beta1/genesis"));
+var _kyveGov = __importStar(require("./proto/kyve/registry/v1beta1/gov"));
+var _kyveParams = __importStar(require("./proto/kyve/registry/v1beta1/params"));
+var _kyveQuery = __importStar(require("./proto/kyve/registry/v1beta1/query"));
+var _kyveRegistry = __importStar(require("./proto/kyve/registry/v1beta1/registry"));
+var _kyveTx = __importStar(require("./proto/kyve/registry/v1beta1/tx"));
+/**
+ * With this approach we can use entities as types and values
+ * For example:
+ * kyve.registry.v1beta1.kyveParams.
+ */
 var kyve;
 (function (kyve) {
     var registry;
     (function (registry) {
-        registry.v1beta1 = __assign(__assign(__assign(__assign(__assign(__assign({}, genesisKyve), kyveGov), kyveParams), kyveQuery), kyveRegistry), kyveTx);
+        var v1beta1;
+        (function (v1beta1) {
+            v1beta1.genesisKyve = _genesisKyve;
+            v1beta1.kyveGov = _kyveGov;
+            v1beta1.kyveParams = _kyveParams;
+            v1beta1.kyveQuery = _kyveQuery;
+            v1beta1.kyveRegistry = _kyveRegistry;
+            v1beta1.kyveTx = _kyveTx;
+        })(v1beta1 = registry.v1beta1 || (registry.v1beta1 = {}));
     })(registry = kyve.registry || (kyve.registry = {}));
 })(kyve = exports.kyve || (exports.kyve = {}));

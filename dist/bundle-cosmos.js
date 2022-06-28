@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -35,15 +24,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 exports.__esModule = true;
 exports.cosmos = void 0;
-var cosmosTx = __importStar(require("./proto/cosmos/gov/v1beta1/tx"));
-var cosmosQuery = __importStar(require("./proto/cosmos/gov/v1beta1/query"));
-var cosmosGenesis = __importStar(require("./proto/cosmos/gov/v1beta1/genesis"));
-var cosmosGov = __importStar(require("./proto/cosmos/gov/v1beta1/gov"));
-var cosmosParams = __importStar(require("./proto/cosmos/params/v1beta1/params"));
+var _cosmosTx = __importStar(require("./proto/cosmos/gov/v1beta1/tx"));
+var _cosmosQuery = __importStar(require("./proto/cosmos/gov/v1beta1/query"));
+var _cosmosGenesis = __importStar(require("./proto/cosmos/gov/v1beta1/genesis"));
+var _cosmosGov = __importStar(require("./proto/cosmos/gov/v1beta1/gov"));
+var _cosmosParams = __importStar(require("./proto/cosmos/params/v1beta1/params"));
 var cosmos;
 (function (cosmos) {
     var registry;
     (function (registry) {
-        registry.v1beta1 = __assign(__assign(__assign(__assign(__assign({}, cosmosGov), cosmosTx), cosmosQuery), cosmosGenesis), cosmosParams);
+        var v1beta1;
+        (function (v1beta1) {
+            v1beta1.cosmosTx = _cosmosTx;
+            v1beta1.cosmosQuery = _cosmosQuery;
+            v1beta1.cosmosGenesis = _cosmosGenesis;
+            v1beta1.cosmosGov = _cosmosGov;
+            v1beta1.cosmosParams = _cosmosParams;
+        })(v1beta1 = registry.v1beta1 || (registry.v1beta1 = {}));
     })(registry = cosmos.registry || (cosmos.registry = {}));
 })(cosmos = exports.cosmos || (exports.cosmos = {}));
