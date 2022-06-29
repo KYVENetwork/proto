@@ -1,0 +1,1108 @@
+/* eslint-disable */
+import Long from "long";
+import * as _m0 from "protobufjs/minimal";
+import {
+  VoteType,
+  voteTypeFromJSON,
+  voteTypeToJSON,
+} from "../../../kyve/registry/v1beta1/tx";
+
+export const protobufPackage = "kyve.registry.v1beta1";
+
+/** BundleStatus ... */
+export enum BundleStatus {
+  /** BUNDLE_STATUS_UNSPECIFIED - BUNDLE_STATUS_UNSPECIFIED ... */
+  BUNDLE_STATUS_UNSPECIFIED = 0,
+  /** BUNDLE_STATUS_VALID - BUNDLE_STATUS_VALID ... */
+  BUNDLE_STATUS_VALID = 1,
+  /** BUNDLE_STATUS_INVALID - BUNDLE_STATUS_INVALID ... */
+  BUNDLE_STATUS_INVALID = 2,
+  /** BUNDLE_STATUS_NO_FUNDS - BUNDLE_STATUS_NO_FUNDS ... */
+  BUNDLE_STATUS_NO_FUNDS = 3,
+  /** BUNDLE_STATUS_NO_QUORUM - BUNDLE_STATUS_NO_QUORUM ... */
+  BUNDLE_STATUS_NO_QUORUM = 4,
+  UNRECOGNIZED = -1,
+}
+
+export function bundleStatusFromJSON(object: any): BundleStatus {
+  switch (object) {
+    case 0:
+    case "BUNDLE_STATUS_UNSPECIFIED":
+      return BundleStatus.BUNDLE_STATUS_UNSPECIFIED;
+    case 1:
+    case "BUNDLE_STATUS_VALID":
+      return BundleStatus.BUNDLE_STATUS_VALID;
+    case 2:
+    case "BUNDLE_STATUS_INVALID":
+      return BundleStatus.BUNDLE_STATUS_INVALID;
+    case 3:
+    case "BUNDLE_STATUS_NO_FUNDS":
+      return BundleStatus.BUNDLE_STATUS_NO_FUNDS;
+    case 4:
+    case "BUNDLE_STATUS_NO_QUORUM":
+      return BundleStatus.BUNDLE_STATUS_NO_QUORUM;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return BundleStatus.UNRECOGNIZED;
+  }
+}
+
+export function bundleStatusToJSON(object: BundleStatus): string {
+  switch (object) {
+    case BundleStatus.BUNDLE_STATUS_UNSPECIFIED:
+      return "BUNDLE_STATUS_UNSPECIFIED";
+    case BundleStatus.BUNDLE_STATUS_VALID:
+      return "BUNDLE_STATUS_VALID";
+    case BundleStatus.BUNDLE_STATUS_INVALID:
+      return "BUNDLE_STATUS_INVALID";
+    case BundleStatus.BUNDLE_STATUS_NO_FUNDS:
+      return "BUNDLE_STATUS_NO_FUNDS";
+    case BundleStatus.BUNDLE_STATUS_NO_QUORUM:
+      return "BUNDLE_STATUS_NO_QUORUM";
+    case BundleStatus.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
+/** EventBundleFinalised is an event emitted when a bundle is finalised. */
+export interface EventBundleFinalised {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** bundle_id ... */
+  bundle_id: string;
+  /** byte_size ... */
+  byte_size: string;
+  /** uploader ... */
+  uploader: string;
+  /** next_uploader ... */
+  next_uploader: string;
+  /** reward ... */
+  reward: string;
+  /** valid ... */
+  valid: string;
+  /** invalid ... */
+  invalid: string;
+  /** from_height ... */
+  from_height: string;
+  /** to_height ... */
+  to_height: string;
+  /** status ... */
+  status: BundleStatus;
+}
+
+/** EventBundleVote is an event emitted when a protocol node votes on a bundle. */
+export interface EventBundleVote {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** bundle_id is the unique ID of the bundle. */
+  bundle_id: string;
+  /** vote is the vote type of the protocol node. */
+  vote: VoteType;
+}
+
+/** EventDelegatePool is an event emitted when someone delegates to a protocol node. */
+export interface EventDelegatePool {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the delegator. */
+  address: string;
+  /** node is the account address of the protocol node. */
+  node: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventUndelegatePool is an event emitted when someone undelegates from a protocol node. */
+export interface EventUndelegatePool {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the delegator. */
+  address: string;
+  /** node is the account address of the protocol node. */
+  node: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventFundPool is an event emitted when a pool is funded. */
+export interface EventFundPool {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the pool funder. */
+  address: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventDefundPool is an event emitted when a pool is defunded. */
+export interface EventDefundPool {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the pool funder. */
+  address: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventSlash is an event emitted when a protocol node is slashed. */
+export interface EventSlash {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventUpdateMetadata is an event emitted when a protocol node updates their metadata. */
+export interface EventUpdateMetadata {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** commission ... */
+  commission: string;
+  /** moniker ... */
+  moniker: string;
+  /** website ... */
+  website: string;
+  /** logo ... */
+  logo: string;
+}
+
+/** EventStakePool is an event emitted when a protocol node stakes in a pool. */
+export interface EventStakePool {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventUnstakePool is an event emitted when a protocol node unstakes from a pool. */
+export interface EventUnstakePool {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** amount ... */
+  amount: string;
+}
+
+function createBaseEventBundleFinalised(): EventBundleFinalised {
+  return {
+    pool_id: "0",
+    bundle_id: "",
+    byte_size: "0",
+    uploader: "",
+    next_uploader: "",
+    reward: "0",
+    valid: "0",
+    invalid: "0",
+    from_height: "0",
+    to_height: "0",
+    status: 0,
+  };
+}
+
+export const EventBundleFinalised = {
+  encode(
+    message: EventBundleFinalised,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.bundle_id !== "") {
+      writer.uint32(18).string(message.bundle_id);
+    }
+    if (message.byte_size !== "0") {
+      writer.uint32(24).uint64(message.byte_size);
+    }
+    if (message.uploader !== "") {
+      writer.uint32(34).string(message.uploader);
+    }
+    if (message.next_uploader !== "") {
+      writer.uint32(42).string(message.next_uploader);
+    }
+    if (message.reward !== "0") {
+      writer.uint32(48).uint64(message.reward);
+    }
+    if (message.valid !== "0") {
+      writer.uint32(56).uint64(message.valid);
+    }
+    if (message.invalid !== "0") {
+      writer.uint32(64).uint64(message.invalid);
+    }
+    if (message.from_height !== "0") {
+      writer.uint32(72).uint64(message.from_height);
+    }
+    if (message.to_height !== "0") {
+      writer.uint32(80).uint64(message.to_height);
+    }
+    if (message.status !== 0) {
+      writer.uint32(88).int32(message.status);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): EventBundleFinalised {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventBundleFinalised();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.bundle_id = reader.string();
+          break;
+        case 3:
+          message.byte_size = longToString(reader.uint64() as Long);
+          break;
+        case 4:
+          message.uploader = reader.string();
+          break;
+        case 5:
+          message.next_uploader = reader.string();
+          break;
+        case 6:
+          message.reward = longToString(reader.uint64() as Long);
+          break;
+        case 7:
+          message.valid = longToString(reader.uint64() as Long);
+          break;
+        case 8:
+          message.invalid = longToString(reader.uint64() as Long);
+          break;
+        case 9:
+          message.from_height = longToString(reader.uint64() as Long);
+          break;
+        case 10:
+          message.to_height = longToString(reader.uint64() as Long);
+          break;
+        case 11:
+          message.status = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventBundleFinalised {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
+      uploader: isSet(object.uploader) ? String(object.uploader) : "",
+      next_uploader: isSet(object.next_uploader)
+        ? String(object.next_uploader)
+        : "",
+      reward: isSet(object.reward) ? String(object.reward) : "0",
+      valid: isSet(object.valid) ? String(object.valid) : "0",
+      invalid: isSet(object.invalid) ? String(object.invalid) : "0",
+      from_height: isSet(object.from_height) ? String(object.from_height) : "0",
+      to_height: isSet(object.to_height) ? String(object.to_height) : "0",
+      status: isSet(object.status) ? bundleStatusFromJSON(object.status) : 0,
+    };
+  },
+
+  toJSON(message: EventBundleFinalised): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.byte_size !== undefined && (obj.byte_size = message.byte_size);
+    message.uploader !== undefined && (obj.uploader = message.uploader);
+    message.next_uploader !== undefined &&
+      (obj.next_uploader = message.next_uploader);
+    message.reward !== undefined && (obj.reward = message.reward);
+    message.valid !== undefined && (obj.valid = message.valid);
+    message.invalid !== undefined && (obj.invalid = message.invalid);
+    message.from_height !== undefined &&
+      (obj.from_height = message.from_height);
+    message.to_height !== undefined && (obj.to_height = message.to_height);
+    message.status !== undefined &&
+      (obj.status = bundleStatusToJSON(message.status));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventBundleFinalised>, I>>(
+    object: I
+  ): EventBundleFinalised {
+    const message = createBaseEventBundleFinalised();
+    message.pool_id = object.pool_id ?? "0";
+    message.bundle_id = object.bundle_id ?? "";
+    message.byte_size = object.byte_size ?? "0";
+    message.uploader = object.uploader ?? "";
+    message.next_uploader = object.next_uploader ?? "";
+    message.reward = object.reward ?? "0";
+    message.valid = object.valid ?? "0";
+    message.invalid = object.invalid ?? "0";
+    message.from_height = object.from_height ?? "0";
+    message.to_height = object.to_height ?? "0";
+    message.status = object.status ?? 0;
+    return message;
+  },
+};
+
+function createBaseEventBundleVote(): EventBundleVote {
+  return { pool_id: "0", address: "", bundle_id: "", vote: 0 };
+}
+
+export const EventBundleVote = {
+  encode(
+    message: EventBundleVote,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.bundle_id !== "") {
+      writer.uint32(26).string(message.bundle_id);
+    }
+    if (message.vote !== 0) {
+      writer.uint32(32).int32(message.vote);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventBundleVote {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventBundleVote();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.bundle_id = reader.string();
+          break;
+        case 4:
+          message.vote = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventBundleVote {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      vote: isSet(object.vote) ? voteTypeFromJSON(object.vote) : 0,
+    };
+  },
+
+  toJSON(message: EventBundleVote): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.vote !== undefined && (obj.vote = voteTypeToJSON(message.vote));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventBundleVote>, I>>(
+    object: I
+  ): EventBundleVote {
+    const message = createBaseEventBundleVote();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.bundle_id = object.bundle_id ?? "";
+    message.vote = object.vote ?? 0;
+    return message;
+  },
+};
+
+function createBaseEventDelegatePool(): EventDelegatePool {
+  return { pool_id: "0", address: "", node: "", amount: "0" };
+}
+
+export const EventDelegatePool = {
+  encode(
+    message: EventDelegatePool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.node !== "") {
+      writer.uint32(26).string(message.node);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(32).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventDelegatePool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventDelegatePool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.node = reader.string();
+          break;
+        case 4:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventDelegatePool {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      node: isSet(object.node) ? String(object.node) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventDelegatePool): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.node !== undefined && (obj.node = message.node);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventDelegatePool>, I>>(
+    object: I
+  ): EventDelegatePool {
+    const message = createBaseEventDelegatePool();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.node = object.node ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventUndelegatePool(): EventUndelegatePool {
+  return { pool_id: "0", address: "", node: "", amount: "0" };
+}
+
+export const EventUndelegatePool = {
+  encode(
+    message: EventUndelegatePool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.node !== "") {
+      writer.uint32(26).string(message.node);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(32).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventUndelegatePool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventUndelegatePool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.node = reader.string();
+          break;
+        case 4:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventUndelegatePool {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      node: isSet(object.node) ? String(object.node) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventUndelegatePool): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.node !== undefined && (obj.node = message.node);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventUndelegatePool>, I>>(
+    object: I
+  ): EventUndelegatePool {
+    const message = createBaseEventUndelegatePool();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.node = object.node ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventFundPool(): EventFundPool {
+  return { pool_id: "0", address: "", amount: "0" };
+}
+
+export const EventFundPool = {
+  encode(
+    message: EventFundPool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(24).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventFundPool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventFundPool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventFundPool {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventFundPool): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventFundPool>, I>>(
+    object: I
+  ): EventFundPool {
+    const message = createBaseEventFundPool();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventDefundPool(): EventDefundPool {
+  return { pool_id: "0", address: "", amount: "0" };
+}
+
+export const EventDefundPool = {
+  encode(
+    message: EventDefundPool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(24).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventDefundPool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventDefundPool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventDefundPool {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventDefundPool): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventDefundPool>, I>>(
+    object: I
+  ): EventDefundPool {
+    const message = createBaseEventDefundPool();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventSlash(): EventSlash {
+  return { pool_id: "0", address: "", amount: "0" };
+}
+
+export const EventSlash = {
+  encode(
+    message: EventSlash,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(24).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventSlash {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventSlash();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventSlash {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventSlash): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventSlash>, I>>(
+    object: I
+  ): EventSlash {
+    const message = createBaseEventSlash();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventUpdateMetadata(): EventUpdateMetadata {
+  return {
+    pool_id: "0",
+    address: "",
+    commission: "",
+    moniker: "",
+    website: "",
+    logo: "",
+  };
+}
+
+export const EventUpdateMetadata = {
+  encode(
+    message: EventUpdateMetadata,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.commission !== "") {
+      writer.uint32(26).string(message.commission);
+    }
+    if (message.moniker !== "") {
+      writer.uint32(34).string(message.moniker);
+    }
+    if (message.website !== "") {
+      writer.uint32(42).string(message.website);
+    }
+    if (message.logo !== "") {
+      writer.uint32(50).string(message.logo);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventUpdateMetadata {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventUpdateMetadata();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.commission = reader.string();
+          break;
+        case 4:
+          message.moniker = reader.string();
+          break;
+        case 5:
+          message.website = reader.string();
+          break;
+        case 6:
+          message.logo = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventUpdateMetadata {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      commission: isSet(object.commission) ? String(object.commission) : "",
+      moniker: isSet(object.moniker) ? String(object.moniker) : "",
+      website: isSet(object.website) ? String(object.website) : "",
+      logo: isSet(object.logo) ? String(object.logo) : "",
+    };
+  },
+
+  toJSON(message: EventUpdateMetadata): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.commission !== undefined && (obj.commission = message.commission);
+    message.moniker !== undefined && (obj.moniker = message.moniker);
+    message.website !== undefined && (obj.website = message.website);
+    message.logo !== undefined && (obj.logo = message.logo);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventUpdateMetadata>, I>>(
+    object: I
+  ): EventUpdateMetadata {
+    const message = createBaseEventUpdateMetadata();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.commission = object.commission ?? "";
+    message.moniker = object.moniker ?? "";
+    message.website = object.website ?? "";
+    message.logo = object.logo ?? "";
+    return message;
+  },
+};
+
+function createBaseEventStakePool(): EventStakePool {
+  return { pool_id: "0", address: "", amount: "0" };
+}
+
+export const EventStakePool = {
+  encode(
+    message: EventStakePool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(24).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventStakePool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventStakePool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventStakePool {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventStakePool): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventStakePool>, I>>(
+    object: I
+  ): EventStakePool {
+    const message = createBaseEventStakePool();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventUnstakePool(): EventUnstakePool {
+  return { pool_id: "0", address: "", amount: "0" };
+}
+
+export const EventUnstakePool = {
+  encode(
+    message: EventUnstakePool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(24).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventUnstakePool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventUnstakePool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventUnstakePool {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventUnstakePool): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventUnstakePool>, I>>(
+    object: I
+  ): EventUnstakePool {
+    const message = createBaseEventUnstakePool();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+type Builtin =
+  | Date
+  | Function
+  | Uint8Array
+  | string
+  | number
+  | boolean
+  | undefined;
+
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : Partial<T>;
+
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & Record<
+        Exclude<keyof I, KeysOfUnion<P>>,
+        never
+      >;
+
+function longToString(long: Long) {
+  return long.toString();
+}
+
+if (_m0.util.Long !== Long) {
+  _m0.util.Long = Long as any;
+  _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
