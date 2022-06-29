@@ -1,0 +1,376 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+exports.GenesisState = exports.protobufPackage = void 0;
+/* eslint-disable */
+var long_1 = __importDefault(require("long"));
+var _m0 = __importStar(require("protobufjs/minimal"));
+var params_1 = require("../../../kyve/registry/v1beta1/params");
+var registry_1 = require("../../../kyve/registry/v1beta1/registry");
+exports.protobufPackage = "kyve.registry.v1beta1";
+function createBaseGenesisState() {
+    return {
+        params: undefined,
+        pool_list: [],
+        pool_count: "0",
+        funder_list: [],
+        staker_list: [],
+        delegator_list: [],
+        delegation_pool_data_list: [],
+        delegation_entries_list: [],
+        proposal_list: [],
+        unbonding_staking_queue_state: undefined,
+        unbonding_staking_queue_entries: [],
+        unbonding_staker_list: [],
+        unbonding_delegation_queue_state: undefined,
+        unbonding_delegation_queue_entries: []
+    };
+}
+exports.GenesisState = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.params !== undefined) {
+            params_1.Params.encode(message.params, writer.uint32(10).fork()).ldelim();
+        }
+        for (var _i = 0, _a = message.pool_list; _i < _a.length; _i++) {
+            var v = _a[_i];
+            registry_1.Pool.encode(v, writer.uint32(18).fork()).ldelim();
+        }
+        if (message.pool_count !== "0") {
+            writer.uint32(24).uint64(message.pool_count);
+        }
+        for (var _b = 0, _c = message.funder_list; _b < _c.length; _b++) {
+            var v = _c[_b];
+            registry_1.Funder.encode(v, writer.uint32(34).fork()).ldelim();
+        }
+        for (var _d = 0, _e = message.staker_list; _d < _e.length; _d++) {
+            var v = _e[_d];
+            registry_1.Staker.encode(v, writer.uint32(42).fork()).ldelim();
+        }
+        for (var _f = 0, _g = message.delegator_list; _f < _g.length; _f++) {
+            var v = _g[_f];
+            registry_1.Delegator.encode(v, writer.uint32(50).fork()).ldelim();
+        }
+        for (var _h = 0, _j = message.delegation_pool_data_list; _h < _j.length; _h++) {
+            var v = _j[_h];
+            registry_1.DelegationPoolData.encode(v, writer.uint32(58).fork()).ldelim();
+        }
+        for (var _k = 0, _l = message.delegation_entries_list; _k < _l.length; _k++) {
+            var v = _l[_k];
+            registry_1.DelegationEntries.encode(v, writer.uint32(66).fork()).ldelim();
+        }
+        for (var _m = 0, _o = message.proposal_list; _m < _o.length; _m++) {
+            var v = _o[_m];
+            registry_1.Proposal.encode(v, writer.uint32(74).fork()).ldelim();
+        }
+        if (message.unbonding_staking_queue_state !== undefined) {
+            registry_1.UnbondingStakingQueueState.encode(message.unbonding_staking_queue_state, writer.uint32(82).fork()).ldelim();
+        }
+        for (var _p = 0, _q = message.unbonding_staking_queue_entries; _p < _q.length; _p++) {
+            var v = _q[_p];
+            registry_1.UnbondingStakingQueueEntry.encode(v, writer.uint32(90).fork()).ldelim();
+        }
+        for (var _r = 0, _s = message.unbonding_staker_list; _r < _s.length; _r++) {
+            var v = _s[_r];
+            registry_1.UnbondingStaker.encode(v, writer.uint32(98).fork()).ldelim();
+        }
+        if (message.unbonding_delegation_queue_state !== undefined) {
+            registry_1.UnbondingDelegationQueueState.encode(message.unbonding_delegation_queue_state, writer.uint32(106).fork()).ldelim();
+        }
+        for (var _t = 0, _u = message.unbonding_delegation_queue_entries; _t < _u.length; _t++) {
+            var v = _u[_t];
+            registry_1.UnbondingDelegationQueueEntry.encode(v, writer.uint32(114).fork()).ldelim();
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseGenesisState();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.params = params_1.Params.decode(reader, reader.uint32());
+                    break;
+                case 2:
+                    message.pool_list.push(registry_1.Pool.decode(reader, reader.uint32()));
+                    break;
+                case 3:
+                    message.pool_count = longToString(reader.uint64());
+                    break;
+                case 4:
+                    message.funder_list.push(registry_1.Funder.decode(reader, reader.uint32()));
+                    break;
+                case 5:
+                    message.staker_list.push(registry_1.Staker.decode(reader, reader.uint32()));
+                    break;
+                case 6:
+                    message.delegator_list.push(registry_1.Delegator.decode(reader, reader.uint32()));
+                    break;
+                case 7:
+                    message.delegation_pool_data_list.push(registry_1.DelegationPoolData.decode(reader, reader.uint32()));
+                    break;
+                case 8:
+                    message.delegation_entries_list.push(registry_1.DelegationEntries.decode(reader, reader.uint32()));
+                    break;
+                case 9:
+                    message.proposal_list.push(registry_1.Proposal.decode(reader, reader.uint32()));
+                    break;
+                case 10:
+                    message.unbonding_staking_queue_state =
+                        registry_1.UnbondingStakingQueueState.decode(reader, reader.uint32());
+                    break;
+                case 11:
+                    message.unbonding_staking_queue_entries.push(registry_1.UnbondingStakingQueueEntry.decode(reader, reader.uint32()));
+                    break;
+                case 12:
+                    message.unbonding_staker_list.push(registry_1.UnbondingStaker.decode(reader, reader.uint32()));
+                    break;
+                case 13:
+                    message.unbonding_delegation_queue_state =
+                        registry_1.UnbondingDelegationQueueState.decode(reader, reader.uint32());
+                    break;
+                case 14:
+                    message.unbonding_delegation_queue_entries.push(registry_1.UnbondingDelegationQueueEntry.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            params: isSet(object.params) ? params_1.Params.fromJSON(object.params) : undefined,
+            pool_list: Array.isArray(object === null || object === void 0 ? void 0 : object.pool_list)
+                ? object.pool_list.map(function (e) { return registry_1.Pool.fromJSON(e); })
+                : [],
+            pool_count: isSet(object.pool_count) ? String(object.pool_count) : "0",
+            funder_list: Array.isArray(object === null || object === void 0 ? void 0 : object.funder_list)
+                ? object.funder_list.map(function (e) { return registry_1.Funder.fromJSON(e); })
+                : [],
+            staker_list: Array.isArray(object === null || object === void 0 ? void 0 : object.staker_list)
+                ? object.staker_list.map(function (e) { return registry_1.Staker.fromJSON(e); })
+                : [],
+            delegator_list: Array.isArray(object === null || object === void 0 ? void 0 : object.delegator_list)
+                ? object.delegator_list.map(function (e) { return registry_1.Delegator.fromJSON(e); })
+                : [],
+            delegation_pool_data_list: Array.isArray(object === null || object === void 0 ? void 0 : object.delegation_pool_data_list)
+                ? object.delegation_pool_data_list.map(function (e) {
+                    return registry_1.DelegationPoolData.fromJSON(e);
+                })
+                : [],
+            delegation_entries_list: Array.isArray(object === null || object === void 0 ? void 0 : object.delegation_entries_list)
+                ? object.delegation_entries_list.map(function (e) {
+                    return registry_1.DelegationEntries.fromJSON(e);
+                })
+                : [],
+            proposal_list: Array.isArray(object === null || object === void 0 ? void 0 : object.proposal_list)
+                ? object.proposal_list.map(function (e) { return registry_1.Proposal.fromJSON(e); })
+                : [],
+            unbonding_staking_queue_state: isSet(object.unbonding_staking_queue_state)
+                ? registry_1.UnbondingStakingQueueState.fromJSON(object.unbonding_staking_queue_state)
+                : undefined,
+            unbonding_staking_queue_entries: Array.isArray(object === null || object === void 0 ? void 0 : object.unbonding_staking_queue_entries)
+                ? object.unbonding_staking_queue_entries.map(function (e) {
+                    return registry_1.UnbondingStakingQueueEntry.fromJSON(e);
+                })
+                : [],
+            unbonding_staker_list: Array.isArray(object === null || object === void 0 ? void 0 : object.unbonding_staker_list)
+                ? object.unbonding_staker_list.map(function (e) {
+                    return registry_1.UnbondingStaker.fromJSON(e);
+                })
+                : [],
+            unbonding_delegation_queue_state: isSet(object.unbonding_delegation_queue_state)
+                ? registry_1.UnbondingDelegationQueueState.fromJSON(object.unbonding_delegation_queue_state)
+                : undefined,
+            unbonding_delegation_queue_entries: Array.isArray(object === null || object === void 0 ? void 0 : object.unbonding_delegation_queue_entries)
+                ? object.unbonding_delegation_queue_entries.map(function (e) {
+                    return registry_1.UnbondingDelegationQueueEntry.fromJSON(e);
+                })
+                : []
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.params !== undefined &&
+            (obj.params = message.params ? params_1.Params.toJSON(message.params) : undefined);
+        if (message.pool_list) {
+            obj.pool_list = message.pool_list.map(function (e) {
+                return e ? registry_1.Pool.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.pool_list = [];
+        }
+        message.pool_count !== undefined && (obj.pool_count = message.pool_count);
+        if (message.funder_list) {
+            obj.funder_list = message.funder_list.map(function (e) {
+                return e ? registry_1.Funder.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.funder_list = [];
+        }
+        if (message.staker_list) {
+            obj.staker_list = message.staker_list.map(function (e) {
+                return e ? registry_1.Staker.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.staker_list = [];
+        }
+        if (message.delegator_list) {
+            obj.delegator_list = message.delegator_list.map(function (e) {
+                return e ? registry_1.Delegator.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.delegator_list = [];
+        }
+        if (message.delegation_pool_data_list) {
+            obj.delegation_pool_data_list = message.delegation_pool_data_list.map(function (e) { return (e ? registry_1.DelegationPoolData.toJSON(e) : undefined); });
+        }
+        else {
+            obj.delegation_pool_data_list = [];
+        }
+        if (message.delegation_entries_list) {
+            obj.delegation_entries_list = message.delegation_entries_list.map(function (e) {
+                return e ? registry_1.DelegationEntries.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.delegation_entries_list = [];
+        }
+        if (message.proposal_list) {
+            obj.proposal_list = message.proposal_list.map(function (e) {
+                return e ? registry_1.Proposal.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.proposal_list = [];
+        }
+        message.unbonding_staking_queue_state !== undefined &&
+            (obj.unbonding_staking_queue_state = message.unbonding_staking_queue_state
+                ? registry_1.UnbondingStakingQueueState.toJSON(message.unbonding_staking_queue_state)
+                : undefined);
+        if (message.unbonding_staking_queue_entries) {
+            obj.unbonding_staking_queue_entries =
+                message.unbonding_staking_queue_entries.map(function (e) {
+                    return e ? registry_1.UnbondingStakingQueueEntry.toJSON(e) : undefined;
+                });
+        }
+        else {
+            obj.unbonding_staking_queue_entries = [];
+        }
+        if (message.unbonding_staker_list) {
+            obj.unbonding_staker_list = message.unbonding_staker_list.map(function (e) {
+                return e ? registry_1.UnbondingStaker.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.unbonding_staker_list = [];
+        }
+        message.unbonding_delegation_queue_state !== undefined &&
+            (obj.unbonding_delegation_queue_state =
+                message.unbonding_delegation_queue_state
+                    ? registry_1.UnbondingDelegationQueueState.toJSON(message.unbonding_delegation_queue_state)
+                    : undefined);
+        if (message.unbonding_delegation_queue_entries) {
+            obj.unbonding_delegation_queue_entries =
+                message.unbonding_delegation_queue_entries.map(function (e) {
+                    return e ? registry_1.UnbondingDelegationQueueEntry.toJSON(e) : undefined;
+                });
+        }
+        else {
+            obj.unbonding_delegation_queue_entries = [];
+        }
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+        var message = createBaseGenesisState();
+        message.params =
+            object.params !== undefined && object.params !== null
+                ? params_1.Params.fromPartial(object.params)
+                : undefined;
+        message.pool_list = ((_a = object.pool_list) === null || _a === void 0 ? void 0 : _a.map(function (e) { return registry_1.Pool.fromPartial(e); })) || [];
+        message.pool_count = (_b = object.pool_count) !== null && _b !== void 0 ? _b : "0";
+        message.funder_list =
+            ((_c = object.funder_list) === null || _c === void 0 ? void 0 : _c.map(function (e) { return registry_1.Funder.fromPartial(e); })) || [];
+        message.staker_list =
+            ((_d = object.staker_list) === null || _d === void 0 ? void 0 : _d.map(function (e) { return registry_1.Staker.fromPartial(e); })) || [];
+        message.delegator_list =
+            ((_e = object.delegator_list) === null || _e === void 0 ? void 0 : _e.map(function (e) { return registry_1.Delegator.fromPartial(e); })) || [];
+        message.delegation_pool_data_list =
+            ((_f = object.delegation_pool_data_list) === null || _f === void 0 ? void 0 : _f.map(function (e) {
+                return registry_1.DelegationPoolData.fromPartial(e);
+            })) || [];
+        message.delegation_entries_list =
+            ((_g = object.delegation_entries_list) === null || _g === void 0 ? void 0 : _g.map(function (e) {
+                return registry_1.DelegationEntries.fromPartial(e);
+            })) || [];
+        message.proposal_list =
+            ((_h = object.proposal_list) === null || _h === void 0 ? void 0 : _h.map(function (e) { return registry_1.Proposal.fromPartial(e); })) || [];
+        message.unbonding_staking_queue_state =
+            object.unbonding_staking_queue_state !== undefined &&
+                object.unbonding_staking_queue_state !== null
+                ? registry_1.UnbondingStakingQueueState.fromPartial(object.unbonding_staking_queue_state)
+                : undefined;
+        message.unbonding_staking_queue_entries =
+            ((_j = object.unbonding_staking_queue_entries) === null || _j === void 0 ? void 0 : _j.map(function (e) {
+                return registry_1.UnbondingStakingQueueEntry.fromPartial(e);
+            })) || [];
+        message.unbonding_staker_list =
+            ((_k = object.unbonding_staker_list) === null || _k === void 0 ? void 0 : _k.map(function (e) {
+                return registry_1.UnbondingStaker.fromPartial(e);
+            })) || [];
+        message.unbonding_delegation_queue_state =
+            object.unbonding_delegation_queue_state !== undefined &&
+                object.unbonding_delegation_queue_state !== null
+                ? registry_1.UnbondingDelegationQueueState.fromPartial(object.unbonding_delegation_queue_state)
+                : undefined;
+        message.unbonding_delegation_queue_entries =
+            ((_l = object.unbonding_delegation_queue_entries) === null || _l === void 0 ? void 0 : _l.map(function (e) {
+                return registry_1.UnbondingDelegationQueueEntry.fromPartial(e);
+            })) || [];
+        return message;
+    }
+};
+function longToString(long) {
+    return long.toString();
+}
+if (_m0.util.Long !== long_1["default"]) {
+    _m0.util.Long = long_1["default"];
+    _m0.configure();
+}
+function isSet(value) {
+    return value !== null && value !== undefined;
+}
