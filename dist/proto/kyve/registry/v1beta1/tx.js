@@ -788,7 +788,8 @@ function createBaseMsgSubmitBundleProposal() {
         to_height: "0",
         from_key: "",
         to_key: "",
-        to_value: ""
+        to_value: "",
+        bundle_hash: ""
     };
 }
 exports.MsgSubmitBundleProposal = {
@@ -820,6 +821,9 @@ exports.MsgSubmitBundleProposal = {
         }
         if (message.to_value !== "") {
             writer.uint32(74).string(message.to_value);
+        }
+        if (message.bundle_hash !== "") {
+            writer.uint32(82).string(message.bundle_hash);
         }
         return writer;
     },
@@ -857,6 +861,9 @@ exports.MsgSubmitBundleProposal = {
                 case 9:
                     message.to_value = reader.string();
                     break;
+                case 10:
+                    message.bundle_hash = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -874,7 +881,8 @@ exports.MsgSubmitBundleProposal = {
             to_height: isSet(object.to_height) ? String(object.to_height) : "0",
             from_key: isSet(object.from_key) ? String(object.from_key) : "",
             to_key: isSet(object.to_key) ? String(object.to_key) : "",
-            to_value: isSet(object.to_value) ? String(object.to_value) : ""
+            to_value: isSet(object.to_value) ? String(object.to_value) : "",
+            bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : ""
         };
     },
     toJSON: function (message) {
@@ -889,10 +897,12 @@ exports.MsgSubmitBundleProposal = {
         message.from_key !== undefined && (obj.from_key = message.from_key);
         message.to_key !== undefined && (obj.to_key = message.to_key);
         message.to_value !== undefined && (obj.to_value = message.to_value);
+        message.bundle_hash !== undefined &&
+            (obj.bundle_hash = message.bundle_hash);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         var message = createBaseMsgSubmitBundleProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
@@ -903,6 +913,7 @@ exports.MsgSubmitBundleProposal = {
         message.from_key = (_g = object.from_key) !== null && _g !== void 0 ? _g : "";
         message.to_key = (_h = object.to_key) !== null && _h !== void 0 ? _h : "";
         message.to_value = (_j = object.to_value) !== null && _j !== void 0 ? _j : "";
+        message.bundle_hash = (_k = object.bundle_hash) !== null && _k !== void 0 ? _k : "";
         return message;
     }
 };

@@ -542,6 +542,7 @@ export declare const QueryPoolResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -596,6 +597,7 @@ export declare const QueryPoolResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -648,6 +650,7 @@ export declare const QueryPoolResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -661,6 +664,7 @@ export declare const QueryPoolResponse: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -766,6 +770,7 @@ export declare const QueryPoolsResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -824,6 +829,7 @@ export declare const QueryPoolsResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -876,6 +882,7 @@ export declare const QueryPoolsResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -928,6 +935,7 @@ export declare const QueryPoolsResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -941,6 +949,7 @@ export declare const QueryPoolsResponse: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pools"][number]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pools"][number]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -1002,6 +1011,7 @@ export declare const QueryPoolsResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -1316,6 +1326,7 @@ export declare const QueryProposalResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } | undefined;
     } & {
         proposal?: ({
@@ -1328,6 +1339,7 @@ export declare const QueryProposalResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1338,6 +1350,7 @@ export declare const QueryProposalResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposal"], keyof Proposal>, never>) | undefined;
     } & Record<Exclude<keyof I, "proposal">, never>>(object: I): QueryProposalResponse;
 };
@@ -1388,6 +1401,7 @@ export declare const QueryProposalsResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[] | undefined;
         pagination?: {
             next_key?: Uint8Array | undefined;
@@ -1404,6 +1418,7 @@ export declare const QueryProposalsResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[] & ({
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1414,6 +1429,7 @@ export declare const QueryProposalsResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1424,6 +1440,7 @@ export declare const QueryProposalsResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1434,6 +1451,7 @@ export declare const QueryProposalsResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
             next_key?: Uint8Array | undefined;
@@ -1473,6 +1491,7 @@ export declare const QueryProposalByHeightResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } | undefined;
     } & {
         proposal?: ({
@@ -1485,6 +1504,7 @@ export declare const QueryProposalByHeightResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1495,6 +1515,7 @@ export declare const QueryProposalByHeightResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposal"], keyof Proposal>, never>) | undefined;
     } & Record<Exclude<keyof I, "proposal">, never>>(object: I): QueryProposalByHeightResponse;
 };
@@ -1547,6 +1568,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[] | undefined;
         pagination?: {
             next_key?: Uint8Array | undefined;
@@ -1563,6 +1585,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[] & ({
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1573,6 +1596,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1583,6 +1607,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -1593,6 +1618,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
             next_key?: Uint8Array | undefined;
@@ -1797,6 +1823,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -1859,6 +1886,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -1915,6 +1943,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -1971,6 +2000,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2023,6 +2053,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
@@ -2036,6 +2067,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["unbondings"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & Record<Exclude<keyof I["unbondings"][number]["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: ({
@@ -2101,6 +2133,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2172,6 +2205,7 @@ export declare const StakingUnbonding: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -2228,6 +2262,7 @@ export declare const StakingUnbonding: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -2280,6 +2315,7 @@ export declare const StakingUnbonding: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -2293,6 +2329,7 @@ export declare const StakingUnbonding: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -2411,6 +2448,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2487,6 +2525,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2557,6 +2596,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2640,6 +2680,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2692,6 +2733,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
@@ -2705,6 +2747,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["unbondings"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & Record<Exclude<keyof I["unbondings"][number]["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: ({
@@ -2784,6 +2827,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -2869,6 +2913,7 @@ export declare const DelegationUnbonding: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -2952,6 +2997,7 @@ export declare const DelegationUnbonding: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -3004,6 +3050,7 @@ export declare const DelegationUnbonding: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -3017,6 +3064,7 @@ export declare const DelegationUnbonding: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -3121,6 +3169,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3183,6 +3232,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3239,6 +3289,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3295,6 +3346,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3347,6 +3399,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
@@ -3360,6 +3413,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["funded"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & Record<Exclude<keyof I["funded"][number]["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: ({
@@ -3425,6 +3479,7 @@ export declare const QueryAccountFundedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3496,6 +3551,7 @@ export declare const Funded: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -3552,6 +3608,7 @@ export declare const Funded: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -3604,6 +3661,7 @@ export declare const Funded: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -3617,6 +3675,7 @@ export declare const Funded: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -3723,6 +3782,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3789,6 +3849,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3849,6 +3910,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3909,6 +3971,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -3961,6 +4024,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
@@ -3974,6 +4038,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["staked"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & Record<Exclude<keyof I["staked"][number]["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: ({
@@ -4043,6 +4108,7 @@ export declare const QueryAccountStakedListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -4118,6 +4184,7 @@ export declare const Staked: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -4178,6 +4245,7 @@ export declare const Staked: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -4230,6 +4298,7 @@ export declare const Staked: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -4243,6 +4312,7 @@ export declare const Staked: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -4348,6 +4418,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -4421,6 +4492,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -4488,6 +4560,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -4555,6 +4628,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -4607,6 +4681,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
@@ -4620,6 +4695,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["delegations"][number]["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } & Record<Exclude<keyof I["delegations"][number]["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: ({
@@ -4704,6 +4780,7 @@ export declare const QueryAccountDelegationListResponse: {
                     voters_abstain?: string[] | undefined;
                     to_key?: string | undefined;
                     to_value?: string | undefined;
+                    bundle_hash?: string | undefined;
                 } | undefined;
                 max_bundle_size?: string | undefined;
                 protocol?: {
@@ -4786,6 +4863,7 @@ export declare const DelegatorResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -4853,6 +4931,7 @@ export declare const DelegatorResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -4905,6 +4984,7 @@ export declare const DelegatorResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -4918,6 +4998,7 @@ export declare const DelegatorResponse: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -5105,6 +5186,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -5193,6 +5275,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -5245,6 +5328,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -5258,6 +5342,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -5386,6 +5471,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -5452,6 +5538,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -5504,6 +5591,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -5517,6 +5605,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool"]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool"]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({

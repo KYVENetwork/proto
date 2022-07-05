@@ -34,7 +34,7 @@ var _kyveTx = __importStar(require("./proto/kyve/registry/v1beta1/tx"));
  * With this approach we can use entities as types and values
  * For example:
  * As a type:
- *   const varPool: kyve.registry.v1beta1.kyveGov.UnpausePoolProposal = {} as kyve.registry.v1beta1.kyveRegistry.Pool
+ *   const varPool = {} as kyve.registry.v1beta1.kyveRegistry.Pool
  *   the varPool has type Pool
  * As a value:
  *  const result = kyve.registry.v1beta1.kyveRegistry.Pool.decode(buffer)

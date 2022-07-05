@@ -122,6 +122,8 @@ export interface MsgSubmitBundleProposal {
     to_key: string;
     /** to_value ... */
     to_value: string;
+    /** bundle_hash ... */
+    bundle_hash: string;
 }
 /** MsgSubmitBundleProposalResponse defines the Msg/SubmitBundleProposal response type. */
 export interface MsgSubmitBundleProposalResponse {
@@ -341,6 +343,7 @@ export declare const MsgSubmitBundleProposal: {
         from_key?: string | undefined;
         to_key?: string | undefined;
         to_value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
@@ -351,6 +354,7 @@ export declare const MsgSubmitBundleProposal: {
         from_key?: string | undefined;
         to_key?: string | undefined;
         to_value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & Record<Exclude<keyof I, keyof MsgSubmitBundleProposal>, never>>(object: I): MsgSubmitBundleProposal;
 };
 export declare const MsgSubmitBundleProposalResponse: {

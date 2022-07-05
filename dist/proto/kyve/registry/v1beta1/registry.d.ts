@@ -30,6 +30,8 @@ export interface BundleProposal {
     to_key: string;
     /** to_value ... */
     to_value: string;
+    /** bundle_hash ... */
+    bundle_hash: string;
 }
 /** Protocol ... */
 export interface Protocol {
@@ -190,6 +192,8 @@ export interface Proposal {
     key: string;
     /** value ... */
     value: string;
+    /** bundle_hash ... */
+    bundle_hash: string;
 }
 /** Staker ... */
 export interface Staker {
@@ -293,6 +297,7 @@ export declare const BundleProposal: {
         voters_abstain?: string[] | undefined;
         to_key?: string | undefined;
         to_value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & {
         uploader?: string | undefined;
         next_uploader?: string | undefined;
@@ -306,6 +311,7 @@ export declare const BundleProposal: {
         voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["voters_abstain"], keyof string[]>, never>) | undefined;
         to_key?: string | undefined;
         to_value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & Record<Exclude<keyof I, keyof BundleProposal>, never>>(object: I): BundleProposal;
 };
 export declare const Protocol: {
@@ -455,6 +461,7 @@ export declare const Pool: {
             voters_abstain?: string[] | undefined;
             to_key?: string | undefined;
             to_value?: string | undefined;
+            bundle_hash?: string | undefined;
         } | undefined;
         max_bundle_size?: string | undefined;
         protocol?: {
@@ -507,6 +514,7 @@ export declare const Pool: {
             voters_abstain?: string[] | undefined;
             to_key?: string | undefined;
             to_value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & {
             uploader?: string | undefined;
             next_uploader?: string | undefined;
@@ -520,6 +528,7 @@ export declare const Pool: {
             voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
             to_key?: string | undefined;
             to_value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["bundle_proposal"], keyof BundleProposal>, never>) | undefined;
         max_bundle_size?: string | undefined;
         protocol?: ({
@@ -562,6 +571,7 @@ export declare const Proposal: {
         id?: string | undefined;
         key?: string | undefined;
         value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & {
         bundle_id?: string | undefined;
         pool_id?: string | undefined;
@@ -572,6 +582,7 @@ export declare const Proposal: {
         id?: string | undefined;
         key?: string | undefined;
         value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & Record<Exclude<keyof I, keyof Proposal>, never>>(object: I): Proposal;
 };
 export declare const Staker: {

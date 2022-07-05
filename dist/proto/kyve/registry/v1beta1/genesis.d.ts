@@ -86,6 +86,7 @@ export declare const GenesisState: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -152,6 +153,7 @@ export declare const GenesisState: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[] | undefined;
         unbonding_staking_queue_state?: {
             low_index?: string | undefined;
@@ -239,6 +241,7 @@ export declare const GenesisState: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -291,6 +294,7 @@ export declare const GenesisState: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -343,6 +347,7 @@ export declare const GenesisState: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
@@ -356,6 +361,7 @@ export declare const GenesisState: {
                 voters_abstain?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"]["voters_abstain"], keyof string[]>, never>) | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
@@ -417,6 +423,7 @@ export declare const GenesisState: {
                 voters_abstain?: string[] | undefined;
                 to_key?: string | undefined;
                 to_value?: string | undefined;
+                bundle_hash?: string | undefined;
             } | undefined;
             max_bundle_size?: string | undefined;
             protocol?: {
@@ -582,6 +589,7 @@ export declare const GenesisState: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[] & ({
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -592,6 +600,7 @@ export declare const GenesisState: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -602,6 +611,7 @@ export declare const GenesisState: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposal_list"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposal_list"], keyof {
             bundle_id?: string | undefined;
             pool_id?: string | undefined;
@@ -612,6 +622,7 @@ export declare const GenesisState: {
             id?: string | undefined;
             key?: string | undefined;
             value?: string | undefined;
+            bundle_hash?: string | undefined;
         }[]>, never>) | undefined;
         unbonding_staking_queue_state?: ({
             low_index?: string | undefined;

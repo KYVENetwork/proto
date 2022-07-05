@@ -44,7 +44,8 @@ function createBaseBundleProposal() {
         voters_invalid: [],
         voters_abstain: [],
         to_key: "",
-        to_value: ""
+        to_value: "",
+        bundle_hash: ""
     };
 }
 exports.BundleProposal = {
@@ -88,6 +89,9 @@ exports.BundleProposal = {
         }
         if (message.to_value !== "") {
             writer.uint32(98).string(message.to_value);
+        }
+        if (message.bundle_hash !== "") {
+            writer.uint32(106).string(message.bundle_hash);
         }
         return writer;
     },
@@ -134,6 +138,9 @@ exports.BundleProposal = {
                 case 12:
                     message.to_value = reader.string();
                     break;
+                case 13:
+                    message.bundle_hash = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -162,7 +169,8 @@ exports.BundleProposal = {
                 ? object.voters_abstain.map(function (e) { return String(e); })
                 : [],
             to_key: isSet(object.to_key) ? String(object.to_key) : "",
-            to_value: isSet(object.to_value) ? String(object.to_value) : ""
+            to_value: isSet(object.to_value) ? String(object.to_value) : "",
+            bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : ""
         };
     },
     toJSON: function (message) {
@@ -196,10 +204,12 @@ exports.BundleProposal = {
         }
         message.to_key !== undefined && (obj.to_key = message.to_key);
         message.to_value !== undefined && (obj.to_value = message.to_value);
+        message.bundle_hash !== undefined &&
+            (obj.bundle_hash = message.bundle_hash);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         var message = createBaseBundleProposal();
         message.uploader = (_a = object.uploader) !== null && _a !== void 0 ? _a : "";
         message.next_uploader = (_b = object.next_uploader) !== null && _b !== void 0 ? _b : "";
@@ -213,6 +223,7 @@ exports.BundleProposal = {
         message.voters_abstain = ((_k = object.voters_abstain) === null || _k === void 0 ? void 0 : _k.map(function (e) { return e; })) || [];
         message.to_key = (_l = object.to_key) !== null && _l !== void 0 ? _l : "";
         message.to_value = (_m = object.to_value) !== null && _m !== void 0 ? _m : "";
+        message.bundle_hash = (_o = object.bundle_hash) !== null && _o !== void 0 ? _o : "";
         return message;
     }
 };
@@ -1120,7 +1131,8 @@ function createBaseProposal() {
         finalized_at: "0",
         id: "0",
         key: "",
-        value: ""
+        value: "",
+        bundle_hash: ""
     };
 }
 exports.Proposal = {
@@ -1152,6 +1164,9 @@ exports.Proposal = {
         }
         if (message.value !== "") {
             writer.uint32(74).string(message.value);
+        }
+        if (message.bundle_hash !== "") {
+            writer.uint32(82).string(message.bundle_hash);
         }
         return writer;
     },
@@ -1189,6 +1204,9 @@ exports.Proposal = {
                 case 9:
                     message.value = reader.string();
                     break;
+                case 10:
+                    message.bundle_hash = reader.string();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -1208,7 +1226,8 @@ exports.Proposal = {
                 : "0",
             id: isSet(object.id) ? String(object.id) : "0",
             key: isSet(object.key) ? String(object.key) : "",
-            value: isSet(object.value) ? String(object.value) : ""
+            value: isSet(object.value) ? String(object.value) : "",
+            bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : ""
         };
     },
     toJSON: function (message) {
@@ -1224,10 +1243,12 @@ exports.Proposal = {
         message.id !== undefined && (obj.id = message.id);
         message.key !== undefined && (obj.key = message.key);
         message.value !== undefined && (obj.value = message.value);
+        message.bundle_hash !== undefined &&
+            (obj.bundle_hash = message.bundle_hash);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         var message = createBaseProposal();
         message.bundle_id = (_a = object.bundle_id) !== null && _a !== void 0 ? _a : "";
         message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
@@ -1238,6 +1259,7 @@ exports.Proposal = {
         message.id = (_g = object.id) !== null && _g !== void 0 ? _g : "0";
         message.key = (_h = object.key) !== null && _h !== void 0 ? _h : "";
         message.value = (_j = object.value) !== null && _j !== void 0 ? _j : "";
+        message.bundle_hash = (_k = object.bundle_hash) !== null && _k !== void 0 ? _k : "";
         return message;
     }
 };
