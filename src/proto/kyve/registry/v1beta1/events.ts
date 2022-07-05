@@ -66,6 +66,56 @@ export function bundleStatusToJSON(object: BundleStatus): string {
   }
 }
 
+/** SlashType ... */
+export enum SlashType {
+  /** SLASH_TYPE_UNSPECIFIED - SLASH_TYPE_UNSPECIFIED ... */
+  SLASH_TYPE_UNSPECIFIED = 0,
+  /** SLASH_TYPE_TIMEOUT - SLASH_TYPE_TIMEOUT ... */
+  SLASH_TYPE_TIMEOUT = 1,
+  /** SLASH_TYPE_VOTE - SLASH_TYPE_VOTE ... */
+  SLASH_TYPE_VOTE = 2,
+  /** SLASH_TYPE_UPLOAD - SLASH_TYPE_UPLOAD ... */
+  SLASH_TYPE_UPLOAD = 3,
+  UNRECOGNIZED = -1,
+}
+
+export function slashTypeFromJSON(object: any): SlashType {
+  switch (object) {
+    case 0:
+    case "SLASH_TYPE_UNSPECIFIED":
+      return SlashType.SLASH_TYPE_UNSPECIFIED;
+    case 1:
+    case "SLASH_TYPE_TIMEOUT":
+      return SlashType.SLASH_TYPE_TIMEOUT;
+    case 2:
+    case "SLASH_TYPE_VOTE":
+      return SlashType.SLASH_TYPE_VOTE;
+    case 3:
+    case "SLASH_TYPE_UPLOAD":
+      return SlashType.SLASH_TYPE_UPLOAD;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return SlashType.UNRECOGNIZED;
+  }
+}
+
+export function slashTypeToJSON(object: SlashType): string {
+  switch (object) {
+    case SlashType.SLASH_TYPE_UNSPECIFIED:
+      return "SLASH_TYPE_UNSPECIFIED";
+    case SlashType.SLASH_TYPE_TIMEOUT:
+      return "SLASH_TYPE_TIMEOUT";
+    case SlashType.SLASH_TYPE_VOTE:
+      return "SLASH_TYPE_VOTE";
+    case SlashType.SLASH_TYPE_UPLOAD:
+      return "SLASH_TYPE_UPLOAD";
+    case SlashType.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 /** EventBundleFinalised is an event emitted when a bundle is finalised. */
 export interface EventBundleFinalised {
   /** pool_id is the unique ID of the pool. */
@@ -90,6 +140,14 @@ export interface EventBundleFinalised {
   to_height: string;
   /** status ... */
   status: BundleStatus;
+  /** to_key ... */
+  to_key: string;
+  /** to_value ... */
+  to_value: string;
+  /** id ... */
+  id: string;
+  /** bundle_hash ... */
+  bundle_hash: string;
 }
 
 /** EventBundleVote is an event emitted when a protocol node votes on a bundle. */
@@ -156,6 +214,8 @@ export interface EventSlash {
   address: string;
   /** amount ... */
   amount: string;
+  /** slash_type */
+  slash_type: SlashType;
 }
 
 /** EventUpdateMetadata is an event emitted when a protocol node updates their metadata. */
@@ -207,6 +267,10 @@ function createBaseEventBundleFinalised(): EventBundleFinalised {
     from_height: "0",
     to_height: "0",
     status: 0,
+    to_key: "",
+    to_value: "",
+    id: "0",
+    bundle_hash: "",
   };
 }
 
@@ -247,6 +311,18 @@ export const EventBundleFinalised = {
     }
     if (message.status !== 0) {
       writer.uint32(88).int32(message.status);
+    }
+    if (message.to_key !== "") {
+      writer.uint32(98).string(message.to_key);
+    }
+    if (message.to_value !== "") {
+      writer.uint32(106).string(message.to_value);
+    }
+    if (message.id !== "0") {
+      writer.uint32(112).uint64(message.id);
+    }
+    if (message.bundle_hash !== "") {
+      writer.uint32(122).string(message.bundle_hash);
     }
     return writer;
   },
@@ -294,6 +370,18 @@ export const EventBundleFinalised = {
         case 11:
           message.status = reader.int32() as any;
           break;
+        case 12:
+          message.to_key = reader.string();
+          break;
+        case 13:
+          message.to_value = reader.string();
+          break;
+        case 14:
+          message.id = longToString(reader.uint64() as Long);
+          break;
+        case 15:
+          message.bundle_hash = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -317,6 +405,10 @@ export const EventBundleFinalised = {
       from_height: isSet(object.from_height) ? String(object.from_height) : "0",
       to_height: isSet(object.to_height) ? String(object.to_height) : "0",
       status: isSet(object.status) ? bundleStatusFromJSON(object.status) : 0,
+      to_key: isSet(object.to_key) ? String(object.to_key) : "",
+      to_value: isSet(object.to_value) ? String(object.to_value) : "",
+      id: isSet(object.id) ? String(object.id) : "0",
+      bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : "",
     };
   },
 
@@ -336,6 +428,11 @@ export const EventBundleFinalised = {
     message.to_height !== undefined && (obj.to_height = message.to_height);
     message.status !== undefined &&
       (obj.status = bundleStatusToJSON(message.status));
+    message.to_key !== undefined && (obj.to_key = message.to_key);
+    message.to_value !== undefined && (obj.to_value = message.to_value);
+    message.id !== undefined && (obj.id = message.id);
+    message.bundle_hash !== undefined &&
+      (obj.bundle_hash = message.bundle_hash);
     return obj;
   },
 
@@ -354,6 +451,10 @@ export const EventBundleFinalised = {
     message.from_height = object.from_height ?? "0";
     message.to_height = object.to_height ?? "0";
     message.status = object.status ?? 0;
+    message.to_key = object.to_key ?? "";
+    message.to_value = object.to_value ?? "";
+    message.id = object.id ?? "0";
+    message.bundle_hash = object.bundle_hash ?? "";
     return message;
   },
 };
@@ -746,7 +847,7 @@ export const EventDefundPool = {
 };
 
 function createBaseEventSlash(): EventSlash {
-  return { pool_id: "0", address: "", amount: "0" };
+  return { pool_id: "0", address: "", amount: "0", slash_type: 0 };
 }
 
 export const EventSlash = {
@@ -762,6 +863,9 @@ export const EventSlash = {
     }
     if (message.amount !== "0") {
       writer.uint32(24).uint64(message.amount);
+    }
+    if (message.slash_type !== 0) {
+      writer.uint32(32).int32(message.slash_type);
     }
     return writer;
   },
@@ -782,6 +886,9 @@ export const EventSlash = {
         case 3:
           message.amount = longToString(reader.uint64() as Long);
           break;
+        case 4:
+          message.slash_type = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -795,6 +902,9 @@ export const EventSlash = {
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
       address: isSet(object.address) ? String(object.address) : "",
       amount: isSet(object.amount) ? String(object.amount) : "0",
+      slash_type: isSet(object.slash_type)
+        ? slashTypeFromJSON(object.slash_type)
+        : 0,
     };
   },
 
@@ -803,6 +913,8 @@ export const EventSlash = {
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
     message.address !== undefined && (obj.address = message.address);
     message.amount !== undefined && (obj.amount = message.amount);
+    message.slash_type !== undefined &&
+      (obj.slash_type = slashTypeToJSON(message.slash_type));
     return obj;
   },
 
@@ -813,6 +925,7 @@ export const EventSlash = {
     message.pool_id = object.pool_id ?? "0";
     message.address = object.address ?? "";
     message.amount = object.amount ?? "0";
+    message.slash_type = object.slash_type ?? 0;
     return message;
   },
 };

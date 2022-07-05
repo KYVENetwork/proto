@@ -169,6 +169,8 @@ export interface MsgSubmitBundleProposal {
   to_key: string;
   /** to_value ... */
   to_value: string;
+  /** bundle_hash ... */
+  bundle_hash: string;
 }
 
 /** MsgSubmitBundleProposalResponse defines the Msg/SubmitBundleProposal response type. */
@@ -1078,6 +1080,7 @@ function createBaseMsgSubmitBundleProposal(): MsgSubmitBundleProposal {
     from_key: "",
     to_key: "",
     to_value: "",
+    bundle_hash: "",
   };
 }
 
@@ -1112,6 +1115,9 @@ export const MsgSubmitBundleProposal = {
     }
     if (message.to_value !== "") {
       writer.uint32(74).string(message.to_value);
+    }
+    if (message.bundle_hash !== "") {
+      writer.uint32(82).string(message.bundle_hash);
     }
     return writer;
   },
@@ -1153,6 +1159,9 @@ export const MsgSubmitBundleProposal = {
         case 9:
           message.to_value = reader.string();
           break;
+        case 10:
+          message.bundle_hash = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1172,6 +1181,7 @@ export const MsgSubmitBundleProposal = {
       from_key: isSet(object.from_key) ? String(object.from_key) : "",
       to_key: isSet(object.to_key) ? String(object.to_key) : "",
       to_value: isSet(object.to_value) ? String(object.to_value) : "",
+      bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : "",
     };
   },
 
@@ -1187,6 +1197,8 @@ export const MsgSubmitBundleProposal = {
     message.from_key !== undefined && (obj.from_key = message.from_key);
     message.to_key !== undefined && (obj.to_key = message.to_key);
     message.to_value !== undefined && (obj.to_value = message.to_value);
+    message.bundle_hash !== undefined &&
+      (obj.bundle_hash = message.bundle_hash);
     return obj;
   },
 
@@ -1203,6 +1215,7 @@ export const MsgSubmitBundleProposal = {
     message.from_key = object.from_key ?? "";
     message.to_key = object.to_key ?? "";
     message.to_value = object.to_value ?? "";
+    message.bundle_hash = object.bundle_hash ?? "";
     return message;
   },
 };

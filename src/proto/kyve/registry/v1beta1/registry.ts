@@ -34,6 +34,8 @@ export interface BundleProposal {
   to_key: string;
   /** to_value ... */
   to_value: string;
+  /** bundle_hash ... */
+  bundle_hash: string;
 }
 
 /** Protocol ... */
@@ -202,6 +204,8 @@ export interface Proposal {
   key: string;
   /** value ... */
   value: string;
+  /** bundle_hash ... */
+  bundle_hash: string;
 }
 
 /** Staker ... */
@@ -308,6 +312,7 @@ function createBaseBundleProposal(): BundleProposal {
     voters_abstain: [],
     to_key: "",
     to_value: "",
+    bundle_hash: "",
   };
 }
 
@@ -351,6 +356,9 @@ export const BundleProposal = {
     }
     if (message.to_value !== "") {
       writer.uint32(98).string(message.to_value);
+    }
+    if (message.bundle_hash !== "") {
+      writer.uint32(106).string(message.bundle_hash);
     }
     return writer;
   },
@@ -398,6 +406,9 @@ export const BundleProposal = {
         case 12:
           message.to_value = reader.string();
           break;
+        case 13:
+          message.bundle_hash = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -428,6 +439,7 @@ export const BundleProposal = {
         : [],
       to_key: isSet(object.to_key) ? String(object.to_key) : "",
       to_value: isSet(object.to_value) ? String(object.to_value) : "",
+      bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : "",
     };
   },
 
@@ -459,6 +471,8 @@ export const BundleProposal = {
     }
     message.to_key !== undefined && (obj.to_key = message.to_key);
     message.to_value !== undefined && (obj.to_value = message.to_value);
+    message.bundle_hash !== undefined &&
+      (obj.bundle_hash = message.bundle_hash);
     return obj;
   },
 
@@ -478,6 +492,7 @@ export const BundleProposal = {
     message.voters_abstain = object.voters_abstain?.map((e) => e) || [];
     message.to_key = object.to_key ?? "";
     message.to_value = object.to_value ?? "";
+    message.bundle_hash = object.bundle_hash ?? "";
     return message;
   },
 };
@@ -1446,6 +1461,7 @@ function createBaseProposal(): Proposal {
     id: "0",
     key: "",
     value: "",
+    bundle_hash: "",
   };
 }
 
@@ -1480,6 +1496,9 @@ export const Proposal = {
     }
     if (message.value !== "") {
       writer.uint32(74).string(message.value);
+    }
+    if (message.bundle_hash !== "") {
+      writer.uint32(82).string(message.bundle_hash);
     }
     return writer;
   },
@@ -1518,6 +1537,9 @@ export const Proposal = {
         case 9:
           message.value = reader.string();
           break;
+        case 10:
+          message.bundle_hash = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1539,6 +1561,7 @@ export const Proposal = {
       id: isSet(object.id) ? String(object.id) : "0",
       key: isSet(object.key) ? String(object.key) : "",
       value: isSet(object.value) ? String(object.value) : "",
+      bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : "",
     };
   },
 
@@ -1555,6 +1578,8 @@ export const Proposal = {
     message.id !== undefined && (obj.id = message.id);
     message.key !== undefined && (obj.key = message.key);
     message.value !== undefined && (obj.value = message.value);
+    message.bundle_hash !== undefined &&
+      (obj.bundle_hash = message.bundle_hash);
     return obj;
   },
 
@@ -1569,6 +1594,7 @@ export const Proposal = {
     message.id = object.id ?? "0";
     message.key = object.key ?? "";
     message.value = object.value ?? "";
+    message.bundle_hash = object.bundle_hash ?? "";
     return message;
   },
 };
