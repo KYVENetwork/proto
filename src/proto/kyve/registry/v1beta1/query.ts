@@ -138,8 +138,8 @@ export interface StakerResponse {
 
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
-  /** bundle_id ... */
-  bundle_id: string;
+  /** storage_id ... */
+  storage_id: string;
 }
 
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
@@ -220,8 +220,8 @@ export interface QueryCanVoteRequest {
   pool_id: string;
   /** voter ... */
   voter: string;
-  /** bundle_id ... */
-  bundle_id: string;
+  /** storage_id ... */
+  storage_id: string;
 }
 
 /** QueryCanVoteResponse is the response type for the Query/CanVote RPC method. */
@@ -1556,7 +1556,7 @@ export const StakerResponse = {
 };
 
 function createBaseQueryProposalRequest(): QueryProposalRequest {
-  return { bundle_id: "" };
+  return { storage_id: "" };
 }
 
 export const QueryProposalRequest = {
@@ -1564,8 +1564,8 @@ export const QueryProposalRequest = {
     message: QueryProposalRequest,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.bundle_id !== "") {
-      writer.uint32(10).string(message.bundle_id);
+    if (message.storage_id !== "") {
+      writer.uint32(10).string(message.storage_id);
     }
     return writer;
   },
@@ -1581,7 +1581,7 @@ export const QueryProposalRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.bundle_id = reader.string();
+          message.storage_id = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1593,13 +1593,13 @@ export const QueryProposalRequest = {
 
   fromJSON(object: any): QueryProposalRequest {
     return {
-      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
     };
   },
 
   toJSON(message: QueryProposalRequest): unknown {
     const obj: any = {};
-    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.storage_id !== undefined && (obj.storage_id = message.storage_id);
     return obj;
   },
 
@@ -1607,7 +1607,7 @@ export const QueryProposalRequest = {
     object: I
   ): QueryProposalRequest {
     const message = createBaseQueryProposalRequest();
-    message.bundle_id = object.bundle_id ?? "";
+    message.storage_id = object.storage_id ?? "";
     return message;
   },
 };
@@ -2283,7 +2283,7 @@ export const QueryCanProposeResponse = {
 };
 
 function createBaseQueryCanVoteRequest(): QueryCanVoteRequest {
-  return { pool_id: "0", voter: "", bundle_id: "" };
+  return { pool_id: "0", voter: "", storage_id: "" };
 }
 
 export const QueryCanVoteRequest = {
@@ -2297,8 +2297,8 @@ export const QueryCanVoteRequest = {
     if (message.voter !== "") {
       writer.uint32(18).string(message.voter);
     }
-    if (message.bundle_id !== "") {
-      writer.uint32(26).string(message.bundle_id);
+    if (message.storage_id !== "") {
+      writer.uint32(26).string(message.storage_id);
     }
     return writer;
   },
@@ -2317,7 +2317,7 @@ export const QueryCanVoteRequest = {
           message.voter = reader.string();
           break;
         case 3:
-          message.bundle_id = reader.string();
+          message.storage_id = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2331,7 +2331,7 @@ export const QueryCanVoteRequest = {
     return {
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
       voter: isSet(object.voter) ? String(object.voter) : "",
-      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
     };
   },
 
@@ -2339,7 +2339,7 @@ export const QueryCanVoteRequest = {
     const obj: any = {};
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
     message.voter !== undefined && (obj.voter = message.voter);
-    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.storage_id !== undefined && (obj.storage_id = message.storage_id);
     return obj;
   },
 
@@ -2349,7 +2349,7 @@ export const QueryCanVoteRequest = {
     const message = createBaseQueryCanVoteRequest();
     message.pool_id = object.pool_id ?? "0";
     message.voter = object.voter ?? "";
-    message.bundle_id = object.bundle_id ?? "";
+    message.storage_id = object.storage_id ?? "";
     return message;
   },
 };

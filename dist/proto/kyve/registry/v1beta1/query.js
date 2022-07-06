@@ -936,13 +936,13 @@ exports.StakerResponse = {
     }
 };
 function createBaseQueryProposalRequest() {
-    return { bundle_id: "" };
+    return { storage_id: "" };
 }
 exports.QueryProposalRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.bundle_id !== "") {
-            writer.uint32(10).string(message.bundle_id);
+        if (message.storage_id !== "") {
+            writer.uint32(10).string(message.storage_id);
         }
         return writer;
     },
@@ -954,7 +954,7 @@ exports.QueryProposalRequest = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.bundle_id = reader.string();
+                    message.storage_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -965,18 +965,18 @@ exports.QueryProposalRequest = {
     },
     fromJSON: function (object) {
         return {
-            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : ""
+            storage_id: isSet(object.storage_id) ? String(object.storage_id) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.storage_id !== undefined && (obj.storage_id = message.storage_id);
         return obj;
     },
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryProposalRequest();
-        message.bundle_id = (_a = object.bundle_id) !== null && _a !== void 0 ? _a : "";
+        message.storage_id = (_a = object.storage_id) !== null && _a !== void 0 ? _a : "";
         return message;
     }
 };
@@ -1539,7 +1539,7 @@ exports.QueryCanProposeResponse = {
     }
 };
 function createBaseQueryCanVoteRequest() {
-    return { pool_id: "0", voter: "", bundle_id: "" };
+    return { pool_id: "0", voter: "", storage_id: "" };
 }
 exports.QueryCanVoteRequest = {
     encode: function (message, writer) {
@@ -1550,8 +1550,8 @@ exports.QueryCanVoteRequest = {
         if (message.voter !== "") {
             writer.uint32(18).string(message.voter);
         }
-        if (message.bundle_id !== "") {
-            writer.uint32(26).string(message.bundle_id);
+        if (message.storage_id !== "") {
+            writer.uint32(26).string(message.storage_id);
         }
         return writer;
     },
@@ -1569,7 +1569,7 @@ exports.QueryCanVoteRequest = {
                     message.voter = reader.string();
                     break;
                 case 3:
-                    message.bundle_id = reader.string();
+                    message.storage_id = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1582,14 +1582,14 @@ exports.QueryCanVoteRequest = {
         return {
             pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             voter: isSet(object.voter) ? String(object.voter) : "",
-            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : ""
+            storage_id: isSet(object.storage_id) ? String(object.storage_id) : ""
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.voter !== undefined && (obj.voter = message.voter);
-        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.storage_id !== undefined && (obj.storage_id = message.storage_id);
         return obj;
     },
     fromPartial: function (object) {
@@ -1597,7 +1597,7 @@ exports.QueryCanVoteRequest = {
         var message = createBaseQueryCanVoteRequest();
         message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
         message.voter = (_b = object.voter) !== null && _b !== void 0 ? _b : "";
-        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
+        message.storage_id = (_c = object.storage_id) !== null && _c !== void 0 ? _c : "";
         return message;
     }
 };

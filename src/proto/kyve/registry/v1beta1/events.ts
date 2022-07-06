@@ -120,8 +120,8 @@ export function slashTypeToJSON(object: SlashType): string {
 export interface EventBundleFinalised {
   /** pool_id is the unique ID of the pool. */
   pool_id: string;
-  /** bundle_id ... */
-  bundle_id: string;
+  /** storage_id ... */
+  storage_id: string;
   /** byte_size ... */
   byte_size: string;
   /** uploader ... */
@@ -156,8 +156,8 @@ export interface EventBundleVote {
   pool_id: string;
   /** address is the account address of the protocol node. */
   address: string;
-  /** bundle_id is the unique ID of the bundle. */
-  bundle_id: string;
+  /** storage_id is the unique ID of the bundle. */
+  storage_id: string;
   /** vote is the vote type of the protocol node. */
   vote: VoteType;
 }
@@ -257,7 +257,7 @@ export interface EventUnstakePool {
 function createBaseEventBundleFinalised(): EventBundleFinalised {
   return {
     pool_id: "0",
-    bundle_id: "",
+    storage_id: "",
     byte_size: "0",
     uploader: "",
     next_uploader: "",
@@ -282,8 +282,8 @@ export const EventBundleFinalised = {
     if (message.pool_id !== "0") {
       writer.uint32(8).uint64(message.pool_id);
     }
-    if (message.bundle_id !== "") {
-      writer.uint32(18).string(message.bundle_id);
+    if (message.storage_id !== "") {
+      writer.uint32(18).string(message.storage_id);
     }
     if (message.byte_size !== "0") {
       writer.uint32(24).uint64(message.byte_size);
@@ -341,7 +341,7 @@ export const EventBundleFinalised = {
           message.pool_id = longToString(reader.uint64() as Long);
           break;
         case 2:
-          message.bundle_id = reader.string();
+          message.storage_id = reader.string();
           break;
         case 3:
           message.byte_size = longToString(reader.uint64() as Long);
@@ -393,7 +393,7 @@ export const EventBundleFinalised = {
   fromJSON(object: any): EventBundleFinalised {
     return {
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
-      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
       byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
       uploader: isSet(object.uploader) ? String(object.uploader) : "",
       next_uploader: isSet(object.next_uploader)
@@ -415,7 +415,7 @@ export const EventBundleFinalised = {
   toJSON(message: EventBundleFinalised): unknown {
     const obj: any = {};
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
-    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.storage_id !== undefined && (obj.storage_id = message.storage_id);
     message.byte_size !== undefined && (obj.byte_size = message.byte_size);
     message.uploader !== undefined && (obj.uploader = message.uploader);
     message.next_uploader !== undefined &&
@@ -441,7 +441,7 @@ export const EventBundleFinalised = {
   ): EventBundleFinalised {
     const message = createBaseEventBundleFinalised();
     message.pool_id = object.pool_id ?? "0";
-    message.bundle_id = object.bundle_id ?? "";
+    message.storage_id = object.storage_id ?? "";
     message.byte_size = object.byte_size ?? "0";
     message.uploader = object.uploader ?? "";
     message.next_uploader = object.next_uploader ?? "";
@@ -460,7 +460,7 @@ export const EventBundleFinalised = {
 };
 
 function createBaseEventBundleVote(): EventBundleVote {
-  return { pool_id: "0", address: "", bundle_id: "", vote: 0 };
+  return { pool_id: "0", address: "", storage_id: "", vote: 0 };
 }
 
 export const EventBundleVote = {
@@ -474,8 +474,8 @@ export const EventBundleVote = {
     if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
-    if (message.bundle_id !== "") {
-      writer.uint32(26).string(message.bundle_id);
+    if (message.storage_id !== "") {
+      writer.uint32(26).string(message.storage_id);
     }
     if (message.vote !== 0) {
       writer.uint32(32).int32(message.vote);
@@ -497,7 +497,7 @@ export const EventBundleVote = {
           message.address = reader.string();
           break;
         case 3:
-          message.bundle_id = reader.string();
+          message.storage_id = reader.string();
           break;
         case 4:
           message.vote = reader.int32() as any;
@@ -514,7 +514,7 @@ export const EventBundleVote = {
     return {
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
       address: isSet(object.address) ? String(object.address) : "",
-      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
       vote: isSet(object.vote) ? voteTypeFromJSON(object.vote) : 0,
     };
   },
@@ -523,7 +523,7 @@ export const EventBundleVote = {
     const obj: any = {};
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
     message.address !== undefined && (obj.address = message.address);
-    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.storage_id !== undefined && (obj.storage_id = message.storage_id);
     message.vote !== undefined && (obj.vote = voteTypeToJSON(message.vote));
     return obj;
   },
@@ -534,7 +534,7 @@ export const EventBundleVote = {
     const message = createBaseEventBundleVote();
     message.pool_id = object.pool_id ?? "0";
     message.address = object.address ?? "";
-    message.bundle_id = object.bundle_id ?? "";
+    message.storage_id = object.storage_id ?? "";
     message.vote = object.vote ?? 0;
     return message;
   },

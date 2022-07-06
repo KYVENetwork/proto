@@ -112,8 +112,8 @@ export interface StakerResponse {
 }
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
 }
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 export interface QueryProposalResponse {
@@ -184,8 +184,8 @@ export interface QueryCanVoteRequest {
     pool_id: string;
     /** voter ... */
     voter: string;
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
 }
 /** QueryCanVoteResponse is the response type for the Query/CanVote RPC method. */
 export interface QueryCanVoteResponse {
@@ -532,7 +532,7 @@ export declare const QueryPoolResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -587,7 +587,7 @@ export declare const QueryPoolResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -640,7 +640,7 @@ export declare const QueryPoolResponse: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -654,7 +654,7 @@ export declare const QueryPoolResponse: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -760,7 +760,7 @@ export declare const QueryPoolsResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -819,7 +819,7 @@ export declare const QueryPoolsResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -872,7 +872,7 @@ export declare const QueryPoolsResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -925,7 +925,7 @@ export declare const QueryPoolsResponse: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -939,7 +939,7 @@ export declare const QueryPoolsResponse: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -1001,7 +1001,7 @@ export declare const QueryPoolsResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -1305,10 +1305,10 @@ export declare const QueryProposalRequest: {
     fromJSON(object: any): QueryProposalRequest;
     toJSON(message: QueryProposalRequest): unknown;
     fromPartial<I extends {
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
     } & {
-        bundle_id?: string | undefined;
-    } & Record<Exclude<keyof I, "bundle_id">, never>>(object: I): QueryProposalRequest;
+        storage_id?: string | undefined;
+    } & Record<Exclude<keyof I, "storage_id">, never>>(object: I): QueryProposalRequest;
 };
 export declare const QueryProposalResponse: {
     encode(message: QueryProposalResponse, writer?: _m0.Writer): _m0.Writer;
@@ -1317,7 +1317,7 @@ export declare const QueryProposalResponse: {
     toJSON(message: QueryProposalResponse): unknown;
     fromPartial<I extends {
         proposal?: {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1330,7 +1330,7 @@ export declare const QueryProposalResponse: {
         } | undefined;
     } & {
         proposal?: ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1341,7 +1341,7 @@ export declare const QueryProposalResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1392,7 +1392,7 @@ export declare const QueryProposalsResponse: {
     toJSON(message: QueryProposalsResponse): unknown;
     fromPartial<I extends {
         proposals?: {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1409,7 +1409,7 @@ export declare const QueryProposalsResponse: {
         } | undefined;
     } & {
         proposals?: ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1420,7 +1420,7 @@ export declare const QueryProposalsResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         }[] & ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1431,7 +1431,7 @@ export declare const QueryProposalsResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1442,7 +1442,7 @@ export declare const QueryProposalsResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1482,7 +1482,7 @@ export declare const QueryProposalByHeightResponse: {
     toJSON(message: QueryProposalByHeightResponse): unknown;
     fromPartial<I extends {
         proposal?: {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1495,7 +1495,7 @@ export declare const QueryProposalByHeightResponse: {
         } | undefined;
     } & {
         proposal?: ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1506,7 +1506,7 @@ export declare const QueryProposalByHeightResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1559,7 +1559,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
     toJSON(message: QueryProposalSinceFinalizedAtResponse): unknown;
     fromPartial<I extends {
         proposals?: {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1576,7 +1576,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
         } | undefined;
     } & {
         proposals?: ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1587,7 +1587,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         }[] & ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1598,7 +1598,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1609,7 +1609,7 @@ export declare const QueryProposalSinceFinalizedAtResponse: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -1665,11 +1665,11 @@ export declare const QueryCanVoteRequest: {
     fromPartial<I extends {
         pool_id?: string | undefined;
         voter?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
     } & {
         pool_id?: string | undefined;
         voter?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
     } & Record<Exclude<keyof I, keyof QueryCanVoteRequest>, never>>(object: I): QueryCanVoteRequest;
 };
 export declare const QueryCanVoteResponse: {
@@ -1813,7 +1813,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -1876,7 +1876,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -1933,7 +1933,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -1990,7 +1990,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2043,7 +2043,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 bundle_proposal?: ({
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2057,7 +2057,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2123,7 +2123,7 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2195,7 +2195,7 @@ export declare const StakingUnbonding: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -2252,7 +2252,7 @@ export declare const StakingUnbonding: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -2305,7 +2305,7 @@ export declare const StakingUnbonding: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -2319,7 +2319,7 @@ export declare const StakingUnbonding: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -2438,7 +2438,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2515,7 +2515,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2586,7 +2586,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2670,7 +2670,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2723,7 +2723,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 bundle_proposal?: ({
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2737,7 +2737,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2817,7 +2817,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -2903,7 +2903,7 @@ export declare const DelegationUnbonding: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -2987,7 +2987,7 @@ export declare const DelegationUnbonding: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3040,7 +3040,7 @@ export declare const DelegationUnbonding: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3054,7 +3054,7 @@ export declare const DelegationUnbonding: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3159,7 +3159,7 @@ export declare const QueryAccountFundedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3222,7 +3222,7 @@ export declare const QueryAccountFundedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3279,7 +3279,7 @@ export declare const QueryAccountFundedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3336,7 +3336,7 @@ export declare const QueryAccountFundedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3389,7 +3389,7 @@ export declare const QueryAccountFundedListResponse: {
                 bundle_proposal?: ({
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3403,7 +3403,7 @@ export declare const QueryAccountFundedListResponse: {
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3469,7 +3469,7 @@ export declare const QueryAccountFundedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3541,7 +3541,7 @@ export declare const Funded: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3598,7 +3598,7 @@ export declare const Funded: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3651,7 +3651,7 @@ export declare const Funded: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3665,7 +3665,7 @@ export declare const Funded: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -3772,7 +3772,7 @@ export declare const QueryAccountStakedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3839,7 +3839,7 @@ export declare const QueryAccountStakedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3900,7 +3900,7 @@ export declare const QueryAccountStakedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -3961,7 +3961,7 @@ export declare const QueryAccountStakedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4014,7 +4014,7 @@ export declare const QueryAccountStakedListResponse: {
                 bundle_proposal?: ({
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4028,7 +4028,7 @@ export declare const QueryAccountStakedListResponse: {
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4098,7 +4098,7 @@ export declare const QueryAccountStakedListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4174,7 +4174,7 @@ export declare const Staked: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4235,7 +4235,7 @@ export declare const Staked: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4288,7 +4288,7 @@ export declare const Staked: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4302,7 +4302,7 @@ export declare const Staked: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4408,7 +4408,7 @@ export declare const QueryAccountDelegationListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4482,7 +4482,7 @@ export declare const QueryAccountDelegationListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4550,7 +4550,7 @@ export declare const QueryAccountDelegationListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4618,7 +4618,7 @@ export declare const QueryAccountDelegationListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4671,7 +4671,7 @@ export declare const QueryAccountDelegationListResponse: {
                 bundle_proposal?: ({
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4685,7 +4685,7 @@ export declare const QueryAccountDelegationListResponse: {
                 } & {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4770,7 +4770,7 @@ export declare const QueryAccountDelegationListResponse: {
                 bundle_proposal?: {
                     uploader?: string | undefined;
                     next_uploader?: string | undefined;
-                    bundle_id?: string | undefined;
+                    storage_id?: string | undefined;
                     byte_size?: string | undefined;
                     from_height?: string | undefined;
                     to_height?: string | undefined;
@@ -4853,7 +4853,7 @@ export declare const DelegatorResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4921,7 +4921,7 @@ export declare const DelegatorResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4974,7 +4974,7 @@ export declare const DelegatorResponse: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -4988,7 +4988,7 @@ export declare const DelegatorResponse: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5176,7 +5176,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5265,7 +5265,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5318,7 +5318,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5332,7 +5332,7 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5461,7 +5461,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5528,7 +5528,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5581,7 +5581,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -5595,7 +5595,7 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;

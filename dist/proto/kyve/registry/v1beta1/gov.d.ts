@@ -106,6 +106,17 @@ export interface CancelPoolUpgradeProposal {
     /** runtime ... */
     runtime: string;
 }
+/** ResetPoolProposal is a gov Content type for cancelling a scheduled pool upgrade by the runtime. */
+export interface ResetPoolProposal {
+    /** title ... */
+    title: string;
+    /** description ... */
+    description: string;
+    /** id ... */
+    id: string;
+    /** bundle_id ... */
+    bundle_id: string;
+}
 export declare const CreatePoolProposal: {
     encode(message: CreatePoolProposal, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): CreatePoolProposal;
@@ -239,6 +250,23 @@ export declare const CancelPoolUpgradeProposal: {
         description?: string | undefined;
         runtime?: string | undefined;
     } & Record<Exclude<keyof I, keyof CancelPoolUpgradeProposal>, never>>(object: I): CancelPoolUpgradeProposal;
+};
+export declare const ResetPoolProposal: {
+    encode(message: ResetPoolProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ResetPoolProposal;
+    fromJSON(object: any): ResetPoolProposal;
+    toJSON(message: ResetPoolProposal): unknown;
+    fromPartial<I extends {
+        title?: string | undefined;
+        description?: string | undefined;
+        id?: string | undefined;
+        bundle_id?: string | undefined;
+    } & {
+        title?: string | undefined;
+        description?: string | undefined;
+        id?: string | undefined;
+        bundle_id?: string | undefined;
+    } & Record<Exclude<keyof I, keyof ResetPoolProposal>, never>>(object: I): ResetPoolProposal;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

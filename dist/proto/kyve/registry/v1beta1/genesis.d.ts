@@ -76,7 +76,7 @@ export declare const GenesisState: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -144,7 +144,7 @@ export declare const GenesisState: {
             k_index?: string | undefined;
         }[] | undefined;
         proposal_list?: {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -231,7 +231,7 @@ export declare const GenesisState: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -284,7 +284,7 @@ export declare const GenesisState: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -337,7 +337,7 @@ export declare const GenesisState: {
             bundle_proposal?: ({
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -351,7 +351,7 @@ export declare const GenesisState: {
             } & {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -413,7 +413,7 @@ export declare const GenesisState: {
             bundle_proposal?: {
                 uploader?: string | undefined;
                 next_uploader?: string | undefined;
-                bundle_id?: string | undefined;
+                storage_id?: string | undefined;
                 byte_size?: string | undefined;
                 from_height?: string | undefined;
                 to_height?: string | undefined;
@@ -580,7 +580,7 @@ export declare const GenesisState: {
             k_index?: string | undefined;
         }[]>, never>) | undefined;
         proposal_list?: ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -591,7 +591,7 @@ export declare const GenesisState: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         }[] & ({
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -602,7 +602,7 @@ export declare const GenesisState: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;
@@ -613,7 +613,7 @@ export declare const GenesisState: {
             value?: string | undefined;
             bundle_hash?: string | undefined;
         } & Record<Exclude<keyof I["proposal_list"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposal_list"], keyof {
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             pool_id?: string | undefined;
             uploader?: string | undefined;
             from_height?: string | undefined;

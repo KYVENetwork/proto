@@ -6,8 +6,8 @@ export interface BundleProposal {
     uploader: string;
     /** next_uploader ... */
     next_uploader: string;
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
     /** byte_size ... */
     byte_size: string;
     /**
@@ -174,8 +174,8 @@ export interface Pool {
 }
 /** Proposal ... */
 export interface Proposal {
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
     /** pool_id ... */
     pool_id: string;
     /** uploader ... */
@@ -287,7 +287,7 @@ export declare const BundleProposal: {
     fromPartial<I extends {
         uploader?: string | undefined;
         next_uploader?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
         to_height?: string | undefined;
@@ -301,7 +301,7 @@ export declare const BundleProposal: {
     } & {
         uploader?: string | undefined;
         next_uploader?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
         to_height?: string | undefined;
@@ -451,7 +451,7 @@ export declare const Pool: {
         bundle_proposal?: {
             uploader?: string | undefined;
             next_uploader?: string | undefined;
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             byte_size?: string | undefined;
             from_height?: string | undefined;
             to_height?: string | undefined;
@@ -504,7 +504,7 @@ export declare const Pool: {
         bundle_proposal?: ({
             uploader?: string | undefined;
             next_uploader?: string | undefined;
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             byte_size?: string | undefined;
             from_height?: string | undefined;
             to_height?: string | undefined;
@@ -518,7 +518,7 @@ export declare const Pool: {
         } & {
             uploader?: string | undefined;
             next_uploader?: string | undefined;
-            bundle_id?: string | undefined;
+            storage_id?: string | undefined;
             byte_size?: string | undefined;
             from_height?: string | undefined;
             to_height?: string | undefined;
@@ -562,7 +562,7 @@ export declare const Proposal: {
     fromJSON(object: any): Proposal;
     toJSON(message: Proposal): unknown;
     fromPartial<I extends {
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         pool_id?: string | undefined;
         uploader?: string | undefined;
         from_height?: string | undefined;
@@ -573,7 +573,7 @@ export declare const Proposal: {
         value?: string | undefined;
         bundle_hash?: string | undefined;
     } & {
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         pool_id?: string | undefined;
         uploader?: string | undefined;
         from_height?: string | undefined;

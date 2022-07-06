@@ -35,7 +35,7 @@ function createBaseBundleProposal() {
     return {
         uploader: "",
         next_uploader: "",
-        bundle_id: "",
+        storage_id: "",
         byte_size: "0",
         from_height: "0",
         to_height: "0",
@@ -57,8 +57,8 @@ exports.BundleProposal = {
         if (message.next_uploader !== "") {
             writer.uint32(18).string(message.next_uploader);
         }
-        if (message.bundle_id !== "") {
-            writer.uint32(26).string(message.bundle_id);
+        if (message.storage_id !== "") {
+            writer.uint32(26).string(message.storage_id);
         }
         if (message.byte_size !== "0") {
             writer.uint32(32).uint64(message.byte_size);
@@ -109,7 +109,7 @@ exports.BundleProposal = {
                     message.next_uploader = reader.string();
                     break;
                 case 3:
-                    message.bundle_id = reader.string();
+                    message.storage_id = reader.string();
                     break;
                 case 4:
                     message.byte_size = longToString(reader.uint64());
@@ -154,7 +154,7 @@ exports.BundleProposal = {
             next_uploader: isSet(object.next_uploader)
                 ? String(object.next_uploader)
                 : "",
-            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+            storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
             byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
             from_height: isSet(object.from_height) ? String(object.from_height) : "0",
             to_height: isSet(object.to_height) ? String(object.to_height) : "0",
@@ -178,7 +178,7 @@ exports.BundleProposal = {
         message.uploader !== undefined && (obj.uploader = message.uploader);
         message.next_uploader !== undefined &&
             (obj.next_uploader = message.next_uploader);
-        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.storage_id !== undefined && (obj.storage_id = message.storage_id);
         message.byte_size !== undefined && (obj.byte_size = message.byte_size);
         message.from_height !== undefined &&
             (obj.from_height = message.from_height);
@@ -213,7 +213,7 @@ exports.BundleProposal = {
         var message = createBaseBundleProposal();
         message.uploader = (_a = object.uploader) !== null && _a !== void 0 ? _a : "";
         message.next_uploader = (_b = object.next_uploader) !== null && _b !== void 0 ? _b : "";
-        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
+        message.storage_id = (_c = object.storage_id) !== null && _c !== void 0 ? _c : "";
         message.byte_size = (_d = object.byte_size) !== null && _d !== void 0 ? _d : "0";
         message.from_height = (_e = object.from_height) !== null && _e !== void 0 ? _e : "0";
         message.to_height = (_f = object.to_height) !== null && _f !== void 0 ? _f : "0";
@@ -1123,7 +1123,7 @@ exports.Pool = {
 };
 function createBaseProposal() {
     return {
-        bundle_id: "",
+        storage_id: "",
         pool_id: "0",
         uploader: "",
         from_height: "0",
@@ -1138,8 +1138,8 @@ function createBaseProposal() {
 exports.Proposal = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.bundle_id !== "") {
-            writer.uint32(10).string(message.bundle_id);
+        if (message.storage_id !== "") {
+            writer.uint32(10).string(message.storage_id);
         }
         if (message.pool_id !== "0") {
             writer.uint32(16).uint64(message.pool_id);
@@ -1178,7 +1178,7 @@ exports.Proposal = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.bundle_id = reader.string();
+                    message.storage_id = reader.string();
                     break;
                 case 2:
                     message.pool_id = longToString(reader.uint64());
@@ -1216,7 +1216,7 @@ exports.Proposal = {
     },
     fromJSON: function (object) {
         return {
-            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+            storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
             pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
             uploader: isSet(object.uploader) ? String(object.uploader) : "",
             from_height: isSet(object.from_height) ? String(object.from_height) : "0",
@@ -1232,7 +1232,7 @@ exports.Proposal = {
     },
     toJSON: function (message) {
         var obj = {};
-        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.storage_id !== undefined && (obj.storage_id = message.storage_id);
         message.pool_id !== undefined && (obj.pool_id = message.pool_id);
         message.uploader !== undefined && (obj.uploader = message.uploader);
         message.from_height !== undefined &&
@@ -1250,7 +1250,7 @@ exports.Proposal = {
     fromPartial: function (object) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         var message = createBaseProposal();
-        message.bundle_id = (_a = object.bundle_id) !== null && _a !== void 0 ? _a : "";
+        message.storage_id = (_a = object.storage_id) !== null && _a !== void 0 ? _a : "";
         message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
         message.uploader = (_c = object.uploader) !== null && _c !== void 0 ? _c : "";
         message.from_height = (_d = object.from_height) !== null && _d !== void 0 ? _d : "0";

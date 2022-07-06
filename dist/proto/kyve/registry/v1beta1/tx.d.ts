@@ -108,8 +108,8 @@ export interface MsgSubmitBundleProposal {
     creator: string;
     /** id ... */
     id: string;
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
     /** byte_size ... */
     byte_size: string;
     /** from_height */
@@ -134,8 +134,8 @@ export interface MsgVoteProposal {
     creator: string;
     /** id ... */
     id: string;
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
     /** vote ... */
     vote: VoteType;
 }
@@ -336,7 +336,7 @@ export declare const MsgSubmitBundleProposal: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
         to_height?: string | undefined;
@@ -347,7 +347,7 @@ export declare const MsgSubmitBundleProposal: {
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
         to_height?: string | undefined;
@@ -372,12 +372,12 @@ export declare const MsgVoteProposal: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         vote?: VoteType | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         vote?: VoteType | undefined;
     } & Record<Exclude<keyof I, keyof MsgVoteProposal>, never>>(object: I): MsgVoteProposal;
 };

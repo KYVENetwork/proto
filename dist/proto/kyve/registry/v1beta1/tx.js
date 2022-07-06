@@ -782,7 +782,7 @@ function createBaseMsgSubmitBundleProposal() {
     return {
         creator: "",
         id: "0",
-        bundle_id: "",
+        storage_id: "",
         byte_size: "0",
         from_height: "0",
         to_height: "0",
@@ -801,8 +801,8 @@ exports.MsgSubmitBundleProposal = {
         if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.bundle_id !== "") {
-            writer.uint32(26).string(message.bundle_id);
+        if (message.storage_id !== "") {
+            writer.uint32(26).string(message.storage_id);
         }
         if (message.byte_size !== "0") {
             writer.uint32(32).uint64(message.byte_size);
@@ -841,7 +841,7 @@ exports.MsgSubmitBundleProposal = {
                     message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.bundle_id = reader.string();
+                    message.storage_id = reader.string();
                     break;
                 case 4:
                     message.byte_size = longToString(reader.uint64());
@@ -875,7 +875,7 @@ exports.MsgSubmitBundleProposal = {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
             id: isSet(object.id) ? String(object.id) : "0",
-            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+            storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
             byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
             from_height: isSet(object.from_height) ? String(object.from_height) : "0",
             to_height: isSet(object.to_height) ? String(object.to_height) : "0",
@@ -889,7 +889,7 @@ exports.MsgSubmitBundleProposal = {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
         message.id !== undefined && (obj.id = message.id);
-        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.storage_id !== undefined && (obj.storage_id = message.storage_id);
         message.byte_size !== undefined && (obj.byte_size = message.byte_size);
         message.from_height !== undefined &&
             (obj.from_height = message.from_height);
@@ -906,7 +906,7 @@ exports.MsgSubmitBundleProposal = {
         var message = createBaseMsgSubmitBundleProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
-        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
+        message.storage_id = (_c = object.storage_id) !== null && _c !== void 0 ? _c : "";
         message.byte_size = (_d = object.byte_size) !== null && _d !== void 0 ? _d : "0";
         message.from_height = (_e = object.from_height) !== null && _e !== void 0 ? _e : "0";
         message.to_height = (_f = object.to_height) !== null && _f !== void 0 ? _f : "0";
@@ -952,7 +952,7 @@ exports.MsgSubmitBundleProposalResponse = {
     }
 };
 function createBaseMsgVoteProposal() {
-    return { creator: "", id: "0", bundle_id: "", vote: 0 };
+    return { creator: "", id: "0", storage_id: "", vote: 0 };
 }
 exports.MsgVoteProposal = {
     encode: function (message, writer) {
@@ -963,8 +963,8 @@ exports.MsgVoteProposal = {
         if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.bundle_id !== "") {
-            writer.uint32(26).string(message.bundle_id);
+        if (message.storage_id !== "") {
+            writer.uint32(26).string(message.storage_id);
         }
         if (message.vote !== 0) {
             writer.uint32(32).int32(message.vote);
@@ -985,7 +985,7 @@ exports.MsgVoteProposal = {
                     message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.bundle_id = reader.string();
+                    message.storage_id = reader.string();
                     break;
                 case 4:
                     message.vote = reader.int32();
@@ -1001,7 +1001,7 @@ exports.MsgVoteProposal = {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
             id: isSet(object.id) ? String(object.id) : "0",
-            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+            storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
             vote: isSet(object.vote) ? voteTypeFromJSON(object.vote) : 0
         };
     },
@@ -1009,7 +1009,7 @@ exports.MsgVoteProposal = {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
         message.id !== undefined && (obj.id = message.id);
-        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        message.storage_id !== undefined && (obj.storage_id = message.storage_id);
         message.vote !== undefined && (obj.vote = voteTypeToJSON(message.vote));
         return obj;
     },
@@ -1018,7 +1018,7 @@ exports.MsgVoteProposal = {
         var message = createBaseMsgVoteProposal();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
-        message.bundle_id = (_c = object.bundle_id) !== null && _c !== void 0 ? _c : "";
+        message.storage_id = (_c = object.storage_id) !== null && _c !== void 0 ? _c : "";
         message.vote = (_d = object.vote) !== null && _d !== void 0 ? _d : 0;
         return message;
     }

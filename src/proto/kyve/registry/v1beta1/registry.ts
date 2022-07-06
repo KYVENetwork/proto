@@ -10,8 +10,8 @@ export interface BundleProposal {
   uploader: string;
   /** next_uploader ... */
   next_uploader: string;
-  /** bundle_id ... */
-  bundle_id: string;
+  /** storage_id ... */
+  storage_id: string;
   /** byte_size ... */
   byte_size: string;
   /**
@@ -186,8 +186,8 @@ export interface Pool {
 
 /** Proposal ... */
 export interface Proposal {
-  /** bundle_id ... */
-  bundle_id: string;
+  /** storage_id ... */
+  storage_id: string;
   /** pool_id ... */
   pool_id: string;
   /** uploader ... */
@@ -302,7 +302,7 @@ function createBaseBundleProposal(): BundleProposal {
   return {
     uploader: "",
     next_uploader: "",
-    bundle_id: "",
+    storage_id: "",
     byte_size: "0",
     from_height: "0",
     to_height: "0",
@@ -327,8 +327,8 @@ export const BundleProposal = {
     if (message.next_uploader !== "") {
       writer.uint32(18).string(message.next_uploader);
     }
-    if (message.bundle_id !== "") {
-      writer.uint32(26).string(message.bundle_id);
+    if (message.storage_id !== "") {
+      writer.uint32(26).string(message.storage_id);
     }
     if (message.byte_size !== "0") {
       writer.uint32(32).uint64(message.byte_size);
@@ -377,7 +377,7 @@ export const BundleProposal = {
           message.next_uploader = reader.string();
           break;
         case 3:
-          message.bundle_id = reader.string();
+          message.storage_id = reader.string();
           break;
         case 4:
           message.byte_size = longToString(reader.uint64() as Long);
@@ -423,7 +423,7 @@ export const BundleProposal = {
       next_uploader: isSet(object.next_uploader)
         ? String(object.next_uploader)
         : "",
-      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
       byte_size: isSet(object.byte_size) ? String(object.byte_size) : "0",
       from_height: isSet(object.from_height) ? String(object.from_height) : "0",
       to_height: isSet(object.to_height) ? String(object.to_height) : "0",
@@ -448,7 +448,7 @@ export const BundleProposal = {
     message.uploader !== undefined && (obj.uploader = message.uploader);
     message.next_uploader !== undefined &&
       (obj.next_uploader = message.next_uploader);
-    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.storage_id !== undefined && (obj.storage_id = message.storage_id);
     message.byte_size !== undefined && (obj.byte_size = message.byte_size);
     message.from_height !== undefined &&
       (obj.from_height = message.from_height);
@@ -482,7 +482,7 @@ export const BundleProposal = {
     const message = createBaseBundleProposal();
     message.uploader = object.uploader ?? "";
     message.next_uploader = object.next_uploader ?? "";
-    message.bundle_id = object.bundle_id ?? "";
+    message.storage_id = object.storage_id ?? "";
     message.byte_size = object.byte_size ?? "0";
     message.from_height = object.from_height ?? "0";
     message.to_height = object.to_height ?? "0";
@@ -1452,7 +1452,7 @@ export const Pool = {
 
 function createBaseProposal(): Proposal {
   return {
-    bundle_id: "",
+    storage_id: "",
     pool_id: "0",
     uploader: "",
     from_height: "0",
@@ -1470,8 +1470,8 @@ export const Proposal = {
     message: Proposal,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.bundle_id !== "") {
-      writer.uint32(10).string(message.bundle_id);
+    if (message.storage_id !== "") {
+      writer.uint32(10).string(message.storage_id);
     }
     if (message.pool_id !== "0") {
       writer.uint32(16).uint64(message.pool_id);
@@ -1511,7 +1511,7 @@ export const Proposal = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.bundle_id = reader.string();
+          message.storage_id = reader.string();
           break;
         case 2:
           message.pool_id = longToString(reader.uint64() as Long);
@@ -1550,7 +1550,7 @@ export const Proposal = {
 
   fromJSON(object: any): Proposal {
     return {
-      bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "",
+      storage_id: isSet(object.storage_id) ? String(object.storage_id) : "",
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
       uploader: isSet(object.uploader) ? String(object.uploader) : "",
       from_height: isSet(object.from_height) ? String(object.from_height) : "0",
@@ -1567,7 +1567,7 @@ export const Proposal = {
 
   toJSON(message: Proposal): unknown {
     const obj: any = {};
-    message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+    message.storage_id !== undefined && (obj.storage_id = message.storage_id);
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
     message.uploader !== undefined && (obj.uploader = message.uploader);
     message.from_height !== undefined &&
@@ -1585,7 +1585,7 @@ export const Proposal = {
 
   fromPartial<I extends Exact<DeepPartial<Proposal>, I>>(object: I): Proposal {
     const message = createBaseProposal();
-    message.bundle_id = object.bundle_id ?? "";
+    message.storage_id = object.storage_id ?? "";
     message.pool_id = object.pool_id ?? "0";
     message.uploader = object.uploader ?? "";
     message.from_height = object.from_height ?? "0";

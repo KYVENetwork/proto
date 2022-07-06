@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.CancelPoolUpgradeProposal = exports.SchedulePoolUpgradeProposal = exports.UnpausePoolProposal = exports.PausePoolProposal = exports.UpdatePoolProposal = exports.CreatePoolProposal = exports.protobufPackage = void 0;
+exports.ResetPoolProposal = exports.CancelPoolUpgradeProposal = exports.SchedulePoolUpgradeProposal = exports.UnpausePoolProposal = exports.PausePoolProposal = exports.UpdatePoolProposal = exports.CreatePoolProposal = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -668,6 +668,79 @@ exports.CancelPoolUpgradeProposal = {
         message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
         message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
         message.runtime = (_c = object.runtime) !== null && _c !== void 0 ? _c : "";
+        return message;
+    }
+};
+function createBaseResetPoolProposal() {
+    return { title: "", description: "", id: "0", bundle_id: "0" };
+}
+exports.ResetPoolProposal = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.title !== "") {
+            writer.uint32(10).string(message.title);
+        }
+        if (message.description !== "") {
+            writer.uint32(18).string(message.description);
+        }
+        if (message.id !== "0") {
+            writer.uint32(24).uint64(message.id);
+        }
+        if (message.bundle_id !== "0") {
+            writer.uint32(32).uint64(message.bundle_id);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseResetPoolProposal();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.title = reader.string();
+                    break;
+                case 2:
+                    message.description = reader.string();
+                    break;
+                case 3:
+                    message.id = longToString(reader.uint64());
+                    break;
+                case 4:
+                    message.bundle_id = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            title: isSet(object.title) ? String(object.title) : "",
+            description: isSet(object.description) ? String(object.description) : "",
+            id: isSet(object.id) ? String(object.id) : "0",
+            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.title !== undefined && (obj.title = message.title);
+        message.description !== undefined &&
+            (obj.description = message.description);
+        message.id !== undefined && (obj.id = message.id);
+        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c, _d;
+        var message = createBaseResetPoolProposal();
+        message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
+        message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
+        message.id = (_c = object.id) !== null && _c !== void 0 ? _c : "0";
+        message.bundle_id = (_d = object.bundle_id) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };
