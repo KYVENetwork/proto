@@ -1,5 +1,25 @@
 import * as _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "kyve.registry.v1beta1";
+/** PoolStatus ... */
+export declare enum PoolStatus {
+    /** POOL_STATUS_UNSPECIFIED - POOL_STATUS_UNSPECIFIED ... */
+    POOL_STATUS_UNSPECIFIED = 0,
+    /** POOL_STATUS_ACTIVE - POOL_STATUS_ACTIVE ... */
+    POOL_STATUS_ACTIVE = 1,
+    /** POOL_STATUS_PAUSED - POOL_STATUS_PAUSED ... */
+    POOL_STATUS_PAUSED = 2,
+    /** POOL_STATUS_NO_FUNDS - POOL_STATUS_NO_FUNDS ... */
+    POOL_STATUS_NO_FUNDS = 3,
+    /** POOL_STATUS_NOT_ENOUGH_VALIDATORS - POOL_STATUS_NOT_ENOUGH_VALIDATORS ... */
+    POOL_STATUS_NOT_ENOUGH_VALIDATORS = 4,
+    /** POOL_STATUS_NOT_ENOUGH_STAKE - POOL_STATUS_NOT_ENOUGH_STAKE ... */
+    POOL_STATUS_NOT_ENOUGH_STAKE = 5,
+    /** POOL_STATUS_UPGRADING - POOL_STATUS_UPGRADING ... */
+    POOL_STATUS_UPGRADING = 6,
+    UNRECOGNIZED = -1
+}
+export declare function poolStatusFromJSON(object: any): PoolStatus;
+export declare function poolStatusToJSON(object: PoolStatus): string;
 /** BundleProposal ... */
 export interface BundleProposal {
     /** uploader ... */
@@ -171,6 +191,10 @@ export interface Pool {
     current_key: string;
     /** current_value ... */
     current_value: string;
+    /** min_stake ... */
+    min_stake: string;
+    /** status ... */
+    status: PoolStatus;
 }
 /** Proposal ... */
 export interface Proposal {
@@ -278,6 +302,13 @@ export interface UnbondingDelegationQueueState {
     low_index: string;
     /** high_index ... */
     high_index: string;
+}
+/** RedelegationCooldown ... */
+export interface RedelegationCooldown {
+    /** low_index ... */
+    address: string;
+    /** high_index ... */
+    created_block: string;
 }
 export declare const BundleProposal: {
     encode(message: BundleProposal, writer?: _m0.Writer): _m0.Writer;
@@ -478,6 +509,8 @@ export declare const Pool: {
         start_key?: string | undefined;
         current_key?: string | undefined;
         current_value?: string | undefined;
+        min_stake?: string | undefined;
+        status?: PoolStatus | undefined;
     } & {
         id?: string | undefined;
         creator?: string | undefined;
@@ -554,6 +587,8 @@ export declare const Pool: {
         start_key?: string | undefined;
         current_key?: string | undefined;
         current_value?: string | undefined;
+        min_stake?: string | undefined;
+        status?: PoolStatus | undefined;
     } & Record<Exclude<keyof I, keyof Pool>, never>>(object: I): Pool;
 };
 export declare const Proposal: {
@@ -692,6 +727,19 @@ export declare const UnbondingDelegationQueueState: {
         low_index?: string | undefined;
         high_index?: string | undefined;
     } & Record<Exclude<keyof I, keyof UnbondingDelegationQueueState>, never>>(object: I): UnbondingDelegationQueueState;
+};
+export declare const RedelegationCooldown: {
+    encode(message: RedelegationCooldown, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): RedelegationCooldown;
+    fromJSON(object: any): RedelegationCooldown;
+    toJSON(message: RedelegationCooldown): unknown;
+    fromPartial<I extends {
+        address?: string | undefined;
+        created_block?: string | undefined;
+    } & {
+        address?: string | undefined;
+        created_block?: string | undefined;
+    } & Record<Exclude<keyof I, keyof RedelegationCooldown>, never>>(object: I): RedelegationCooldown;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

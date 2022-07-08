@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.MsgClientImpl = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.voteTypeToJSON = exports.voteTypeFromJSON = exports.VoteType = exports.protobufPackage = void 0;
+exports.MsgClientImpl = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgRedelegatePoolResponse = exports.MsgRedelegatePool = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.voteTypeToJSON = exports.voteTypeFromJSON = exports.VoteType = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -778,6 +778,141 @@ exports.MsgUndelegatePoolResponse = {
         return message;
     }
 };
+function createBaseMsgRedelegatePool() {
+    return {
+        creator: "",
+        from_pool_id: "0",
+        from_staker: "",
+        to_pool_id: "0",
+        to_staker: "",
+        amount: "0"
+    };
+}
+exports.MsgRedelegatePool = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.creator !== "") {
+            writer.uint32(10).string(message.creator);
+        }
+        if (message.from_pool_id !== "0") {
+            writer.uint32(16).uint64(message.from_pool_id);
+        }
+        if (message.from_staker !== "") {
+            writer.uint32(26).string(message.from_staker);
+        }
+        if (message.to_pool_id !== "0") {
+            writer.uint32(32).uint64(message.to_pool_id);
+        }
+        if (message.to_staker !== "") {
+            writer.uint32(42).string(message.to_staker);
+        }
+        if (message.amount !== "0") {
+            writer.uint32(48).uint64(message.amount);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseMsgRedelegatePool();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.creator = reader.string();
+                    break;
+                case 2:
+                    message.from_pool_id = longToString(reader.uint64());
+                    break;
+                case 3:
+                    message.from_staker = reader.string();
+                    break;
+                case 4:
+                    message.to_pool_id = longToString(reader.uint64());
+                    break;
+                case 5:
+                    message.to_staker = reader.string();
+                    break;
+                case 6:
+                    message.amount = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            creator: isSet(object.creator) ? String(object.creator) : "",
+            from_pool_id: isSet(object.from_pool_id)
+                ? String(object.from_pool_id)
+                : "0",
+            from_staker: isSet(object.from_staker) ? String(object.from_staker) : "",
+            to_pool_id: isSet(object.to_pool_id) ? String(object.to_pool_id) : "0",
+            to_staker: isSet(object.to_staker) ? String(object.to_staker) : "",
+            amount: isSet(object.amount) ? String(object.amount) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.creator !== undefined && (obj.creator = message.creator);
+        message.from_pool_id !== undefined &&
+            (obj.from_pool_id = message.from_pool_id);
+        message.from_staker !== undefined &&
+            (obj.from_staker = message.from_staker);
+        message.to_pool_id !== undefined && (obj.to_pool_id = message.to_pool_id);
+        message.to_staker !== undefined && (obj.to_staker = message.to_staker);
+        message.amount !== undefined && (obj.amount = message.amount);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c, _d, _e, _f;
+        var message = createBaseMsgRedelegatePool();
+        message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
+        message.from_pool_id = (_b = object.from_pool_id) !== null && _b !== void 0 ? _b : "0";
+        message.from_staker = (_c = object.from_staker) !== null && _c !== void 0 ? _c : "";
+        message.to_pool_id = (_d = object.to_pool_id) !== null && _d !== void 0 ? _d : "0";
+        message.to_staker = (_e = object.to_staker) !== null && _e !== void 0 ? _e : "";
+        message.amount = (_f = object.amount) !== null && _f !== void 0 ? _f : "0";
+        return message;
+    }
+};
+function createBaseMsgRedelegatePoolResponse() {
+    return {};
+}
+exports.MsgRedelegatePoolResponse = {
+    encode: function (_, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseMsgRedelegatePoolResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (_) {
+        return {};
+    },
+    toJSON: function (_) {
+        var obj = {};
+        return obj;
+    },
+    fromPartial: function (_) {
+        var message = createBaseMsgRedelegatePoolResponse();
+        return message;
+    }
+};
 function createBaseMsgSubmitBundleProposal() {
     return {
         creator: "",
@@ -1286,6 +1421,7 @@ var MsgClientImpl = /** @class */ (function () {
         this.DelegatePool = this.DelegatePool.bind(this);
         this.WithdrawPool = this.WithdrawPool.bind(this);
         this.UndelegatePool = this.UndelegatePool.bind(this);
+        this.RedelegatePool = this.RedelegatePool.bind(this);
         this.SubmitBundleProposal = this.SubmitBundleProposal.bind(this);
         this.VoteProposal = this.VoteProposal.bind(this);
         this.ClaimUploaderRole = this.ClaimUploaderRole.bind(this);
@@ -1338,6 +1474,13 @@ var MsgClientImpl = /** @class */ (function () {
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UndelegatePool", data);
         return promise.then(function (data) {
             return exports.MsgUndelegatePoolResponse.decode(new _m0.Reader(data));
+        });
+    };
+    MsgClientImpl.prototype.RedelegatePool = function (request) {
+        var data = exports.MsgRedelegatePool.encode(request).finish();
+        var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "RedelegatePool", data);
+        return promise.then(function (data) {
+            return exports.MsgRedelegatePoolResponse.decode(new _m0.Reader(data));
         });
     };
     MsgClientImpl.prototype.SubmitBundleProposal = function (request) {

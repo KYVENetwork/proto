@@ -4,6 +4,77 @@ import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "kyve.registry.v1beta1";
 
+/** PoolStatus ... */
+export enum PoolStatus {
+  /** POOL_STATUS_UNSPECIFIED - POOL_STATUS_UNSPECIFIED ... */
+  POOL_STATUS_UNSPECIFIED = 0,
+  /** POOL_STATUS_ACTIVE - POOL_STATUS_ACTIVE ... */
+  POOL_STATUS_ACTIVE = 1,
+  /** POOL_STATUS_PAUSED - POOL_STATUS_PAUSED ... */
+  POOL_STATUS_PAUSED = 2,
+  /** POOL_STATUS_NO_FUNDS - POOL_STATUS_NO_FUNDS ... */
+  POOL_STATUS_NO_FUNDS = 3,
+  /** POOL_STATUS_NOT_ENOUGH_VALIDATORS - POOL_STATUS_NOT_ENOUGH_VALIDATORS ... */
+  POOL_STATUS_NOT_ENOUGH_VALIDATORS = 4,
+  /** POOL_STATUS_NOT_ENOUGH_STAKE - POOL_STATUS_NOT_ENOUGH_STAKE ... */
+  POOL_STATUS_NOT_ENOUGH_STAKE = 5,
+  /** POOL_STATUS_UPGRADING - POOL_STATUS_UPGRADING ... */
+  POOL_STATUS_UPGRADING = 6,
+  UNRECOGNIZED = -1,
+}
+
+export function poolStatusFromJSON(object: any): PoolStatus {
+  switch (object) {
+    case 0:
+    case "POOL_STATUS_UNSPECIFIED":
+      return PoolStatus.POOL_STATUS_UNSPECIFIED;
+    case 1:
+    case "POOL_STATUS_ACTIVE":
+      return PoolStatus.POOL_STATUS_ACTIVE;
+    case 2:
+    case "POOL_STATUS_PAUSED":
+      return PoolStatus.POOL_STATUS_PAUSED;
+    case 3:
+    case "POOL_STATUS_NO_FUNDS":
+      return PoolStatus.POOL_STATUS_NO_FUNDS;
+    case 4:
+    case "POOL_STATUS_NOT_ENOUGH_VALIDATORS":
+      return PoolStatus.POOL_STATUS_NOT_ENOUGH_VALIDATORS;
+    case 5:
+    case "POOL_STATUS_NOT_ENOUGH_STAKE":
+      return PoolStatus.POOL_STATUS_NOT_ENOUGH_STAKE;
+    case 6:
+    case "POOL_STATUS_UPGRADING":
+      return PoolStatus.POOL_STATUS_UPGRADING;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return PoolStatus.UNRECOGNIZED;
+  }
+}
+
+export function poolStatusToJSON(object: PoolStatus): string {
+  switch (object) {
+    case PoolStatus.POOL_STATUS_UNSPECIFIED:
+      return "POOL_STATUS_UNSPECIFIED";
+    case PoolStatus.POOL_STATUS_ACTIVE:
+      return "POOL_STATUS_ACTIVE";
+    case PoolStatus.POOL_STATUS_PAUSED:
+      return "POOL_STATUS_PAUSED";
+    case PoolStatus.POOL_STATUS_NO_FUNDS:
+      return "POOL_STATUS_NO_FUNDS";
+    case PoolStatus.POOL_STATUS_NOT_ENOUGH_VALIDATORS:
+      return "POOL_STATUS_NOT_ENOUGH_VALIDATORS";
+    case PoolStatus.POOL_STATUS_NOT_ENOUGH_STAKE:
+      return "POOL_STATUS_NOT_ENOUGH_STAKE";
+    case PoolStatus.POOL_STATUS_UPGRADING:
+      return "POOL_STATUS_UPGRADING";
+    case PoolStatus.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 /** BundleProposal ... */
 export interface BundleProposal {
   /** uploader ... */
@@ -182,6 +253,10 @@ export interface Pool {
   current_key: string;
   /** current_value ... */
   current_value: string;
+  /** min_stake ... */
+  min_stake: string;
+  /** status ... */
+  status: PoolStatus;
 }
 
 /** Proposal ... */
@@ -296,6 +371,14 @@ export interface UnbondingDelegationQueueState {
   low_index: string;
   /** high_index ... */
   high_index: string;
+}
+
+/** RedelegationCooldown ... */
+export interface RedelegationCooldown {
+  /** low_index ... */
+  address: string;
+  /** high_index ... */
+  created_block: string;
 }
 
 function createBaseBundleProposal(): BundleProposal {
@@ -1068,6 +1151,8 @@ function createBasePool(): Pool {
     start_key: "",
     current_key: "",
     current_value: "",
+    min_stake: "0",
+    status: 0,
   };
 }
 
@@ -1165,6 +1250,12 @@ export const Pool = {
     }
     if (message.current_value !== "") {
       writer.uint32(234).string(message.current_value);
+    }
+    if (message.min_stake !== "0") {
+      writer.uint32(240).uint64(message.min_stake);
+    }
+    if (message.status !== 0) {
+      writer.uint32(248).int32(message.status);
     }
     return writer;
   },
@@ -1266,6 +1357,12 @@ export const Pool = {
         case 29:
           message.current_value = reader.string();
           break;
+        case 30:
+          message.min_stake = longToString(reader.uint64() as Long);
+          break;
+        case 31:
+          message.status = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1337,6 +1434,8 @@ export const Pool = {
       current_value: isSet(object.current_value)
         ? String(object.current_value)
         : "",
+      min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0",
+      status: isSet(object.status) ? poolStatusFromJSON(object.status) : 0,
     };
   },
 
@@ -1403,6 +1502,9 @@ export const Pool = {
       (obj.current_key = message.current_key);
     message.current_value !== undefined &&
       (obj.current_value = message.current_value);
+    message.min_stake !== undefined && (obj.min_stake = message.min_stake);
+    message.status !== undefined &&
+      (obj.status = poolStatusToJSON(message.status));
     return obj;
   },
 
@@ -1446,6 +1548,8 @@ export const Pool = {
     message.start_key = object.start_key ?? "";
     message.current_key = object.current_key ?? "";
     message.current_value = object.current_value ?? "";
+    message.min_stake = object.min_stake ?? "0";
+    message.status = object.status ?? 0;
     return message;
   },
 };
@@ -2153,6 +2257,75 @@ export const UnbondingDelegationQueueState = {
     const message = createBaseUnbondingDelegationQueueState();
     message.low_index = object.low_index ?? "0";
     message.high_index = object.high_index ?? "0";
+    return message;
+  },
+};
+
+function createBaseRedelegationCooldown(): RedelegationCooldown {
+  return { address: "", created_block: "0" };
+}
+
+export const RedelegationCooldown = {
+  encode(
+    message: RedelegationCooldown,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.address !== "") {
+      writer.uint32(10).string(message.address);
+    }
+    if (message.created_block !== "0") {
+      writer.uint32(16).uint64(message.created_block);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): RedelegationCooldown {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseRedelegationCooldown();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.created_block = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): RedelegationCooldown {
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+      created_block: isSet(object.created_block)
+        ? String(object.created_block)
+        : "0",
+    };
+  },
+
+  toJSON(message: RedelegationCooldown): unknown {
+    const obj: any = {};
+    message.address !== undefined && (obj.address = message.address);
+    message.created_block !== undefined &&
+      (obj.created_block = message.created_block);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RedelegationCooldown>, I>>(
+    object: I
+  ): RedelegationCooldown {
+    const message = createBaseRedelegationCooldown();
+    message.address = object.address ?? "";
+    message.created_block = object.created_block ?? "0";
     return message;
   },
 };

@@ -149,6 +149,28 @@ export interface MsgUndelegatePool {
 /** MsgUndelegatePoolResponse defines the Msg/UndelegatePool response type. */
 export interface MsgUndelegatePoolResponse {}
 
+/**
+ * MsgRedelegatePool defines a SDK message for redelegating from a
+ * staker in a pool to another staker in the same or another pool
+ */
+export interface MsgRedelegatePool {
+  /** creator ... */
+  creator: string;
+  /** id ... */
+  from_pool_id: string;
+  /** staker ... */
+  from_staker: string;
+  /** id ... */
+  to_pool_id: string;
+  /** staker ... */
+  to_staker: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** MsgUndelegatePoolResponse defines the Msg/UndelegatePool response type. */
+export interface MsgRedelegatePoolResponse {}
+
 /** MsgSubmitBundleProposal defines a SDK message for submitting a bundle proposal. */
 export interface MsgSubmitBundleProposal {
   /** creator ... */
@@ -1069,6 +1091,163 @@ export const MsgUndelegatePoolResponse = {
   },
 };
 
+function createBaseMsgRedelegatePool(): MsgRedelegatePool {
+  return {
+    creator: "",
+    from_pool_id: "0",
+    from_staker: "",
+    to_pool_id: "0",
+    to_staker: "",
+    amount: "0",
+  };
+}
+
+export const MsgRedelegatePool = {
+  encode(
+    message: MsgRedelegatePool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.from_pool_id !== "0") {
+      writer.uint32(16).uint64(message.from_pool_id);
+    }
+    if (message.from_staker !== "") {
+      writer.uint32(26).string(message.from_staker);
+    }
+    if (message.to_pool_id !== "0") {
+      writer.uint32(32).uint64(message.to_pool_id);
+    }
+    if (message.to_staker !== "") {
+      writer.uint32(42).string(message.to_staker);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(48).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgRedelegatePool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgRedelegatePool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.from_pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 3:
+          message.from_staker = reader.string();
+          break;
+        case 4:
+          message.to_pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 5:
+          message.to_staker = reader.string();
+          break;
+        case 6:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgRedelegatePool {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      from_pool_id: isSet(object.from_pool_id)
+        ? String(object.from_pool_id)
+        : "0",
+      from_staker: isSet(object.from_staker) ? String(object.from_staker) : "",
+      to_pool_id: isSet(object.to_pool_id) ? String(object.to_pool_id) : "0",
+      to_staker: isSet(object.to_staker) ? String(object.to_staker) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: MsgRedelegatePool): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.from_pool_id !== undefined &&
+      (obj.from_pool_id = message.from_pool_id);
+    message.from_staker !== undefined &&
+      (obj.from_staker = message.from_staker);
+    message.to_pool_id !== undefined && (obj.to_pool_id = message.to_pool_id);
+    message.to_staker !== undefined && (obj.to_staker = message.to_staker);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgRedelegatePool>, I>>(
+    object: I
+  ): MsgRedelegatePool {
+    const message = createBaseMsgRedelegatePool();
+    message.creator = object.creator ?? "";
+    message.from_pool_id = object.from_pool_id ?? "0";
+    message.from_staker = object.from_staker ?? "";
+    message.to_pool_id = object.to_pool_id ?? "0";
+    message.to_staker = object.to_staker ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseMsgRedelegatePoolResponse(): MsgRedelegatePoolResponse {
+  return {};
+}
+
+export const MsgRedelegatePoolResponse = {
+  encode(
+    _: MsgRedelegatePoolResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): MsgRedelegatePoolResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgRedelegatePoolResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgRedelegatePoolResponse {
+    return {};
+  },
+
+  toJSON(_: MsgRedelegatePoolResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgRedelegatePoolResponse>, I>>(
+    _: I
+  ): MsgRedelegatePoolResponse {
+    const message = createBaseMsgRedelegatePoolResponse();
+    return message;
+  },
+};
+
 function createBaseMsgSubmitBundleProposal(): MsgSubmitBundleProposal {
   return {
     creator: "",
@@ -1679,6 +1858,10 @@ export interface Msg {
   UndelegatePool(
     request: MsgUndelegatePool
   ): Promise<MsgUndelegatePoolResponse>;
+  /** RedelegatePool ... */
+  RedelegatePool(
+    request: MsgRedelegatePool
+  ): Promise<MsgRedelegatePoolResponse>;
   /** SubmitBundleProposal ... */
   SubmitBundleProposal(
     request: MsgSubmitBundleProposal
@@ -1706,6 +1889,7 @@ export class MsgClientImpl implements Msg {
     this.DelegatePool = this.DelegatePool.bind(this);
     this.WithdrawPool = this.WithdrawPool.bind(this);
     this.UndelegatePool = this.UndelegatePool.bind(this);
+    this.RedelegatePool = this.RedelegatePool.bind(this);
     this.SubmitBundleProposal = this.SubmitBundleProposal.bind(this);
     this.VoteProposal = this.VoteProposal.bind(this);
     this.ClaimUploaderRole = this.ClaimUploaderRole.bind(this);
@@ -1794,6 +1978,20 @@ export class MsgClientImpl implements Msg {
     );
     return promise.then((data) =>
       MsgUndelegatePoolResponse.decode(new _m0.Reader(data))
+    );
+  }
+
+  RedelegatePool(
+    request: MsgRedelegatePool
+  ): Promise<MsgRedelegatePoolResponse> {
+    const data = MsgRedelegatePool.encode(request).finish();
+    const promise = this.rpc.request(
+      "kyve.registry.v1beta1.Msg",
+      "RedelegatePool",
+      data
+    );
+    return promise.then((data) =>
+      MsgRedelegatePoolResponse.decode(new _m0.Reader(data))
     );
   }
 

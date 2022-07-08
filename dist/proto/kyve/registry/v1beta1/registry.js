@@ -26,11 +26,82 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.UnbondingDelegationQueueState = exports.UnbondingDelegationQueueEntry = exports.UnbondingStakingQueueState = exports.UnbondingStaker = exports.UnbondingStakingQueueEntry = exports.Staker = exports.Proposal = exports.Pool = exports.Funder = exports.Delegator = exports.DelegationPoolData = exports.DelegationEntries = exports.UpgradePlan = exports.Protocol = exports.BundleProposal = exports.protobufPackage = void 0;
+exports.RedelegationCooldown = exports.UnbondingDelegationQueueState = exports.UnbondingDelegationQueueEntry = exports.UnbondingStakingQueueState = exports.UnbondingStaker = exports.UnbondingStakingQueueEntry = exports.Staker = exports.Proposal = exports.Pool = exports.Funder = exports.Delegator = exports.DelegationPoolData = exports.DelegationEntries = exports.UpgradePlan = exports.Protocol = exports.BundleProposal = exports.poolStatusToJSON = exports.poolStatusFromJSON = exports.PoolStatus = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
+/** PoolStatus ... */
+var PoolStatus;
+(function (PoolStatus) {
+    /** POOL_STATUS_UNSPECIFIED - POOL_STATUS_UNSPECIFIED ... */
+    PoolStatus[PoolStatus["POOL_STATUS_UNSPECIFIED"] = 0] = "POOL_STATUS_UNSPECIFIED";
+    /** POOL_STATUS_ACTIVE - POOL_STATUS_ACTIVE ... */
+    PoolStatus[PoolStatus["POOL_STATUS_ACTIVE"] = 1] = "POOL_STATUS_ACTIVE";
+    /** POOL_STATUS_PAUSED - POOL_STATUS_PAUSED ... */
+    PoolStatus[PoolStatus["POOL_STATUS_PAUSED"] = 2] = "POOL_STATUS_PAUSED";
+    /** POOL_STATUS_NO_FUNDS - POOL_STATUS_NO_FUNDS ... */
+    PoolStatus[PoolStatus["POOL_STATUS_NO_FUNDS"] = 3] = "POOL_STATUS_NO_FUNDS";
+    /** POOL_STATUS_NOT_ENOUGH_VALIDATORS - POOL_STATUS_NOT_ENOUGH_VALIDATORS ... */
+    PoolStatus[PoolStatus["POOL_STATUS_NOT_ENOUGH_VALIDATORS"] = 4] = "POOL_STATUS_NOT_ENOUGH_VALIDATORS";
+    /** POOL_STATUS_NOT_ENOUGH_STAKE - POOL_STATUS_NOT_ENOUGH_STAKE ... */
+    PoolStatus[PoolStatus["POOL_STATUS_NOT_ENOUGH_STAKE"] = 5] = "POOL_STATUS_NOT_ENOUGH_STAKE";
+    /** POOL_STATUS_UPGRADING - POOL_STATUS_UPGRADING ... */
+    PoolStatus[PoolStatus["POOL_STATUS_UPGRADING"] = 6] = "POOL_STATUS_UPGRADING";
+    PoolStatus[PoolStatus["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(PoolStatus = exports.PoolStatus || (exports.PoolStatus = {}));
+function poolStatusFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "POOL_STATUS_UNSPECIFIED":
+            return PoolStatus.POOL_STATUS_UNSPECIFIED;
+        case 1:
+        case "POOL_STATUS_ACTIVE":
+            return PoolStatus.POOL_STATUS_ACTIVE;
+        case 2:
+        case "POOL_STATUS_PAUSED":
+            return PoolStatus.POOL_STATUS_PAUSED;
+        case 3:
+        case "POOL_STATUS_NO_FUNDS":
+            return PoolStatus.POOL_STATUS_NO_FUNDS;
+        case 4:
+        case "POOL_STATUS_NOT_ENOUGH_VALIDATORS":
+            return PoolStatus.POOL_STATUS_NOT_ENOUGH_VALIDATORS;
+        case 5:
+        case "POOL_STATUS_NOT_ENOUGH_STAKE":
+            return PoolStatus.POOL_STATUS_NOT_ENOUGH_STAKE;
+        case 6:
+        case "POOL_STATUS_UPGRADING":
+            return PoolStatus.POOL_STATUS_UPGRADING;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return PoolStatus.UNRECOGNIZED;
+    }
+}
+exports.poolStatusFromJSON = poolStatusFromJSON;
+function poolStatusToJSON(object) {
+    switch (object) {
+        case PoolStatus.POOL_STATUS_UNSPECIFIED:
+            return "POOL_STATUS_UNSPECIFIED";
+        case PoolStatus.POOL_STATUS_ACTIVE:
+            return "POOL_STATUS_ACTIVE";
+        case PoolStatus.POOL_STATUS_PAUSED:
+            return "POOL_STATUS_PAUSED";
+        case PoolStatus.POOL_STATUS_NO_FUNDS:
+            return "POOL_STATUS_NO_FUNDS";
+        case PoolStatus.POOL_STATUS_NOT_ENOUGH_VALIDATORS:
+            return "POOL_STATUS_NOT_ENOUGH_VALIDATORS";
+        case PoolStatus.POOL_STATUS_NOT_ENOUGH_STAKE:
+            return "POOL_STATUS_NOT_ENOUGH_STAKE";
+        case PoolStatus.POOL_STATUS_UPGRADING:
+            return "POOL_STATUS_UPGRADING";
+        case PoolStatus.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
+exports.poolStatusToJSON = poolStatusToJSON;
 function createBaseBundleProposal() {
     return {
         uploader: "",
@@ -747,7 +818,9 @@ function createBasePool() {
         upgrade_plan: undefined,
         start_key: "",
         current_key: "",
-        current_value: ""
+        current_value: "",
+        min_stake: "0",
+        status: 0
     };
 }
 exports.Pool = {
@@ -841,6 +914,12 @@ exports.Pool = {
         }
         if (message.current_value !== "") {
             writer.uint32(234).string(message.current_value);
+        }
+        if (message.min_stake !== "0") {
+            writer.uint32(240).uint64(message.min_stake);
+        }
+        if (message.status !== 0) {
+            writer.uint32(248).int32(message.status);
         }
         return writer;
     },
@@ -938,6 +1017,12 @@ exports.Pool = {
                 case 29:
                     message.current_value = reader.string();
                     break;
+                case 30:
+                    message.min_stake = longToString(reader.uint64());
+                    break;
+                case 31:
+                    message.status = reader.int32();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -1007,7 +1092,9 @@ exports.Pool = {
             current_key: isSet(object.current_key) ? String(object.current_key) : "",
             current_value: isSet(object.current_value)
                 ? String(object.current_value)
-                : ""
+                : "",
+            min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0",
+            status: isSet(object.status) ? poolStatusFromJSON(object.status) : 0
         };
     },
     toJSON: function (message) {
@@ -1075,10 +1162,13 @@ exports.Pool = {
             (obj.current_key = message.current_key);
         message.current_value !== undefined &&
             (obj.current_value = message.current_value);
+        message.min_stake !== undefined && (obj.min_stake = message.min_stake);
+        message.status !== undefined &&
+            (obj.status = poolStatusToJSON(message.status));
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3;
         var message = createBasePool();
         message.id = (_a = object.id) !== null && _a !== void 0 ? _a : "0";
         message.creator = (_b = object.creator) !== null && _b !== void 0 ? _b : "";
@@ -1118,6 +1208,8 @@ exports.Pool = {
         message.start_key = (_z = object.start_key) !== null && _z !== void 0 ? _z : "";
         message.current_key = (_0 = object.current_key) !== null && _0 !== void 0 ? _0 : "";
         message.current_value = (_1 = object.current_value) !== null && _1 !== void 0 ? _1 : "";
+        message.min_stake = (_2 = object.min_stake) !== null && _2 !== void 0 ? _2 : "0";
+        message.status = (_3 = object.status) !== null && _3 !== void 0 ? _3 : 0;
         return message;
     }
 };
@@ -1754,6 +1846,63 @@ exports.UnbondingDelegationQueueState = {
         var message = createBaseUnbondingDelegationQueueState();
         message.low_index = (_a = object.low_index) !== null && _a !== void 0 ? _a : "0";
         message.high_index = (_b = object.high_index) !== null && _b !== void 0 ? _b : "0";
+        return message;
+    }
+};
+function createBaseRedelegationCooldown() {
+    return { address: "", created_block: "0" };
+}
+exports.RedelegationCooldown = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.address !== "") {
+            writer.uint32(10).string(message.address);
+        }
+        if (message.created_block !== "0") {
+            writer.uint32(16).uint64(message.created_block);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseRedelegationCooldown();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.address = reader.string();
+                    break;
+                case 2:
+                    message.created_block = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            address: isSet(object.address) ? String(object.address) : "",
+            created_block: isSet(object.created_block)
+                ? String(object.created_block)
+                : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.address !== undefined && (obj.address = message.address);
+        message.created_block !== undefined &&
+            (obj.created_block = message.created_block);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b;
+        var message = createBaseRedelegationCooldown();
+        message.address = (_a = object.address) !== null && _a !== void 0 ? _a : "";
+        message.created_block = (_b = object.created_block) !== null && _b !== void 0 ? _b : "0";
         return message;
     }
 };

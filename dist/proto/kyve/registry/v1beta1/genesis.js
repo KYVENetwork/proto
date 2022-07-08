@@ -48,7 +48,8 @@ function createBaseGenesisState() {
         unbonding_staking_queue_entries: [],
         unbonding_staker_list: [],
         unbonding_delegation_queue_state: undefined,
-        unbonding_delegation_queue_entries: []
+        unbonding_delegation_queue_entries: [],
+        redelegation_cooldown_list: []
     };
 }
 exports.GenesisState = {
@@ -106,6 +107,10 @@ exports.GenesisState = {
             var v = _u[_t];
             registry_1.UnbondingDelegationQueueEntry.encode(v, writer.uint32(114).fork()).ldelim();
         }
+        for (var _v = 0, _w = message.redelegation_cooldown_list; _v < _w.length; _v++) {
+            var v = _w[_v];
+            registry_1.RedelegationCooldown.encode(v, writer.uint32(122).fork()).ldelim();
+        }
         return writer;
     },
     decode: function (input, length) {
@@ -158,6 +163,9 @@ exports.GenesisState = {
                     break;
                 case 14:
                     message.unbonding_delegation_queue_entries.push(registry_1.UnbondingDelegationQueueEntry.decode(reader, reader.uint32()));
+                    break;
+                case 15:
+                    message.redelegation_cooldown_list.push(registry_1.RedelegationCooldown.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -214,6 +222,11 @@ exports.GenesisState = {
             unbonding_delegation_queue_entries: Array.isArray(object === null || object === void 0 ? void 0 : object.unbonding_delegation_queue_entries)
                 ? object.unbonding_delegation_queue_entries.map(function (e) {
                     return registry_1.UnbondingDelegationQueueEntry.fromJSON(e);
+                })
+                : [],
+            redelegation_cooldown_list: Array.isArray(object === null || object === void 0 ? void 0 : object.redelegation_cooldown_list)
+                ? object.redelegation_cooldown_list.map(function (e) {
+                    return registry_1.RedelegationCooldown.fromJSON(e);
                 })
                 : []
         };
@@ -312,10 +325,16 @@ exports.GenesisState = {
         else {
             obj.unbonding_delegation_queue_entries = [];
         }
+        if (message.redelegation_cooldown_list) {
+            obj.redelegation_cooldown_list = message.redelegation_cooldown_list.map(function (e) { return (e ? registry_1.RedelegationCooldown.toJSON(e) : undefined); });
+        }
+        else {
+            obj.redelegation_cooldown_list = [];
+        }
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         var message = createBaseGenesisState();
         message.params =
             object.params !== undefined && object.params !== null
@@ -360,6 +379,10 @@ exports.GenesisState = {
         message.unbonding_delegation_queue_entries =
             ((_l = object.unbonding_delegation_queue_entries) === null || _l === void 0 ? void 0 : _l.map(function (e) {
                 return registry_1.UnbondingDelegationQueueEntry.fromPartial(e);
+            })) || [];
+        message.redelegation_cooldown_list =
+            ((_m = object.redelegation_cooldown_list) === null || _m === void 0 ? void 0 : _m.map(function (e) {
+                return registry_1.RedelegationCooldown.fromPartial(e);
             })) || [];
         return message;
     }

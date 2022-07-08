@@ -15,6 +15,7 @@ import {
   UnbondingStakingQueueEntry,
   UnbondingStaker,
   UnbondingDelegationQueueEntry,
+  RedelegationCooldown,
 } from "../../../kyve/registry/v1beta1/registry";
 
 export const protobufPackage = "kyve.registry.v1beta1";
@@ -49,6 +50,8 @@ export interface GenesisState {
   unbonding_delegation_queue_state?: UnbondingDelegationQueueState;
   /** unbonding_delegation_queue_entries ... */
   unbonding_delegation_queue_entries: UnbondingDelegationQueueEntry[];
+  /** redelegation_cooldown_list ... */
+  redelegation_cooldown_list: RedelegationCooldown[];
 }
 
 function createBaseGenesisState(): GenesisState {
@@ -67,6 +70,7 @@ function createBaseGenesisState(): GenesisState {
     unbonding_staker_list: [],
     unbonding_delegation_queue_state: undefined,
     unbonding_delegation_queue_entries: [],
+    redelegation_cooldown_list: [],
   };
 }
 
@@ -125,6 +129,9 @@ export const GenesisState = {
         v!,
         writer.uint32(114).fork()
       ).ldelim();
+    }
+    for (const v of message.redelegation_cooldown_list) {
+      RedelegationCooldown.encode(v!, writer.uint32(122).fork()).ldelim();
     }
     return writer;
   },
@@ -190,6 +197,11 @@ export const GenesisState = {
         case 14:
           message.unbonding_delegation_queue_entries.push(
             UnbondingDelegationQueueEntry.decode(reader, reader.uint32())
+          );
+          break;
+        case 15:
+          message.redelegation_cooldown_list.push(
+            RedelegationCooldown.decode(reader, reader.uint32())
           );
           break;
         default:
@@ -260,6 +272,13 @@ export const GenesisState = {
       )
         ? object.unbonding_delegation_queue_entries.map((e: any) =>
             UnbondingDelegationQueueEntry.fromJSON(e)
+          )
+        : [],
+      redelegation_cooldown_list: Array.isArray(
+        object?.redelegation_cooldown_list
+      )
+        ? object.redelegation_cooldown_list.map((e: any) =>
+            RedelegationCooldown.fromJSON(e)
           )
         : [],
     };
@@ -355,6 +374,13 @@ export const GenesisState = {
     } else {
       obj.unbonding_delegation_queue_entries = [];
     }
+    if (message.redelegation_cooldown_list) {
+      obj.redelegation_cooldown_list = message.redelegation_cooldown_list.map(
+        (e) => (e ? RedelegationCooldown.toJSON(e) : undefined)
+      );
+    } else {
+      obj.redelegation_cooldown_list = [];
+    }
     return obj;
   },
 
@@ -409,6 +435,10 @@ export const GenesisState = {
     message.unbonding_delegation_queue_entries =
       object.unbonding_delegation_queue_entries?.map((e) =>
         UnbondingDelegationQueueEntry.fromPartial(e)
+      ) || [];
+    message.redelegation_cooldown_list =
+      object.redelegation_cooldown_list?.map((e) =>
+        RedelegationCooldown.fromPartial(e)
       ) || [];
     return message;
   },

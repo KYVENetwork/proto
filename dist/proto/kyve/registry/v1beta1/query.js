@@ -26,8 +26,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.StakerDelegatorResponse = exports.QueryDelegatorResponse = exports.QueryDelegatorRequest = exports.DelegatorResponse = exports.QueryAccountDelegationListResponse = exports.QueryAccountDelegationListRequest = exports.Staked = exports.QueryAccountStakedListResponse = exports.QueryAccountStakedListRequest = exports.Funded = exports.QueryAccountFundedListResponse = exports.QueryAccountFundedListRequest = exports.DelegationUnbonding = exports.QueryAccountDelegationUnbondingsResponse = exports.QueryAccountDelegationUnbondingsRequest = exports.StakingUnbonding = exports.QueryAccountStakingUnbondingsResponse = exports.QueryAccountStakingUnbondingsRequest = exports.QueryAccountAssetsResponse = exports.QueryAccountAssetsRequest = exports.QueryStakeInfoResponse = exports.QueryStakeInfoRequest = exports.QueryCanVoteResponse = exports.QueryCanVoteRequest = exports.QueryCanProposeResponse = exports.QueryCanProposeRequest = exports.QueryProposalSinceFinalizedAtResponse = exports.QueryProposalSinceFinalizedAtRequest = exports.QueryProposalByHeightResponse = exports.QueryProposalByHeightRequest = exports.QueryProposalsResponse = exports.QueryProposalsRequest = exports.QueryProposalResponse = exports.QueryProposalRequest = exports.StakerResponse = exports.QueryStakerResponse = exports.QueryStakerRequest = exports.QueryStakersListResponse = exports.QueryStakersListRequest = exports.QueryFunderResponse = exports.QueryFunderRequest = exports.QueryFundersListResponse = exports.QueryFundersListRequest = exports.QueryPoolsResponse = exports.QueryPoolsRequest = exports.QueryPoolResponse = exports.QueryPoolRequest = exports.QueryParamsResponse = exports.QueryParamsRequest = exports.protobufPackage = void 0;
-exports.QueryClientImpl = exports.DelegationForStakerResponse = exports.QueryStakersByPoolAndDelegatorResponse = exports.QueryStakersByPoolAndDelegatorRequest = exports.QueryDelegatorsByPoolAndStakerResponse = exports.QueryDelegatorsByPoolAndStakerRequest = void 0;
+exports.QueryAccountDelegationListRequest = exports.Staked = exports.QueryAccountStakedListResponse = exports.QueryAccountStakedListRequest = exports.Funded = exports.QueryAccountFundedListResponse = exports.QueryAccountFundedListRequest = exports.DelegationUnbonding = exports.QueryAccountDelegationUnbondingsResponse = exports.QueryAccountDelegationUnbondingsRequest = exports.StakingUnbonding = exports.QueryAccountStakingUnbondingsResponse = exports.QueryAccountStakingUnbondingsRequest = exports.QueryAccountAssetsResponse = exports.QueryAccountAssetsRequest = exports.QueryStakeInfoResponse = exports.QueryStakeInfoRequest = exports.QueryCanVoteResponse = exports.QueryCanVoteRequest = exports.QueryCanProposeResponse = exports.QueryCanProposeRequest = exports.QueryProposalSinceIdResponse = exports.QueryProposalSinceIdRequest = exports.QueryProposalSinceFinalizedAtResponse = exports.QueryProposalSinceFinalizedAtRequest = exports.QueryProposalByHeightResponse = exports.QueryProposalByHeightRequest = exports.QueryProposalsResponse = exports.QueryProposalsRequest = exports.QueryProposalResponse = exports.QueryProposalRequest = exports.VoteStatusResponse = exports.QueryVoteStatusResponse = exports.QueryVoteStatusRequest = exports.StakerResponse = exports.QueryStakerResponse = exports.QueryStakerRequest = exports.QueryStakersListResponse = exports.QueryStakersListRequest = exports.QueryFunderResponse = exports.QueryFunderRequest = exports.QueryFundersListResponse = exports.QueryFundersListRequest = exports.QueryPoolsResponse = exports.QueryPoolsRequest = exports.QueryPoolResponse = exports.QueryPoolRequest = exports.QueryParamsResponse = exports.QueryParamsRequest = exports.protobufPackage = void 0;
+exports.QueryClientImpl = exports.DelegationForStakerResponse = exports.QueryStakersByPoolAndDelegatorResponse = exports.QueryStakersByPoolAndDelegatorRequest = exports.QueryDelegatorsByPoolAndStakerResponse = exports.QueryDelegatorsByPoolAndStakerRequest = exports.StakerDelegatorResponse = exports.QueryDelegatorResponse = exports.QueryDelegatorRequest = exports.QueryAccountRedelegationResponse = exports.QueryAccountRedelegationRequest = exports.DelegatorResponse = exports.QueryAccountDelegationListResponse = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -935,6 +935,175 @@ exports.StakerResponse = {
         return message;
     }
 };
+function createBaseQueryVoteStatusRequest() {
+    return { pool_id: "0" };
+}
+exports.QueryVoteStatusRequest = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.pool_id !== "0") {
+            writer.uint32(8).uint64(message.pool_id);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseQueryVoteStatusRequest();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.pool_id = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a;
+        var message = createBaseQueryVoteStatusRequest();
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
+        return message;
+    }
+};
+function createBaseQueryVoteStatusResponse() {
+    return { vote_status: undefined };
+}
+exports.QueryVoteStatusResponse = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.vote_status !== undefined) {
+            exports.VoteStatusResponse.encode(message.vote_status, writer.uint32(10).fork()).ldelim();
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseQueryVoteStatusResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.vote_status = exports.VoteStatusResponse.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            vote_status: isSet(object.vote_status)
+                ? exports.VoteStatusResponse.fromJSON(object.vote_status)
+                : undefined
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.vote_status !== undefined &&
+            (obj.vote_status = message.vote_status
+                ? exports.VoteStatusResponse.toJSON(message.vote_status)
+                : undefined);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var message = createBaseQueryVoteStatusResponse();
+        message.vote_status =
+            object.vote_status !== undefined && object.vote_status !== null
+                ? exports.VoteStatusResponse.fromPartial(object.vote_status)
+                : undefined;
+        return message;
+    }
+};
+function createBaseVoteStatusResponse() {
+    return { valid: "0", invalid: "0", abstain: "0", total: "0" };
+}
+exports.VoteStatusResponse = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.valid !== "0") {
+            writer.uint32(8).uint64(message.valid);
+        }
+        if (message.invalid !== "0") {
+            writer.uint32(16).uint64(message.invalid);
+        }
+        if (message.abstain !== "0") {
+            writer.uint32(24).uint64(message.abstain);
+        }
+        if (message.total !== "0") {
+            writer.uint32(32).uint64(message.total);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseVoteStatusResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.valid = longToString(reader.uint64());
+                    break;
+                case 2:
+                    message.invalid = longToString(reader.uint64());
+                    break;
+                case 3:
+                    message.abstain = longToString(reader.uint64());
+                    break;
+                case 4:
+                    message.total = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            valid: isSet(object.valid) ? String(object.valid) : "0",
+            invalid: isSet(object.invalid) ? String(object.invalid) : "0",
+            abstain: isSet(object.abstain) ? String(object.abstain) : "0",
+            total: isSet(object.total) ? String(object.total) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.valid !== undefined && (obj.valid = message.valid);
+        message.invalid !== undefined && (obj.invalid = message.invalid);
+        message.abstain !== undefined && (obj.abstain = message.abstain);
+        message.total !== undefined && (obj.total = message.total);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c, _d;
+        var message = createBaseVoteStatusResponse();
+        message.valid = (_a = object.valid) !== null && _a !== void 0 ? _a : "0";
+        message.invalid = (_b = object.invalid) !== null && _b !== void 0 ? _b : "0";
+        message.abstain = (_c = object.abstain) !== null && _c !== void 0 ? _c : "0";
+        message.total = (_d = object.total) !== null && _d !== void 0 ? _d : "0";
+        return message;
+    }
+};
 function createBaseQueryProposalRequest() {
     return { storage_id: "" };
 }
@@ -1411,6 +1580,150 @@ exports.QueryProposalSinceFinalizedAtResponse = {
     fromPartial: function (object) {
         var _a;
         var message = createBaseQueryProposalSinceFinalizedAtResponse();
+        message.proposals =
+            ((_a = object.proposals) === null || _a === void 0 ? void 0 : _a.map(function (e) { return registry_1.Proposal.fromPartial(e); })) || [];
+        message.pagination =
+            object.pagination !== undefined && object.pagination !== null
+                ? pagination_1.PageResponse.fromPartial(object.pagination)
+                : undefined;
+        return message;
+    }
+};
+function createBaseQueryProposalSinceIdRequest() {
+    return { pagination: undefined, pool_id: "0", id: "0" };
+}
+exports.QueryProposalSinceIdRequest = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.pagination !== undefined) {
+            pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+        }
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
+        }
+        if (message.id !== "0") {
+            writer.uint32(24).uint64(message.id);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseQueryProposalSinceIdRequest();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
+                    break;
+                case 2:
+                    message.pool_id = longToString(reader.uint64());
+                    break;
+                case 3:
+                    message.id = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            pagination: isSet(object.pagination)
+                ? pagination_1.PageRequest.fromJSON(object.pagination)
+                : undefined,
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+            id: isSet(object.id) ? String(object.id) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.pagination !== undefined &&
+            (obj.pagination = message.pagination
+                ? pagination_1.PageRequest.toJSON(message.pagination)
+                : undefined);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        message.id !== undefined && (obj.id = message.id);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b;
+        var message = createBaseQueryProposalSinceIdRequest();
+        message.pagination =
+            object.pagination !== undefined && object.pagination !== null
+                ? pagination_1.PageRequest.fromPartial(object.pagination)
+                : undefined;
+        message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
+        return message;
+    }
+};
+function createBaseQueryProposalSinceIdResponse() {
+    return { proposals: [], pagination: undefined };
+}
+exports.QueryProposalSinceIdResponse = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        for (var _i = 0, _a = message.proposals; _i < _a.length; _i++) {
+            var v = _a[_i];
+            registry_1.Proposal.encode(v, writer.uint32(10).fork()).ldelim();
+        }
+        if (message.pagination !== undefined) {
+            pagination_1.PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseQueryProposalSinceIdResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.proposals.push(registry_1.Proposal.decode(reader, reader.uint32()));
+                    break;
+                case 2:
+                    message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            proposals: Array.isArray(object === null || object === void 0 ? void 0 : object.proposals)
+                ? object.proposals.map(function (e) { return registry_1.Proposal.fromJSON(e); })
+                : [],
+            pagination: isSet(object.pagination)
+                ? pagination_1.PageResponse.fromJSON(object.pagination)
+                : undefined
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        if (message.proposals) {
+            obj.proposals = message.proposals.map(function (e) {
+                return e ? registry_1.Proposal.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.proposals = [];
+        }
+        message.pagination !== undefined &&
+            (obj.pagination = message.pagination
+                ? pagination_1.PageResponse.toJSON(message.pagination)
+                : undefined);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a;
+        var message = createBaseQueryProposalSinceIdResponse();
         message.proposals =
             ((_a = object.proposals) === null || _a === void 0 ? void 0 : _a.map(function (e) { return registry_1.Proposal.fromPartial(e); })) || [];
         message.pagination =
@@ -3086,6 +3399,116 @@ exports.DelegatorResponse = {
         return message;
     }
 };
+function createBaseQueryAccountRedelegationRequest() {
+    return { address: "" };
+}
+exports.QueryAccountRedelegationRequest = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.address !== "") {
+            writer.uint32(10).string(message.address);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseQueryAccountRedelegationRequest();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.address = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            address: isSet(object.address) ? String(object.address) : ""
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.address !== undefined && (obj.address = message.address);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a;
+        var message = createBaseQueryAccountRedelegationRequest();
+        message.address = (_a = object.address) !== null && _a !== void 0 ? _a : "";
+        return message;
+    }
+};
+function createBaseQueryAccountRedelegationResponse() {
+    return { redelegation_cooldown_entries: [] };
+}
+exports.QueryAccountRedelegationResponse = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        writer.uint32(10).fork();
+        for (var _i = 0, _a = message.redelegation_cooldown_entries; _i < _a.length; _i++) {
+            var v = _a[_i];
+            writer.uint64(v);
+        }
+        writer.ldelim();
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseQueryAccountRedelegationResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2) {
+                            message.redelegation_cooldown_entries.push(longToString(reader.uint64()));
+                        }
+                    }
+                    else {
+                        message.redelegation_cooldown_entries.push(longToString(reader.uint64()));
+                    }
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            redelegation_cooldown_entries: Array.isArray(object === null || object === void 0 ? void 0 : object.redelegation_cooldown_entries)
+                ? object.redelegation_cooldown_entries.map(function (e) { return String(e); })
+                : []
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        if (message.redelegation_cooldown_entries) {
+            obj.redelegation_cooldown_entries =
+                message.redelegation_cooldown_entries.map(function (e) { return e; });
+        }
+        else {
+            obj.redelegation_cooldown_entries = [];
+        }
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a;
+        var message = createBaseQueryAccountRedelegationResponse();
+        message.redelegation_cooldown_entries =
+            ((_a = object.redelegation_cooldown_entries) === null || _a === void 0 ? void 0 : _a.map(function (e) { return e; })) || [];
+        return message;
+    }
+};
 function createBaseQueryDelegatorRequest() {
     return { pool_id: "0", staker: "", delegator: "" };
 }
@@ -3743,10 +4166,12 @@ var QueryClientImpl = /** @class */ (function () {
         this.Funder = this.Funder.bind(this);
         this.StakersList = this.StakersList.bind(this);
         this.Staker = this.Staker.bind(this);
+        this.VoteStatus = this.VoteStatus.bind(this);
         this.Proposal = this.Proposal.bind(this);
         this.Proposals = this.Proposals.bind(this);
         this.ProposalByHeight = this.ProposalByHeight.bind(this);
         this.ProposalSinceFinalizedAt = this.ProposalSinceFinalizedAt.bind(this);
+        this.ProposalSinceId = this.ProposalSinceId.bind(this);
         this.CanPropose = this.CanPropose.bind(this);
         this.CanVote = this.CanVote.bind(this);
         this.StakeInfo = this.StakeInfo.bind(this);
@@ -3757,6 +4182,7 @@ var QueryClientImpl = /** @class */ (function () {
         this.AccountFundedList = this.AccountFundedList.bind(this);
         this.AccountStakedList = this.AccountStakedList.bind(this);
         this.AccountDelegationList = this.AccountDelegationList.bind(this);
+        this.AccountRedelegation = this.AccountRedelegation.bind(this);
         this.Delegator = this.Delegator.bind(this);
         this.DelegatorsByPoolAndStaker = this.DelegatorsByPoolAndStaker.bind(this);
         this.StakersByPoolAndDelegator = this.StakersByPoolAndDelegator.bind(this);
@@ -3810,6 +4236,13 @@ var QueryClientImpl = /** @class */ (function () {
             return exports.QueryStakerResponse.decode(new _m0.Reader(data));
         });
     };
+    QueryClientImpl.prototype.VoteStatus = function (request) {
+        var data = exports.QueryVoteStatusRequest.encode(request).finish();
+        var promise = this.rpc.request("kyve.registry.v1beta1.Query", "VoteStatus", data);
+        return promise.then(function (data) {
+            return exports.QueryVoteStatusResponse.decode(new _m0.Reader(data));
+        });
+    };
     QueryClientImpl.prototype.Proposal = function (request) {
         var data = exports.QueryProposalRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Proposal", data);
@@ -3836,6 +4269,13 @@ var QueryClientImpl = /** @class */ (function () {
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "ProposalSinceFinalizedAt", data);
         return promise.then(function (data) {
             return exports.QueryProposalSinceFinalizedAtResponse.decode(new _m0.Reader(data));
+        });
+    };
+    QueryClientImpl.prototype.ProposalSinceId = function (request) {
+        var data = exports.QueryProposalSinceIdRequest.encode(request).finish();
+        var promise = this.rpc.request("kyve.registry.v1beta1.Query", "ProposalSinceId", data);
+        return promise.then(function (data) {
+            return exports.QueryProposalSinceIdResponse.decode(new _m0.Reader(data));
         });
     };
     QueryClientImpl.prototype.CanPropose = function (request) {
@@ -3899,6 +4339,13 @@ var QueryClientImpl = /** @class */ (function () {
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountDelegationList", data);
         return promise.then(function (data) {
             return exports.QueryAccountDelegationListResponse.decode(new _m0.Reader(data));
+        });
+    };
+    QueryClientImpl.prototype.AccountRedelegation = function (request) {
+        var data = exports.QueryAccountRedelegationRequest.encode(request).finish();
+        var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountRedelegation", data);
+        return promise.then(function (data) {
+            return exports.QueryAccountRedelegationResponse.decode(new _m0.Reader(data));
         });
     };
     QueryClientImpl.prototype.Delegator = function (request) {

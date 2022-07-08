@@ -36,6 +36,8 @@ export interface CreatePoolProposal {
   binaries: string;
   /** start_key ... */
   start_key: string;
+  /** min_stake ... */
+  min_stake: string;
 }
 
 /** UpdatePoolProposal is a gov Content type for updating a pool. */
@@ -66,6 +68,8 @@ export interface UpdatePoolProposal {
   operating_cost: string;
   /** max_bundle_size ... */
   max_bundle_size: string;
+  /** min_stake ... */
+  min_stake: string;
 }
 
 /** PausePoolProposal is a gov Content type for pausing a pool. */
@@ -143,6 +147,7 @@ function createBaseCreatePoolProposal(): CreatePoolProposal {
     max_bundle_size: "0",
     binaries: "",
     start_key: "",
+    min_stake: "0",
   };
 }
 
@@ -189,6 +194,9 @@ export const CreatePoolProposal = {
     }
     if (message.start_key !== "") {
       writer.uint32(106).string(message.start_key);
+    }
+    if (message.min_stake !== "0") {
+      writer.uint32(112).uint64(message.min_stake);
     }
     return writer;
   },
@@ -239,6 +247,9 @@ export const CreatePoolProposal = {
         case 13:
           message.start_key = reader.string();
           break;
+        case 14:
+          message.min_stake = longToString(reader.uint64() as Long);
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -270,6 +281,7 @@ export const CreatePoolProposal = {
         : "0",
       binaries: isSet(object.binaries) ? String(object.binaries) : "",
       start_key: isSet(object.start_key) ? String(object.start_key) : "",
+      min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0",
     };
   },
 
@@ -293,6 +305,7 @@ export const CreatePoolProposal = {
       (obj.max_bundle_size = message.max_bundle_size);
     message.binaries !== undefined && (obj.binaries = message.binaries);
     message.start_key !== undefined && (obj.start_key = message.start_key);
+    message.min_stake !== undefined && (obj.min_stake = message.min_stake);
     return obj;
   },
 
@@ -313,6 +326,7 @@ export const CreatePoolProposal = {
     message.max_bundle_size = object.max_bundle_size ?? "0";
     message.binaries = object.binaries ?? "";
     message.start_key = object.start_key ?? "";
+    message.min_stake = object.min_stake ?? "0";
     return message;
   },
 };
@@ -330,6 +344,7 @@ function createBaseUpdatePoolProposal(): UpdatePoolProposal {
     upload_interval: "0",
     operating_cost: "0",
     max_bundle_size: "0",
+    min_stake: "0",
   };
 }
 
@@ -370,6 +385,9 @@ export const UpdatePoolProposal = {
     }
     if (message.max_bundle_size !== "0") {
       writer.uint32(88).uint64(message.max_bundle_size);
+    }
+    if (message.min_stake !== "0") {
+      writer.uint32(96).uint64(message.min_stake);
     }
     return writer;
   },
@@ -414,6 +432,9 @@ export const UpdatePoolProposal = {
         case 11:
           message.max_bundle_size = longToString(reader.uint64() as Long);
           break;
+        case 12:
+          message.min_stake = longToString(reader.uint64() as Long);
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -441,6 +462,7 @@ export const UpdatePoolProposal = {
       max_bundle_size: isSet(object.max_bundle_size)
         ? String(object.max_bundle_size)
         : "0",
+      min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0",
     };
   },
 
@@ -461,6 +483,7 @@ export const UpdatePoolProposal = {
       (obj.operating_cost = message.operating_cost);
     message.max_bundle_size !== undefined &&
       (obj.max_bundle_size = message.max_bundle_size);
+    message.min_stake !== undefined && (obj.min_stake = message.min_stake);
     return obj;
   },
 
@@ -479,6 +502,7 @@ export const UpdatePoolProposal = {
     message.upload_interval = object.upload_interval ?? "0";
     message.operating_cost = object.operating_cost ?? "0";
     message.max_bundle_size = object.max_bundle_size ?? "0";
+    message.min_stake = object.min_stake ?? "0";
     return message;
   },
 };

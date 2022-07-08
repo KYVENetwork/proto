@@ -136,6 +136,30 @@ export interface StakerResponse {
   upload_probability: string;
 }
 
+/** QueryVoteStatusRequest is the request type for the Query/VoteStatus RPC method. */
+export interface QueryVoteStatusRequest {
+  /** pool_id defines the unique ID of the pool. */
+  pool_id: string;
+}
+
+/** QueryVoteStatusResponse is the response type for the Query/VoteStatus RPC method. */
+export interface QueryVoteStatusResponse {
+  /** staker ... */
+  vote_status?: VoteStatusResponse;
+}
+
+/** VoteStatusResponse ... */
+export interface VoteStatusResponse {
+  /** valid ... */
+  valid: string;
+  /** invalid ... */
+  invalid: string;
+  /** abstain ... */
+  abstain: string;
+  /** total ... */
+  total: string;
+}
+
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
   /** storage_id ... */
@@ -190,6 +214,24 @@ export interface QueryProposalSinceFinalizedAtRequest {
 
 /** QueryProposalByFinalizedAtResponse ... */
 export interface QueryProposalSinceFinalizedAtResponse {
+  /** proposal ... */
+  proposals: Proposal[];
+  /** pagination defines the pagination in the response. */
+  pagination?: PageResponse;
+}
+
+/** QueryProposalSinceIdRequest ... */
+export interface QueryProposalSinceIdRequest {
+  /** pagination defines an optional pagination for the request. */
+  pagination?: PageRequest;
+  /** pool_id ... */
+  pool_id: string;
+  /** height ... */
+  id: string;
+}
+
+/** QueryProposalSinceIdResponse ... */
+export interface QueryProposalSinceIdResponse {
   /** proposal ... */
   proposals: Proposal[];
   /** pagination defines the pagination in the response. */
@@ -418,6 +460,18 @@ export interface DelegatorResponse {
   staker: string;
   /** delegation_pool_data ... */
   delegation_pool_data?: DelegationPoolData;
+}
+
+/** QueryAccountDelegationListRequest ... */
+export interface QueryAccountRedelegationRequest {
+  /** address ... */
+  address: string;
+}
+
+/** QueryAccountDelegationListRequest is the response type for the Query/AccountDelegationList RPC method. */
+export interface QueryAccountRedelegationResponse {
+  /** redelegation_cooldown_entries ... */
+  redelegation_cooldown_entries: string[];
 }
 
 /** QueryDelegatorRequest is the request type for the Query/Delegator RPC method. */
@@ -1555,6 +1609,215 @@ export const StakerResponse = {
   },
 };
 
+function createBaseQueryVoteStatusRequest(): QueryVoteStatusRequest {
+  return { pool_id: "0" };
+}
+
+export const QueryVoteStatusRequest = {
+  encode(
+    message: QueryVoteStatusRequest,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): QueryVoteStatusRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryVoteStatusRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryVoteStatusRequest {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+    };
+  },
+
+  toJSON(message: QueryVoteStatusRequest): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryVoteStatusRequest>, I>>(
+    object: I
+  ): QueryVoteStatusRequest {
+    const message = createBaseQueryVoteStatusRequest();
+    message.pool_id = object.pool_id ?? "0";
+    return message;
+  },
+};
+
+function createBaseQueryVoteStatusResponse(): QueryVoteStatusResponse {
+  return { vote_status: undefined };
+}
+
+export const QueryVoteStatusResponse = {
+  encode(
+    message: QueryVoteStatusResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.vote_status !== undefined) {
+      VoteStatusResponse.encode(
+        message.vote_status,
+        writer.uint32(10).fork()
+      ).ldelim();
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): QueryVoteStatusResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryVoteStatusResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.vote_status = VoteStatusResponse.decode(
+            reader,
+            reader.uint32()
+          );
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryVoteStatusResponse {
+    return {
+      vote_status: isSet(object.vote_status)
+        ? VoteStatusResponse.fromJSON(object.vote_status)
+        : undefined,
+    };
+  },
+
+  toJSON(message: QueryVoteStatusResponse): unknown {
+    const obj: any = {};
+    message.vote_status !== undefined &&
+      (obj.vote_status = message.vote_status
+        ? VoteStatusResponse.toJSON(message.vote_status)
+        : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryVoteStatusResponse>, I>>(
+    object: I
+  ): QueryVoteStatusResponse {
+    const message = createBaseQueryVoteStatusResponse();
+    message.vote_status =
+      object.vote_status !== undefined && object.vote_status !== null
+        ? VoteStatusResponse.fromPartial(object.vote_status)
+        : undefined;
+    return message;
+  },
+};
+
+function createBaseVoteStatusResponse(): VoteStatusResponse {
+  return { valid: "0", invalid: "0", abstain: "0", total: "0" };
+}
+
+export const VoteStatusResponse = {
+  encode(
+    message: VoteStatusResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.valid !== "0") {
+      writer.uint32(8).uint64(message.valid);
+    }
+    if (message.invalid !== "0") {
+      writer.uint32(16).uint64(message.invalid);
+    }
+    if (message.abstain !== "0") {
+      writer.uint32(24).uint64(message.abstain);
+    }
+    if (message.total !== "0") {
+      writer.uint32(32).uint64(message.total);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): VoteStatusResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseVoteStatusResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.valid = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.invalid = longToString(reader.uint64() as Long);
+          break;
+        case 3:
+          message.abstain = longToString(reader.uint64() as Long);
+          break;
+        case 4:
+          message.total = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): VoteStatusResponse {
+    return {
+      valid: isSet(object.valid) ? String(object.valid) : "0",
+      invalid: isSet(object.invalid) ? String(object.invalid) : "0",
+      abstain: isSet(object.abstain) ? String(object.abstain) : "0",
+      total: isSet(object.total) ? String(object.total) : "0",
+    };
+  },
+
+  toJSON(message: VoteStatusResponse): unknown {
+    const obj: any = {};
+    message.valid !== undefined && (obj.valid = message.valid);
+    message.invalid !== undefined && (obj.invalid = message.invalid);
+    message.abstain !== undefined && (obj.abstain = message.abstain);
+    message.total !== undefined && (obj.total = message.total);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<VoteStatusResponse>, I>>(
+    object: I
+  ): VoteStatusResponse {
+    const message = createBaseVoteStatusResponse();
+    message.valid = object.valid ?? "0";
+    message.invalid = object.invalid ?? "0";
+    message.abstain = object.abstain ?? "0";
+    message.total = object.total ?? "0";
+    return message;
+  },
+};
+
 function createBaseQueryProposalRequest(): QueryProposalRequest {
   return { storage_id: "" };
 }
@@ -2130,6 +2393,175 @@ export const QueryProposalSinceFinalizedAtResponse = {
     I extends Exact<DeepPartial<QueryProposalSinceFinalizedAtResponse>, I>
   >(object: I): QueryProposalSinceFinalizedAtResponse {
     const message = createBaseQueryProposalSinceFinalizedAtResponse();
+    message.proposals =
+      object.proposals?.map((e) => Proposal.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
+    return message;
+  },
+};
+
+function createBaseQueryProposalSinceIdRequest(): QueryProposalSinceIdRequest {
+  return { pagination: undefined, pool_id: "0", id: "0" };
+}
+
+export const QueryProposalSinceIdRequest = {
+  encode(
+    message: QueryProposalSinceIdRequest,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pool_id !== "0") {
+      writer.uint32(16).uint64(message.pool_id);
+    }
+    if (message.id !== "0") {
+      writer.uint32(24).uint64(message.id);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): QueryProposalSinceIdRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryProposalSinceIdRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 3:
+          message.id = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryProposalSinceIdRequest {
+    return {
+      pagination: isSet(object.pagination)
+        ? PageRequest.fromJSON(object.pagination)
+        : undefined,
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      id: isSet(object.id) ? String(object.id) : "0",
+    };
+  },
+
+  toJSON(message: QueryProposalSinceIdRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination
+        ? PageRequest.toJSON(message.pagination)
+        : undefined);
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.id !== undefined && (obj.id = message.id);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryProposalSinceIdRequest>, I>>(
+    object: I
+  ): QueryProposalSinceIdRequest {
+    const message = createBaseQueryProposalSinceIdRequest();
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
+    message.pool_id = object.pool_id ?? "0";
+    message.id = object.id ?? "0";
+    return message;
+  },
+};
+
+function createBaseQueryProposalSinceIdResponse(): QueryProposalSinceIdResponse {
+  return { proposals: [], pagination: undefined };
+}
+
+export const QueryProposalSinceIdResponse = {
+  encode(
+    message: QueryProposalSinceIdResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    for (const v of message.proposals) {
+      Proposal.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork()
+      ).ldelim();
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): QueryProposalSinceIdResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryProposalSinceIdResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.proposals.push(Proposal.decode(reader, reader.uint32()));
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryProposalSinceIdResponse {
+    return {
+      proposals: Array.isArray(object?.proposals)
+        ? object.proposals.map((e: any) => Proposal.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination)
+        ? PageResponse.fromJSON(object.pagination)
+        : undefined,
+    };
+  },
+
+  toJSON(message: QueryProposalSinceIdResponse): unknown {
+    const obj: any = {};
+    if (message.proposals) {
+      obj.proposals = message.proposals.map((e) =>
+        e ? Proposal.toJSON(e) : undefined
+      );
+    } else {
+      obj.proposals = [];
+    }
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination
+        ? PageResponse.toJSON(message.pagination)
+        : undefined);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryProposalSinceIdResponse>, I>>(
+    object: I
+  ): QueryProposalSinceIdResponse {
+    const message = createBaseQueryProposalSinceIdResponse();
     message.proposals =
       object.proposals?.map((e) => Proposal.fromPartial(e)) || [];
     message.pagination =
@@ -4081,6 +4513,143 @@ export const DelegatorResponse = {
   },
 };
 
+function createBaseQueryAccountRedelegationRequest(): QueryAccountRedelegationRequest {
+  return { address: "" };
+}
+
+export const QueryAccountRedelegationRequest = {
+  encode(
+    message: QueryAccountRedelegationRequest,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.address !== "") {
+      writer.uint32(10).string(message.address);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): QueryAccountRedelegationRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAccountRedelegationRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.address = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAccountRedelegationRequest {
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+    };
+  },
+
+  toJSON(message: QueryAccountRedelegationRequest): unknown {
+    const obj: any = {};
+    message.address !== undefined && (obj.address = message.address);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryAccountRedelegationRequest>, I>>(
+    object: I
+  ): QueryAccountRedelegationRequest {
+    const message = createBaseQueryAccountRedelegationRequest();
+    message.address = object.address ?? "";
+    return message;
+  },
+};
+
+function createBaseQueryAccountRedelegationResponse(): QueryAccountRedelegationResponse {
+  return { redelegation_cooldown_entries: [] };
+}
+
+export const QueryAccountRedelegationResponse = {
+  encode(
+    message: QueryAccountRedelegationResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    writer.uint32(10).fork();
+    for (const v of message.redelegation_cooldown_entries) {
+      writer.uint64(v);
+    }
+    writer.ldelim();
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): QueryAccountRedelegationResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQueryAccountRedelegationResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.redelegation_cooldown_entries.push(
+                longToString(reader.uint64() as Long)
+              );
+            }
+          } else {
+            message.redelegation_cooldown_entries.push(
+              longToString(reader.uint64() as Long)
+            );
+          }
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryAccountRedelegationResponse {
+    return {
+      redelegation_cooldown_entries: Array.isArray(
+        object?.redelegation_cooldown_entries
+      )
+        ? object.redelegation_cooldown_entries.map((e: any) => String(e))
+        : [],
+    };
+  },
+
+  toJSON(message: QueryAccountRedelegationResponse): unknown {
+    const obj: any = {};
+    if (message.redelegation_cooldown_entries) {
+      obj.redelegation_cooldown_entries =
+        message.redelegation_cooldown_entries.map((e) => e);
+    } else {
+      obj.redelegation_cooldown_entries = [];
+    }
+    return obj;
+  },
+
+  fromPartial<
+    I extends Exact<DeepPartial<QueryAccountRedelegationResponse>, I>
+  >(object: I): QueryAccountRedelegationResponse {
+    const message = createBaseQueryAccountRedelegationResponse();
+    message.redelegation_cooldown_entries =
+      object.redelegation_cooldown_entries?.map((e) => e) || [];
+    return message;
+  },
+};
+
 function createBaseQueryDelegatorRequest(): QueryDelegatorRequest {
   return { pool_id: "0", staker: "", delegator: "" };
 }
@@ -4865,6 +5434,8 @@ export interface Query {
   ): Promise<QueryStakersListResponse>;
   /** Staker returns all staker info */
   Staker(request: QueryStakerRequest): Promise<QueryStakerResponse>;
+  /** VoteStatus returns all vote info */
+  VoteStatus(request: QueryVoteStatusRequest): Promise<QueryVoteStatusResponse>;
   /** Proposal ... */
   Proposal(request: QueryProposalRequest): Promise<QueryProposalResponse>;
   /**
@@ -4877,10 +5448,14 @@ export interface Query {
   ProposalByHeight(
     request: QueryProposalByHeightRequest
   ): Promise<QueryProposalByHeightResponse>;
-  /** ProposalByHeight ... */
+  /** ProposalSinceFinalizedAt ... */
   ProposalSinceFinalizedAt(
     request: QueryProposalSinceFinalizedAtRequest
   ): Promise<QueryProposalSinceFinalizedAtResponse>;
+  /** ProposalSinceId ... */
+  ProposalSinceId(
+    request: QueryProposalSinceIdRequest
+  ): Promise<QueryProposalSinceIdResponse>;
   /** CanPropose ... */
   CanPropose(request: QueryCanProposeRequest): Promise<QueryCanProposeResponse>;
   /** CanVote checks if voter on pool can still vote for the given bundle */
@@ -4911,6 +5486,10 @@ export interface Query {
   AccountDelegationList(
     request: QueryAccountDelegationListRequest
   ): Promise<QueryAccountDelegationListResponse>;
+  /** AccountRedelegation ... */
+  AccountRedelegation(
+    request: QueryAccountRedelegationRequest
+  ): Promise<QueryAccountRedelegationResponse>;
   /** Delegator returns all delegation info */
   Delegator(request: QueryDelegatorRequest): Promise<QueryDelegatorResponse>;
   /** DelegatorsByPoolAndStaker ... */
@@ -4934,10 +5513,12 @@ export class QueryClientImpl implements Query {
     this.Funder = this.Funder.bind(this);
     this.StakersList = this.StakersList.bind(this);
     this.Staker = this.Staker.bind(this);
+    this.VoteStatus = this.VoteStatus.bind(this);
     this.Proposal = this.Proposal.bind(this);
     this.Proposals = this.Proposals.bind(this);
     this.ProposalByHeight = this.ProposalByHeight.bind(this);
     this.ProposalSinceFinalizedAt = this.ProposalSinceFinalizedAt.bind(this);
+    this.ProposalSinceId = this.ProposalSinceId.bind(this);
     this.CanPropose = this.CanPropose.bind(this);
     this.CanVote = this.CanVote.bind(this);
     this.StakeInfo = this.StakeInfo.bind(this);
@@ -4948,6 +5529,7 @@ export class QueryClientImpl implements Query {
     this.AccountFundedList = this.AccountFundedList.bind(this);
     this.AccountStakedList = this.AccountStakedList.bind(this);
     this.AccountDelegationList = this.AccountDelegationList.bind(this);
+    this.AccountRedelegation = this.AccountRedelegation.bind(this);
     this.Delegator = this.Delegator.bind(this);
     this.DelegatorsByPoolAndStaker = this.DelegatorsByPoolAndStaker.bind(this);
     this.StakersByPoolAndDelegator = this.StakersByPoolAndDelegator.bind(this);
@@ -5040,6 +5622,20 @@ export class QueryClientImpl implements Query {
     );
   }
 
+  VoteStatus(
+    request: QueryVoteStatusRequest
+  ): Promise<QueryVoteStatusResponse> {
+    const data = QueryVoteStatusRequest.encode(request).finish();
+    const promise = this.rpc.request(
+      "kyve.registry.v1beta1.Query",
+      "VoteStatus",
+      data
+    );
+    return promise.then((data) =>
+      QueryVoteStatusResponse.decode(new _m0.Reader(data))
+    );
+  }
+
   Proposal(request: QueryProposalRequest): Promise<QueryProposalResponse> {
     const data = QueryProposalRequest.encode(request).finish();
     const promise = this.rpc.request(
@@ -5089,6 +5685,20 @@ export class QueryClientImpl implements Query {
     );
     return promise.then((data) =>
       QueryProposalSinceFinalizedAtResponse.decode(new _m0.Reader(data))
+    );
+  }
+
+  ProposalSinceId(
+    request: QueryProposalSinceIdRequest
+  ): Promise<QueryProposalSinceIdResponse> {
+    const data = QueryProposalSinceIdRequest.encode(request).finish();
+    const promise = this.rpc.request(
+      "kyve.registry.v1beta1.Query",
+      "ProposalSinceId",
+      data
+    );
+    return promise.then((data) =>
+      QueryProposalSinceIdResponse.decode(new _m0.Reader(data))
     );
   }
 
@@ -5212,6 +5822,20 @@ export class QueryClientImpl implements Query {
     );
     return promise.then((data) =>
       QueryAccountDelegationListResponse.decode(new _m0.Reader(data))
+    );
+  }
+
+  AccountRedelegation(
+    request: QueryAccountRedelegationRequest
+  ): Promise<QueryAccountRedelegationResponse> {
+    const data = QueryAccountRedelegationRequest.encode(request).finish();
+    const promise = this.rpc.request(
+      "kyve.registry.v1beta1.Query",
+      "AccountRedelegation",
+      data
+    );
+    return promise.then((data) =>
+      QueryAccountRedelegationResponse.decode(new _m0.Reader(data))
     );
   }
 

@@ -1,6 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
 import { Params } from "../../../kyve/registry/v1beta1/params";
-import { UnbondingStakingQueueState, UnbondingDelegationQueueState, Pool, Funder, Staker, Delegator, DelegationPoolData, DelegationEntries, Proposal, UnbondingStakingQueueEntry, UnbondingStaker, UnbondingDelegationQueueEntry } from "../../../kyve/registry/v1beta1/registry";
+import { UnbondingStakingQueueState, UnbondingDelegationQueueState, Pool, Funder, Staker, Delegator, DelegationPoolData, DelegationEntries, Proposal, UnbondingStakingQueueEntry, UnbondingStaker, UnbondingDelegationQueueEntry, RedelegationCooldown } from "../../../kyve/registry/v1beta1/registry";
 export declare const protobufPackage = "kyve.registry.v1beta1";
 /** GenesisState defines the registry module's genesis state. */
 export interface GenesisState {
@@ -32,6 +32,8 @@ export interface GenesisState {
     unbonding_delegation_queue_state?: UnbondingDelegationQueueState;
     /** unbonding_delegation_queue_entries ... */
     unbonding_delegation_queue_entries: UnbondingDelegationQueueEntry[];
+    /** redelegation_cooldown_list ... */
+    redelegation_cooldown_list: RedelegationCooldown[];
 }
 export declare const GenesisState: {
     encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;
@@ -103,6 +105,8 @@ export declare const GenesisState: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            min_stake?: string | undefined;
+            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         }[] | undefined;
         pool_count?: string | undefined;
         funder_list?: {
@@ -183,6 +187,10 @@ export declare const GenesisState: {
             amount?: string | undefined;
             creation_time?: string | undefined;
         }[] | undefined;
+        redelegation_cooldown_list?: {
+            address?: string | undefined;
+            created_block?: string | undefined;
+        }[] | undefined;
     } & {
         params?: ({
             vote_slash?: string | undefined;
@@ -258,6 +266,8 @@ export declare const GenesisState: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            min_stake?: string | undefined;
+            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         }[] & ({
             id?: string | undefined;
             creator?: string | undefined;
@@ -311,6 +321,8 @@ export declare const GenesisState: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            min_stake?: string | undefined;
+            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
             id?: string | undefined;
             creator?: string | undefined;
@@ -387,6 +399,8 @@ export declare const GenesisState: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            min_stake?: string | undefined;
+            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool_list"][number], keyof Pool>, never>)[] & Record<Exclude<keyof I["pool_list"], keyof {
             id?: string | undefined;
             creator?: string | undefined;
@@ -440,6 +454,8 @@ export declare const GenesisState: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            min_stake?: string | undefined;
+            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         }[]>, never>) | undefined;
         pool_count?: string | undefined;
         funder_list?: ({
@@ -708,6 +724,19 @@ export declare const GenesisState: {
             pool_id?: string | undefined;
             amount?: string | undefined;
             creation_time?: string | undefined;
+        }[]>, never>) | undefined;
+        redelegation_cooldown_list?: ({
+            address?: string | undefined;
+            created_block?: string | undefined;
+        }[] & ({
+            address?: string | undefined;
+            created_block?: string | undefined;
+        } & {
+            address?: string | undefined;
+            created_block?: string | undefined;
+        } & Record<Exclude<keyof I["redelegation_cooldown_list"][number], keyof RedelegationCooldown>, never>)[] & Record<Exclude<keyof I["redelegation_cooldown_list"], keyof {
+            address?: string | undefined;
+            created_block?: string | undefined;
         }[]>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof GenesisState>, never>>(object: I): GenesisState;
 };

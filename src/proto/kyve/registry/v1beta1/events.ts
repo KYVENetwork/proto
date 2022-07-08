@@ -148,6 +148,10 @@ export interface EventBundleFinalised {
   id: string;
   /** bundle_hash ... */
   bundle_hash: string;
+  /** abstain ... */
+  abstain: string;
+  /** total ... */
+  total: string;
 }
 
 /** EventBundleVote is an event emitted when a protocol node votes on a bundle. */
@@ -182,6 +186,22 @@ export interface EventUndelegatePool {
   address: string;
   /** node is the account address of the protocol node. */
   node: string;
+  /** amount ... */
+  amount: string;
+}
+
+/** EventRedelegatePool is an event emitted when someone redelegates from one protocol node to another. */
+export interface EventRedelegatePool {
+  /** address is the account address of the delegator. */
+  address: string;
+  /** from_pool is the unique ID of the pool the user withdraws its delegation from */
+  from_pool: string;
+  /** from_node is the account address of the protocol node the users withdraws from. */
+  from_node: string;
+  /** pool_id is the unique ID of the pool of the new pool the user delegates to */
+  to_pool: string;
+  /** address is the account address of the new staker in the the pool */
+  to_node: string;
   /** amount ... */
   amount: string;
 }
@@ -271,6 +291,8 @@ function createBaseEventBundleFinalised(): EventBundleFinalised {
     to_value: "",
     id: "0",
     bundle_hash: "",
+    abstain: "0",
+    total: "0",
   };
 }
 
@@ -323,6 +345,12 @@ export const EventBundleFinalised = {
     }
     if (message.bundle_hash !== "") {
       writer.uint32(122).string(message.bundle_hash);
+    }
+    if (message.abstain !== "0") {
+      writer.uint32(128).uint64(message.abstain);
+    }
+    if (message.total !== "0") {
+      writer.uint32(136).uint64(message.total);
     }
     return writer;
   },
@@ -382,6 +410,12 @@ export const EventBundleFinalised = {
         case 15:
           message.bundle_hash = reader.string();
           break;
+        case 16:
+          message.abstain = longToString(reader.uint64() as Long);
+          break;
+        case 17:
+          message.total = longToString(reader.uint64() as Long);
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -409,6 +443,8 @@ export const EventBundleFinalised = {
       to_value: isSet(object.to_value) ? String(object.to_value) : "",
       id: isSet(object.id) ? String(object.id) : "0",
       bundle_hash: isSet(object.bundle_hash) ? String(object.bundle_hash) : "",
+      abstain: isSet(object.abstain) ? String(object.abstain) : "0",
+      total: isSet(object.total) ? String(object.total) : "0",
     };
   },
 
@@ -433,6 +469,8 @@ export const EventBundleFinalised = {
     message.id !== undefined && (obj.id = message.id);
     message.bundle_hash !== undefined &&
       (obj.bundle_hash = message.bundle_hash);
+    message.abstain !== undefined && (obj.abstain = message.abstain);
+    message.total !== undefined && (obj.total = message.total);
     return obj;
   },
 
@@ -455,6 +493,8 @@ export const EventBundleFinalised = {
     message.to_value = object.to_value ?? "";
     message.id = object.id ?? "0";
     message.bundle_hash = object.bundle_hash ?? "";
+    message.abstain = object.abstain ?? "0";
+    message.total = object.total ?? "0";
     return message;
   },
 };
@@ -697,6 +737,112 @@ export const EventUndelegatePool = {
     message.pool_id = object.pool_id ?? "0";
     message.address = object.address ?? "";
     message.node = object.node ?? "";
+    message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventRedelegatePool(): EventRedelegatePool {
+  return {
+    address: "",
+    from_pool: "0",
+    from_node: "",
+    to_pool: "0",
+    to_node: "",
+    amount: "0",
+  };
+}
+
+export const EventRedelegatePool = {
+  encode(
+    message: EventRedelegatePool,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.address !== "") {
+      writer.uint32(10).string(message.address);
+    }
+    if (message.from_pool !== "0") {
+      writer.uint32(16).uint64(message.from_pool);
+    }
+    if (message.from_node !== "") {
+      writer.uint32(26).string(message.from_node);
+    }
+    if (message.to_pool !== "0") {
+      writer.uint32(32).uint64(message.to_pool);
+    }
+    if (message.to_node !== "") {
+      writer.uint32(42).string(message.to_node);
+    }
+    if (message.amount !== "0") {
+      writer.uint32(48).uint64(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): EventRedelegatePool {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventRedelegatePool();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.address = reader.string();
+          break;
+        case 2:
+          message.from_pool = longToString(reader.uint64() as Long);
+          break;
+        case 3:
+          message.from_node = reader.string();
+          break;
+        case 4:
+          message.to_pool = longToString(reader.uint64() as Long);
+          break;
+        case 5:
+          message.to_node = reader.string();
+          break;
+        case 6:
+          message.amount = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventRedelegatePool {
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+      from_pool: isSet(object.from_pool) ? String(object.from_pool) : "0",
+      from_node: isSet(object.from_node) ? String(object.from_node) : "",
+      to_pool: isSet(object.to_pool) ? String(object.to_pool) : "0",
+      to_node: isSet(object.to_node) ? String(object.to_node) : "",
+      amount: isSet(object.amount) ? String(object.amount) : "0",
+    };
+  },
+
+  toJSON(message: EventRedelegatePool): unknown {
+    const obj: any = {};
+    message.address !== undefined && (obj.address = message.address);
+    message.from_pool !== undefined && (obj.from_pool = message.from_pool);
+    message.from_node !== undefined && (obj.from_node = message.from_node);
+    message.to_pool !== undefined && (obj.to_pool = message.to_pool);
+    message.to_node !== undefined && (obj.to_node = message.to_node);
+    message.amount !== undefined && (obj.amount = message.amount);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventRedelegatePool>, I>>(
+    object: I
+  ): EventRedelegatePool {
+    const message = createBaseEventRedelegatePool();
+    message.address = object.address ?? "";
+    message.from_pool = object.from_pool ?? "0";
+    message.from_node = object.from_node ?? "";
+    message.to_pool = object.to_pool ?? "0";
+    message.to_node = object.to_node ?? "";
     message.amount = object.amount ?? "0";
     return message;
   },

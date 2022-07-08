@@ -102,6 +102,27 @@ export interface MsgUndelegatePool {
 /** MsgUndelegatePoolResponse defines the Msg/UndelegatePool response type. */
 export interface MsgUndelegatePoolResponse {
 }
+/**
+ * MsgRedelegatePool defines a SDK message for redelegating from a
+ * staker in a pool to another staker in the same or another pool
+ */
+export interface MsgRedelegatePool {
+    /** creator ... */
+    creator: string;
+    /** id ... */
+    from_pool_id: string;
+    /** staker ... */
+    from_staker: string;
+    /** id ... */
+    to_pool_id: string;
+    /** staker ... */
+    to_staker: string;
+    /** amount ... */
+    amount: string;
+}
+/** MsgUndelegatePoolResponse defines the Msg/UndelegatePool response type. */
+export interface MsgRedelegatePoolResponse {
+}
 /** MsgSubmitBundleProposal defines a SDK message for submitting a bundle proposal. */
 export interface MsgSubmitBundleProposal {
     /** creator ... */
@@ -328,6 +349,34 @@ export declare const MsgUndelegatePoolResponse: {
     toJSON(_: MsgUndelegatePoolResponse): unknown;
     fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgUndelegatePoolResponse;
 };
+export declare const MsgRedelegatePool: {
+    encode(message: MsgRedelegatePool, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRedelegatePool;
+    fromJSON(object: any): MsgRedelegatePool;
+    toJSON(message: MsgRedelegatePool): unknown;
+    fromPartial<I extends {
+        creator?: string | undefined;
+        from_pool_id?: string | undefined;
+        from_staker?: string | undefined;
+        to_pool_id?: string | undefined;
+        to_staker?: string | undefined;
+        amount?: string | undefined;
+    } & {
+        creator?: string | undefined;
+        from_pool_id?: string | undefined;
+        from_staker?: string | undefined;
+        to_pool_id?: string | undefined;
+        to_staker?: string | undefined;
+        amount?: string | undefined;
+    } & Record<Exclude<keyof I, keyof MsgRedelegatePool>, never>>(object: I): MsgRedelegatePool;
+};
+export declare const MsgRedelegatePoolResponse: {
+    encode(_: MsgRedelegatePoolResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRedelegatePoolResponse;
+    fromJSON(_: any): MsgRedelegatePoolResponse;
+    toJSON(_: MsgRedelegatePoolResponse): unknown;
+    fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgRedelegatePoolResponse;
+};
 export declare const MsgSubmitBundleProposal: {
     encode(message: MsgSubmitBundleProposal, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitBundleProposal;
@@ -452,6 +501,8 @@ export interface Msg {
     WithdrawPool(request: MsgWithdrawPool): Promise<MsgWithdrawPoolResponse>;
     /** UndelegatePool ... */
     UndelegatePool(request: MsgUndelegatePool): Promise<MsgUndelegatePoolResponse>;
+    /** RedelegatePool ... */
+    RedelegatePool(request: MsgRedelegatePool): Promise<MsgRedelegatePoolResponse>;
     /** SubmitBundleProposal ... */
     SubmitBundleProposal(request: MsgSubmitBundleProposal): Promise<MsgSubmitBundleProposalResponse>;
     /** VoteProposal ... */
@@ -471,6 +522,7 @@ export declare class MsgClientImpl implements Msg {
     DelegatePool(request: MsgDelegatePool): Promise<MsgDelegatePoolResponse>;
     WithdrawPool(request: MsgWithdrawPool): Promise<MsgWithdrawPoolResponse>;
     UndelegatePool(request: MsgUndelegatePool): Promise<MsgUndelegatePoolResponse>;
+    RedelegatePool(request: MsgRedelegatePool): Promise<MsgRedelegatePoolResponse>;
     SubmitBundleProposal(request: MsgSubmitBundleProposal): Promise<MsgSubmitBundleProposalResponse>;
     VoteProposal(request: MsgVoteProposal): Promise<MsgVoteProposalResponse>;
     ClaimUploaderRole(request: MsgClaimUploaderRole): Promise<MsgClaimUploaderRoleResponse>;

@@ -32,6 +32,8 @@ export interface CreatePoolProposal {
     binaries: string;
     /** start_key ... */
     start_key: string;
+    /** min_stake ... */
+    min_stake: string;
 }
 /** UpdatePoolProposal is a gov Content type for updating a pool. */
 export interface UpdatePoolProposal {
@@ -61,6 +63,8 @@ export interface UpdatePoolProposal {
     operating_cost: string;
     /** max_bundle_size ... */
     max_bundle_size: string;
+    /** min_stake ... */
+    min_stake: string;
 }
 /** PausePoolProposal is a gov Content type for pausing a pool. */
 export interface PausePoolProposal {
@@ -136,6 +140,7 @@ export declare const CreatePoolProposal: {
         max_bundle_size?: string | undefined;
         binaries?: string | undefined;
         start_key?: string | undefined;
+        min_stake?: string | undefined;
     } & {
         title?: string | undefined;
         description?: string | undefined;
@@ -150,6 +155,7 @@ export declare const CreatePoolProposal: {
         max_bundle_size?: string | undefined;
         binaries?: string | undefined;
         start_key?: string | undefined;
+        min_stake?: string | undefined;
     } & Record<Exclude<keyof I, keyof CreatePoolProposal>, never>>(object: I): CreatePoolProposal;
 };
 export declare const UpdatePoolProposal: {
@@ -169,6 +175,7 @@ export declare const UpdatePoolProposal: {
         upload_interval?: string | undefined;
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
+        min_stake?: string | undefined;
     } & {
         title?: string | undefined;
         description?: string | undefined;
@@ -181,6 +188,7 @@ export declare const UpdatePoolProposal: {
         upload_interval?: string | undefined;
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
+        min_stake?: string | undefined;
     } & Record<Exclude<keyof I, keyof UpdatePoolProposal>, never>>(object: I): UpdatePoolProposal;
 };
 export declare const PausePoolProposal: {
