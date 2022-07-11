@@ -1,6 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
 import { Params } from "../../../kyve/registry/v1beta1/params";
-import { Pool, Funder, Proposal, DelegationPoolData } from "../../../kyve/registry/v1beta1/registry";
+import { Pool, Funder, StakerStatus, Proposal, DelegationPoolData } from "../../../kyve/registry/v1beta1/registry";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 export declare const protobufPackage = "kyve.registry.v1beta1";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
@@ -65,11 +65,17 @@ export interface QueryFunderResponse {
 export interface QueryStakersListRequest {
     /** pool_id defines the unique ID of the pool. */
     pool_id: string;
+    /** status ... */
+    status: StakerStatus;
+    /** pagination ... */
+    pagination?: PageRequest;
 }
 /** QueryStakersListResponse is the response type for the Query/StakersList RPC method. */
 export interface QueryStakersListResponse {
     /** stakers ... */
     stakers: StakerResponse[];
+    /** pagination ... */
+    pagination?: PageResponse;
 }
 /** QueryStakerRequest is the request type for the Query/Staker RPC method. */
 export interface QueryStakerRequest {
@@ -109,6 +115,8 @@ export interface StakerResponse {
     unbonding_amount: string;
     /** upload_probability */
     upload_probability: string;
+    /** status */
+    status: StakerStatus;
 }
 /** QueryVoteStatusRequest is the request type for the Query/VoteStatus RPC method. */
 export interface QueryVoteStatusRequest {
@@ -246,6 +254,8 @@ export interface QueryStakeInfoResponse {
     current_stake: string;
     /** minimum_stake ... */
     minimum_stake: string;
+    /** status ... */
+    status: StakerStatus;
 }
 /** QueryAccountAssetsRequest is the request type for the Query/AccountAssets RPC method. */
 export interface QueryAccountAssetsRequest {
@@ -511,6 +521,8 @@ export declare const QueryParamsResponse: {
             max_points?: string | undefined;
             unbonding_staking_time?: string | undefined;
             unbonding_delegation_time?: string | undefined;
+            redelegation_cooldown?: string | undefined;
+            redelegation_max_amount?: string | undefined;
         } | undefined;
     } & {
         params?: ({
@@ -523,6 +535,8 @@ export declare const QueryParamsResponse: {
             max_points?: string | undefined;
             unbonding_staking_time?: string | undefined;
             unbonding_delegation_time?: string | undefined;
+            redelegation_cooldown?: string | undefined;
+            redelegation_max_amount?: string | undefined;
         } & {
             vote_slash?: string | undefined;
             upload_slash?: string | undefined;
@@ -533,6 +547,8 @@ export declare const QueryParamsResponse: {
             max_points?: string | undefined;
             unbonding_staking_time?: string | undefined;
             unbonding_delegation_time?: string | undefined;
+            redelegation_cooldown?: string | undefined;
+            redelegation_max_amount?: string | undefined;
         } & Record<Exclude<keyof I["params"], keyof Params>, never>) | undefined;
     } & Record<Exclude<keyof I, "params">, never>>(object: I): QueryParamsResponse;
 };
@@ -606,6 +622,8 @@ export declare const QueryPoolResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -663,6 +681,8 @@ export declare const QueryPoolResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -741,6 +761,8 @@ export declare const QueryPoolResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -840,6 +862,8 @@ export declare const QueryPoolsResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         }[] | undefined;
@@ -901,6 +925,8 @@ export declare const QueryPoolsResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         }[] & ({
@@ -956,6 +982,8 @@ export declare const QueryPoolsResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -1034,6 +1062,8 @@ export declare const QueryPoolsResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pools"][number]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pools"][number], keyof Pool>, never>)[] & Record<Exclude<keyof I["pools"], keyof {
@@ -1089,6 +1119,8 @@ export declare const QueryPoolsResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         }[]>, never>) | undefined;
@@ -1186,9 +1218,31 @@ export declare const QueryStakersListRequest: {
     toJSON(message: QueryStakersListRequest): unknown;
     fromPartial<I extends {
         pool_id?: string | undefined;
+        status?: StakerStatus | undefined;
+        pagination?: {
+            key?: Uint8Array | undefined;
+            offset?: string | undefined;
+            limit?: string | undefined;
+            count_total?: boolean | undefined;
+            reverse?: boolean | undefined;
+        } | undefined;
     } & {
         pool_id?: string | undefined;
-    } & Record<Exclude<keyof I, "pool_id">, never>>(object: I): QueryStakersListRequest;
+        status?: StakerStatus | undefined;
+        pagination?: ({
+            key?: Uint8Array | undefined;
+            offset?: string | undefined;
+            limit?: string | undefined;
+            count_total?: boolean | undefined;
+            reverse?: boolean | undefined;
+        } & {
+            key?: Uint8Array | undefined;
+            offset?: string | undefined;
+            limit?: string | undefined;
+            count_total?: boolean | undefined;
+            reverse?: boolean | undefined;
+        } & Record<Exclude<keyof I["pagination"], keyof PageRequest>, never>) | undefined;
+    } & Record<Exclude<keyof I, keyof QueryStakersListRequest>, never>>(object: I): QueryStakersListRequest;
 };
 export declare const QueryStakersListResponse: {
     encode(message: QueryStakersListResponse, writer?: _m0.Writer): _m0.Writer;
@@ -1209,7 +1263,12 @@ export declare const QueryStakersListResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         }[] | undefined;
+        pagination?: {
+            next_key?: Uint8Array | undefined;
+            total?: string | undefined;
+        } | undefined;
     } & {
         stakers?: ({
             staker?: string | undefined;
@@ -1224,6 +1283,7 @@ export declare const QueryStakersListResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         }[] & ({
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1237,6 +1297,7 @@ export declare const QueryStakersListResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } & {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1250,6 +1311,7 @@ export declare const QueryStakersListResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } & Record<Exclude<keyof I["stakers"][number], keyof StakerResponse>, never>)[] & Record<Exclude<keyof I["stakers"], keyof {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1263,8 +1325,16 @@ export declare const QueryStakersListResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         }[]>, never>) | undefined;
-    } & Record<Exclude<keyof I, "stakers">, never>>(object: I): QueryStakersListResponse;
+        pagination?: ({
+            next_key?: Uint8Array | undefined;
+            total?: string | undefined;
+        } & {
+            next_key?: Uint8Array | undefined;
+            total?: string | undefined;
+        } & Record<Exclude<keyof I["pagination"], keyof PageResponse>, never>) | undefined;
+    } & Record<Exclude<keyof I, keyof QueryStakersListResponse>, never>>(object: I): QueryStakersListResponse;
 };
 export declare const QueryStakerRequest: {
     encode(message: QueryStakerRequest, writer?: _m0.Writer): _m0.Writer;
@@ -1298,6 +1368,7 @@ export declare const QueryStakerResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } | undefined;
     } & {
         staker?: ({
@@ -1313,6 +1384,7 @@ export declare const QueryStakerResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } & {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1326,6 +1398,7 @@ export declare const QueryStakerResponse: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } & Record<Exclude<keyof I["staker"], keyof StakerResponse>, never>) | undefined;
     } & Record<Exclude<keyof I, "staker">, never>>(object: I): QueryStakerResponse;
 };
@@ -1347,6 +1420,7 @@ export declare const StakerResponse: {
         points?: string | undefined;
         unbonding_amount?: string | undefined;
         upload_probability?: string | undefined;
+        status?: StakerStatus | undefined;
     } & {
         staker?: string | undefined;
         pool_id?: string | undefined;
@@ -1360,6 +1434,7 @@ export declare const StakerResponse: {
         points?: string | undefined;
         unbonding_amount?: string | undefined;
         upload_probability?: string | undefined;
+        status?: StakerStatus | undefined;
     } & Record<Exclude<keyof I, keyof StakerResponse>, never>>(object: I): StakerResponse;
 };
 export declare const QueryVoteStatusRequest: {
@@ -1934,10 +2009,12 @@ export declare const QueryStakeInfoResponse: {
         balance?: string | undefined;
         current_stake?: string | undefined;
         minimum_stake?: string | undefined;
+        status?: StakerStatus | undefined;
     } & {
         balance?: string | undefined;
         current_stake?: string | undefined;
         minimum_stake?: string | undefined;
+        status?: StakerStatus | undefined;
     } & Record<Exclude<keyof I, keyof QueryStakeInfoResponse>, never>>(object: I): QueryStakeInfoResponse;
 };
 export declare const QueryAccountAssetsRequest: {
@@ -2067,6 +2144,8 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2132,6 +2211,8 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2191,6 +2272,8 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2250,6 +2333,8 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & {
@@ -2328,6 +2413,8 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["unbondings"][number]["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & Record<Exclude<keyof I["unbondings"][number]["pool"], keyof Pool>, never>) | undefined;
@@ -2387,6 +2474,8 @@ export declare const QueryAccountStakingUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2461,6 +2550,8 @@ export declare const StakingUnbonding: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -2520,6 +2611,8 @@ export declare const StakingUnbonding: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -2598,6 +2691,8 @@ export declare const StakingUnbonding: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -2656,6 +2751,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 points?: string | undefined;
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
+                status?: StakerStatus | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -2710,6 +2806,8 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2735,6 +2833,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 points?: string | undefined;
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
+                status?: StakerStatus | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -2789,6 +2888,8 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2808,6 +2909,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 points?: string | undefined;
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
+                status?: StakerStatus | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -2862,6 +2964,8 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -2881,6 +2985,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 points?: string | undefined;
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
+                status?: StakerStatus | undefined;
             } & {
                 staker?: string | undefined;
                 pool_id?: string | undefined;
@@ -2894,6 +2999,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 points?: string | undefined;
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
+                status?: StakerStatus | undefined;
             } & Record<Exclude<keyof I["unbondings"][number]["staker"], keyof StakerResponse>, never>) | undefined;
             pool?: ({
                 id?: string | undefined;
@@ -2948,6 +3054,8 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & {
@@ -3026,6 +3134,8 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["unbondings"][number]["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & Record<Exclude<keyof I["unbondings"][number]["pool"], keyof Pool>, never>) | undefined;
@@ -3045,6 +3155,7 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 points?: string | undefined;
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
+                status?: StakerStatus | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -3099,6 +3210,8 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -3133,6 +3246,7 @@ export declare const DelegationUnbonding: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } | undefined;
         pool?: {
             id?: string | undefined;
@@ -3187,6 +3301,8 @@ export declare const DelegationUnbonding: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -3206,6 +3322,7 @@ export declare const DelegationUnbonding: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } & {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -3219,6 +3336,7 @@ export declare const DelegationUnbonding: {
             points?: string | undefined;
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
+            status?: StakerStatus | undefined;
         } & Record<Exclude<keyof I["staker"], keyof StakerResponse>, never>) | undefined;
         pool?: ({
             id?: string | undefined;
@@ -3273,6 +3391,8 @@ export declare const DelegationUnbonding: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -3351,6 +3471,8 @@ export declare const DelegationUnbonding: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -3449,6 +3571,8 @@ export declare const QueryAccountFundedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -3514,6 +3638,8 @@ export declare const QueryAccountFundedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -3573,6 +3699,8 @@ export declare const QueryAccountFundedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -3632,6 +3760,8 @@ export declare const QueryAccountFundedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & {
@@ -3710,6 +3840,8 @@ export declare const QueryAccountFundedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["funded"][number]["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & Record<Exclude<keyof I["funded"][number]["pool"], keyof Pool>, never>) | undefined;
@@ -3769,6 +3901,8 @@ export declare const QueryAccountFundedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -3843,6 +3977,8 @@ export declare const Funded: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -3902,6 +4038,8 @@ export declare const Funded: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -3980,6 +4118,8 @@ export declare const Funded: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -4080,6 +4220,8 @@ export declare const QueryAccountStakedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4149,6 +4291,8 @@ export declare const QueryAccountStakedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4212,6 +4356,8 @@ export declare const QueryAccountStakedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4275,6 +4421,8 @@ export declare const QueryAccountStakedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & {
@@ -4353,6 +4501,8 @@ export declare const QueryAccountStakedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["staked"][number]["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & Record<Exclude<keyof I["staked"][number]["pool"], keyof Pool>, never>) | undefined;
@@ -4416,6 +4566,8 @@ export declare const QueryAccountStakedListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4494,6 +4646,8 @@ export declare const Staked: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -4557,6 +4711,8 @@ export declare const Staked: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -4635,6 +4791,8 @@ export declare const Staked: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -4734,6 +4892,8 @@ export declare const QueryAccountDelegationListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4810,6 +4970,8 @@ export declare const QueryAccountDelegationListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4880,6 +5042,8 @@ export declare const QueryAccountDelegationListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -4950,6 +5114,8 @@ export declare const QueryAccountDelegationListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & {
@@ -5028,6 +5194,8 @@ export declare const QueryAccountDelegationListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["delegations"][number]["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } & Record<Exclude<keyof I["delegations"][number]["pool"], keyof Pool>, never>) | undefined;
@@ -5106,6 +5274,8 @@ export declare const QueryAccountDelegationListResponse: {
                 start_key?: string | undefined;
                 current_key?: string | undefined;
                 current_value?: string | undefined;
+                inactive_stakers?: string[] | undefined;
+                total_inactive_stake?: string | undefined;
                 min_stake?: string | undefined;
                 status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
             } | undefined;
@@ -5191,6 +5361,8 @@ export declare const DelegatorResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -5261,6 +5433,8 @@ export declare const DelegatorResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -5339,6 +5513,8 @@ export declare const DelegatorResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -5542,6 +5718,8 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -5633,6 +5811,8 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -5711,6 +5891,8 @@ export declare const QueryDelegatorsByPoolAndStakerResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;
@@ -5833,6 +6015,8 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } | undefined;
@@ -5902,6 +6086,8 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: string[] | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & {
@@ -5980,6 +6166,8 @@ export declare const QueryStakersByPoolAndDelegatorResponse: {
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
+            inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool"]["inactive_stakers"], keyof string[]>, never>) | undefined;
+            total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
             status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool"], keyof Pool>, never>) | undefined;

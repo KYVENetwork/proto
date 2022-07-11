@@ -5,6 +5,7 @@ import { Params } from "../../../kyve/registry/v1beta1/params";
 import {
   UnbondingStakingQueueState,
   UnbondingDelegationQueueState,
+  CommissionChangeQueueState,
   Pool,
   Funder,
   Staker,
@@ -16,6 +17,7 @@ import {
   UnbondingStaker,
   UnbondingDelegationQueueEntry,
   RedelegationCooldown,
+  CommissionChangeQueueEntry,
 } from "../../../kyve/registry/v1beta1/registry";
 
 export const protobufPackage = "kyve.registry.v1beta1";
@@ -52,6 +54,10 @@ export interface GenesisState {
   unbonding_delegation_queue_entries: UnbondingDelegationQueueEntry[];
   /** redelegation_cooldown_list ... */
   redelegation_cooldown_list: RedelegationCooldown[];
+  /** commission_change_queue_state ... */
+  commission_change_queue_state?: CommissionChangeQueueState;
+  /** commission_change_queue_entry ... */
+  commission_change_queue_entry: CommissionChangeQueueEntry[];
 }
 
 function createBaseGenesisState(): GenesisState {
@@ -71,6 +77,8 @@ function createBaseGenesisState(): GenesisState {
     unbonding_delegation_queue_state: undefined,
     unbonding_delegation_queue_entries: [],
     redelegation_cooldown_list: [],
+    commission_change_queue_state: undefined,
+    commission_change_queue_entry: [],
   };
 }
 
@@ -132,6 +140,15 @@ export const GenesisState = {
     }
     for (const v of message.redelegation_cooldown_list) {
       RedelegationCooldown.encode(v!, writer.uint32(122).fork()).ldelim();
+    }
+    if (message.commission_change_queue_state !== undefined) {
+      CommissionChangeQueueState.encode(
+        message.commission_change_queue_state,
+        writer.uint32(130).fork()
+      ).ldelim();
+    }
+    for (const v of message.commission_change_queue_entry) {
+      CommissionChangeQueueEntry.encode(v!, writer.uint32(138).fork()).ldelim();
     }
     return writer;
   },
@@ -202,6 +219,15 @@ export const GenesisState = {
         case 15:
           message.redelegation_cooldown_list.push(
             RedelegationCooldown.decode(reader, reader.uint32())
+          );
+          break;
+        case 16:
+          message.commission_change_queue_state =
+            CommissionChangeQueueState.decode(reader, reader.uint32());
+          break;
+        case 17:
+          message.commission_change_queue_entry.push(
+            CommissionChangeQueueEntry.decode(reader, reader.uint32())
           );
           break;
         default:
@@ -279,6 +305,18 @@ export const GenesisState = {
       )
         ? object.redelegation_cooldown_list.map((e: any) =>
             RedelegationCooldown.fromJSON(e)
+          )
+        : [],
+      commission_change_queue_state: isSet(object.commission_change_queue_state)
+        ? CommissionChangeQueueState.fromJSON(
+            object.commission_change_queue_state
+          )
+        : undefined,
+      commission_change_queue_entry: Array.isArray(
+        object?.commission_change_queue_entry
+      )
+        ? object.commission_change_queue_entry.map((e: any) =>
+            CommissionChangeQueueEntry.fromJSON(e)
           )
         : [],
     };
@@ -381,6 +419,20 @@ export const GenesisState = {
     } else {
       obj.redelegation_cooldown_list = [];
     }
+    message.commission_change_queue_state !== undefined &&
+      (obj.commission_change_queue_state = message.commission_change_queue_state
+        ? CommissionChangeQueueState.toJSON(
+            message.commission_change_queue_state
+          )
+        : undefined);
+    if (message.commission_change_queue_entry) {
+      obj.commission_change_queue_entry =
+        message.commission_change_queue_entry.map((e) =>
+          e ? CommissionChangeQueueEntry.toJSON(e) : undefined
+        );
+    } else {
+      obj.commission_change_queue_entry = [];
+    }
     return obj;
   },
 
@@ -439,6 +491,17 @@ export const GenesisState = {
     message.redelegation_cooldown_list =
       object.redelegation_cooldown_list?.map((e) =>
         RedelegationCooldown.fromPartial(e)
+      ) || [];
+    message.commission_change_queue_state =
+      object.commission_change_queue_state !== undefined &&
+      object.commission_change_queue_state !== null
+        ? CommissionChangeQueueState.fromPartial(
+            object.commission_change_queue_state
+          )
+        : undefined;
+    message.commission_change_queue_entry =
+      object.commission_change_queue_entry?.map((e) =>
+        CommissionChangeQueueEntry.fromPartial(e)
       ) || [];
     return message;
   },

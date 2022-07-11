@@ -24,6 +24,10 @@ export interface Params {
   unbonding_staking_time: string;
   /** unbonding_delegation_time ... */
   unbonding_delegation_time: string;
+  /** unbonding_delegation_time ... */
+  redelegation_cooldown: string;
+  /** unbonding_delegation_time ... */
+  redelegation_max_amount: string;
 }
 
 function createBaseParams(): Params {
@@ -37,6 +41,8 @@ function createBaseParams(): Params {
     max_points: "0",
     unbonding_staking_time: "0",
     unbonding_delegation_time: "0",
+    redelegation_cooldown: "0",
+    redelegation_max_amount: "0",
   };
 }
 
@@ -71,6 +77,12 @@ export const Params = {
     }
     if (message.unbonding_delegation_time !== "0") {
       writer.uint32(88).uint64(message.unbonding_delegation_time);
+    }
+    if (message.redelegation_cooldown !== "0") {
+      writer.uint32(96).uint64(message.redelegation_cooldown);
+    }
+    if (message.redelegation_max_amount !== "0") {
+      writer.uint32(104).uint64(message.redelegation_max_amount);
     }
     return writer;
   },
@@ -113,6 +125,14 @@ export const Params = {
             reader.uint64() as Long
           );
           break;
+        case 12:
+          message.redelegation_cooldown = longToString(reader.uint64() as Long);
+          break;
+        case 13:
+          message.redelegation_max_amount = longToString(
+            reader.uint64() as Long
+          );
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -144,6 +164,12 @@ export const Params = {
       unbonding_delegation_time: isSet(object.unbonding_delegation_time)
         ? String(object.unbonding_delegation_time)
         : "0",
+      redelegation_cooldown: isSet(object.redelegation_cooldown)
+        ? String(object.redelegation_cooldown)
+        : "0",
+      redelegation_max_amount: isSet(object.redelegation_max_amount)
+        ? String(object.redelegation_max_amount)
+        : "0",
     };
   },
 
@@ -165,6 +191,10 @@ export const Params = {
       (obj.unbonding_staking_time = message.unbonding_staking_time);
     message.unbonding_delegation_time !== undefined &&
       (obj.unbonding_delegation_time = message.unbonding_delegation_time);
+    message.redelegation_cooldown !== undefined &&
+      (obj.redelegation_cooldown = message.redelegation_cooldown);
+    message.redelegation_max_amount !== undefined &&
+      (obj.redelegation_max_amount = message.redelegation_max_amount);
     return obj;
   },
 
@@ -179,6 +209,8 @@ export const Params = {
     message.max_points = object.max_points ?? "0";
     message.unbonding_staking_time = object.unbonding_staking_time ?? "0";
     message.unbonding_delegation_time = object.unbonding_delegation_time ?? "0";
+    message.redelegation_cooldown = object.redelegation_cooldown ?? "0";
+    message.redelegation_max_amount = object.redelegation_max_amount ?? "0";
     return message;
   },
 };

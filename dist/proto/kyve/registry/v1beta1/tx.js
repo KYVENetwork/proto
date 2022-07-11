@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.MsgClientImpl = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgRedelegatePoolResponse = exports.MsgRedelegatePool = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.voteTypeToJSON = exports.voteTypeFromJSON = exports.VoteType = exports.protobufPackage = void 0;
+exports.MsgClientImpl = exports.MsgUpdateCommissionResponse = exports.MsgUpdateCommission = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgRedelegatePoolResponse = exports.MsgRedelegatePool = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgReactivateStakerResponse = exports.MsgReactivateStaker = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.voteTypeToJSON = exports.voteTypeFromJSON = exports.VoteType = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -369,6 +369,94 @@ exports.MsgStakePoolResponse = {
     },
     fromPartial: function (_) {
         var message = createBaseMsgStakePoolResponse();
+        return message;
+    }
+};
+function createBaseMsgReactivateStaker() {
+    return { creator: "", pool_id: "0" };
+}
+exports.MsgReactivateStaker = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.creator !== "") {
+            writer.uint32(10).string(message.creator);
+        }
+        if (message.pool_id !== "0") {
+            writer.uint32(16).uint64(message.pool_id);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseMsgReactivateStaker();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.creator = reader.string();
+                    break;
+                case 2:
+                    message.pool_id = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            creator: isSet(object.creator) ? String(object.creator) : "",
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.creator !== undefined && (obj.creator = message.creator);
+        message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b;
+        var message = createBaseMsgReactivateStaker();
+        message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
+        message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
+        return message;
+    }
+};
+function createBaseMsgReactivateStakerResponse() {
+    return {};
+}
+exports.MsgReactivateStakerResponse = {
+    encode: function (_, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseMsgReactivateStakerResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (_) {
+        return {};
+    },
+    toJSON: function (_) {
+        var obj = {};
+        return obj;
+    },
+    fromPartial: function (_) {
+        var message = createBaseMsgReactivateStakerResponse();
         return message;
     }
 };
@@ -1281,14 +1369,7 @@ exports.MsgClaimUploaderRoleResponse = {
     }
 };
 function createBaseMsgUpdateMetadata() {
-    return {
-        creator: "",
-        id: "0",
-        commission: "",
-        moniker: "",
-        website: "",
-        logo: ""
-    };
+    return { creator: "", id: "0", moniker: "", website: "", logo: "" };
 }
 exports.MsgUpdateMetadata = {
     encode: function (message, writer) {
@@ -1299,17 +1380,14 @@ exports.MsgUpdateMetadata = {
         if (message.id !== "0") {
             writer.uint32(16).uint64(message.id);
         }
-        if (message.commission !== "") {
-            writer.uint32(26).string(message.commission);
-        }
         if (message.moniker !== "") {
-            writer.uint32(34).string(message.moniker);
+            writer.uint32(26).string(message.moniker);
         }
         if (message.website !== "") {
-            writer.uint32(42).string(message.website);
+            writer.uint32(34).string(message.website);
         }
         if (message.logo !== "") {
-            writer.uint32(50).string(message.logo);
+            writer.uint32(42).string(message.logo);
         }
         return writer;
     },
@@ -1327,15 +1405,12 @@ exports.MsgUpdateMetadata = {
                     message.id = longToString(reader.uint64());
                     break;
                 case 3:
-                    message.commission = reader.string();
-                    break;
-                case 4:
                     message.moniker = reader.string();
                     break;
-                case 5:
+                case 4:
                     message.website = reader.string();
                     break;
-                case 6:
+                case 5:
                     message.logo = reader.string();
                     break;
                 default:
@@ -1349,7 +1424,6 @@ exports.MsgUpdateMetadata = {
         return {
             creator: isSet(object.creator) ? String(object.creator) : "",
             id: isSet(object.id) ? String(object.id) : "0",
-            commission: isSet(object.commission) ? String(object.commission) : "",
             moniker: isSet(object.moniker) ? String(object.moniker) : "",
             website: isSet(object.website) ? String(object.website) : "",
             logo: isSet(object.logo) ? String(object.logo) : ""
@@ -1359,21 +1433,19 @@ exports.MsgUpdateMetadata = {
         var obj = {};
         message.creator !== undefined && (obj.creator = message.creator);
         message.id !== undefined && (obj.id = message.id);
-        message.commission !== undefined && (obj.commission = message.commission);
         message.moniker !== undefined && (obj.moniker = message.moniker);
         message.website !== undefined && (obj.website = message.website);
         message.logo !== undefined && (obj.logo = message.logo);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e;
         var message = createBaseMsgUpdateMetadata();
         message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
         message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
-        message.commission = (_c = object.commission) !== null && _c !== void 0 ? _c : "";
-        message.moniker = (_d = object.moniker) !== null && _d !== void 0 ? _d : "";
-        message.website = (_e = object.website) !== null && _e !== void 0 ? _e : "";
-        message.logo = (_f = object.logo) !== null && _f !== void 0 ? _f : "";
+        message.moniker = (_c = object.moniker) !== null && _c !== void 0 ? _c : "";
+        message.website = (_d = object.website) !== null && _d !== void 0 ? _d : "";
+        message.logo = (_e = object.logo) !== null && _e !== void 0 ? _e : "";
         return message;
     }
 };
@@ -1411,12 +1483,110 @@ exports.MsgUpdateMetadataResponse = {
         return message;
     }
 };
+function createBaseMsgUpdateCommission() {
+    return { creator: "", id: "0", commission: "" };
+}
+exports.MsgUpdateCommission = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.creator !== "") {
+            writer.uint32(10).string(message.creator);
+        }
+        if (message.id !== "0") {
+            writer.uint32(16).uint64(message.id);
+        }
+        if (message.commission !== "") {
+            writer.uint32(26).string(message.commission);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseMsgUpdateCommission();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.creator = reader.string();
+                    break;
+                case 2:
+                    message.id = longToString(reader.uint64());
+                    break;
+                case 3:
+                    message.commission = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            creator: isSet(object.creator) ? String(object.creator) : "",
+            id: isSet(object.id) ? String(object.id) : "0",
+            commission: isSet(object.commission) ? String(object.commission) : ""
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.creator !== undefined && (obj.creator = message.creator);
+        message.id !== undefined && (obj.id = message.id);
+        message.commission !== undefined && (obj.commission = message.commission);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c;
+        var message = createBaseMsgUpdateCommission();
+        message.creator = (_a = object.creator) !== null && _a !== void 0 ? _a : "";
+        message.id = (_b = object.id) !== null && _b !== void 0 ? _b : "0";
+        message.commission = (_c = object.commission) !== null && _c !== void 0 ? _c : "";
+        return message;
+    }
+};
+function createBaseMsgUpdateCommissionResponse() {
+    return {};
+}
+exports.MsgUpdateCommissionResponse = {
+    encode: function (_, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseMsgUpdateCommissionResponse();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (_) {
+        return {};
+    },
+    toJSON: function (_) {
+        var obj = {};
+        return obj;
+    },
+    fromPartial: function (_) {
+        var message = createBaseMsgUpdateCommissionResponse();
+        return message;
+    }
+};
 var MsgClientImpl = /** @class */ (function () {
     function MsgClientImpl(rpc) {
         this.rpc = rpc;
         this.FundPool = this.FundPool.bind(this);
         this.DefundPool = this.DefundPool.bind(this);
         this.StakePool = this.StakePool.bind(this);
+        this.ReactivateStaker = this.ReactivateStaker.bind(this);
         this.UnstakePool = this.UnstakePool.bind(this);
         this.DelegatePool = this.DelegatePool.bind(this);
         this.WithdrawPool = this.WithdrawPool.bind(this);
@@ -1426,6 +1596,7 @@ var MsgClientImpl = /** @class */ (function () {
         this.VoteProposal = this.VoteProposal.bind(this);
         this.ClaimUploaderRole = this.ClaimUploaderRole.bind(this);
         this.UpdateMetadata = this.UpdateMetadata.bind(this);
+        this.UpdateCommission = this.UpdateCommission.bind(this);
     }
     MsgClientImpl.prototype.FundPool = function (request) {
         var data = exports.MsgFundPool.encode(request).finish();
@@ -1446,6 +1617,13 @@ var MsgClientImpl = /** @class */ (function () {
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "StakePool", data);
         return promise.then(function (data) {
             return exports.MsgStakePoolResponse.decode(new _m0.Reader(data));
+        });
+    };
+    MsgClientImpl.prototype.ReactivateStaker = function (request) {
+        var data = exports.MsgReactivateStaker.encode(request).finish();
+        var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "ReactivateStaker", data);
+        return promise.then(function (data) {
+            return exports.MsgReactivateStakerResponse.decode(new _m0.Reader(data));
         });
     };
     MsgClientImpl.prototype.UnstakePool = function (request) {
@@ -1509,6 +1687,13 @@ var MsgClientImpl = /** @class */ (function () {
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UpdateMetadata", data);
         return promise.then(function (data) {
             return exports.MsgUpdateMetadataResponse.decode(new _m0.Reader(data));
+        });
+    };
+    MsgClientImpl.prototype.UpdateCommission = function (request) {
+        var data = exports.MsgUpdateCommission.encode(request).finish();
+        var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UpdateCommission", data);
+        return promise.then(function (data) {
+            return exports.MsgUpdateCommissionResponse.decode(new _m0.Reader(data));
         });
     };
     return MsgClientImpl;

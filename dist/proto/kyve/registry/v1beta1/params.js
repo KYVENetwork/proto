@@ -41,7 +41,9 @@ function createBaseParams() {
         network_fee: "",
         max_points: "0",
         unbonding_staking_time: "0",
-        unbonding_delegation_time: "0"
+        unbonding_delegation_time: "0",
+        redelegation_cooldown: "0",
+        redelegation_max_amount: "0"
     };
 }
 exports.Params = {
@@ -73,6 +75,12 @@ exports.Params = {
         }
         if (message.unbonding_delegation_time !== "0") {
             writer.uint32(88).uint64(message.unbonding_delegation_time);
+        }
+        if (message.redelegation_cooldown !== "0") {
+            writer.uint32(96).uint64(message.redelegation_cooldown);
+        }
+        if (message.redelegation_max_amount !== "0") {
+            writer.uint32(104).uint64(message.redelegation_max_amount);
         }
         return writer;
     },
@@ -110,6 +118,12 @@ exports.Params = {
                 case 11:
                     message.unbonding_delegation_time = longToString(reader.uint64());
                     break;
+                case 12:
+                    message.redelegation_cooldown = longToString(reader.uint64());
+                    break;
+                case 13:
+                    message.redelegation_max_amount = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -139,6 +153,12 @@ exports.Params = {
                 : "0",
             unbonding_delegation_time: isSet(object.unbonding_delegation_time)
                 ? String(object.unbonding_delegation_time)
+                : "0",
+            redelegation_cooldown: isSet(object.redelegation_cooldown)
+                ? String(object.redelegation_cooldown)
+                : "0",
+            redelegation_max_amount: isSet(object.redelegation_max_amount)
+                ? String(object.redelegation_max_amount)
                 : "0"
         };
     },
@@ -160,10 +180,14 @@ exports.Params = {
             (obj.unbonding_staking_time = message.unbonding_staking_time);
         message.unbonding_delegation_time !== undefined &&
             (obj.unbonding_delegation_time = message.unbonding_delegation_time);
+        message.redelegation_cooldown !== undefined &&
+            (obj.redelegation_cooldown = message.redelegation_cooldown);
+        message.redelegation_max_amount !== undefined &&
+            (obj.redelegation_max_amount = message.redelegation_max_amount);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
         var message = createBaseParams();
         message.vote_slash = (_a = object.vote_slash) !== null && _a !== void 0 ? _a : "";
         message.upload_slash = (_b = object.upload_slash) !== null && _b !== void 0 ? _b : "";
@@ -174,6 +198,8 @@ exports.Params = {
         message.max_points = (_g = object.max_points) !== null && _g !== void 0 ? _g : "0";
         message.unbonding_staking_time = (_h = object.unbonding_staking_time) !== null && _h !== void 0 ? _h : "0";
         message.unbonding_delegation_time = (_j = object.unbonding_delegation_time) !== null && _j !== void 0 ? _j : "0";
+        message.redelegation_cooldown = (_k = object.redelegation_cooldown) !== null && _k !== void 0 ? _k : "0";
+        message.redelegation_max_amount = (_l = object.redelegation_max_amount) !== null && _l !== void 0 ? _l : "0";
         return message;
     }
 };

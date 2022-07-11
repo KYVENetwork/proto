@@ -49,7 +49,9 @@ function createBaseGenesisState() {
         unbonding_staker_list: [],
         unbonding_delegation_queue_state: undefined,
         unbonding_delegation_queue_entries: [],
-        redelegation_cooldown_list: []
+        redelegation_cooldown_list: [],
+        commission_change_queue_state: undefined,
+        commission_change_queue_entry: []
     };
 }
 exports.GenesisState = {
@@ -111,6 +113,13 @@ exports.GenesisState = {
             var v = _w[_v];
             registry_1.RedelegationCooldown.encode(v, writer.uint32(122).fork()).ldelim();
         }
+        if (message.commission_change_queue_state !== undefined) {
+            registry_1.CommissionChangeQueueState.encode(message.commission_change_queue_state, writer.uint32(130).fork()).ldelim();
+        }
+        for (var _x = 0, _y = message.commission_change_queue_entry; _x < _y.length; _x++) {
+            var v = _y[_x];
+            registry_1.CommissionChangeQueueEntry.encode(v, writer.uint32(138).fork()).ldelim();
+        }
         return writer;
     },
     decode: function (input, length) {
@@ -166,6 +175,13 @@ exports.GenesisState = {
                     break;
                 case 15:
                     message.redelegation_cooldown_list.push(registry_1.RedelegationCooldown.decode(reader, reader.uint32()));
+                    break;
+                case 16:
+                    message.commission_change_queue_state =
+                        registry_1.CommissionChangeQueueState.decode(reader, reader.uint32());
+                    break;
+                case 17:
+                    message.commission_change_queue_entry.push(registry_1.CommissionChangeQueueEntry.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -227,6 +243,14 @@ exports.GenesisState = {
             redelegation_cooldown_list: Array.isArray(object === null || object === void 0 ? void 0 : object.redelegation_cooldown_list)
                 ? object.redelegation_cooldown_list.map(function (e) {
                     return registry_1.RedelegationCooldown.fromJSON(e);
+                })
+                : [],
+            commission_change_queue_state: isSet(object.commission_change_queue_state)
+                ? registry_1.CommissionChangeQueueState.fromJSON(object.commission_change_queue_state)
+                : undefined,
+            commission_change_queue_entry: Array.isArray(object === null || object === void 0 ? void 0 : object.commission_change_queue_entry)
+                ? object.commission_change_queue_entry.map(function (e) {
+                    return registry_1.CommissionChangeQueueEntry.fromJSON(e);
                 })
                 : []
         };
@@ -331,10 +355,23 @@ exports.GenesisState = {
         else {
             obj.redelegation_cooldown_list = [];
         }
+        message.commission_change_queue_state !== undefined &&
+            (obj.commission_change_queue_state = message.commission_change_queue_state
+                ? registry_1.CommissionChangeQueueState.toJSON(message.commission_change_queue_state)
+                : undefined);
+        if (message.commission_change_queue_entry) {
+            obj.commission_change_queue_entry =
+                message.commission_change_queue_entry.map(function (e) {
+                    return e ? registry_1.CommissionChangeQueueEntry.toJSON(e) : undefined;
+                });
+        }
+        else {
+            obj.commission_change_queue_entry = [];
+        }
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         var message = createBaseGenesisState();
         message.params =
             object.params !== undefined && object.params !== null
@@ -383,6 +420,15 @@ exports.GenesisState = {
         message.redelegation_cooldown_list =
             ((_m = object.redelegation_cooldown_list) === null || _m === void 0 ? void 0 : _m.map(function (e) {
                 return registry_1.RedelegationCooldown.fromPartial(e);
+            })) || [];
+        message.commission_change_queue_state =
+            object.commission_change_queue_state !== undefined &&
+                object.commission_change_queue_state !== null
+                ? registry_1.CommissionChangeQueueState.fromPartial(object.commission_change_queue_state)
+                : undefined;
+        message.commission_change_queue_entry =
+            ((_o = object.commission_change_queue_entry) === null || _o === void 0 ? void 0 : _o.map(function (e) {
+                return registry_1.CommissionChangeQueueEntry.fromPartial(e);
             })) || [];
         return message;
     }

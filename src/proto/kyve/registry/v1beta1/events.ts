@@ -6,6 +6,11 @@ import {
   voteTypeFromJSON,
   voteTypeToJSON,
 } from "../../../kyve/registry/v1beta1/tx";
+import {
+  StakerStatus,
+  stakerStatusFromJSON,
+  stakerStatusToJSON,
+} from "../../../kyve/registry/v1beta1/registry";
 
 export const protobufPackage = "kyve.registry.v1beta1";
 
@@ -244,14 +249,22 @@ export interface EventUpdateMetadata {
   pool_id: string;
   /** address is the account address of the protocol node. */
   address: string;
-  /** commission ... */
-  commission: string;
   /** moniker ... */
   moniker: string;
   /** website ... */
   website: string;
   /** logo ... */
   logo: string;
+}
+
+/** EventUpdateCommission ... */
+export interface EventUpdateCommission {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** commission ... */
+  commission: string;
 }
 
 /** EventStakePool is an event emitted when a protocol node stakes in a pool. */
@@ -272,6 +285,16 @@ export interface EventUnstakePool {
   address: string;
   /** amount ... */
   amount: string;
+}
+
+/** EventStakerStatusChanged ... */
+export interface EventStakerStatusChanged {
+  /** pool_id is the unique ID of the pool. */
+  pool_id: string;
+  /** address is the account address of the protocol node. */
+  address: string;
+  /** amount ... */
+  status: StakerStatus;
 }
 
 function createBaseEventBundleFinalised(): EventBundleFinalised {
@@ -1077,14 +1100,7 @@ export const EventSlash = {
 };
 
 function createBaseEventUpdateMetadata(): EventUpdateMetadata {
-  return {
-    pool_id: "0",
-    address: "",
-    commission: "",
-    moniker: "",
-    website: "",
-    logo: "",
-  };
+  return { pool_id: "0", address: "", moniker: "", website: "", logo: "" };
 }
 
 export const EventUpdateMetadata = {
@@ -1098,17 +1114,14 @@ export const EventUpdateMetadata = {
     if (message.address !== "") {
       writer.uint32(18).string(message.address);
     }
-    if (message.commission !== "") {
-      writer.uint32(26).string(message.commission);
-    }
     if (message.moniker !== "") {
-      writer.uint32(34).string(message.moniker);
+      writer.uint32(26).string(message.moniker);
     }
     if (message.website !== "") {
-      writer.uint32(42).string(message.website);
+      writer.uint32(34).string(message.website);
     }
     if (message.logo !== "") {
-      writer.uint32(50).string(message.logo);
+      writer.uint32(42).string(message.logo);
     }
     return writer;
   },
@@ -1127,15 +1140,12 @@ export const EventUpdateMetadata = {
           message.address = reader.string();
           break;
         case 3:
-          message.commission = reader.string();
-          break;
-        case 4:
           message.moniker = reader.string();
           break;
-        case 5:
+        case 4:
           message.website = reader.string();
           break;
-        case 6:
+        case 5:
           message.logo = reader.string();
           break;
         default:
@@ -1150,7 +1160,6 @@ export const EventUpdateMetadata = {
     return {
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
       address: isSet(object.address) ? String(object.address) : "",
-      commission: isSet(object.commission) ? String(object.commission) : "",
       moniker: isSet(object.moniker) ? String(object.moniker) : "",
       website: isSet(object.website) ? String(object.website) : "",
       logo: isSet(object.logo) ? String(object.logo) : "",
@@ -1161,7 +1170,6 @@ export const EventUpdateMetadata = {
     const obj: any = {};
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
     message.address !== undefined && (obj.address = message.address);
-    message.commission !== undefined && (obj.commission = message.commission);
     message.moniker !== undefined && (obj.moniker = message.moniker);
     message.website !== undefined && (obj.website = message.website);
     message.logo !== undefined && (obj.logo = message.logo);
@@ -1174,10 +1182,84 @@ export const EventUpdateMetadata = {
     const message = createBaseEventUpdateMetadata();
     message.pool_id = object.pool_id ?? "0";
     message.address = object.address ?? "";
-    message.commission = object.commission ?? "";
     message.moniker = object.moniker ?? "";
     message.website = object.website ?? "";
     message.logo = object.logo ?? "";
+    return message;
+  },
+};
+
+function createBaseEventUpdateCommission(): EventUpdateCommission {
+  return { pool_id: "0", address: "", commission: "" };
+}
+
+export const EventUpdateCommission = {
+  encode(
+    message: EventUpdateCommission,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.commission !== "") {
+      writer.uint32(26).string(message.commission);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): EventUpdateCommission {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventUpdateCommission();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.commission = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventUpdateCommission {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      commission: isSet(object.commission) ? String(object.commission) : "",
+    };
+  },
+
+  toJSON(message: EventUpdateCommission): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.commission !== undefined && (obj.commission = message.commission);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventUpdateCommission>, I>>(
+    object: I
+  ): EventUpdateCommission {
+    const message = createBaseEventUpdateCommission();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.commission = object.commission ?? "";
     return message;
   },
 };
@@ -1322,6 +1404,82 @@ export const EventUnstakePool = {
     message.pool_id = object.pool_id ?? "0";
     message.address = object.address ?? "";
     message.amount = object.amount ?? "0";
+    return message;
+  },
+};
+
+function createBaseEventStakerStatusChanged(): EventStakerStatusChanged {
+  return { pool_id: "0", address: "", status: 0 };
+}
+
+export const EventStakerStatusChanged = {
+  encode(
+    message: EventStakerStatusChanged,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.pool_id !== "0") {
+      writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.address !== "") {
+      writer.uint32(18).string(message.address);
+    }
+    if (message.status !== 0) {
+      writer.uint32(24).int32(message.status);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): EventStakerStatusChanged {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseEventStakerStatusChanged();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.address = reader.string();
+          break;
+        case 3:
+          message.status = reader.int32() as any;
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): EventStakerStatusChanged {
+    return {
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      address: isSet(object.address) ? String(object.address) : "",
+      status: isSet(object.status) ? stakerStatusFromJSON(object.status) : 0,
+    };
+  },
+
+  toJSON(message: EventStakerStatusChanged): unknown {
+    const obj: any = {};
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.address !== undefined && (obj.address = message.address);
+    message.status !== undefined &&
+      (obj.status = stakerStatusToJSON(message.status));
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventStakerStatusChanged>, I>>(
+    object: I
+  ): EventStakerStatusChanged {
+    const message = createBaseEventStakerStatusChanged();
+    message.pool_id = object.pool_id ?? "0";
+    message.address = object.address ?? "";
+    message.status = object.status ?? 0;
     return message;
   },
 };

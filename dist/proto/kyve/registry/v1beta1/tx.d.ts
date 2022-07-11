@@ -50,6 +50,16 @@ export interface MsgStakePool {
 /** MsgStakePoolResponse defines the Msg/StakePool response type. */
 export interface MsgStakePoolResponse {
 }
+/** MsgReactivateStaker ... */
+export interface MsgReactivateStaker {
+    /** creator ... */
+    creator: string;
+    /** id ... */
+    pool_id: string;
+}
+/** MsgReactivateStakerResponse ... */
+export interface MsgReactivateStakerResponse {
+}
 /** MsgUnstakePool defines a SDK message for unstaking from a pool. */
 export interface MsgUnstakePool {
     /** creator ... */
@@ -179,8 +189,6 @@ export interface MsgUpdateMetadata {
     creator: string;
     /** id ... */
     id: string;
-    /** commission ... */
-    commission: string;
     /** moniker ... */
     moniker: string;
     /** website ... */
@@ -190,6 +198,18 @@ export interface MsgUpdateMetadata {
 }
 /** MsgUpdateMetadataResponse defines the Msg/MsgUpdateMetadata response type. */
 export interface MsgUpdateMetadataResponse {
+}
+/** ... */
+export interface MsgUpdateCommission {
+    /** creator ... */
+    creator: string;
+    /** id ... */
+    id: string;
+    /** commission ... */
+    commission: string;
+}
+/** ... */
+export interface MsgUpdateCommissionResponse {
 }
 export declare const MsgFundPool: {
     encode(message: MsgFundPool, writer?: _m0.Writer): _m0.Writer;
@@ -256,6 +276,26 @@ export declare const MsgStakePoolResponse: {
     fromJSON(_: any): MsgStakePoolResponse;
     toJSON(_: MsgStakePoolResponse): unknown;
     fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgStakePoolResponse;
+};
+export declare const MsgReactivateStaker: {
+    encode(message: MsgReactivateStaker, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgReactivateStaker;
+    fromJSON(object: any): MsgReactivateStaker;
+    toJSON(message: MsgReactivateStaker): unknown;
+    fromPartial<I extends {
+        creator?: string | undefined;
+        pool_id?: string | undefined;
+    } & {
+        creator?: string | undefined;
+        pool_id?: string | undefined;
+    } & Record<Exclude<keyof I, keyof MsgReactivateStaker>, never>>(object: I): MsgReactivateStaker;
+};
+export declare const MsgReactivateStakerResponse: {
+    encode(_: MsgReactivateStakerResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgReactivateStakerResponse;
+    fromJSON(_: any): MsgReactivateStakerResponse;
+    toJSON(_: MsgReactivateStakerResponse): unknown;
+    fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgReactivateStakerResponse;
 };
 export declare const MsgUnstakePool: {
     encode(message: MsgUnstakePool, writer?: _m0.Writer): _m0.Writer;
@@ -465,14 +505,12 @@ export declare const MsgUpdateMetadata: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        commission?: string | undefined;
         moniker?: string | undefined;
         website?: string | undefined;
         logo?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        commission?: string | undefined;
         moniker?: string | undefined;
         website?: string | undefined;
         logo?: string | undefined;
@@ -485,6 +523,28 @@ export declare const MsgUpdateMetadataResponse: {
     toJSON(_: MsgUpdateMetadataResponse): unknown;
     fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgUpdateMetadataResponse;
 };
+export declare const MsgUpdateCommission: {
+    encode(message: MsgUpdateCommission, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateCommission;
+    fromJSON(object: any): MsgUpdateCommission;
+    toJSON(message: MsgUpdateCommission): unknown;
+    fromPartial<I extends {
+        creator?: string | undefined;
+        id?: string | undefined;
+        commission?: string | undefined;
+    } & {
+        creator?: string | undefined;
+        id?: string | undefined;
+        commission?: string | undefined;
+    } & Record<Exclude<keyof I, keyof MsgUpdateCommission>, never>>(object: I): MsgUpdateCommission;
+};
+export declare const MsgUpdateCommissionResponse: {
+    encode(_: MsgUpdateCommissionResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateCommissionResponse;
+    fromJSON(_: any): MsgUpdateCommissionResponse;
+    toJSON(_: MsgUpdateCommissionResponse): unknown;
+    fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgUpdateCommissionResponse;
+};
 /** Msg defines the registry Msg service. */
 export interface Msg {
     /** FundPool ... */
@@ -493,6 +553,8 @@ export interface Msg {
     DefundPool(request: MsgDefundPool): Promise<MsgDefundPoolResponse>;
     /** StakePool ... */
     StakePool(request: MsgStakePool): Promise<MsgStakePoolResponse>;
+    /** MsgReactivateStaker ... */
+    ReactivateStaker(request: MsgReactivateStaker): Promise<MsgReactivateStakerResponse>;
     /** UnstakePool ... */
     UnstakePool(request: MsgUnstakePool): Promise<MsgUnstakePoolResponse>;
     /** DelegatePool ... */
@@ -511,6 +573,8 @@ export interface Msg {
     ClaimUploaderRole(request: MsgClaimUploaderRole): Promise<MsgClaimUploaderRoleResponse>;
     /** UpdateMetadata ... */
     UpdateMetadata(request: MsgUpdateMetadata): Promise<MsgUpdateMetadataResponse>;
+    /** UpdateCommission ... */
+    UpdateCommission(request: MsgUpdateCommission): Promise<MsgUpdateCommissionResponse>;
 }
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
@@ -518,6 +582,7 @@ export declare class MsgClientImpl implements Msg {
     FundPool(request: MsgFundPool): Promise<MsgFundPoolResponse>;
     DefundPool(request: MsgDefundPool): Promise<MsgDefundPoolResponse>;
     StakePool(request: MsgStakePool): Promise<MsgStakePoolResponse>;
+    ReactivateStaker(request: MsgReactivateStaker): Promise<MsgReactivateStakerResponse>;
     UnstakePool(request: MsgUnstakePool): Promise<MsgUnstakePoolResponse>;
     DelegatePool(request: MsgDelegatePool): Promise<MsgDelegatePoolResponse>;
     WithdrawPool(request: MsgWithdrawPool): Promise<MsgWithdrawPoolResponse>;
@@ -527,6 +592,7 @@ export declare class MsgClientImpl implements Msg {
     VoteProposal(request: MsgVoteProposal): Promise<MsgVoteProposalResponse>;
     ClaimUploaderRole(request: MsgClaimUploaderRole): Promise<MsgClaimUploaderRoleResponse>;
     UpdateMetadata(request: MsgUpdateMetadata): Promise<MsgUpdateMetadataResponse>;
+    UpdateCommission(request: MsgUpdateCommission): Promise<MsgUpdateCommissionResponse>;
 }
 interface Rpc {
     request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;

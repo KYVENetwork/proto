@@ -75,6 +75,49 @@ export function poolStatusToJSON(object: PoolStatus): string {
   }
 }
 
+/** StakerStatus ... */
+export enum StakerStatus {
+  /** STAKER_STATUS_UNSPECIFIED - STAKER_STATUS_UNSPECIFIED ... */
+  STAKER_STATUS_UNSPECIFIED = 0,
+  /** STAKER_STATUS_ACTIVE - STAKER_STATUS_ACTIVE ... */
+  STAKER_STATUS_ACTIVE = 1,
+  /** STAKER_STATUS_INACTIVE - STAKER_STATUS_INACTIVE ... */
+  STAKER_STATUS_INACTIVE = 2,
+  UNRECOGNIZED = -1,
+}
+
+export function stakerStatusFromJSON(object: any): StakerStatus {
+  switch (object) {
+    case 0:
+    case "STAKER_STATUS_UNSPECIFIED":
+      return StakerStatus.STAKER_STATUS_UNSPECIFIED;
+    case 1:
+    case "STAKER_STATUS_ACTIVE":
+      return StakerStatus.STAKER_STATUS_ACTIVE;
+    case 2:
+    case "STAKER_STATUS_INACTIVE":
+      return StakerStatus.STAKER_STATUS_INACTIVE;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return StakerStatus.UNRECOGNIZED;
+  }
+}
+
+export function stakerStatusToJSON(object: StakerStatus): string {
+  switch (object) {
+    case StakerStatus.STAKER_STATUS_UNSPECIFIED:
+      return "STAKER_STATUS_UNSPECIFIED";
+    case StakerStatus.STAKER_STATUS_ACTIVE:
+      return "STAKER_STATUS_ACTIVE";
+    case StakerStatus.STAKER_STATUS_INACTIVE:
+      return "STAKER_STATUS_INACTIVE";
+    case StakerStatus.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 /** BundleProposal ... */
 export interface BundleProposal {
   /** uploader ... */
@@ -253,6 +296,10 @@ export interface Pool {
   current_key: string;
   /** current_value ... */
   current_value: string;
+  /** inactive_stakers ... */
+  inactive_stakers: string[];
+  /** total_inactive_stake ... */
+  total_inactive_stake: string;
   /** min_stake ... */
   min_stake: string;
   /** status ... */
@@ -303,6 +350,8 @@ export interface Staker {
   logo: string;
   /** points */
   points: string;
+  /** status */
+  status: StakerStatus;
 }
 
 /**
@@ -379,6 +428,28 @@ export interface RedelegationCooldown {
   address: string;
   /** high_index ... */
   created_block: string;
+}
+
+/** CommissionChangeQueueEntry ... */
+export interface CommissionChangeQueueEntry {
+  /** index is a monotonically increasing integer to order the entries */
+  index: string;
+  /** staker ... */
+  staker: string;
+  /** pool_id ... */
+  pool_id: string;
+  /** commission ... */
+  commission: string;
+  /** commission ... */
+  creation_date: string;
+}
+
+/** CommissionChangeQueueState ... */
+export interface CommissionChangeQueueState {
+  /** low_index ... */
+  low_index: string;
+  /** high_index ... */
+  high_index: string;
 }
 
 function createBaseBundleProposal(): BundleProposal {
@@ -1151,6 +1222,8 @@ function createBasePool(): Pool {
     start_key: "",
     current_key: "",
     current_value: "",
+    inactive_stakers: [],
+    total_inactive_stake: "0",
     min_stake: "0",
     status: 0,
   };
@@ -1251,11 +1324,17 @@ export const Pool = {
     if (message.current_value !== "") {
       writer.uint32(234).string(message.current_value);
     }
+    for (const v of message.inactive_stakers) {
+      writer.uint32(242).string(v!);
+    }
+    if (message.total_inactive_stake !== "0") {
+      writer.uint32(248).uint64(message.total_inactive_stake);
+    }
     if (message.min_stake !== "0") {
-      writer.uint32(240).uint64(message.min_stake);
+      writer.uint32(256).uint64(message.min_stake);
     }
     if (message.status !== 0) {
-      writer.uint32(248).int32(message.status);
+      writer.uint32(264).int32(message.status);
     }
     return writer;
   },
@@ -1358,9 +1437,15 @@ export const Pool = {
           message.current_value = reader.string();
           break;
         case 30:
-          message.min_stake = longToString(reader.uint64() as Long);
+          message.inactive_stakers.push(reader.string());
           break;
         case 31:
+          message.total_inactive_stake = longToString(reader.uint64() as Long);
+          break;
+        case 32:
+          message.min_stake = longToString(reader.uint64() as Long);
+          break;
+        case 33:
           message.status = reader.int32() as any;
           break;
         default:
@@ -1434,6 +1519,12 @@ export const Pool = {
       current_value: isSet(object.current_value)
         ? String(object.current_value)
         : "",
+      inactive_stakers: Array.isArray(object?.inactive_stakers)
+        ? object.inactive_stakers.map((e: any) => String(e))
+        : [],
+      total_inactive_stake: isSet(object.total_inactive_stake)
+        ? String(object.total_inactive_stake)
+        : "0",
       min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0",
       status: isSet(object.status) ? poolStatusFromJSON(object.status) : 0,
     };
@@ -1502,6 +1593,13 @@ export const Pool = {
       (obj.current_key = message.current_key);
     message.current_value !== undefined &&
       (obj.current_value = message.current_value);
+    if (message.inactive_stakers) {
+      obj.inactive_stakers = message.inactive_stakers.map((e) => e);
+    } else {
+      obj.inactive_stakers = [];
+    }
+    message.total_inactive_stake !== undefined &&
+      (obj.total_inactive_stake = message.total_inactive_stake);
     message.min_stake !== undefined && (obj.min_stake = message.min_stake);
     message.status !== undefined &&
       (obj.status = poolStatusToJSON(message.status));
@@ -1548,6 +1646,8 @@ export const Pool = {
     message.start_key = object.start_key ?? "";
     message.current_key = object.current_key ?? "";
     message.current_value = object.current_value ?? "";
+    message.inactive_stakers = object.inactive_stakers?.map((e) => e) || [];
+    message.total_inactive_stake = object.total_inactive_stake ?? "0";
     message.min_stake = object.min_stake ?? "0";
     message.status = object.status ?? 0;
     return message;
@@ -1714,6 +1814,7 @@ function createBaseStaker(): Staker {
     website: "",
     logo: "",
     points: "0",
+    status: 0,
   };
 }
 
@@ -1748,6 +1849,9 @@ export const Staker = {
     }
     if (message.points !== "0") {
       writer.uint32(72).uint64(message.points);
+    }
+    if (message.status !== 0) {
+      writer.uint32(80).int32(message.status);
     }
     return writer;
   },
@@ -1786,6 +1890,9 @@ export const Staker = {
         case 9:
           message.points = longToString(reader.uint64() as Long);
           break;
+        case 10:
+          message.status = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1807,6 +1914,7 @@ export const Staker = {
       website: isSet(object.website) ? String(object.website) : "",
       logo: isSet(object.logo) ? String(object.logo) : "",
       points: isSet(object.points) ? String(object.points) : "0",
+      status: isSet(object.status) ? stakerStatusFromJSON(object.status) : 0,
     };
   },
 
@@ -1822,6 +1930,8 @@ export const Staker = {
     message.website !== undefined && (obj.website = message.website);
     message.logo !== undefined && (obj.logo = message.logo);
     message.points !== undefined && (obj.points = message.points);
+    message.status !== undefined &&
+      (obj.status = stakerStatusToJSON(message.status));
     return obj;
   },
 
@@ -1836,6 +1946,7 @@ export const Staker = {
     message.website = object.website ?? "";
     message.logo = object.logo ?? "";
     message.points = object.points ?? "0";
+    message.status = object.status ?? 0;
     return message;
   },
 };
@@ -2326,6 +2437,174 @@ export const RedelegationCooldown = {
     const message = createBaseRedelegationCooldown();
     message.address = object.address ?? "";
     message.created_block = object.created_block ?? "0";
+    return message;
+  },
+};
+
+function createBaseCommissionChangeQueueEntry(): CommissionChangeQueueEntry {
+  return {
+    index: "0",
+    staker: "",
+    pool_id: "0",
+    commission: "",
+    creation_date: "0",
+  };
+}
+
+export const CommissionChangeQueueEntry = {
+  encode(
+    message: CommissionChangeQueueEntry,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.index !== "0") {
+      writer.uint32(8).uint64(message.index);
+    }
+    if (message.staker !== "") {
+      writer.uint32(18).string(message.staker);
+    }
+    if (message.pool_id !== "0") {
+      writer.uint32(24).uint64(message.pool_id);
+    }
+    if (message.commission !== "") {
+      writer.uint32(34).string(message.commission);
+    }
+    if (message.creation_date !== "0") {
+      writer.uint32(40).int64(message.creation_date);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): CommissionChangeQueueEntry {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCommissionChangeQueueEntry();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.index = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.staker = reader.string();
+          break;
+        case 3:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        case 4:
+          message.commission = reader.string();
+          break;
+        case 5:
+          message.creation_date = longToString(reader.int64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CommissionChangeQueueEntry {
+    return {
+      index: isSet(object.index) ? String(object.index) : "0",
+      staker: isSet(object.staker) ? String(object.staker) : "",
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      commission: isSet(object.commission) ? String(object.commission) : "",
+      creation_date: isSet(object.creation_date)
+        ? String(object.creation_date)
+        : "0",
+    };
+  },
+
+  toJSON(message: CommissionChangeQueueEntry): unknown {
+    const obj: any = {};
+    message.index !== undefined && (obj.index = message.index);
+    message.staker !== undefined && (obj.staker = message.staker);
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.commission !== undefined && (obj.commission = message.commission);
+    message.creation_date !== undefined &&
+      (obj.creation_date = message.creation_date);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<CommissionChangeQueueEntry>, I>>(
+    object: I
+  ): CommissionChangeQueueEntry {
+    const message = createBaseCommissionChangeQueueEntry();
+    message.index = object.index ?? "0";
+    message.staker = object.staker ?? "";
+    message.pool_id = object.pool_id ?? "0";
+    message.commission = object.commission ?? "";
+    message.creation_date = object.creation_date ?? "0";
+    return message;
+  },
+};
+
+function createBaseCommissionChangeQueueState(): CommissionChangeQueueState {
+  return { low_index: "0", high_index: "0" };
+}
+
+export const CommissionChangeQueueState = {
+  encode(
+    message: CommissionChangeQueueState,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.low_index !== "0") {
+      writer.uint32(8).uint64(message.low_index);
+    }
+    if (message.high_index !== "0") {
+      writer.uint32(16).uint64(message.high_index);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): CommissionChangeQueueState {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCommissionChangeQueueState();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.low_index = longToString(reader.uint64() as Long);
+          break;
+        case 2:
+          message.high_index = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CommissionChangeQueueState {
+    return {
+      low_index: isSet(object.low_index) ? String(object.low_index) : "0",
+      high_index: isSet(object.high_index) ? String(object.high_index) : "0",
+    };
+  },
+
+  toJSON(message: CommissionChangeQueueState): unknown {
+    const obj: any = {};
+    message.low_index !== undefined && (obj.low_index = message.low_index);
+    message.high_index !== undefined && (obj.high_index = message.high_index);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<CommissionChangeQueueState>, I>>(
+    object: I
+  ): CommissionChangeQueueState {
+    const message = createBaseCommissionChangeQueueState();
+    message.low_index = object.low_index ?? "0";
+    message.high_index = object.high_index ?? "0";
     return message;
   },
 };

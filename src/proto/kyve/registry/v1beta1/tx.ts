@@ -93,6 +93,17 @@ export interface MsgStakePool {
 /** MsgStakePoolResponse defines the Msg/StakePool response type. */
 export interface MsgStakePoolResponse {}
 
+/** MsgReactivateStaker ... */
+export interface MsgReactivateStaker {
+  /** creator ... */
+  creator: string;
+  /** id ... */
+  pool_id: string;
+}
+
+/** MsgReactivateStakerResponse ... */
+export interface MsgReactivateStakerResponse {}
+
 /** MsgUnstakePool defines a SDK message for unstaking from a pool. */
 export interface MsgUnstakePool {
   /** creator ... */
@@ -230,8 +241,6 @@ export interface MsgUpdateMetadata {
   creator: string;
   /** id ... */
   id: string;
-  /** commission ... */
-  commission: string;
   /** moniker ... */
   moniker: string;
   /** website ... */
@@ -242,6 +251,19 @@ export interface MsgUpdateMetadata {
 
 /** MsgUpdateMetadataResponse defines the Msg/MsgUpdateMetadata response type. */
 export interface MsgUpdateMetadataResponse {}
+
+/** ... */
+export interface MsgUpdateCommission {
+  /** creator ... */
+  creator: string;
+  /** id ... */
+  id: string;
+  /** commission ... */
+  commission: string;
+}
+
+/** ... */
+export interface MsgUpdateCommissionResponse {}
 
 function createBaseMsgFundPool(): MsgFundPool {
   return { creator: "", id: "0", amount: "0" };
@@ -593,6 +615,116 @@ export const MsgStakePoolResponse = {
     _: I
   ): MsgStakePoolResponse {
     const message = createBaseMsgStakePoolResponse();
+    return message;
+  },
+};
+
+function createBaseMsgReactivateStaker(): MsgReactivateStaker {
+  return { creator: "", pool_id: "0" };
+}
+
+export const MsgReactivateStaker = {
+  encode(
+    message: MsgReactivateStaker,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.pool_id !== "0") {
+      writer.uint32(16).uint64(message.pool_id);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgReactivateStaker {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgReactivateStaker();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.pool_id = longToString(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgReactivateStaker {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+    };
+  },
+
+  toJSON(message: MsgReactivateStaker): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgReactivateStaker>, I>>(
+    object: I
+  ): MsgReactivateStaker {
+    const message = createBaseMsgReactivateStaker();
+    message.creator = object.creator ?? "";
+    message.pool_id = object.pool_id ?? "0";
+    return message;
+  },
+};
+
+function createBaseMsgReactivateStakerResponse(): MsgReactivateStakerResponse {
+  return {};
+}
+
+export const MsgReactivateStakerResponse = {
+  encode(
+    _: MsgReactivateStakerResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): MsgReactivateStakerResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgReactivateStakerResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgReactivateStakerResponse {
+    return {};
+  },
+
+  toJSON(_: MsgReactivateStakerResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgReactivateStakerResponse>, I>>(
+    _: I
+  ): MsgReactivateStakerResponse {
+    const message = createBaseMsgReactivateStakerResponse();
     return message;
   },
 };
@@ -1688,14 +1820,7 @@ export const MsgClaimUploaderRoleResponse = {
 };
 
 function createBaseMsgUpdateMetadata(): MsgUpdateMetadata {
-  return {
-    creator: "",
-    id: "0",
-    commission: "",
-    moniker: "",
-    website: "",
-    logo: "",
-  };
+  return { creator: "", id: "0", moniker: "", website: "", logo: "" };
 }
 
 export const MsgUpdateMetadata = {
@@ -1709,17 +1834,14 @@ export const MsgUpdateMetadata = {
     if (message.id !== "0") {
       writer.uint32(16).uint64(message.id);
     }
-    if (message.commission !== "") {
-      writer.uint32(26).string(message.commission);
-    }
     if (message.moniker !== "") {
-      writer.uint32(34).string(message.moniker);
+      writer.uint32(26).string(message.moniker);
     }
     if (message.website !== "") {
-      writer.uint32(42).string(message.website);
+      writer.uint32(34).string(message.website);
     }
     if (message.logo !== "") {
-      writer.uint32(50).string(message.logo);
+      writer.uint32(42).string(message.logo);
     }
     return writer;
   },
@@ -1738,15 +1860,12 @@ export const MsgUpdateMetadata = {
           message.id = longToString(reader.uint64() as Long);
           break;
         case 3:
-          message.commission = reader.string();
-          break;
-        case 4:
           message.moniker = reader.string();
           break;
-        case 5:
+        case 4:
           message.website = reader.string();
           break;
-        case 6:
+        case 5:
           message.logo = reader.string();
           break;
         default:
@@ -1761,7 +1880,6 @@ export const MsgUpdateMetadata = {
     return {
       creator: isSet(object.creator) ? String(object.creator) : "",
       id: isSet(object.id) ? String(object.id) : "0",
-      commission: isSet(object.commission) ? String(object.commission) : "",
       moniker: isSet(object.moniker) ? String(object.moniker) : "",
       website: isSet(object.website) ? String(object.website) : "",
       logo: isSet(object.logo) ? String(object.logo) : "",
@@ -1772,7 +1890,6 @@ export const MsgUpdateMetadata = {
     const obj: any = {};
     message.creator !== undefined && (obj.creator = message.creator);
     message.id !== undefined && (obj.id = message.id);
-    message.commission !== undefined && (obj.commission = message.commission);
     message.moniker !== undefined && (obj.moniker = message.moniker);
     message.website !== undefined && (obj.website = message.website);
     message.logo !== undefined && (obj.logo = message.logo);
@@ -1785,7 +1902,6 @@ export const MsgUpdateMetadata = {
     const message = createBaseMsgUpdateMetadata();
     message.creator = object.creator ?? "";
     message.id = object.id ?? "0";
-    message.commission = object.commission ?? "";
     message.moniker = object.moniker ?? "";
     message.website = object.website ?? "";
     message.logo = object.logo ?? "";
@@ -1840,6 +1956,125 @@ export const MsgUpdateMetadataResponse = {
   },
 };
 
+function createBaseMsgUpdateCommission(): MsgUpdateCommission {
+  return { creator: "", id: "0", commission: "" };
+}
+
+export const MsgUpdateCommission = {
+  encode(
+    message: MsgUpdateCommission,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.creator !== "") {
+      writer.uint32(10).string(message.creator);
+    }
+    if (message.id !== "0") {
+      writer.uint32(16).uint64(message.id);
+    }
+    if (message.commission !== "") {
+      writer.uint32(26).string(message.commission);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateCommission {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgUpdateCommission();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.creator = reader.string();
+          break;
+        case 2:
+          message.id = longToString(reader.uint64() as Long);
+          break;
+        case 3:
+          message.commission = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): MsgUpdateCommission {
+    return {
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      id: isSet(object.id) ? String(object.id) : "0",
+      commission: isSet(object.commission) ? String(object.commission) : "",
+    };
+  },
+
+  toJSON(message: MsgUpdateCommission): unknown {
+    const obj: any = {};
+    message.creator !== undefined && (obj.creator = message.creator);
+    message.id !== undefined && (obj.id = message.id);
+    message.commission !== undefined && (obj.commission = message.commission);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgUpdateCommission>, I>>(
+    object: I
+  ): MsgUpdateCommission {
+    const message = createBaseMsgUpdateCommission();
+    message.creator = object.creator ?? "";
+    message.id = object.id ?? "0";
+    message.commission = object.commission ?? "";
+    return message;
+  },
+};
+
+function createBaseMsgUpdateCommissionResponse(): MsgUpdateCommissionResponse {
+  return {};
+}
+
+export const MsgUpdateCommissionResponse = {
+  encode(
+    _: MsgUpdateCommissionResponse,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): MsgUpdateCommissionResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseMsgUpdateCommissionResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(_: any): MsgUpdateCommissionResponse {
+    return {};
+  },
+
+  toJSON(_: MsgUpdateCommissionResponse): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgUpdateCommissionResponse>, I>>(
+    _: I
+  ): MsgUpdateCommissionResponse {
+    const message = createBaseMsgUpdateCommissionResponse();
+    return message;
+  },
+};
+
 /** Msg defines the registry Msg service. */
 export interface Msg {
   /** FundPool ... */
@@ -1848,6 +2083,10 @@ export interface Msg {
   DefundPool(request: MsgDefundPool): Promise<MsgDefundPoolResponse>;
   /** StakePool ... */
   StakePool(request: MsgStakePool): Promise<MsgStakePoolResponse>;
+  /** MsgReactivateStaker ... */
+  ReactivateStaker(
+    request: MsgReactivateStaker
+  ): Promise<MsgReactivateStakerResponse>;
   /** UnstakePool ... */
   UnstakePool(request: MsgUnstakePool): Promise<MsgUnstakePoolResponse>;
   /** DelegatePool ... */
@@ -1876,6 +2115,10 @@ export interface Msg {
   UpdateMetadata(
     request: MsgUpdateMetadata
   ): Promise<MsgUpdateMetadataResponse>;
+  /** UpdateCommission ... */
+  UpdateCommission(
+    request: MsgUpdateCommission
+  ): Promise<MsgUpdateCommissionResponse>;
 }
 
 export class MsgClientImpl implements Msg {
@@ -1885,6 +2128,7 @@ export class MsgClientImpl implements Msg {
     this.FundPool = this.FundPool.bind(this);
     this.DefundPool = this.DefundPool.bind(this);
     this.StakePool = this.StakePool.bind(this);
+    this.ReactivateStaker = this.ReactivateStaker.bind(this);
     this.UnstakePool = this.UnstakePool.bind(this);
     this.DelegatePool = this.DelegatePool.bind(this);
     this.WithdrawPool = this.WithdrawPool.bind(this);
@@ -1894,6 +2138,7 @@ export class MsgClientImpl implements Msg {
     this.VoteProposal = this.VoteProposal.bind(this);
     this.ClaimUploaderRole = this.ClaimUploaderRole.bind(this);
     this.UpdateMetadata = this.UpdateMetadata.bind(this);
+    this.UpdateCommission = this.UpdateCommission.bind(this);
   }
   FundPool(request: MsgFundPool): Promise<MsgFundPoolResponse> {
     const data = MsgFundPool.encode(request).finish();
@@ -1928,6 +2173,20 @@ export class MsgClientImpl implements Msg {
     );
     return promise.then((data) =>
       MsgStakePoolResponse.decode(new _m0.Reader(data))
+    );
+  }
+
+  ReactivateStaker(
+    request: MsgReactivateStaker
+  ): Promise<MsgReactivateStakerResponse> {
+    const data = MsgReactivateStaker.encode(request).finish();
+    const promise = this.rpc.request(
+      "kyve.registry.v1beta1.Msg",
+      "ReactivateStaker",
+      data
+    );
+    return promise.then((data) =>
+      MsgReactivateStakerResponse.decode(new _m0.Reader(data))
     );
   }
 
@@ -2046,6 +2305,20 @@ export class MsgClientImpl implements Msg {
     );
     return promise.then((data) =>
       MsgUpdateMetadataResponse.decode(new _m0.Reader(data))
+    );
+  }
+
+  UpdateCommission(
+    request: MsgUpdateCommission
+  ): Promise<MsgUpdateCommissionResponse> {
+    const data = MsgUpdateCommission.encode(request).finish();
+    const promise = this.rpc.request(
+      "kyve.registry.v1beta1.Msg",
+      "UpdateCommission",
+      data
+    );
+    return promise.then((data) =>
+      MsgUpdateCommissionResponse.decode(new _m0.Reader(data))
     );
   }
 }

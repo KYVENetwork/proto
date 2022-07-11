@@ -5,8 +5,11 @@ import { Params } from "../../../kyve/registry/v1beta1/params";
 import {
   Pool,
   Funder,
+  StakerStatus,
   Proposal,
   DelegationPoolData,
+  stakerStatusFromJSON,
+  stakerStatusToJSON,
 } from "../../../kyve/registry/v1beta1/registry";
 import {
   PageRequest,
@@ -86,12 +89,18 @@ export interface QueryFunderResponse {
 export interface QueryStakersListRequest {
   /** pool_id defines the unique ID of the pool. */
   pool_id: string;
+  /** status ... */
+  status: StakerStatus;
+  /** pagination ... */
+  pagination?: PageRequest;
 }
 
 /** QueryStakersListResponse is the response type for the Query/StakersList RPC method. */
 export interface QueryStakersListResponse {
   /** stakers ... */
   stakers: StakerResponse[];
+  /** pagination ... */
+  pagination?: PageResponse;
 }
 
 /** QueryStakerRequest is the request type for the Query/Staker RPC method. */
@@ -134,6 +143,8 @@ export interface StakerResponse {
   unbonding_amount: string;
   /** upload_probability */
   upload_probability: string;
+  /** status */
+  status: StakerStatus;
 }
 
 /** QueryVoteStatusRequest is the request type for the Query/VoteStatus RPC method. */
@@ -290,6 +301,8 @@ export interface QueryStakeInfoResponse {
   current_stake: string;
   /** minimum_stake ... */
   minimum_stake: string;
+  /** status ... */
+  status: StakerStatus;
 }
 
 /** QueryAccountAssetsRequest is the request type for the Query/AccountAssets RPC method. */
@@ -1187,7 +1200,7 @@ export const QueryFunderResponse = {
 };
 
 function createBaseQueryStakersListRequest(): QueryStakersListRequest {
-  return { pool_id: "0" };
+  return { pool_id: "0", status: 0, pagination: undefined };
 }
 
 export const QueryStakersListRequest = {
@@ -1197,6 +1210,12 @@ export const QueryStakersListRequest = {
   ): _m0.Writer {
     if (message.pool_id !== "0") {
       writer.uint32(8).uint64(message.pool_id);
+    }
+    if (message.status !== 0) {
+      writer.uint32(16).int32(message.status);
+    }
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
     }
     return writer;
   },
@@ -1214,6 +1233,12 @@ export const QueryStakersListRequest = {
         case 1:
           message.pool_id = longToString(reader.uint64() as Long);
           break;
+        case 2:
+          message.status = reader.int32() as any;
+          break;
+        case 3:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1225,12 +1250,22 @@ export const QueryStakersListRequest = {
   fromJSON(object: any): QueryStakersListRequest {
     return {
       pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+      status: isSet(object.status) ? stakerStatusFromJSON(object.status) : 0,
+      pagination: isSet(object.pagination)
+        ? PageRequest.fromJSON(object.pagination)
+        : undefined,
     };
   },
 
   toJSON(message: QueryStakersListRequest): unknown {
     const obj: any = {};
     message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+    message.status !== undefined &&
+      (obj.status = stakerStatusToJSON(message.status));
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination
+        ? PageRequest.toJSON(message.pagination)
+        : undefined);
     return obj;
   },
 
@@ -1239,12 +1274,17 @@ export const QueryStakersListRequest = {
   ): QueryStakersListRequest {
     const message = createBaseQueryStakersListRequest();
     message.pool_id = object.pool_id ?? "0";
+    message.status = object.status ?? 0;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
 function createBaseQueryStakersListResponse(): QueryStakersListResponse {
-  return { stakers: [] };
+  return { stakers: [], pagination: undefined };
 }
 
 export const QueryStakersListResponse = {
@@ -1254,6 +1294,12 @@ export const QueryStakersListResponse = {
   ): _m0.Writer {
     for (const v of message.stakers) {
       StakerResponse.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(
+        message.pagination,
+        writer.uint32(18).fork()
+      ).ldelim();
     }
     return writer;
   },
@@ -1271,6 +1317,9 @@ export const QueryStakersListResponse = {
         case 1:
           message.stakers.push(StakerResponse.decode(reader, reader.uint32()));
           break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1284,6 +1333,9 @@ export const QueryStakersListResponse = {
       stakers: Array.isArray(object?.stakers)
         ? object.stakers.map((e: any) => StakerResponse.fromJSON(e))
         : [],
+      pagination: isSet(object.pagination)
+        ? PageResponse.fromJSON(object.pagination)
+        : undefined,
     };
   },
 
@@ -1296,6 +1348,10 @@ export const QueryStakersListResponse = {
     } else {
       obj.stakers = [];
     }
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination
+        ? PageResponse.toJSON(message.pagination)
+        : undefined);
     return obj;
   },
 
@@ -1305,6 +1361,10 @@ export const QueryStakersListResponse = {
     const message = createBaseQueryStakersListResponse();
     message.stakers =
       object.stakers?.map((e) => StakerResponse.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -1448,6 +1508,7 @@ function createBaseStakerResponse(): StakerResponse {
     points: "0",
     unbonding_amount: "0",
     upload_probability: "",
+    status: 0,
   };
 }
 
@@ -1491,6 +1552,9 @@ export const StakerResponse = {
     }
     if (message.upload_probability !== "") {
       writer.uint32(98).string(message.upload_probability);
+    }
+    if (message.status !== 0) {
+      writer.uint32(104).int32(message.status);
     }
     return writer;
   },
@@ -1538,6 +1602,9 @@ export const StakerResponse = {
         case 12:
           message.upload_probability = reader.string();
           break;
+        case 13:
+          message.status = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1566,6 +1633,7 @@ export const StakerResponse = {
       upload_probability: isSet(object.upload_probability)
         ? String(object.upload_probability)
         : "",
+      status: isSet(object.status) ? stakerStatusFromJSON(object.status) : 0,
     };
   },
 
@@ -1586,6 +1654,8 @@ export const StakerResponse = {
       (obj.unbonding_amount = message.unbonding_amount);
     message.upload_probability !== undefined &&
       (obj.upload_probability = message.upload_probability);
+    message.status !== undefined &&
+      (obj.status = stakerStatusToJSON(message.status));
     return obj;
   },
 
@@ -1605,6 +1675,7 @@ export const StakerResponse = {
     message.points = object.points ?? "0";
     message.unbonding_amount = object.unbonding_amount ?? "0";
     message.upload_probability = object.upload_probability ?? "";
+    message.status = object.status ?? 0;
     return message;
   },
 };
@@ -2919,7 +2990,7 @@ export const QueryStakeInfoRequest = {
 };
 
 function createBaseQueryStakeInfoResponse(): QueryStakeInfoResponse {
-  return { balance: "", current_stake: "", minimum_stake: "" };
+  return { balance: "", current_stake: "", minimum_stake: "", status: 0 };
 }
 
 export const QueryStakeInfoResponse = {
@@ -2935,6 +3006,9 @@ export const QueryStakeInfoResponse = {
     }
     if (message.minimum_stake !== "") {
       writer.uint32(26).string(message.minimum_stake);
+    }
+    if (message.status !== 0) {
+      writer.uint32(32).int32(message.status);
     }
     return writer;
   },
@@ -2958,6 +3032,9 @@ export const QueryStakeInfoResponse = {
         case 3:
           message.minimum_stake = reader.string();
           break;
+        case 4:
+          message.status = reader.int32() as any;
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -2975,6 +3052,7 @@ export const QueryStakeInfoResponse = {
       minimum_stake: isSet(object.minimum_stake)
         ? String(object.minimum_stake)
         : "",
+      status: isSet(object.status) ? stakerStatusFromJSON(object.status) : 0,
     };
   },
 
@@ -2985,6 +3063,8 @@ export const QueryStakeInfoResponse = {
       (obj.current_stake = message.current_stake);
     message.minimum_stake !== undefined &&
       (obj.minimum_stake = message.minimum_stake);
+    message.status !== undefined &&
+      (obj.status = stakerStatusToJSON(message.status));
     return obj;
   },
 
@@ -2995,6 +3075,7 @@ export const QueryStakeInfoResponse = {
     message.balance = object.balance ?? "";
     message.current_stake = object.current_stake ?? "";
     message.minimum_stake = object.minimum_stake ?? "";
+    message.status = object.status ?? 0;
     return message;
   },
 };

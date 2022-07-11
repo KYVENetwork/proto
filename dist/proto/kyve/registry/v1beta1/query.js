@@ -563,13 +563,19 @@ exports.QueryFunderResponse = {
     }
 };
 function createBaseQueryStakersListRequest() {
-    return { pool_id: "0" };
+    return { pool_id: "0", status: 0, pagination: undefined };
 }
 exports.QueryStakersListRequest = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
+        }
+        if (message.status !== 0) {
+            writer.uint32(16).int32(message.status);
+        }
+        if (message.pagination !== undefined) {
+            pagination_1.PageRequest.encode(message.pagination, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -583,6 +589,12 @@ exports.QueryStakersListRequest = {
                 case 1:
                     message.pool_id = longToString(reader.uint64());
                     break;
+                case 2:
+                    message.status = reader.int32();
+                    break;
+                case 3:
+                    message.pagination = pagination_1.PageRequest.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -592,23 +604,38 @@ exports.QueryStakersListRequest = {
     },
     fromJSON: function (object) {
         return {
-            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0"
+            pool_id: isSet(object.pool_id) ? String(object.pool_id) : "0",
+            status: isSet(object.status) ? (0, registry_1.stakerStatusFromJSON)(object.status) : 0,
+            pagination: isSet(object.pagination)
+                ? pagination_1.PageRequest.fromJSON(object.pagination)
+                : undefined
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.pool_id !== undefined && (obj.pool_id = message.pool_id);
+        message.status !== undefined &&
+            (obj.status = (0, registry_1.stakerStatusToJSON)(message.status));
+        message.pagination !== undefined &&
+            (obj.pagination = message.pagination
+                ? pagination_1.PageRequest.toJSON(message.pagination)
+                : undefined);
         return obj;
     },
     fromPartial: function (object) {
-        var _a;
+        var _a, _b;
         var message = createBaseQueryStakersListRequest();
         message.pool_id = (_a = object.pool_id) !== null && _a !== void 0 ? _a : "0";
+        message.status = (_b = object.status) !== null && _b !== void 0 ? _b : 0;
+        message.pagination =
+            object.pagination !== undefined && object.pagination !== null
+                ? pagination_1.PageRequest.fromPartial(object.pagination)
+                : undefined;
         return message;
     }
 };
 function createBaseQueryStakersListResponse() {
-    return { stakers: [] };
+    return { stakers: [], pagination: undefined };
 }
 exports.QueryStakersListResponse = {
     encode: function (message, writer) {
@@ -616,6 +643,9 @@ exports.QueryStakersListResponse = {
         for (var _i = 0, _a = message.stakers; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.StakerResponse.encode(v, writer.uint32(10).fork()).ldelim();
+        }
+        if (message.pagination !== undefined) {
+            pagination_1.PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
         }
         return writer;
     },
@@ -629,6 +659,9 @@ exports.QueryStakersListResponse = {
                 case 1:
                     message.stakers.push(exports.StakerResponse.decode(reader, reader.uint32()));
                     break;
+                case 2:
+                    message.pagination = pagination_1.PageResponse.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -640,7 +673,10 @@ exports.QueryStakersListResponse = {
         return {
             stakers: Array.isArray(object === null || object === void 0 ? void 0 : object.stakers)
                 ? object.stakers.map(function (e) { return exports.StakerResponse.fromJSON(e); })
-                : []
+                : [],
+            pagination: isSet(object.pagination)
+                ? pagination_1.PageResponse.fromJSON(object.pagination)
+                : undefined
         };
     },
     toJSON: function (message) {
@@ -653,6 +689,10 @@ exports.QueryStakersListResponse = {
         else {
             obj.stakers = [];
         }
+        message.pagination !== undefined &&
+            (obj.pagination = message.pagination
+                ? pagination_1.PageResponse.toJSON(message.pagination)
+                : undefined);
         return obj;
     },
     fromPartial: function (object) {
@@ -660,6 +700,10 @@ exports.QueryStakersListResponse = {
         var message = createBaseQueryStakersListResponse();
         message.stakers =
             ((_a = object.stakers) === null || _a === void 0 ? void 0 : _a.map(function (e) { return exports.StakerResponse.fromPartial(e); })) || [];
+        message.pagination =
+            object.pagination !== undefined && object.pagination !== null
+                ? pagination_1.PageResponse.fromPartial(object.pagination)
+                : undefined;
         return message;
     }
 };
@@ -782,7 +826,8 @@ function createBaseStakerResponse() {
         logo: "",
         points: "0",
         unbonding_amount: "0",
-        upload_probability: ""
+        upload_probability: "",
+        status: 0
     };
 }
 exports.StakerResponse = {
@@ -823,6 +868,9 @@ exports.StakerResponse = {
         }
         if (message.upload_probability !== "") {
             writer.uint32(98).string(message.upload_probability);
+        }
+        if (message.status !== 0) {
+            writer.uint32(104).int32(message.status);
         }
         return writer;
     },
@@ -869,6 +917,9 @@ exports.StakerResponse = {
                 case 12:
                     message.upload_probability = reader.string();
                     break;
+                case 13:
+                    message.status = reader.int32();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -895,7 +946,8 @@ exports.StakerResponse = {
                 : "0",
             upload_probability: isSet(object.upload_probability)
                 ? String(object.upload_probability)
-                : ""
+                : "",
+            status: isSet(object.status) ? (0, registry_1.stakerStatusFromJSON)(object.status) : 0
         };
     },
     toJSON: function (message) {
@@ -915,10 +967,12 @@ exports.StakerResponse = {
             (obj.unbonding_amount = message.unbonding_amount);
         message.upload_probability !== undefined &&
             (obj.upload_probability = message.upload_probability);
+        message.status !== undefined &&
+            (obj.status = (0, registry_1.stakerStatusToJSON)(message.status));
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
         var message = createBaseStakerResponse();
         message.staker = (_a = object.staker) !== null && _a !== void 0 ? _a : "";
         message.pool_id = (_b = object.pool_id) !== null && _b !== void 0 ? _b : "0";
@@ -932,6 +986,7 @@ exports.StakerResponse = {
         message.points = (_k = object.points) !== null && _k !== void 0 ? _k : "0";
         message.unbonding_amount = (_l = object.unbonding_amount) !== null && _l !== void 0 ? _l : "0";
         message.upload_probability = (_m = object.upload_probability) !== null && _m !== void 0 ? _m : "";
+        message.status = (_o = object.status) !== null && _o !== void 0 ? _o : 0;
         return message;
     }
 };
@@ -2023,7 +2078,7 @@ exports.QueryStakeInfoRequest = {
     }
 };
 function createBaseQueryStakeInfoResponse() {
-    return { balance: "", current_stake: "", minimum_stake: "" };
+    return { balance: "", current_stake: "", minimum_stake: "", status: 0 };
 }
 exports.QueryStakeInfoResponse = {
     encode: function (message, writer) {
@@ -2036,6 +2091,9 @@ exports.QueryStakeInfoResponse = {
         }
         if (message.minimum_stake !== "") {
             writer.uint32(26).string(message.minimum_stake);
+        }
+        if (message.status !== 0) {
+            writer.uint32(32).int32(message.status);
         }
         return writer;
     },
@@ -2055,6 +2113,9 @@ exports.QueryStakeInfoResponse = {
                 case 3:
                     message.minimum_stake = reader.string();
                     break;
+                case 4:
+                    message.status = reader.int32();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -2070,7 +2131,8 @@ exports.QueryStakeInfoResponse = {
                 : "",
             minimum_stake: isSet(object.minimum_stake)
                 ? String(object.minimum_stake)
-                : ""
+                : "",
+            status: isSet(object.status) ? (0, registry_1.stakerStatusFromJSON)(object.status) : 0
         };
     },
     toJSON: function (message) {
@@ -2080,14 +2142,17 @@ exports.QueryStakeInfoResponse = {
             (obj.current_stake = message.current_stake);
         message.minimum_stake !== undefined &&
             (obj.minimum_stake = message.minimum_stake);
+        message.status !== undefined &&
+            (obj.status = (0, registry_1.stakerStatusToJSON)(message.status));
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         var message = createBaseQueryStakeInfoResponse();
         message.balance = (_a = object.balance) !== null && _a !== void 0 ? _a : "";
         message.current_stake = (_b = object.current_stake) !== null && _b !== void 0 ? _b : "";
         message.minimum_stake = (_c = object.minimum_stake) !== null && _c !== void 0 ? _c : "";
+        message.status = (_d = object.status) !== null && _d !== void 0 ? _d : 0;
         return message;
     }
 };

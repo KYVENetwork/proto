@@ -20,6 +20,18 @@ export declare enum PoolStatus {
 }
 export declare function poolStatusFromJSON(object: any): PoolStatus;
 export declare function poolStatusToJSON(object: PoolStatus): string;
+/** StakerStatus ... */
+export declare enum StakerStatus {
+    /** STAKER_STATUS_UNSPECIFIED - STAKER_STATUS_UNSPECIFIED ... */
+    STAKER_STATUS_UNSPECIFIED = 0,
+    /** STAKER_STATUS_ACTIVE - STAKER_STATUS_ACTIVE ... */
+    STAKER_STATUS_ACTIVE = 1,
+    /** STAKER_STATUS_INACTIVE - STAKER_STATUS_INACTIVE ... */
+    STAKER_STATUS_INACTIVE = 2,
+    UNRECOGNIZED = -1
+}
+export declare function stakerStatusFromJSON(object: any): StakerStatus;
+export declare function stakerStatusToJSON(object: StakerStatus): string;
 /** BundleProposal ... */
 export interface BundleProposal {
     /** uploader ... */
@@ -191,6 +203,10 @@ export interface Pool {
     current_key: string;
     /** current_value ... */
     current_value: string;
+    /** inactive_stakers ... */
+    inactive_stakers: string[];
+    /** total_inactive_stake ... */
+    total_inactive_stake: string;
     /** min_stake ... */
     min_stake: string;
     /** status ... */
@@ -239,6 +255,8 @@ export interface Staker {
     logo: string;
     /** points */
     points: string;
+    /** status */
+    status: StakerStatus;
 }
 /**
  * UnbondingStakingEntry
@@ -309,6 +327,26 @@ export interface RedelegationCooldown {
     address: string;
     /** high_index ... */
     created_block: string;
+}
+/** CommissionChangeQueueEntry ... */
+export interface CommissionChangeQueueEntry {
+    /** index is a monotonically increasing integer to order the entries */
+    index: string;
+    /** staker ... */
+    staker: string;
+    /** pool_id ... */
+    pool_id: string;
+    /** commission ... */
+    commission: string;
+    /** commission ... */
+    creation_date: string;
+}
+/** CommissionChangeQueueState ... */
+export interface CommissionChangeQueueState {
+    /** low_index ... */
+    low_index: string;
+    /** high_index ... */
+    high_index: string;
 }
 export declare const BundleProposal: {
     encode(message: BundleProposal, writer?: _m0.Writer): _m0.Writer;
@@ -509,6 +547,8 @@ export declare const Pool: {
         start_key?: string | undefined;
         current_key?: string | undefined;
         current_value?: string | undefined;
+        inactive_stakers?: string[] | undefined;
+        total_inactive_stake?: string | undefined;
         min_stake?: string | undefined;
         status?: PoolStatus | undefined;
     } & {
@@ -587,6 +627,8 @@ export declare const Pool: {
         start_key?: string | undefined;
         current_key?: string | undefined;
         current_value?: string | undefined;
+        inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["inactive_stakers"], keyof string[]>, never>) | undefined;
+        total_inactive_stake?: string | undefined;
         min_stake?: string | undefined;
         status?: PoolStatus | undefined;
     } & Record<Exclude<keyof I, keyof Pool>, never>>(object: I): Pool;
@@ -635,6 +677,7 @@ export declare const Staker: {
         website?: string | undefined;
         logo?: string | undefined;
         points?: string | undefined;
+        status?: StakerStatus | undefined;
     } & {
         account?: string | undefined;
         pool_id?: string | undefined;
@@ -645,6 +688,7 @@ export declare const Staker: {
         website?: string | undefined;
         logo?: string | undefined;
         points?: string | undefined;
+        status?: StakerStatus | undefined;
     } & Record<Exclude<keyof I, keyof Staker>, never>>(object: I): Staker;
 };
 export declare const UnbondingStakingQueueEntry: {
@@ -740,6 +784,38 @@ export declare const RedelegationCooldown: {
         address?: string | undefined;
         created_block?: string | undefined;
     } & Record<Exclude<keyof I, keyof RedelegationCooldown>, never>>(object: I): RedelegationCooldown;
+};
+export declare const CommissionChangeQueueEntry: {
+    encode(message: CommissionChangeQueueEntry, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CommissionChangeQueueEntry;
+    fromJSON(object: any): CommissionChangeQueueEntry;
+    toJSON(message: CommissionChangeQueueEntry): unknown;
+    fromPartial<I extends {
+        index?: string | undefined;
+        staker?: string | undefined;
+        pool_id?: string | undefined;
+        commission?: string | undefined;
+        creation_date?: string | undefined;
+    } & {
+        index?: string | undefined;
+        staker?: string | undefined;
+        pool_id?: string | undefined;
+        commission?: string | undefined;
+        creation_date?: string | undefined;
+    } & Record<Exclude<keyof I, keyof CommissionChangeQueueEntry>, never>>(object: I): CommissionChangeQueueEntry;
+};
+export declare const CommissionChangeQueueState: {
+    encode(message: CommissionChangeQueueState, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): CommissionChangeQueueState;
+    fromJSON(object: any): CommissionChangeQueueState;
+    toJSON(message: CommissionChangeQueueState): unknown;
+    fromPartial<I extends {
+        low_index?: string | undefined;
+        high_index?: string | undefined;
+    } & {
+        low_index?: string | undefined;
+        high_index?: string | undefined;
+    } & Record<Exclude<keyof I, keyof CommissionChangeQueueState>, never>>(object: I): CommissionChangeQueueState;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {
