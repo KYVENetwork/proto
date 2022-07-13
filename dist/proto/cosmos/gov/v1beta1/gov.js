@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.TallyParams = exports.VotingParams = exports.DepositParams = exports.Vote = exports.TallyResult = exports.Proposal = exports.Deposit = exports.TextProposal = exports.WeightedVoteOption = exports.proposalStatusToJSON = exports.proposalStatusFromJSON = exports.ProposalStatus = exports.voteOptionToJSON = exports.voteOptionFromJSON = exports.VoteOption = exports.protobufPackage = void 0;
+exports.ProposalVotingPeriod = exports.TallyParams = exports.VotingParams = exports.DepositParams = exports.Vote = exports.TallyResult = exports.Proposal = exports.Deposit = exports.TextProposal = exports.WeightedVoteOption = exports.proposalStatusToJSON = exports.proposalStatusFromJSON = exports.ProposalStatus = exports.voteOptionToJSON = exports.voteOptionFromJSON = exports.VoteOption = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -363,7 +363,8 @@ function createBaseProposal() {
         deposit_end_time: undefined,
         total_deposit: [],
         voting_start_time: undefined,
-        voting_end_time: undefined
+        voting_end_time: undefined,
+        is_expedited: false
     };
 }
 exports.Proposal = {
@@ -396,6 +397,9 @@ exports.Proposal = {
         }
         if (message.voting_end_time !== undefined) {
             timestamp_1.Timestamp.encode(toTimestamp(message.voting_end_time), writer.uint32(74).fork()).ldelim();
+        }
+        if (message.is_expedited === true) {
+            writer.uint32(80).bool(message.is_expedited);
         }
         return writer;
     },
@@ -433,6 +437,9 @@ exports.Proposal = {
                 case 9:
                     message.voting_end_time = fromTimestamp(timestamp_1.Timestamp.decode(reader, reader.uint32()));
                     break;
+                case 10:
+                    message.is_expedited = reader.bool();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -462,7 +469,10 @@ exports.Proposal = {
                 : undefined,
             voting_end_time: isSet(object.voting_end_time)
                 ? fromJsonTimestamp(object.voting_end_time)
-                : undefined
+                : undefined,
+            is_expedited: isSet(object.is_expedited)
+                ? Boolean(object.is_expedited)
+                : false
         };
     },
     toJSON: function (message) {
@@ -493,10 +503,12 @@ exports.Proposal = {
             (obj.voting_start_time = message.voting_start_time.toISOString());
         message.voting_end_time !== undefined &&
             (obj.voting_end_time = message.voting_end_time.toISOString());
+        message.is_expedited !== undefined &&
+            (obj.is_expedited = message.is_expedited);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g;
+        var _a, _b, _c, _d, _e, _f, _g, _h;
         var message = createBaseProposal();
         message.proposal_id = (_a = object.proposal_id) !== null && _a !== void 0 ? _a : "0";
         message.content =
@@ -515,6 +527,7 @@ exports.Proposal = {
             ((_e = object.total_deposit) === null || _e === void 0 ? void 0 : _e.map(function (e) { return coin_1.Coin.fromPartial(e); })) || [];
         message.voting_start_time = (_f = object.voting_start_time) !== null && _f !== void 0 ? _f : undefined;
         message.voting_end_time = (_g = object.voting_end_time) !== null && _g !== void 0 ? _g : undefined;
+        message.is_expedited = (_h = object.is_expedited) !== null && _h !== void 0 ? _h : false;
         return message;
     }
 };
@@ -679,7 +692,12 @@ exports.Vote = {
     }
 };
 function createBaseDepositParams() {
-    return { min_deposit: [], max_deposit_period: undefined };
+    return {
+        min_deposit: [],
+        max_deposit_period: undefined,
+        min_expedited_deposit: [],
+        min_deposit_percentage: new Uint8Array()
+    };
 }
 exports.DepositParams = {
     encode: function (message, writer) {
@@ -690,6 +708,13 @@ exports.DepositParams = {
         }
         if (message.max_deposit_period !== undefined) {
             duration_1.Duration.encode(message.max_deposit_period, writer.uint32(18).fork()).ldelim();
+        }
+        for (var _b = 0, _c = message.min_expedited_deposit; _b < _c.length; _b++) {
+            var v = _c[_b];
+            coin_1.Coin.encode(v, writer.uint32(26).fork()).ldelim();
+        }
+        if (message.min_deposit_percentage.length !== 0) {
+            writer.uint32(34).bytes(message.min_deposit_percentage);
         }
         return writer;
     },
@@ -706,6 +731,12 @@ exports.DepositParams = {
                 case 2:
                     message.max_deposit_period = duration_1.Duration.decode(reader, reader.uint32());
                     break;
+                case 3:
+                    message.min_expedited_deposit.push(coin_1.Coin.decode(reader, reader.uint32()));
+                    break;
+                case 4:
+                    message.min_deposit_percentage = reader.bytes();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -720,7 +751,13 @@ exports.DepositParams = {
                 : [],
             max_deposit_period: isSet(object.max_deposit_period)
                 ? duration_1.Duration.fromJSON(object.max_deposit_period)
-                : undefined
+                : undefined,
+            min_expedited_deposit: Array.isArray(object === null || object === void 0 ? void 0 : object.min_expedited_deposit)
+                ? object.min_expedited_deposit.map(function (e) { return coin_1.Coin.fromJSON(e); })
+                : [],
+            min_deposit_percentage: isSet(object.min_deposit_percentage)
+                ? bytesFromBase64(object.min_deposit_percentage)
+                : new Uint8Array()
         };
     },
     toJSON: function (message) {
@@ -737,10 +774,22 @@ exports.DepositParams = {
             (obj.max_deposit_period = message.max_deposit_period
                 ? duration_1.Duration.toJSON(message.max_deposit_period)
                 : undefined);
+        if (message.min_expedited_deposit) {
+            obj.min_expedited_deposit = message.min_expedited_deposit.map(function (e) {
+                return e ? coin_1.Coin.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.min_expedited_deposit = [];
+        }
+        message.min_deposit_percentage !== undefined &&
+            (obj.min_deposit_percentage = base64FromBytes(message.min_deposit_percentage !== undefined
+                ? message.min_deposit_percentage
+                : new Uint8Array()));
         return obj;
     },
     fromPartial: function (object) {
-        var _a;
+        var _a, _b, _c;
         var message = createBaseDepositParams();
         message.min_deposit =
             ((_a = object.min_deposit) === null || _a === void 0 ? void 0 : _a.map(function (e) { return coin_1.Coin.fromPartial(e); })) || [];
@@ -749,17 +798,32 @@ exports.DepositParams = {
                 object.max_deposit_period !== null
                 ? duration_1.Duration.fromPartial(object.max_deposit_period)
                 : undefined;
+        message.min_expedited_deposit =
+            ((_b = object.min_expedited_deposit) === null || _b === void 0 ? void 0 : _b.map(function (e) { return coin_1.Coin.fromPartial(e); })) || [];
+        message.min_deposit_percentage =
+            (_c = object.min_deposit_percentage) !== null && _c !== void 0 ? _c : new Uint8Array();
         return message;
     }
 };
 function createBaseVotingParams() {
-    return { voting_period: undefined };
+    return {
+        voting_period: undefined,
+        proposal_voting_periods: [],
+        expedited_voting_period: undefined
+    };
 }
 exports.VotingParams = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
         if (message.voting_period !== undefined) {
             duration_1.Duration.encode(message.voting_period, writer.uint32(10).fork()).ldelim();
+        }
+        for (var _i = 0, _a = message.proposal_voting_periods; _i < _a.length; _i++) {
+            var v = _a[_i];
+            exports.ProposalVotingPeriod.encode(v, writer.uint32(18).fork()).ldelim();
+        }
+        if (message.expedited_voting_period !== undefined) {
+            duration_1.Duration.encode(message.expedited_voting_period, writer.uint32(26).fork()).ldelim();
         }
         return writer;
     },
@@ -773,6 +837,12 @@ exports.VotingParams = {
                 case 1:
                     message.voting_period = duration_1.Duration.decode(reader, reader.uint32());
                     break;
+                case 2:
+                    message.proposal_voting_periods.push(exports.ProposalVotingPeriod.decode(reader, reader.uint32()));
+                    break;
+                case 3:
+                    message.expedited_voting_period = duration_1.Duration.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -784,6 +854,14 @@ exports.VotingParams = {
         return {
             voting_period: isSet(object.voting_period)
                 ? duration_1.Duration.fromJSON(object.voting_period)
+                : undefined,
+            proposal_voting_periods: Array.isArray(object === null || object === void 0 ? void 0 : object.proposal_voting_periods)
+                ? object.proposal_voting_periods.map(function (e) {
+                    return exports.ProposalVotingPeriod.fromJSON(e);
+                })
+                : [],
+            expedited_voting_period: isSet(object.expedited_voting_period)
+                ? duration_1.Duration.fromJSON(object.expedited_voting_period)
                 : undefined
         };
     },
@@ -793,13 +871,35 @@ exports.VotingParams = {
             (obj.voting_period = message.voting_period
                 ? duration_1.Duration.toJSON(message.voting_period)
                 : undefined);
+        if (message.proposal_voting_periods) {
+            obj.proposal_voting_periods = message.proposal_voting_periods.map(function (e) {
+                return e ? exports.ProposalVotingPeriod.toJSON(e) : undefined;
+            });
+        }
+        else {
+            obj.proposal_voting_periods = [];
+        }
+        message.expedited_voting_period !== undefined &&
+            (obj.expedited_voting_period = message.expedited_voting_period
+                ? duration_1.Duration.toJSON(message.expedited_voting_period)
+                : undefined);
         return obj;
     },
     fromPartial: function (object) {
+        var _a;
         var message = createBaseVotingParams();
         message.voting_period =
             object.voting_period !== undefined && object.voting_period !== null
                 ? duration_1.Duration.fromPartial(object.voting_period)
+                : undefined;
+        message.proposal_voting_periods =
+            ((_a = object.proposal_voting_periods) === null || _a === void 0 ? void 0 : _a.map(function (e) {
+                return exports.ProposalVotingPeriod.fromPartial(e);
+            })) || [];
+        message.expedited_voting_period =
+            object.expedited_voting_period !== undefined &&
+                object.expedited_voting_period !== null
+                ? duration_1.Duration.fromPartial(object.expedited_voting_period)
                 : undefined;
         return message;
     }
@@ -808,7 +908,8 @@ function createBaseTallyParams() {
     return {
         quorum: new Uint8Array(),
         threshold: new Uint8Array(),
-        veto_threshold: new Uint8Array()
+        veto_threshold: new Uint8Array(),
+        expedited_threshold: new Uint8Array()
     };
 }
 exports.TallyParams = {
@@ -822,6 +923,9 @@ exports.TallyParams = {
         }
         if (message.veto_threshold.length !== 0) {
             writer.uint32(26).bytes(message.veto_threshold);
+        }
+        if (message.expedited_threshold.length !== 0) {
+            writer.uint32(34).bytes(message.expedited_threshold);
         }
         return writer;
     },
@@ -841,6 +945,9 @@ exports.TallyParams = {
                 case 3:
                     message.veto_threshold = reader.bytes();
                     break;
+                case 4:
+                    message.expedited_threshold = reader.bytes();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -858,6 +965,9 @@ exports.TallyParams = {
                 : new Uint8Array(),
             veto_threshold: isSet(object.veto_threshold)
                 ? bytesFromBase64(object.veto_threshold)
+                : new Uint8Array(),
+            expedited_threshold: isSet(object.expedited_threshold)
+                ? bytesFromBase64(object.expedited_threshold)
                 : new Uint8Array()
         };
     },
@@ -871,14 +981,85 @@ exports.TallyParams = {
             (obj.veto_threshold = base64FromBytes(message.veto_threshold !== undefined
                 ? message.veto_threshold
                 : new Uint8Array()));
+        message.expedited_threshold !== undefined &&
+            (obj.expedited_threshold = base64FromBytes(message.expedited_threshold !== undefined
+                ? message.expedited_threshold
+                : new Uint8Array()));
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         var message = createBaseTallyParams();
         message.quorum = (_a = object.quorum) !== null && _a !== void 0 ? _a : new Uint8Array();
         message.threshold = (_b = object.threshold) !== null && _b !== void 0 ? _b : new Uint8Array();
         message.veto_threshold = (_c = object.veto_threshold) !== null && _c !== void 0 ? _c : new Uint8Array();
+        message.expedited_threshold =
+            (_d = object.expedited_threshold) !== null && _d !== void 0 ? _d : new Uint8Array();
+        return message;
+    }
+};
+function createBaseProposalVotingPeriod() {
+    return { proposal_type: "", voting_period: undefined };
+}
+exports.ProposalVotingPeriod = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.proposal_type !== "") {
+            writer.uint32(10).string(message.proposal_type);
+        }
+        if (message.voting_period !== undefined) {
+            duration_1.Duration.encode(message.voting_period, writer.uint32(18).fork()).ldelim();
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseProposalVotingPeriod();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.proposal_type = reader.string();
+                    break;
+                case 2:
+                    message.voting_period = duration_1.Duration.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            proposal_type: isSet(object.proposal_type)
+                ? String(object.proposal_type)
+                : "",
+            voting_period: isSet(object.voting_period)
+                ? duration_1.Duration.fromJSON(object.voting_period)
+                : undefined
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.proposal_type !== undefined &&
+            (obj.proposal_type = message.proposal_type);
+        message.voting_period !== undefined &&
+            (obj.voting_period = message.voting_period
+                ? duration_1.Duration.toJSON(message.voting_period)
+                : undefined);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a;
+        var message = createBaseProposalVotingPeriod();
+        message.proposal_type = (_a = object.proposal_type) !== null && _a !== void 0 ? _a : "";
+        message.voting_period =
+            object.voting_period !== undefined && object.voting_period !== null
+                ? duration_1.Duration.fromPartial(object.voting_period)
+                : undefined;
         return message;
     }
 };

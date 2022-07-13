@@ -8,7 +8,7 @@ import {
 import { Any } from "../../../../google/protobuf/any";
 import { BlockID } from "../../../../tendermint/types/types";
 import { Block } from "../../../../tendermint/types/block";
-import { NodeInfo } from "../../../../tendermint/p2p/types";
+import { DefaultNodeInfo } from "../../../../tendermint/p2p/types";
 
 export const protobufPackage = "cosmos.base.tendermint.v1beta1";
 
@@ -80,9 +80,9 @@ export interface GetSyncingResponse {
 /** GetNodeInfoRequest is the request type for the Query/GetNodeInfo RPC method. */
 export interface GetNodeInfoRequest {}
 
-/** GetNodeInfoResponse is the response type for the Query/GetNodeInfo RPC method. */
+/** GetNodeInfoResponse is the request type for the Query/GetNodeInfo RPC method. */
 export interface GetNodeInfoResponse {
-  node_info?: NodeInfo;
+  default_node_info?: DefaultNodeInfo;
   application_version?: VersionInfo;
 }
 
@@ -943,7 +943,7 @@ export const GetNodeInfoRequest = {
 };
 
 function createBaseGetNodeInfoResponse(): GetNodeInfoResponse {
-  return { node_info: undefined, application_version: undefined };
+  return { default_node_info: undefined, application_version: undefined };
 }
 
 export const GetNodeInfoResponse = {
@@ -951,8 +951,11 @@ export const GetNodeInfoResponse = {
     message: GetNodeInfoResponse,
     writer: _m0.Writer = _m0.Writer.create()
   ): _m0.Writer {
-    if (message.node_info !== undefined) {
-      NodeInfo.encode(message.node_info, writer.uint32(10).fork()).ldelim();
+    if (message.default_node_info !== undefined) {
+      DefaultNodeInfo.encode(
+        message.default_node_info,
+        writer.uint32(10).fork()
+      ).ldelim();
     }
     if (message.application_version !== undefined) {
       VersionInfo.encode(
@@ -971,7 +974,10 @@ export const GetNodeInfoResponse = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.node_info = NodeInfo.decode(reader, reader.uint32());
+          message.default_node_info = DefaultNodeInfo.decode(
+            reader,
+            reader.uint32()
+          );
           break;
         case 2:
           message.application_version = VersionInfo.decode(
@@ -989,8 +995,8 @@ export const GetNodeInfoResponse = {
 
   fromJSON(object: any): GetNodeInfoResponse {
     return {
-      node_info: isSet(object.node_info)
-        ? NodeInfo.fromJSON(object.node_info)
+      default_node_info: isSet(object.default_node_info)
+        ? DefaultNodeInfo.fromJSON(object.default_node_info)
         : undefined,
       application_version: isSet(object.application_version)
         ? VersionInfo.fromJSON(object.application_version)
@@ -1000,9 +1006,9 @@ export const GetNodeInfoResponse = {
 
   toJSON(message: GetNodeInfoResponse): unknown {
     const obj: any = {};
-    message.node_info !== undefined &&
-      (obj.node_info = message.node_info
-        ? NodeInfo.toJSON(message.node_info)
+    message.default_node_info !== undefined &&
+      (obj.default_node_info = message.default_node_info
+        ? DefaultNodeInfo.toJSON(message.default_node_info)
         : undefined);
     message.application_version !== undefined &&
       (obj.application_version = message.application_version
@@ -1015,9 +1021,10 @@ export const GetNodeInfoResponse = {
     object: I
   ): GetNodeInfoResponse {
     const message = createBaseGetNodeInfoResponse();
-    message.node_info =
-      object.node_info !== undefined && object.node_info !== null
-        ? NodeInfo.fromPartial(object.node_info)
+    message.default_node_info =
+      object.default_node_info !== undefined &&
+      object.default_node_info !== null
+        ? DefaultNodeInfo.fromPartial(object.default_node_info)
         : undefined;
     message.application_version =
       object.application_version !== undefined &&

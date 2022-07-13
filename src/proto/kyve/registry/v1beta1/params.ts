@@ -28,6 +28,8 @@ export interface Params {
   redelegation_cooldown: string;
   /** unbonding_delegation_time ... */
   redelegation_max_amount: string;
+  /** commission_change_time ... */
+  commission_change_time: string;
 }
 
 function createBaseParams(): Params {
@@ -43,6 +45,7 @@ function createBaseParams(): Params {
     unbonding_delegation_time: "0",
     redelegation_cooldown: "0",
     redelegation_max_amount: "0",
+    commission_change_time: "0",
   };
 }
 
@@ -83,6 +86,9 @@ export const Params = {
     }
     if (message.redelegation_max_amount !== "0") {
       writer.uint32(104).uint64(message.redelegation_max_amount);
+    }
+    if (message.commission_change_time !== "0") {
+      writer.uint32(112).uint64(message.commission_change_time);
     }
     return writer;
   },
@@ -133,6 +139,11 @@ export const Params = {
             reader.uint64() as Long
           );
           break;
+        case 14:
+          message.commission_change_time = longToString(
+            reader.uint64() as Long
+          );
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -170,6 +181,9 @@ export const Params = {
       redelegation_max_amount: isSet(object.redelegation_max_amount)
         ? String(object.redelegation_max_amount)
         : "0",
+      commission_change_time: isSet(object.commission_change_time)
+        ? String(object.commission_change_time)
+        : "0",
     };
   },
 
@@ -195,6 +209,8 @@ export const Params = {
       (obj.redelegation_cooldown = message.redelegation_cooldown);
     message.redelegation_max_amount !== undefined &&
       (obj.redelegation_max_amount = message.redelegation_max_amount);
+    message.commission_change_time !== undefined &&
+      (obj.commission_change_time = message.commission_change_time);
     return obj;
   },
 
@@ -211,6 +227,7 @@ export const Params = {
     message.unbonding_delegation_time = object.unbonding_delegation_time ?? "0";
     message.redelegation_cooldown = object.redelegation_cooldown ?? "0";
     message.redelegation_max_amount = object.redelegation_max_amount ?? "0";
+    message.commission_change_time = object.commission_change_time ?? "0";
     return message;
   },
 };

@@ -63,6 +63,7 @@ export declare const GenesisState: {
             }[] | undefined;
             voting_start_time?: Date | undefined;
             voting_end_time?: Date | undefined;
+            is_expedited?: boolean | undefined;
         }[] | undefined;
         deposit_params?: {
             min_deposit?: {
@@ -73,9 +74,25 @@ export declare const GenesisState: {
                 seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
+            min_expedited_deposit?: {
+                denom?: string | undefined;
+                amount?: string | undefined;
+            }[] | undefined;
+            min_deposit_percentage?: Uint8Array | undefined;
         } | undefined;
         voting_params?: {
             voting_period?: {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } | undefined;
+            proposal_voting_periods?: {
+                proposal_type?: string | undefined;
+                voting_period?: {
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+            expedited_voting_period?: {
                 seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
@@ -84,6 +101,7 @@ export declare const GenesisState: {
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
             veto_threshold?: Uint8Array | undefined;
+            expedited_threshold?: Uint8Array | undefined;
         } | undefined;
     } & {
         starting_proposal_id?: string | undefined;
@@ -188,6 +206,7 @@ export declare const GenesisState: {
             }[] | undefined;
             voting_start_time?: Date | undefined;
             voting_end_time?: Date | undefined;
+            is_expedited?: boolean | undefined;
         }[] & ({
             proposal_id?: string | undefined;
             content?: {
@@ -209,6 +228,7 @@ export declare const GenesisState: {
             }[] | undefined;
             voting_start_time?: Date | undefined;
             voting_end_time?: Date | undefined;
+            is_expedited?: boolean | undefined;
         } & {
             proposal_id?: string | undefined;
             content?: ({
@@ -247,6 +267,7 @@ export declare const GenesisState: {
             }[]>, never>) | undefined;
             voting_start_time?: Date | undefined;
             voting_end_time?: Date | undefined;
+            is_expedited?: boolean | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
             proposal_id?: string | undefined;
             content?: {
@@ -268,6 +289,7 @@ export declare const GenesisState: {
             }[] | undefined;
             voting_start_time?: Date | undefined;
             voting_end_time?: Date | undefined;
+            is_expedited?: boolean | undefined;
         }[]>, never>) | undefined;
         deposit_params?: ({
             min_deposit?: {
@@ -278,6 +300,11 @@ export declare const GenesisState: {
                 seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
+            min_expedited_deposit?: {
+                denom?: string | undefined;
+                amount?: string | undefined;
+            }[] | undefined;
+            min_deposit_percentage?: Uint8Array | undefined;
         } & {
             min_deposit?: ({
                 denom?: string | undefined;
@@ -299,9 +326,34 @@ export declare const GenesisState: {
                 seconds?: string | undefined;
                 nanos?: number | undefined;
             } & Record<Exclude<keyof I["deposit_params"]["max_deposit_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+            min_expedited_deposit?: ({
+                denom?: string | undefined;
+                amount?: string | undefined;
+            }[] & ({
+                denom?: string | undefined;
+                amount?: string | undefined;
+            } & {
+                denom?: string | undefined;
+                amount?: string | undefined;
+            } & Record<Exclude<keyof I["deposit_params"]["min_expedited_deposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["deposit_params"]["min_expedited_deposit"], keyof {
+                denom?: string | undefined;
+                amount?: string | undefined;
+            }[]>, never>) | undefined;
+            min_deposit_percentage?: Uint8Array | undefined;
         } & Record<Exclude<keyof I["deposit_params"], keyof DepositParams>, never>) | undefined;
         voting_params?: ({
             voting_period?: {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } | undefined;
+            proposal_voting_periods?: {
+                proposal_type?: string | undefined;
+                voting_period?: {
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } | undefined;
+            }[] | undefined;
+            expedited_voting_period?: {
                 seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
@@ -313,15 +365,52 @@ export declare const GenesisState: {
                 seconds?: string | undefined;
                 nanos?: number | undefined;
             } & Record<Exclude<keyof I["voting_params"]["voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-        } & Record<Exclude<keyof I["voting_params"], "voting_period">, never>) | undefined;
+            proposal_voting_periods?: ({
+                proposal_type?: string | undefined;
+                voting_period?: {
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } | undefined;
+            }[] & ({
+                proposal_type?: string | undefined;
+                voting_period?: {
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } | undefined;
+            } & {
+                proposal_type?: string | undefined;
+                voting_period?: ({
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } & {
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number]["voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+            } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number], keyof import("../../../cosmos/gov/v1beta1/gov").ProposalVotingPeriod>, never>)[] & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"], keyof {
+                proposal_type?: string | undefined;
+                voting_period?: {
+                    seconds?: string | undefined;
+                    nanos?: number | undefined;
+                } | undefined;
+            }[]>, never>) | undefined;
+            expedited_voting_period?: ({
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } & {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } & Record<Exclude<keyof I["voting_params"]["expedited_voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+        } & Record<Exclude<keyof I["voting_params"], keyof VotingParams>, never>) | undefined;
         tally_params?: ({
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
             veto_threshold?: Uint8Array | undefined;
+            expedited_threshold?: Uint8Array | undefined;
         } & {
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
             veto_threshold?: Uint8Array | undefined;
+            expedited_threshold?: Uint8Array | undefined;
         } & Record<Exclude<keyof I["tally_params"], keyof TallyParams>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof GenesisState>, never>>(object: I): GenesisState;
 };

@@ -11,6 +11,7 @@ export interface MsgSubmitProposal {
     content?: Any;
     initial_deposit: Coin[];
     proposer: string;
+    is_expedited: boolean;
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
@@ -66,6 +67,7 @@ export declare const MsgSubmitProposal: {
             amount?: string | undefined;
         }[] | undefined;
         proposer?: string | undefined;
+        is_expedited?: boolean | undefined;
     } & {
         content?: ({
             type_url?: string | undefined;
@@ -88,6 +90,7 @@ export declare const MsgSubmitProposal: {
             amount?: string | undefined;
         }[]>, never>) | undefined;
         proposer?: string | undefined;
+        is_expedited?: boolean | undefined;
     } & Record<Exclude<keyof I, keyof MsgSubmitProposal>, never>>(object: I): MsgSubmitProposal;
 };
 export declare const MsgSubmitProposalResponse: {
