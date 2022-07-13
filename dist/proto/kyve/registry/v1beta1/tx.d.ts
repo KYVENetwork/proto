@@ -1,5 +1,19 @@
 import * as _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "kyve.registry.v1beta1";
+/** VoteType ... */
+export declare enum VoteType {
+    /** VOTE_TYPE_UNSPECIFIED - VOTE_TYPE_UNSPECIFIED ... */
+    VOTE_TYPE_UNSPECIFIED = 0,
+    /** VOTE_TYPE_YES - VOTE_TYPE_YES ... */
+    VOTE_TYPE_YES = 1,
+    /** VOTE_TYPE_NO - VOTE_TYPE_NO ... */
+    VOTE_TYPE_NO = 2,
+    /** VOTE_TYPE_ABSTAIN - VOTE_TYPE_ABSTAIN ... */
+    VOTE_TYPE_ABSTAIN = 3,
+    UNRECOGNIZED = -1
+}
+export declare function voteTypeFromJSON(object: any): VoteType;
+export declare function voteTypeToJSON(object: VoteType): string;
 /** MsgFundPool defines a SDK message for funding a pool. */
 export interface MsgFundPool {
     /** creator ... */
@@ -35,6 +49,16 @@ export interface MsgStakePool {
 }
 /** MsgStakePoolResponse defines the Msg/StakePool response type. */
 export interface MsgStakePoolResponse {
+}
+/** MsgReactivateStaker ... */
+export interface MsgReactivateStaker {
+    /** creator ... */
+    creator: string;
+    /** id ... */
+    pool_id: string;
+}
+/** MsgReactivateStakerResponse ... */
+export interface MsgReactivateStakerResponse {
 }
 /** MsgUnstakePool defines a SDK message for unstaking from a pool. */
 export interface MsgUnstakePool {
@@ -88,20 +112,49 @@ export interface MsgUndelegatePool {
 /** MsgUndelegatePoolResponse defines the Msg/UndelegatePool response type. */
 export interface MsgUndelegatePoolResponse {
 }
+/**
+ * MsgRedelegatePool defines a SDK message for redelegating from a
+ * staker in a pool to another staker in the same or another pool
+ */
+export interface MsgRedelegatePool {
+    /** creator ... */
+    creator: string;
+    /** id ... */
+    from_pool_id: string;
+    /** staker ... */
+    from_staker: string;
+    /** id ... */
+    to_pool_id: string;
+    /** staker ... */
+    to_staker: string;
+    /** amount ... */
+    amount: string;
+}
+/** MsgUndelegatePoolResponse defines the Msg/UndelegatePool response type. */
+export interface MsgRedelegatePoolResponse {
+}
 /** MsgSubmitBundleProposal defines a SDK message for submitting a bundle proposal. */
 export interface MsgSubmitBundleProposal {
     /** creator ... */
     creator: string;
     /** id ... */
     id: string;
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
     /** byte_size ... */
     byte_size: string;
     /** from_height */
     from_height: string;
-    /** bundle_size ... */
-    bundle_size: string;
+    /** to_height ... */
+    to_height: string;
+    /** from_key */
+    from_key: string;
+    /** to_key ... */
+    to_key: string;
+    /** to_value ... */
+    to_value: string;
+    /** bundle_hash ... */
+    bundle_hash: string;
 }
 /** MsgSubmitBundleProposalResponse defines the Msg/SubmitBundleProposal response type. */
 export interface MsgSubmitBundleProposalResponse {
@@ -112,10 +165,10 @@ export interface MsgVoteProposal {
     creator: string;
     /** id ... */
     id: string;
-    /** bundle_id ... */
-    bundle_id: string;
+    /** storage_id ... */
+    storage_id: string;
     /** vote ... */
-    vote: string;
+    vote: VoteType;
 }
 /** MsgVoteProposalResponse defines the Msg/VoteProposal response type. */
 export interface MsgVoteProposalResponse {
@@ -136,8 +189,6 @@ export interface MsgUpdateMetadata {
     creator: string;
     /** id ... */
     id: string;
-    /** commission ... */
-    commission: string;
     /** moniker ... */
     moniker: string;
     /** website ... */
@@ -147,6 +198,18 @@ export interface MsgUpdateMetadata {
 }
 /** MsgUpdateMetadataResponse defines the Msg/MsgUpdateMetadata response type. */
 export interface MsgUpdateMetadataResponse {
+}
+/** ... */
+export interface MsgUpdateCommission {
+    /** creator ... */
+    creator: string;
+    /** id ... */
+    id: string;
+    /** commission ... */
+    commission: string;
+}
+/** ... */
+export interface MsgUpdateCommissionResponse {
 }
 export declare const MsgFundPool: {
     encode(message: MsgFundPool, writer?: _m0.Writer): _m0.Writer;
@@ -213,6 +276,26 @@ export declare const MsgStakePoolResponse: {
     fromJSON(_: any): MsgStakePoolResponse;
     toJSON(_: MsgStakePoolResponse): unknown;
     fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgStakePoolResponse;
+};
+export declare const MsgReactivateStaker: {
+    encode(message: MsgReactivateStaker, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgReactivateStaker;
+    fromJSON(object: any): MsgReactivateStaker;
+    toJSON(message: MsgReactivateStaker): unknown;
+    fromPartial<I extends {
+        creator?: string | undefined;
+        pool_id?: string | undefined;
+    } & {
+        creator?: string | undefined;
+        pool_id?: string | undefined;
+    } & Record<Exclude<keyof I, keyof MsgReactivateStaker>, never>>(object: I): MsgReactivateStaker;
+};
+export declare const MsgReactivateStakerResponse: {
+    encode(_: MsgReactivateStakerResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgReactivateStakerResponse;
+    fromJSON(_: any): MsgReactivateStakerResponse;
+    toJSON(_: MsgReactivateStakerResponse): unknown;
+    fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgReactivateStakerResponse;
 };
 export declare const MsgUnstakePool: {
     encode(message: MsgUnstakePool, writer?: _m0.Writer): _m0.Writer;
@@ -306,6 +389,34 @@ export declare const MsgUndelegatePoolResponse: {
     toJSON(_: MsgUndelegatePoolResponse): unknown;
     fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgUndelegatePoolResponse;
 };
+export declare const MsgRedelegatePool: {
+    encode(message: MsgRedelegatePool, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRedelegatePool;
+    fromJSON(object: any): MsgRedelegatePool;
+    toJSON(message: MsgRedelegatePool): unknown;
+    fromPartial<I extends {
+        creator?: string | undefined;
+        from_pool_id?: string | undefined;
+        from_staker?: string | undefined;
+        to_pool_id?: string | undefined;
+        to_staker?: string | undefined;
+        amount?: string | undefined;
+    } & {
+        creator?: string | undefined;
+        from_pool_id?: string | undefined;
+        from_staker?: string | undefined;
+        to_pool_id?: string | undefined;
+        to_staker?: string | undefined;
+        amount?: string | undefined;
+    } & Record<Exclude<keyof I, keyof MsgRedelegatePool>, never>>(object: I): MsgRedelegatePool;
+};
+export declare const MsgRedelegatePoolResponse: {
+    encode(_: MsgRedelegatePoolResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgRedelegatePoolResponse;
+    fromJSON(_: any): MsgRedelegatePoolResponse;
+    toJSON(_: MsgRedelegatePoolResponse): unknown;
+    fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgRedelegatePoolResponse;
+};
 export declare const MsgSubmitBundleProposal: {
     encode(message: MsgSubmitBundleProposal, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgSubmitBundleProposal;
@@ -314,17 +425,25 @@ export declare const MsgSubmitBundleProposal: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
-        bundle_size?: string | undefined;
+        to_height?: string | undefined;
+        from_key?: string | undefined;
+        to_key?: string | undefined;
+        to_value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
+        storage_id?: string | undefined;
         byte_size?: string | undefined;
         from_height?: string | undefined;
-        bundle_size?: string | undefined;
+        to_height?: string | undefined;
+        from_key?: string | undefined;
+        to_key?: string | undefined;
+        to_value?: string | undefined;
+        bundle_hash?: string | undefined;
     } & Record<Exclude<keyof I, keyof MsgSubmitBundleProposal>, never>>(object: I): MsgSubmitBundleProposal;
 };
 export declare const MsgSubmitBundleProposalResponse: {
@@ -342,13 +461,13 @@ export declare const MsgVoteProposal: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
-        vote?: string | undefined;
+        storage_id?: string | undefined;
+        vote?: VoteType | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        bundle_id?: string | undefined;
-        vote?: string | undefined;
+        storage_id?: string | undefined;
+        vote?: VoteType | undefined;
     } & Record<Exclude<keyof I, keyof MsgVoteProposal>, never>>(object: I): MsgVoteProposal;
 };
 export declare const MsgVoteProposalResponse: {
@@ -386,14 +505,12 @@ export declare const MsgUpdateMetadata: {
     fromPartial<I extends {
         creator?: string | undefined;
         id?: string | undefined;
-        commission?: string | undefined;
         moniker?: string | undefined;
         website?: string | undefined;
         logo?: string | undefined;
     } & {
         creator?: string | undefined;
         id?: string | undefined;
-        commission?: string | undefined;
         moniker?: string | undefined;
         website?: string | undefined;
         logo?: string | undefined;
@@ -406,6 +523,28 @@ export declare const MsgUpdateMetadataResponse: {
     toJSON(_: MsgUpdateMetadataResponse): unknown;
     fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgUpdateMetadataResponse;
 };
+export declare const MsgUpdateCommission: {
+    encode(message: MsgUpdateCommission, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateCommission;
+    fromJSON(object: any): MsgUpdateCommission;
+    toJSON(message: MsgUpdateCommission): unknown;
+    fromPartial<I extends {
+        creator?: string | undefined;
+        id?: string | undefined;
+        commission?: string | undefined;
+    } & {
+        creator?: string | undefined;
+        id?: string | undefined;
+        commission?: string | undefined;
+    } & Record<Exclude<keyof I, keyof MsgUpdateCommission>, never>>(object: I): MsgUpdateCommission;
+};
+export declare const MsgUpdateCommissionResponse: {
+    encode(_: MsgUpdateCommissionResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgUpdateCommissionResponse;
+    fromJSON(_: any): MsgUpdateCommissionResponse;
+    toJSON(_: MsgUpdateCommissionResponse): unknown;
+    fromPartial<I extends {} & {} & Record<Exclude<keyof I, never>, never>>(_: I): MsgUpdateCommissionResponse;
+};
 /** Msg defines the registry Msg service. */
 export interface Msg {
     /** FundPool ... */
@@ -414,6 +553,8 @@ export interface Msg {
     DefundPool(request: MsgDefundPool): Promise<MsgDefundPoolResponse>;
     /** StakePool ... */
     StakePool(request: MsgStakePool): Promise<MsgStakePoolResponse>;
+    /** MsgReactivateStaker ... */
+    ReactivateStaker(request: MsgReactivateStaker): Promise<MsgReactivateStakerResponse>;
     /** UnstakePool ... */
     UnstakePool(request: MsgUnstakePool): Promise<MsgUnstakePoolResponse>;
     /** DelegatePool ... */
@@ -422,6 +563,8 @@ export interface Msg {
     WithdrawPool(request: MsgWithdrawPool): Promise<MsgWithdrawPoolResponse>;
     /** UndelegatePool ... */
     UndelegatePool(request: MsgUndelegatePool): Promise<MsgUndelegatePoolResponse>;
+    /** RedelegatePool ... */
+    RedelegatePool(request: MsgRedelegatePool): Promise<MsgRedelegatePoolResponse>;
     /** SubmitBundleProposal ... */
     SubmitBundleProposal(request: MsgSubmitBundleProposal): Promise<MsgSubmitBundleProposalResponse>;
     /** VoteProposal ... */
@@ -430,6 +573,8 @@ export interface Msg {
     ClaimUploaderRole(request: MsgClaimUploaderRole): Promise<MsgClaimUploaderRoleResponse>;
     /** UpdateMetadata ... */
     UpdateMetadata(request: MsgUpdateMetadata): Promise<MsgUpdateMetadataResponse>;
+    /** UpdateCommission ... */
+    UpdateCommission(request: MsgUpdateCommission): Promise<MsgUpdateCommissionResponse>;
 }
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
@@ -437,14 +582,17 @@ export declare class MsgClientImpl implements Msg {
     FundPool(request: MsgFundPool): Promise<MsgFundPoolResponse>;
     DefundPool(request: MsgDefundPool): Promise<MsgDefundPoolResponse>;
     StakePool(request: MsgStakePool): Promise<MsgStakePoolResponse>;
+    ReactivateStaker(request: MsgReactivateStaker): Promise<MsgReactivateStakerResponse>;
     UnstakePool(request: MsgUnstakePool): Promise<MsgUnstakePoolResponse>;
     DelegatePool(request: MsgDelegatePool): Promise<MsgDelegatePoolResponse>;
     WithdrawPool(request: MsgWithdrawPool): Promise<MsgWithdrawPoolResponse>;
     UndelegatePool(request: MsgUndelegatePool): Promise<MsgUndelegatePoolResponse>;
+    RedelegatePool(request: MsgRedelegatePool): Promise<MsgRedelegatePoolResponse>;
     SubmitBundleProposal(request: MsgSubmitBundleProposal): Promise<MsgSubmitBundleProposalResponse>;
     VoteProposal(request: MsgVoteProposal): Promise<MsgVoteProposalResponse>;
     ClaimUploaderRole(request: MsgClaimUploaderRole): Promise<MsgClaimUploaderRoleResponse>;
     UpdateMetadata(request: MsgUpdateMetadata): Promise<MsgUpdateMetadataResponse>;
+    UpdateCommission(request: MsgUpdateCommission): Promise<MsgUpdateCommissionResponse>;
 }
 interface Rpc {
     request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;

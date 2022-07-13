@@ -66,7 +66,7 @@ export interface Duration {
      * to +315,576,000,000 inclusive. Note: these bounds are computed from:
      * 60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
      */
-    seconds: number;
+    seconds: string;
     /**
      * Signed fractions of a second at nanosecond resolution of the span
      * of time. Durations less than one second are represented with a 0
@@ -83,10 +83,10 @@ export declare const Duration: {
     fromJSON(object: any): Duration;
     toJSON(message: Duration): unknown;
     fromPartial<I extends {
-        seconds?: number | undefined;
+        seconds?: string | undefined;
         nanos?: number | undefined;
     } & {
-        seconds?: number | undefined;
+        seconds?: string | undefined;
         nanos?: number | undefined;
     } & Record<Exclude<keyof I, keyof Duration>, never>>(object: I): Duration;
 };

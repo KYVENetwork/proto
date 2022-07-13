@@ -1,26 +1,26 @@
 import * as _m0 from "protobufjs/minimal";
-import { ProposalStatus, Proposal, Vote, VotingParams, DepositParams, TallyParams, Deposit, TallyResult } from "../../../cosmos/gov/v1beta1/gov";
+import { Proposal, ProposalStatus, Vote, VotingParams, DepositParams, TallyParams, Deposit, TallyResult } from "../../../cosmos/gov/v1beta1/gov";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: number;
+    proposal_id: string;
 }
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 export interface QueryProposalResponse {
-    proposal: Proposal | undefined;
+    proposal?: Proposal;
 }
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
 export interface QueryProposalsRequest {
     /** proposal_status defines the status of the proposals. */
-    proposalStatus: ProposalStatus;
+    proposal_status: ProposalStatus;
     /** voter defines the voter address for the proposals. */
     voter: string;
     /** depositor defines the deposit addresses from the proposals. */
     depositor: string;
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest | undefined;
+    pagination?: PageRequest;
 }
 /**
  * QueryProposalsResponse is the response type for the Query/Proposals RPC
@@ -29,33 +29,33 @@ export interface QueryProposalsRequest {
 export interface QueryProposalsResponse {
     proposals: Proposal[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse | undefined;
+    pagination?: PageResponse;
 }
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: number;
+    proposal_id: string;
     /** voter defines the oter address for the proposals. */
     voter: string;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 export interface QueryVoteResponse {
     /** vote defined the queried vote. */
-    vote: Vote | undefined;
+    vote?: Vote;
 }
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
 export interface QueryVotesRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: number;
+    proposal_id: string;
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest | undefined;
+    pagination?: PageRequest;
 }
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
 export interface QueryVotesResponse {
     /** votes defined the queried votes. */
     votes: Vote[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse | undefined;
+    pagination?: PageResponse;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {
@@ -63,51 +63,51 @@ export interface QueryParamsRequest {
      * params_type defines which parameters to query for, can be one of "voting",
      * "tallying" or "deposit".
      */
-    paramsType: string;
+    params_type: string;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
     /** voting_params defines the parameters related to voting. */
-    votingParams: VotingParams | undefined;
+    voting_params?: VotingParams;
     /** deposit_params defines the parameters related to deposit. */
-    depositParams: DepositParams | undefined;
+    deposit_params?: DepositParams;
     /** tally_params defines the parameters related to tally. */
-    tallyParams: TallyParams | undefined;
+    tally_params?: TallyParams;
 }
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 export interface QueryDepositRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: number;
+    proposal_id: string;
     /** depositor defines the deposit addresses from the proposals. */
     depositor: string;
 }
 /** QueryDepositResponse is the response type for the Query/Deposit RPC method. */
 export interface QueryDepositResponse {
     /** deposit defines the requested deposit. */
-    deposit: Deposit | undefined;
+    deposit?: Deposit;
 }
 /** QueryDepositsRequest is the request type for the Query/Deposits RPC method. */
 export interface QueryDepositsRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: number;
+    proposal_id: string;
     /** pagination defines an optional pagination for the request. */
-    pagination: PageRequest | undefined;
+    pagination?: PageRequest;
 }
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
 export interface QueryDepositsResponse {
     deposits: Deposit[];
     /** pagination defines the pagination in the response. */
-    pagination: PageResponse | undefined;
+    pagination?: PageResponse;
 }
 /** QueryTallyResultRequest is the request type for the Query/Tally RPC method. */
 export interface QueryTallyResultRequest {
     /** proposal_id defines the unique id of the proposal. */
-    proposalId: number;
+    proposal_id: string;
 }
 /** QueryTallyResultResponse is the response type for the Query/Tally RPC method. */
 export interface QueryTallyResultResponse {
     /** tally defines the requested tally. */
-    tally: TallyResult | undefined;
+    tally?: TallyResult;
 }
 export declare const QueryProposalRequest: {
     encode(message: QueryProposalRequest, writer?: _m0.Writer): _m0.Writer;
@@ -115,10 +115,10 @@ export declare const QueryProposalRequest: {
     fromJSON(object: any): QueryProposalRequest;
     toJSON(message: QueryProposalRequest): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
     } & {
-        proposalId?: number | undefined;
-    } & Record<Exclude<keyof I, "proposalId">, never>>(object: I): QueryProposalRequest;
+        proposal_id?: string | undefined;
+    } & Record<Exclude<keyof I, "proposal_id">, never>>(object: I): QueryProposalRequest;
 };
 export declare const QueryProposalResponse: {
     encode(message: QueryProposalResponse, writer?: _m0.Writer): _m0.Writer;
@@ -127,73 +127,73 @@ export declare const QueryProposalResponse: {
     toJSON(message: QueryProposalResponse): unknown;
     fromPartial<I extends {
         proposal?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } | undefined;
     } & {
         proposal?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: ({
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & Record<Exclude<keyof I["proposal"]["content"], keyof import("../../../google/protobuf/any").Any>, never>) | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: ({
+            final_tally_result?: ({
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } & {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
-            } & Record<Exclude<keyof I["proposal"]["finalTallyResult"], keyof TallyResult>, never>) | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: ({
+                no_with_veto?: string | undefined;
+            } & Record<Exclude<keyof I["proposal"]["final_tally_result"], keyof TallyResult>, never>) | undefined;
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: ({
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] & ({
@@ -202,12 +202,12 @@ export declare const QueryProposalResponse: {
             } & {
                 denom?: string | undefined;
                 amount?: string | undefined;
-            } & Record<Exclude<keyof I["proposal"]["totalDeposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["proposal"]["totalDeposit"], keyof {
+            } & Record<Exclude<keyof I["proposal"]["total_deposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["proposal"]["total_deposit"], keyof {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[]>, never>) | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } & Record<Exclude<keyof I["proposal"], keyof Proposal>, never>) | undefined;
     } & Record<Exclude<keyof I, "proposal">, never>>(object: I): QueryProposalResponse;
 };
@@ -217,7 +217,7 @@ export declare const QueryProposalsRequest: {
     fromJSON(object: any): QueryProposalsRequest;
     toJSON(message: QueryProposalsRequest): unknown;
     fromPartial<I extends {
-        proposalStatus?: ProposalStatus | undefined;
+        proposal_status?: ProposalStatus | undefined;
         voter?: string | undefined;
         depositor?: string | undefined;
         pagination?: {
@@ -228,7 +228,7 @@ export declare const QueryProposalsRequest: {
             reverse?: boolean | undefined;
         } | undefined;
     } & {
-        proposalStatus?: ProposalStatus | undefined;
+        proposal_status?: ProposalStatus | undefined;
         voter?: string | undefined;
         depositor?: string | undefined;
         pagination?: ({
@@ -253,26 +253,26 @@ export declare const QueryProposalsResponse: {
     toJSON(message: QueryProposalsResponse): unknown;
     fromPartial<I extends {
         proposals?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         }[] | undefined;
         pagination?: {
             next_key?: Uint8Array | undefined;
@@ -280,71 +280,71 @@ export declare const QueryProposalsResponse: {
         } | undefined;
     } & {
         proposals?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         }[] & ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: ({
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & Record<Exclude<keyof I["proposals"][number]["content"], keyof import("../../../google/protobuf/any").Any>, never>) | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: ({
+            final_tally_result?: ({
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } & {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
-            } & Record<Exclude<keyof I["proposals"][number]["finalTallyResult"], keyof TallyResult>, never>) | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: ({
+                no_with_veto?: string | undefined;
+            } & Record<Exclude<keyof I["proposals"][number]["final_tally_result"], keyof TallyResult>, never>) | undefined;
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: ({
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] & ({
@@ -353,33 +353,33 @@ export declare const QueryProposalsResponse: {
             } & {
                 denom?: string | undefined;
                 amount?: string | undefined;
-            } & Record<Exclude<keyof I["proposals"][number]["totalDeposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["proposals"][number]["totalDeposit"], keyof {
+            } & Record<Exclude<keyof I["proposals"][number]["total_deposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["proposals"][number]["total_deposit"], keyof {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[]>, never>) | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         } & Record<Exclude<keyof I["proposals"][number], keyof Proposal>, never>)[] & Record<Exclude<keyof I["proposals"], keyof {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             content?: {
-                typeUrl?: string | undefined;
+                type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
             status?: ProposalStatus | undefined;
-            finalTallyResult?: {
+            final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
                 no?: string | undefined;
-                noWithVeto?: string | undefined;
+                no_with_veto?: string | undefined;
             } | undefined;
-            submitTime?: Date | undefined;
-            depositEndTime?: Date | undefined;
-            totalDeposit?: {
+            submit_time?: Date | undefined;
+            deposit_end_time?: Date | undefined;
+            total_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            votingStartTime?: Date | undefined;
-            votingEndTime?: Date | undefined;
+            voting_start_time?: Date | undefined;
+            voting_end_time?: Date | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
             next_key?: Uint8Array | undefined;
@@ -396,10 +396,10 @@ export declare const QueryVoteRequest: {
     fromJSON(object: any): QueryVoteRequest;
     toJSON(message: QueryVoteRequest): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         voter?: string | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         voter?: string | undefined;
     } & Record<Exclude<keyof I, keyof QueryVoteRequest>, never>>(object: I): QueryVoteRequest;
 };
@@ -410,7 +410,7 @@ export declare const QueryVoteResponse: {
     toJSON(message: QueryVoteResponse): unknown;
     fromPartial<I extends {
         vote?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -420,7 +420,7 @@ export declare const QueryVoteResponse: {
         } | undefined;
     } & {
         vote?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -428,7 +428,7 @@ export declare const QueryVoteResponse: {
                 weight?: string | undefined;
             }[] | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: ({
@@ -453,7 +453,7 @@ export declare const QueryVotesRequest: {
     fromJSON(object: any): QueryVotesRequest;
     toJSON(message: QueryVotesRequest): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         pagination?: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
@@ -462,7 +462,7 @@ export declare const QueryVotesRequest: {
             reverse?: boolean | undefined;
         } | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         pagination?: ({
             key?: Uint8Array | undefined;
             offset?: string | undefined;
@@ -485,7 +485,7 @@ export declare const QueryVotesResponse: {
     toJSON(message: QueryVotesResponse): unknown;
     fromPartial<I extends {
         votes?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -499,7 +499,7 @@ export declare const QueryVotesResponse: {
         } | undefined;
     } & {
         votes?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -507,7 +507,7 @@ export declare const QueryVotesResponse: {
                 weight?: string | undefined;
             }[] | undefined;
         }[] & ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -515,7 +515,7 @@ export declare const QueryVotesResponse: {
                 weight?: string | undefined;
             }[] | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: ({
@@ -532,7 +532,7 @@ export declare const QueryVotesResponse: {
                 weight?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["votes"][number], keyof Vote>, never>)[] & Record<Exclude<keyof I["votes"], keyof {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             voter?: string | undefined;
             option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
             options?: {
@@ -555,10 +555,10 @@ export declare const QueryParamsRequest: {
     fromJSON(object: any): QueryParamsRequest;
     toJSON(message: QueryParamsRequest): unknown;
     fromPartial<I extends {
-        paramsType?: string | undefined;
+        params_type?: string | undefined;
     } & {
-        paramsType?: string | undefined;
-    } & Record<Exclude<keyof I, "paramsType">, never>>(object: I): QueryParamsRequest;
+        params_type?: string | undefined;
+    } & Record<Exclude<keyof I, "params_type">, never>>(object: I): QueryParamsRequest;
 };
 export declare const QueryParamsResponse: {
     encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
@@ -566,53 +566,53 @@ export declare const QueryParamsResponse: {
     fromJSON(object: any): QueryParamsResponse;
     toJSON(message: QueryParamsResponse): unknown;
     fromPartial<I extends {
-        votingParams?: {
-            votingPeriod?: {
-                seconds?: number | undefined;
+        voting_params?: {
+            voting_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } | undefined;
-        depositParams?: {
-            minDeposit?: {
+        deposit_params?: {
+            min_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            maxDepositPeriod?: {
-                seconds?: number | undefined;
+            max_deposit_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } | undefined;
-        tallyParams?: {
+        tally_params?: {
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
-            vetoThreshold?: Uint8Array | undefined;
+            veto_threshold?: Uint8Array | undefined;
         } | undefined;
     } & {
-        votingParams?: ({
-            votingPeriod?: {
-                seconds?: number | undefined;
+        voting_params?: ({
+            voting_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } & {
-            votingPeriod?: ({
-                seconds?: number | undefined;
+            voting_period?: ({
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } & {
-                seconds?: number | undefined;
+                seconds?: string | undefined;
                 nanos?: number | undefined;
-            } & Record<Exclude<keyof I["votingParams"]["votingPeriod"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-        } & Record<Exclude<keyof I["votingParams"], "votingPeriod">, never>) | undefined;
-        depositParams?: ({
-            minDeposit?: {
+            } & Record<Exclude<keyof I["voting_params"]["voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+        } & Record<Exclude<keyof I["voting_params"], "voting_period">, never>) | undefined;
+        deposit_params?: ({
+            min_deposit?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
-            maxDepositPeriod?: {
-                seconds?: number | undefined;
+            max_deposit_period?: {
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } | undefined;
         } & {
-            minDeposit?: ({
+            min_deposit?: ({
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] & ({
@@ -621,27 +621,27 @@ export declare const QueryParamsResponse: {
             } & {
                 denom?: string | undefined;
                 amount?: string | undefined;
-            } & Record<Exclude<keyof I["depositParams"]["minDeposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["depositParams"]["minDeposit"], keyof {
+            } & Record<Exclude<keyof I["deposit_params"]["min_deposit"][number], keyof import("../../base/v1beta1/coin").Coin>, never>)[] & Record<Exclude<keyof I["deposit_params"]["min_deposit"], keyof {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[]>, never>) | undefined;
-            maxDepositPeriod?: ({
-                seconds?: number | undefined;
+            max_deposit_period?: ({
+                seconds?: string | undefined;
                 nanos?: number | undefined;
             } & {
-                seconds?: number | undefined;
+                seconds?: string | undefined;
                 nanos?: number | undefined;
-            } & Record<Exclude<keyof I["depositParams"]["maxDepositPeriod"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-        } & Record<Exclude<keyof I["depositParams"], keyof DepositParams>, never>) | undefined;
-        tallyParams?: ({
+            } & Record<Exclude<keyof I["deposit_params"]["max_deposit_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
+        } & Record<Exclude<keyof I["deposit_params"], keyof DepositParams>, never>) | undefined;
+        tally_params?: ({
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
-            vetoThreshold?: Uint8Array | undefined;
+            veto_threshold?: Uint8Array | undefined;
         } & {
             quorum?: Uint8Array | undefined;
             threshold?: Uint8Array | undefined;
-            vetoThreshold?: Uint8Array | undefined;
-        } & Record<Exclude<keyof I["tallyParams"], keyof TallyParams>, never>) | undefined;
+            veto_threshold?: Uint8Array | undefined;
+        } & Record<Exclude<keyof I["tally_params"], keyof TallyParams>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof QueryParamsResponse>, never>>(object: I): QueryParamsResponse;
 };
 export declare const QueryDepositRequest: {
@@ -650,10 +650,10 @@ export declare const QueryDepositRequest: {
     fromJSON(object: any): QueryDepositRequest;
     toJSON(message: QueryDepositRequest): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         depositor?: string | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         depositor?: string | undefined;
     } & Record<Exclude<keyof I, keyof QueryDepositRequest>, never>>(object: I): QueryDepositRequest;
 };
@@ -664,7 +664,7 @@ export declare const QueryDepositResponse: {
     toJSON(message: QueryDepositResponse): unknown;
     fromPartial<I extends {
         deposit?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
@@ -673,14 +673,14 @@ export declare const QueryDepositResponse: {
         } | undefined;
     } & {
         deposit?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: ({
                 denom?: string | undefined;
@@ -704,7 +704,7 @@ export declare const QueryDepositsRequest: {
     fromJSON(object: any): QueryDepositsRequest;
     toJSON(message: QueryDepositsRequest): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         pagination?: {
             key?: Uint8Array | undefined;
             offset?: string | undefined;
@@ -713,7 +713,7 @@ export declare const QueryDepositsRequest: {
             reverse?: boolean | undefined;
         } | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         pagination?: ({
             key?: Uint8Array | undefined;
             offset?: string | undefined;
@@ -736,7 +736,7 @@ export declare const QueryDepositsResponse: {
     toJSON(message: QueryDepositsResponse): unknown;
     fromPartial<I extends {
         deposits?: {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
@@ -749,21 +749,21 @@ export declare const QueryDepositsResponse: {
         } | undefined;
     } & {
         deposits?: ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
         }[] & ({
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
                 amount?: string | undefined;
             }[] | undefined;
         } & {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: ({
                 denom?: string | undefined;
@@ -779,7 +779,7 @@ export declare const QueryDepositsResponse: {
                 amount?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["deposits"][number], keyof Deposit>, never>)[] & Record<Exclude<keyof I["deposits"], keyof {
-            proposalId?: number | undefined;
+            proposal_id?: string | undefined;
             depositor?: string | undefined;
             amount?: {
                 denom?: string | undefined;
@@ -801,10 +801,10 @@ export declare const QueryTallyResultRequest: {
     fromJSON(object: any): QueryTallyResultRequest;
     toJSON(message: QueryTallyResultRequest): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
     } & {
-        proposalId?: number | undefined;
-    } & Record<Exclude<keyof I, "proposalId">, never>>(object: I): QueryTallyResultRequest;
+        proposal_id?: string | undefined;
+    } & Record<Exclude<keyof I, "proposal_id">, never>>(object: I): QueryTallyResultRequest;
 };
 export declare const QueryTallyResultResponse: {
     encode(message: QueryTallyResultResponse, writer?: _m0.Writer): _m0.Writer;
@@ -816,19 +816,19 @@ export declare const QueryTallyResultResponse: {
             yes?: string | undefined;
             abstain?: string | undefined;
             no?: string | undefined;
-            noWithVeto?: string | undefined;
+            no_with_veto?: string | undefined;
         } | undefined;
     } & {
         tally?: ({
             yes?: string | undefined;
             abstain?: string | undefined;
             no?: string | undefined;
-            noWithVeto?: string | undefined;
+            no_with_veto?: string | undefined;
         } & {
             yes?: string | undefined;
             abstain?: string | undefined;
             no?: string | undefined;
-            noWithVeto?: string | undefined;
+            no_with_veto?: string | undefined;
         } & Record<Exclude<keyof I["tally"], keyof TallyResult>, never>) | undefined;
     } & Record<Exclude<keyof I, "tally">, never>>(object: I): QueryTallyResultResponse;
 };

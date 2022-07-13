@@ -34,20 +34,20 @@ var gov_1 = require("../../../cosmos/gov/v1beta1/gov");
 exports.protobufPackage = "cosmos.gov.v1beta1";
 function createBaseGenesisState() {
     return {
-        startingProposalId: 0,
+        starting_proposal_id: "0",
         deposits: [],
         votes: [],
         proposals: [],
-        depositParams: undefined,
-        votingParams: undefined,
-        tallyParams: undefined
+        deposit_params: undefined,
+        voting_params: undefined,
+        tally_params: undefined
     };
 }
 exports.GenesisState = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = _m0.Writer.create(); }
-        if (message.startingProposalId !== 0) {
-            writer.uint32(8).uint64(message.startingProposalId);
+        if (message.starting_proposal_id !== "0") {
+            writer.uint32(8).uint64(message.starting_proposal_id);
         }
         for (var _i = 0, _a = message.deposits; _i < _a.length; _i++) {
             var v = _a[_i];
@@ -61,14 +61,14 @@ exports.GenesisState = {
             var v = _e[_d];
             gov_1.Proposal.encode(v, writer.uint32(34).fork()).ldelim();
         }
-        if (message.depositParams !== undefined) {
-            gov_1.DepositParams.encode(message.depositParams, writer.uint32(42).fork()).ldelim();
+        if (message.deposit_params !== undefined) {
+            gov_1.DepositParams.encode(message.deposit_params, writer.uint32(42).fork()).ldelim();
         }
-        if (message.votingParams !== undefined) {
-            gov_1.VotingParams.encode(message.votingParams, writer.uint32(50).fork()).ldelim();
+        if (message.voting_params !== undefined) {
+            gov_1.VotingParams.encode(message.voting_params, writer.uint32(50).fork()).ldelim();
         }
-        if (message.tallyParams !== undefined) {
-            gov_1.TallyParams.encode(message.tallyParams, writer.uint32(58).fork()).ldelim();
+        if (message.tally_params !== undefined) {
+            gov_1.TallyParams.encode(message.tally_params, writer.uint32(58).fork()).ldelim();
         }
         return writer;
     },
@@ -80,7 +80,7 @@ exports.GenesisState = {
             var tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1:
-                    message.startingProposalId = longToNumber(reader.uint64());
+                    message.starting_proposal_id = longToString(reader.uint64());
                     break;
                 case 2:
                     message.deposits.push(gov_1.Deposit.decode(reader, reader.uint32()));
@@ -92,13 +92,13 @@ exports.GenesisState = {
                     message.proposals.push(gov_1.Proposal.decode(reader, reader.uint32()));
                     break;
                 case 5:
-                    message.depositParams = gov_1.DepositParams.decode(reader, reader.uint32());
+                    message.deposit_params = gov_1.DepositParams.decode(reader, reader.uint32());
                     break;
                 case 6:
-                    message.votingParams = gov_1.VotingParams.decode(reader, reader.uint32());
+                    message.voting_params = gov_1.VotingParams.decode(reader, reader.uint32());
                     break;
                 case 7:
-                    message.tallyParams = gov_1.TallyParams.decode(reader, reader.uint32());
+                    message.tally_params = gov_1.TallyParams.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -109,9 +109,9 @@ exports.GenesisState = {
     },
     fromJSON: function (object) {
         return {
-            startingProposalId: isSet(object.startingProposalId)
-                ? Number(object.startingProposalId)
-                : 0,
+            starting_proposal_id: isSet(object.starting_proposal_id)
+                ? String(object.starting_proposal_id)
+                : "0",
             deposits: Array.isArray(object === null || object === void 0 ? void 0 : object.deposits)
                 ? object.deposits.map(function (e) { return gov_1.Deposit.fromJSON(e); })
                 : [],
@@ -121,21 +121,21 @@ exports.GenesisState = {
             proposals: Array.isArray(object === null || object === void 0 ? void 0 : object.proposals)
                 ? object.proposals.map(function (e) { return gov_1.Proposal.fromJSON(e); })
                 : [],
-            depositParams: isSet(object.depositParams)
-                ? gov_1.DepositParams.fromJSON(object.depositParams)
+            deposit_params: isSet(object.deposit_params)
+                ? gov_1.DepositParams.fromJSON(object.deposit_params)
                 : undefined,
-            votingParams: isSet(object.votingParams)
-                ? gov_1.VotingParams.fromJSON(object.votingParams)
+            voting_params: isSet(object.voting_params)
+                ? gov_1.VotingParams.fromJSON(object.voting_params)
                 : undefined,
-            tallyParams: isSet(object.tallyParams)
-                ? gov_1.TallyParams.fromJSON(object.tallyParams)
+            tally_params: isSet(object.tally_params)
+                ? gov_1.TallyParams.fromJSON(object.tally_params)
                 : undefined
         };
     },
     toJSON: function (message) {
         var obj = {};
-        message.startingProposalId !== undefined &&
-            (obj.startingProposalId = Math.round(message.startingProposalId));
+        message.starting_proposal_id !== undefined &&
+            (obj.starting_proposal_id = message.starting_proposal_id);
         if (message.deposits) {
             obj.deposits = message.deposits.map(function (e) {
                 return e ? gov_1.Deposit.toJSON(e) : undefined;
@@ -158,60 +158,46 @@ exports.GenesisState = {
         else {
             obj.proposals = [];
         }
-        message.depositParams !== undefined &&
-            (obj.depositParams = message.depositParams
-                ? gov_1.DepositParams.toJSON(message.depositParams)
+        message.deposit_params !== undefined &&
+            (obj.deposit_params = message.deposit_params
+                ? gov_1.DepositParams.toJSON(message.deposit_params)
                 : undefined);
-        message.votingParams !== undefined &&
-            (obj.votingParams = message.votingParams
-                ? gov_1.VotingParams.toJSON(message.votingParams)
+        message.voting_params !== undefined &&
+            (obj.voting_params = message.voting_params
+                ? gov_1.VotingParams.toJSON(message.voting_params)
                 : undefined);
-        message.tallyParams !== undefined &&
-            (obj.tallyParams = message.tallyParams
-                ? gov_1.TallyParams.toJSON(message.tallyParams)
+        message.tally_params !== undefined &&
+            (obj.tally_params = message.tally_params
+                ? gov_1.TallyParams.toJSON(message.tally_params)
                 : undefined);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b, _c, _d;
         var message = createBaseGenesisState();
-        message.startingProposalId = (_a = object.startingProposalId) !== null && _a !== void 0 ? _a : 0;
+        message.starting_proposal_id = (_a = object.starting_proposal_id) !== null && _a !== void 0 ? _a : "0";
         message.deposits =
             ((_b = object.deposits) === null || _b === void 0 ? void 0 : _b.map(function (e) { return gov_1.Deposit.fromPartial(e); })) || [];
         message.votes = ((_c = object.votes) === null || _c === void 0 ? void 0 : _c.map(function (e) { return gov_1.Vote.fromPartial(e); })) || [];
         message.proposals =
             ((_d = object.proposals) === null || _d === void 0 ? void 0 : _d.map(function (e) { return gov_1.Proposal.fromPartial(e); })) || [];
-        message.depositParams =
-            object.depositParams !== undefined && object.depositParams !== null
-                ? gov_1.DepositParams.fromPartial(object.depositParams)
+        message.deposit_params =
+            object.deposit_params !== undefined && object.deposit_params !== null
+                ? gov_1.DepositParams.fromPartial(object.deposit_params)
                 : undefined;
-        message.votingParams =
-            object.votingParams !== undefined && object.votingParams !== null
-                ? gov_1.VotingParams.fromPartial(object.votingParams)
+        message.voting_params =
+            object.voting_params !== undefined && object.voting_params !== null
+                ? gov_1.VotingParams.fromPartial(object.voting_params)
                 : undefined;
-        message.tallyParams =
-            object.tallyParams !== undefined && object.tallyParams !== null
-                ? gov_1.TallyParams.fromPartial(object.tallyParams)
+        message.tally_params =
+            object.tally_params !== undefined && object.tally_params !== null
+                ? gov_1.TallyParams.fromPartial(object.tally_params)
                 : undefined;
         return message;
     }
 };
-var globalThis = (function () {
-    if (typeof globalThis !== "undefined")
-        return globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof global !== "undefined")
-        return global;
-    throw "Unable to locate global object";
-})();
-function longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
+function longToString(long) {
+    return long.toString();
 }
 if (_m0.util.Long !== long_1["default"]) {
     _m0.util.Long = long_1["default"];

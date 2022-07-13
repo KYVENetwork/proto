@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.CancelPoolUpgradeProposal = exports.SchedulePoolUpgradeProposal = exports.UnpausePoolProposal = exports.PausePoolProposal = exports.UpdatePoolProposal = exports.CreatePoolProposal = exports.protobufPackage = void 0;
+exports.ResetPoolProposal = exports.CancelPoolUpgradeProposal = exports.SchedulePoolUpgradeProposal = exports.UnpausePoolProposal = exports.PausePoolProposal = exports.UpdatePoolProposal = exports.CreatePoolProposal = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -44,7 +44,9 @@ function createBaseCreatePoolProposal() {
         upload_interval: "0",
         operating_cost: "0",
         max_bundle_size: "0",
-        binaries: ""
+        binaries: "",
+        start_key: "",
+        min_stake: "0"
     };
 }
 exports.CreatePoolProposal = {
@@ -85,6 +87,12 @@ exports.CreatePoolProposal = {
         }
         if (message.binaries !== "") {
             writer.uint32(98).string(message.binaries);
+        }
+        if (message.start_key !== "") {
+            writer.uint32(106).string(message.start_key);
+        }
+        if (message.min_stake !== "0") {
+            writer.uint32(112).uint64(message.min_stake);
         }
         return writer;
     },
@@ -131,6 +139,12 @@ exports.CreatePoolProposal = {
                 case 12:
                     message.binaries = reader.string();
                     break;
+                case 13:
+                    message.start_key = reader.string();
+                    break;
+                case 14:
+                    message.min_stake = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -159,7 +173,9 @@ exports.CreatePoolProposal = {
             max_bundle_size: isSet(object.max_bundle_size)
                 ? String(object.max_bundle_size)
                 : "0",
-            binaries: isSet(object.binaries) ? String(object.binaries) : ""
+            binaries: isSet(object.binaries) ? String(object.binaries) : "",
+            start_key: isSet(object.start_key) ? String(object.start_key) : "",
+            min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0"
         };
     },
     toJSON: function (message) {
@@ -181,10 +197,12 @@ exports.CreatePoolProposal = {
         message.max_bundle_size !== undefined &&
             (obj.max_bundle_size = message.max_bundle_size);
         message.binaries !== undefined && (obj.binaries = message.binaries);
+        message.start_key !== undefined && (obj.start_key = message.start_key);
+        message.min_stake !== undefined && (obj.min_stake = message.min_stake);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
         var message = createBaseCreatePoolProposal();
         message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
         message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
@@ -198,6 +216,8 @@ exports.CreatePoolProposal = {
         message.operating_cost = (_k = object.operating_cost) !== null && _k !== void 0 ? _k : "0";
         message.max_bundle_size = (_l = object.max_bundle_size) !== null && _l !== void 0 ? _l : "0";
         message.binaries = (_m = object.binaries) !== null && _m !== void 0 ? _m : "";
+        message.start_key = (_o = object.start_key) !== null && _o !== void 0 ? _o : "";
+        message.min_stake = (_p = object.min_stake) !== null && _p !== void 0 ? _p : "0";
         return message;
     }
 };
@@ -213,7 +233,8 @@ function createBaseUpdatePoolProposal() {
         config: "",
         upload_interval: "0",
         operating_cost: "0",
-        max_bundle_size: "0"
+        max_bundle_size: "0",
+        min_stake: "0"
     };
 }
 exports.UpdatePoolProposal = {
@@ -251,6 +272,9 @@ exports.UpdatePoolProposal = {
         }
         if (message.max_bundle_size !== "0") {
             writer.uint32(88).uint64(message.max_bundle_size);
+        }
+        if (message.min_stake !== "0") {
+            writer.uint32(96).uint64(message.min_stake);
         }
         return writer;
     },
@@ -294,6 +318,9 @@ exports.UpdatePoolProposal = {
                 case 11:
                     message.max_bundle_size = longToString(reader.uint64());
                     break;
+                case 12:
+                    message.min_stake = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -319,7 +346,8 @@ exports.UpdatePoolProposal = {
                 : "0",
             max_bundle_size: isSet(object.max_bundle_size)
                 ? String(object.max_bundle_size)
-                : "0"
+                : "0",
+            min_stake: isSet(object.min_stake) ? String(object.min_stake) : "0"
         };
     },
     toJSON: function (message) {
@@ -339,10 +367,11 @@ exports.UpdatePoolProposal = {
             (obj.operating_cost = message.operating_cost);
         message.max_bundle_size !== undefined &&
             (obj.max_bundle_size = message.max_bundle_size);
+        message.min_stake !== undefined && (obj.min_stake = message.min_stake);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         var message = createBaseUpdatePoolProposal();
         message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
         message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
@@ -355,6 +384,7 @@ exports.UpdatePoolProposal = {
         message.upload_interval = (_j = object.upload_interval) !== null && _j !== void 0 ? _j : "0";
         message.operating_cost = (_k = object.operating_cost) !== null && _k !== void 0 ? _k : "0";
         message.max_bundle_size = (_l = object.max_bundle_size) !== null && _l !== void 0 ? _l : "0";
+        message.min_stake = (_m = object.min_stake) !== null && _m !== void 0 ? _m : "0";
         return message;
     }
 };
@@ -658,6 +688,79 @@ exports.CancelPoolUpgradeProposal = {
         message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
         message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
         message.runtime = (_c = object.runtime) !== null && _c !== void 0 ? _c : "";
+        return message;
+    }
+};
+function createBaseResetPoolProposal() {
+    return { title: "", description: "", id: "0", bundle_id: "0" };
+}
+exports.ResetPoolProposal = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.title !== "") {
+            writer.uint32(10).string(message.title);
+        }
+        if (message.description !== "") {
+            writer.uint32(18).string(message.description);
+        }
+        if (message.id !== "0") {
+            writer.uint32(24).uint64(message.id);
+        }
+        if (message.bundle_id !== "0") {
+            writer.uint32(32).uint64(message.bundle_id);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBaseResetPoolProposal();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.title = reader.string();
+                    break;
+                case 2:
+                    message.description = reader.string();
+                    break;
+                case 3:
+                    message.id = longToString(reader.uint64());
+                    break;
+                case 4:
+                    message.bundle_id = longToString(reader.uint64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            title: isSet(object.title) ? String(object.title) : "",
+            description: isSet(object.description) ? String(object.description) : "",
+            id: isSet(object.id) ? String(object.id) : "0",
+            bundle_id: isSet(object.bundle_id) ? String(object.bundle_id) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.title !== undefined && (obj.title = message.title);
+        message.description !== undefined &&
+            (obj.description = message.description);
+        message.id !== undefined && (obj.id = message.id);
+        message.bundle_id !== undefined && (obj.bundle_id = message.bundle_id);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c, _d;
+        var message = createBaseResetPoolProposal();
+        message.title = (_a = object.title) !== null && _a !== void 0 ? _a : "";
+        message.description = (_b = object.description) !== null && _b !== void 0 ? _b : "";
+        message.id = (_c = object.id) !== null && _c !== void 0 ? _c : "0";
+        message.bundle_id = (_d = object.bundle_id) !== null && _d !== void 0 ? _d : "0";
         return message;
     }
 };

@@ -1,6 +1,6 @@
 import * as _m0 from "protobufjs/minimal";
-import { VoteOption, WeightedVoteOption } from "../../../cosmos/gov/v1beta1/gov";
 import { Any } from "../../../google/protobuf/any";
+import { VoteOption, WeightedVoteOption } from "../../../cosmos/gov/v1beta1/gov";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /**
@@ -8,17 +8,17 @@ export declare const protobufPackage = "cosmos.gov.v1beta1";
  * proposal Content.
  */
 export interface MsgSubmitProposal {
-    content: Any | undefined;
-    initialDeposit: Coin[];
+    content?: Any;
+    initial_deposit: Coin[];
     proposer: string;
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
-    proposalId: number;
+    proposal_id: string;
 }
 /** MsgVote defines a message to cast a vote. */
 export interface MsgVote {
-    proposalId: number;
+    proposal_id: string;
     voter: string;
     option: VoteOption;
 }
@@ -31,7 +31,7 @@ export interface MsgVoteResponse {
  * Since: cosmos-sdk 0.43
  */
 export interface MsgVoteWeighted {
-    proposalId: number;
+    proposal_id: string;
     voter: string;
     options: WeightedVoteOption[];
 }
@@ -44,7 +44,7 @@ export interface MsgVoteWeightedResponse {
 }
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 export interface MsgDeposit {
-    proposalId: number;
+    proposal_id: string;
     depositor: string;
     amount: Coin[];
 }
@@ -58,23 +58,23 @@ export declare const MsgSubmitProposal: {
     toJSON(message: MsgSubmitProposal): unknown;
     fromPartial<I extends {
         content?: {
-            typeUrl?: string | undefined;
+            type_url?: string | undefined;
             value?: Uint8Array | undefined;
         } | undefined;
-        initialDeposit?: {
+        initial_deposit?: {
             denom?: string | undefined;
             amount?: string | undefined;
         }[] | undefined;
         proposer?: string | undefined;
     } & {
         content?: ({
-            typeUrl?: string | undefined;
+            type_url?: string | undefined;
             value?: Uint8Array | undefined;
         } & {
-            typeUrl?: string | undefined;
+            type_url?: string | undefined;
             value?: Uint8Array | undefined;
         } & Record<Exclude<keyof I["content"], keyof Any>, never>) | undefined;
-        initialDeposit?: ({
+        initial_deposit?: ({
             denom?: string | undefined;
             amount?: string | undefined;
         }[] & ({
@@ -83,7 +83,7 @@ export declare const MsgSubmitProposal: {
         } & {
             denom?: string | undefined;
             amount?: string | undefined;
-        } & Record<Exclude<keyof I["initialDeposit"][number], keyof Coin>, never>)[] & Record<Exclude<keyof I["initialDeposit"], keyof {
+        } & Record<Exclude<keyof I["initial_deposit"][number], keyof Coin>, never>)[] & Record<Exclude<keyof I["initial_deposit"], keyof {
             denom?: string | undefined;
             amount?: string | undefined;
         }[]>, never>) | undefined;
@@ -96,10 +96,10 @@ export declare const MsgSubmitProposalResponse: {
     fromJSON(object: any): MsgSubmitProposalResponse;
     toJSON(message: MsgSubmitProposalResponse): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
     } & {
-        proposalId?: number | undefined;
-    } & Record<Exclude<keyof I, "proposalId">, never>>(object: I): MsgSubmitProposalResponse;
+        proposal_id?: string | undefined;
+    } & Record<Exclude<keyof I, "proposal_id">, never>>(object: I): MsgSubmitProposalResponse;
 };
 export declare const MsgVote: {
     encode(message: MsgVote, writer?: _m0.Writer): _m0.Writer;
@@ -107,11 +107,11 @@ export declare const MsgVote: {
     fromJSON(object: any): MsgVote;
     toJSON(message: MsgVote): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         voter?: string | undefined;
         option?: VoteOption | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         voter?: string | undefined;
         option?: VoteOption | undefined;
     } & Record<Exclude<keyof I, keyof MsgVote>, never>>(object: I): MsgVote;
@@ -129,14 +129,14 @@ export declare const MsgVoteWeighted: {
     fromJSON(object: any): MsgVoteWeighted;
     toJSON(message: MsgVoteWeighted): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         voter?: string | undefined;
         options?: {
             option?: VoteOption | undefined;
             weight?: string | undefined;
         }[] | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         voter?: string | undefined;
         options?: ({
             option?: VoteOption | undefined;
@@ -166,14 +166,14 @@ export declare const MsgDeposit: {
     fromJSON(object: any): MsgDeposit;
     toJSON(message: MsgDeposit): unknown;
     fromPartial<I extends {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         depositor?: string | undefined;
         amount?: {
             denom?: string | undefined;
             amount?: string | undefined;
         }[] | undefined;
     } & {
-        proposalId?: number | undefined;
+        proposal_id?: string | undefined;
         depositor?: string | undefined;
         amount?: ({
             denom?: string | undefined;

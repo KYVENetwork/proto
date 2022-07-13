@@ -16,7 +16,11 @@ export interface CreatePoolProposal {
     version: string;
     /** config ... */
     config: string;
-    /** start_height ... */
+    /**
+     * start_height ...
+     *
+     * @deprecated
+     */
     start_height: string;
     /** upload_interval ... */
     upload_interval: string;
@@ -26,6 +30,10 @@ export interface CreatePoolProposal {
     max_bundle_size: string;
     /** binaries ... */
     binaries: string;
+    /** start_key ... */
+    start_key: string;
+    /** min_stake ... */
+    min_stake: string;
 }
 /** UpdatePoolProposal is a gov Content type for updating a pool. */
 export interface UpdatePoolProposal {
@@ -41,7 +49,11 @@ export interface UpdatePoolProposal {
     runtime: string;
     /** logo ... */
     logo: string;
-    /** versions ... (deprecated) */
+    /**
+     * versions ...
+     *
+     * @deprecated
+     */
     versions: string;
     /** config ... */
     config: string;
@@ -51,6 +63,8 @@ export interface UpdatePoolProposal {
     operating_cost: string;
     /** max_bundle_size ... */
     max_bundle_size: string;
+    /** min_stake ... */
+    min_stake: string;
 }
 /** PausePoolProposal is a gov Content type for pausing a pool. */
 export interface PausePoolProposal {
@@ -96,6 +110,17 @@ export interface CancelPoolUpgradeProposal {
     /** runtime ... */
     runtime: string;
 }
+/** ResetPoolProposal is a gov Content type for cancelling a scheduled pool upgrade by the runtime. */
+export interface ResetPoolProposal {
+    /** title ... */
+    title: string;
+    /** description ... */
+    description: string;
+    /** id ... */
+    id: string;
+    /** bundle_id ... */
+    bundle_id: string;
+}
 export declare const CreatePoolProposal: {
     encode(message: CreatePoolProposal, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): CreatePoolProposal;
@@ -114,6 +139,8 @@ export declare const CreatePoolProposal: {
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
         binaries?: string | undefined;
+        start_key?: string | undefined;
+        min_stake?: string | undefined;
     } & {
         title?: string | undefined;
         description?: string | undefined;
@@ -127,6 +154,8 @@ export declare const CreatePoolProposal: {
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
         binaries?: string | undefined;
+        start_key?: string | undefined;
+        min_stake?: string | undefined;
     } & Record<Exclude<keyof I, keyof CreatePoolProposal>, never>>(object: I): CreatePoolProposal;
 };
 export declare const UpdatePoolProposal: {
@@ -146,6 +175,7 @@ export declare const UpdatePoolProposal: {
         upload_interval?: string | undefined;
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
+        min_stake?: string | undefined;
     } & {
         title?: string | undefined;
         description?: string | undefined;
@@ -158,6 +188,7 @@ export declare const UpdatePoolProposal: {
         upload_interval?: string | undefined;
         operating_cost?: string | undefined;
         max_bundle_size?: string | undefined;
+        min_stake?: string | undefined;
     } & Record<Exclude<keyof I, keyof UpdatePoolProposal>, never>>(object: I): UpdatePoolProposal;
 };
 export declare const PausePoolProposal: {
@@ -227,6 +258,23 @@ export declare const CancelPoolUpgradeProposal: {
         description?: string | undefined;
         runtime?: string | undefined;
     } & Record<Exclude<keyof I, keyof CancelPoolUpgradeProposal>, never>>(object: I): CancelPoolUpgradeProposal;
+};
+export declare const ResetPoolProposal: {
+    encode(message: ResetPoolProposal, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ResetPoolProposal;
+    fromJSON(object: any): ResetPoolProposal;
+    toJSON(message: ResetPoolProposal): unknown;
+    fromPartial<I extends {
+        title?: string | undefined;
+        description?: string | undefined;
+        id?: string | undefined;
+        bundle_id?: string | undefined;
+    } & {
+        title?: string | undefined;
+        description?: string | undefined;
+        id?: string | undefined;
+        bundle_id?: string | undefined;
+    } & Record<Exclude<keyof I, keyof ResetPoolProposal>, never>>(object: I): ResetPoolProposal;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {
