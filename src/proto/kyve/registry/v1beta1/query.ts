@@ -117,6 +117,16 @@ export interface QueryStakerResponse {
   staker?: StakerResponse;
 }
 
+/** PendingCommissionChange ... */
+export interface PendingCommissionChange {
+  /** new_commission ... */
+  new_commission: string;
+  /** creation_date ... */
+  creation_date: string;
+  /** finish_date ... */
+  finish_date: string;
+}
+
 /** StakerResponse ... */
 export interface StakerResponse {
   /** staker ... */
@@ -145,6 +155,8 @@ export interface StakerResponse {
   upload_probability: string;
   /** status */
   status: StakerStatus;
+  /** pending_commission_change */
+  pending_commission_change?: PendingCommissionChange;
 }
 
 /** QueryVoteStatusRequest is the request type for the Query/VoteStatus RPC method. */
@@ -471,6 +483,8 @@ export interface DelegatorResponse {
   delegation_amount: string;
   /** staker ... */
   staker: string;
+  /** pending_commission_change */
+  pending_commission_change?: PendingCommissionChange;
   /** delegation_pool_data ... */
   delegation_pool_data?: DelegationPoolData;
 }
@@ -1494,6 +1508,88 @@ export const QueryStakerResponse = {
   },
 };
 
+function createBasePendingCommissionChange(): PendingCommissionChange {
+  return { new_commission: "", creation_date: "0", finish_date: "0" };
+}
+
+export const PendingCommissionChange = {
+  encode(
+    message: PendingCommissionChange,
+    writer: _m0.Writer = _m0.Writer.create()
+  ): _m0.Writer {
+    if (message.new_commission !== "") {
+      writer.uint32(10).string(message.new_commission);
+    }
+    if (message.creation_date !== "0") {
+      writer.uint32(16).int64(message.creation_date);
+    }
+    if (message.finish_date !== "0") {
+      writer.uint32(24).int64(message.finish_date);
+    }
+    return writer;
+  },
+
+  decode(
+    input: _m0.Reader | Uint8Array,
+    length?: number
+  ): PendingCommissionChange {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePendingCommissionChange();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.new_commission = reader.string();
+          break;
+        case 2:
+          message.creation_date = longToString(reader.int64() as Long);
+          break;
+        case 3:
+          message.finish_date = longToString(reader.int64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PendingCommissionChange {
+    return {
+      new_commission: isSet(object.new_commission)
+        ? String(object.new_commission)
+        : "",
+      creation_date: isSet(object.creation_date)
+        ? String(object.creation_date)
+        : "0",
+      finish_date: isSet(object.finish_date) ? String(object.finish_date) : "0",
+    };
+  },
+
+  toJSON(message: PendingCommissionChange): unknown {
+    const obj: any = {};
+    message.new_commission !== undefined &&
+      (obj.new_commission = message.new_commission);
+    message.creation_date !== undefined &&
+      (obj.creation_date = message.creation_date);
+    message.finish_date !== undefined &&
+      (obj.finish_date = message.finish_date);
+    return obj;
+  },
+
+  fromPartial<I extends Exact<DeepPartial<PendingCommissionChange>, I>>(
+    object: I
+  ): PendingCommissionChange {
+    const message = createBasePendingCommissionChange();
+    message.new_commission = object.new_commission ?? "";
+    message.creation_date = object.creation_date ?? "0";
+    message.finish_date = object.finish_date ?? "0";
+    return message;
+  },
+};
+
 function createBaseStakerResponse(): StakerResponse {
   return {
     staker: "",
@@ -1509,6 +1605,7 @@ function createBaseStakerResponse(): StakerResponse {
     unbonding_amount: "0",
     upload_probability: "",
     status: 0,
+    pending_commission_change: undefined,
   };
 }
 
@@ -1555,6 +1652,12 @@ export const StakerResponse = {
     }
     if (message.status !== 0) {
       writer.uint32(104).int32(message.status);
+    }
+    if (message.pending_commission_change !== undefined) {
+      PendingCommissionChange.encode(
+        message.pending_commission_change,
+        writer.uint32(114).fork()
+      ).ldelim();
     }
     return writer;
   },
@@ -1605,6 +1708,12 @@ export const StakerResponse = {
         case 13:
           message.status = reader.int32() as any;
           break;
+        case 14:
+          message.pending_commission_change = PendingCommissionChange.decode(
+            reader,
+            reader.uint32()
+          );
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1634,6 +1743,9 @@ export const StakerResponse = {
         ? String(object.upload_probability)
         : "",
       status: isSet(object.status) ? stakerStatusFromJSON(object.status) : 0,
+      pending_commission_change: isSet(object.pending_commission_change)
+        ? PendingCommissionChange.fromJSON(object.pending_commission_change)
+        : undefined,
     };
   },
 
@@ -1656,6 +1768,10 @@ export const StakerResponse = {
       (obj.upload_probability = message.upload_probability);
     message.status !== undefined &&
       (obj.status = stakerStatusToJSON(message.status));
+    message.pending_commission_change !== undefined &&
+      (obj.pending_commission_change = message.pending_commission_change
+        ? PendingCommissionChange.toJSON(message.pending_commission_change)
+        : undefined);
     return obj;
   },
 
@@ -1676,6 +1792,11 @@ export const StakerResponse = {
     message.unbonding_amount = object.unbonding_amount ?? "0";
     message.upload_probability = object.upload_probability ?? "";
     message.status = object.status ?? 0;
+    message.pending_commission_change =
+      object.pending_commission_change !== undefined &&
+      object.pending_commission_change !== null
+        ? PendingCommissionChange.fromPartial(object.pending_commission_change)
+        : undefined;
     return message;
   },
 };
@@ -4470,6 +4591,7 @@ function createBaseDelegatorResponse(): DelegatorResponse {
     current_reward: "0",
     delegation_amount: "0",
     staker: "",
+    pending_commission_change: undefined,
     delegation_pool_data: undefined,
   };
 }
@@ -4494,10 +4616,16 @@ export const DelegatorResponse = {
     if (message.staker !== "") {
       writer.uint32(42).string(message.staker);
     }
+    if (message.pending_commission_change !== undefined) {
+      PendingCommissionChange.encode(
+        message.pending_commission_change,
+        writer.uint32(50).fork()
+      ).ldelim();
+    }
     if (message.delegation_pool_data !== undefined) {
       DelegationPoolData.encode(
         message.delegation_pool_data,
-        writer.uint32(50).fork()
+        writer.uint32(58).fork()
       ).ldelim();
     }
     return writer;
@@ -4526,6 +4654,12 @@ export const DelegatorResponse = {
           message.staker = reader.string();
           break;
         case 6:
+          message.pending_commission_change = PendingCommissionChange.decode(
+            reader,
+            reader.uint32()
+          );
+          break;
+        case 7:
           message.delegation_pool_data = DelegationPoolData.decode(
             reader,
             reader.uint32()
@@ -4550,6 +4684,9 @@ export const DelegatorResponse = {
         ? String(object.delegation_amount)
         : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
+      pending_commission_change: isSet(object.pending_commission_change)
+        ? PendingCommissionChange.fromJSON(object.pending_commission_change)
+        : undefined,
       delegation_pool_data: isSet(object.delegation_pool_data)
         ? DelegationPoolData.fromJSON(object.delegation_pool_data)
         : undefined,
@@ -4566,6 +4703,10 @@ export const DelegatorResponse = {
     message.delegation_amount !== undefined &&
       (obj.delegation_amount = message.delegation_amount);
     message.staker !== undefined && (obj.staker = message.staker);
+    message.pending_commission_change !== undefined &&
+      (obj.pending_commission_change = message.pending_commission_change
+        ? PendingCommissionChange.toJSON(message.pending_commission_change)
+        : undefined);
     message.delegation_pool_data !== undefined &&
       (obj.delegation_pool_data = message.delegation_pool_data
         ? DelegationPoolData.toJSON(message.delegation_pool_data)
@@ -4585,6 +4726,11 @@ export const DelegatorResponse = {
     message.current_reward = object.current_reward ?? "0";
     message.delegation_amount = object.delegation_amount ?? "0";
     message.staker = object.staker ?? "";
+    message.pending_commission_change =
+      object.pending_commission_change !== undefined &&
+      object.pending_commission_change !== null
+        ? PendingCommissionChange.fromPartial(object.pending_commission_change)
+        : undefined;
     message.delegation_pool_data =
       object.delegation_pool_data !== undefined &&
       object.delegation_pool_data !== null

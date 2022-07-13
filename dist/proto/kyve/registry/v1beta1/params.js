@@ -43,7 +43,8 @@ function createBaseParams() {
         unbonding_staking_time: "0",
         unbonding_delegation_time: "0",
         redelegation_cooldown: "0",
-        redelegation_max_amount: "0"
+        redelegation_max_amount: "0",
+        commission_change_time: "0"
     };
 }
 exports.Params = {
@@ -81,6 +82,9 @@ exports.Params = {
         }
         if (message.redelegation_max_amount !== "0") {
             writer.uint32(104).uint64(message.redelegation_max_amount);
+        }
+        if (message.commission_change_time !== "0") {
+            writer.uint32(112).uint64(message.commission_change_time);
         }
         return writer;
     },
@@ -124,6 +128,9 @@ exports.Params = {
                 case 13:
                     message.redelegation_max_amount = longToString(reader.uint64());
                     break;
+                case 14:
+                    message.commission_change_time = longToString(reader.uint64());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -159,6 +166,9 @@ exports.Params = {
                 : "0",
             redelegation_max_amount: isSet(object.redelegation_max_amount)
                 ? String(object.redelegation_max_amount)
+                : "0",
+            commission_change_time: isSet(object.commission_change_time)
+                ? String(object.commission_change_time)
                 : "0"
         };
     },
@@ -184,10 +194,12 @@ exports.Params = {
             (obj.redelegation_cooldown = message.redelegation_cooldown);
         message.redelegation_max_amount !== undefined &&
             (obj.redelegation_max_amount = message.redelegation_max_amount);
+        message.commission_change_time !== undefined &&
+            (obj.commission_change_time = message.commission_change_time);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         var message = createBaseParams();
         message.vote_slash = (_a = object.vote_slash) !== null && _a !== void 0 ? _a : "";
         message.upload_slash = (_b = object.upload_slash) !== null && _b !== void 0 ? _b : "";
@@ -200,6 +212,7 @@ exports.Params = {
         message.unbonding_delegation_time = (_j = object.unbonding_delegation_time) !== null && _j !== void 0 ? _j : "0";
         message.redelegation_cooldown = (_k = object.redelegation_cooldown) !== null && _k !== void 0 ? _k : "0";
         message.redelegation_max_amount = (_l = object.redelegation_max_amount) !== null && _l !== void 0 ? _l : "0";
+        message.commission_change_time = (_m = object.commission_change_time) !== null && _m !== void 0 ? _m : "0";
         return message;
     }
 };

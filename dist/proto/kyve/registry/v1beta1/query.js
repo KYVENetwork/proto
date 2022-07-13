@@ -26,8 +26,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.QueryAccountDelegationListRequest = exports.Staked = exports.QueryAccountStakedListResponse = exports.QueryAccountStakedListRequest = exports.Funded = exports.QueryAccountFundedListResponse = exports.QueryAccountFundedListRequest = exports.DelegationUnbonding = exports.QueryAccountDelegationUnbondingsResponse = exports.QueryAccountDelegationUnbondingsRequest = exports.StakingUnbonding = exports.QueryAccountStakingUnbondingsResponse = exports.QueryAccountStakingUnbondingsRequest = exports.QueryAccountAssetsResponse = exports.QueryAccountAssetsRequest = exports.QueryStakeInfoResponse = exports.QueryStakeInfoRequest = exports.QueryCanVoteResponse = exports.QueryCanVoteRequest = exports.QueryCanProposeResponse = exports.QueryCanProposeRequest = exports.QueryProposalSinceIdResponse = exports.QueryProposalSinceIdRequest = exports.QueryProposalSinceFinalizedAtResponse = exports.QueryProposalSinceFinalizedAtRequest = exports.QueryProposalByHeightResponse = exports.QueryProposalByHeightRequest = exports.QueryProposalsResponse = exports.QueryProposalsRequest = exports.QueryProposalResponse = exports.QueryProposalRequest = exports.VoteStatusResponse = exports.QueryVoteStatusResponse = exports.QueryVoteStatusRequest = exports.StakerResponse = exports.QueryStakerResponse = exports.QueryStakerRequest = exports.QueryStakersListResponse = exports.QueryStakersListRequest = exports.QueryFunderResponse = exports.QueryFunderRequest = exports.QueryFundersListResponse = exports.QueryFundersListRequest = exports.QueryPoolsResponse = exports.QueryPoolsRequest = exports.QueryPoolResponse = exports.QueryPoolRequest = exports.QueryParamsResponse = exports.QueryParamsRequest = exports.protobufPackage = void 0;
-exports.QueryClientImpl = exports.DelegationForStakerResponse = exports.QueryStakersByPoolAndDelegatorResponse = exports.QueryStakersByPoolAndDelegatorRequest = exports.QueryDelegatorsByPoolAndStakerResponse = exports.QueryDelegatorsByPoolAndStakerRequest = exports.StakerDelegatorResponse = exports.QueryDelegatorResponse = exports.QueryDelegatorRequest = exports.QueryAccountRedelegationResponse = exports.QueryAccountRedelegationRequest = exports.DelegatorResponse = exports.QueryAccountDelegationListResponse = void 0;
+exports.Staked = exports.QueryAccountStakedListResponse = exports.QueryAccountStakedListRequest = exports.Funded = exports.QueryAccountFundedListResponse = exports.QueryAccountFundedListRequest = exports.DelegationUnbonding = exports.QueryAccountDelegationUnbondingsResponse = exports.QueryAccountDelegationUnbondingsRequest = exports.StakingUnbonding = exports.QueryAccountStakingUnbondingsResponse = exports.QueryAccountStakingUnbondingsRequest = exports.QueryAccountAssetsResponse = exports.QueryAccountAssetsRequest = exports.QueryStakeInfoResponse = exports.QueryStakeInfoRequest = exports.QueryCanVoteResponse = exports.QueryCanVoteRequest = exports.QueryCanProposeResponse = exports.QueryCanProposeRequest = exports.QueryProposalSinceIdResponse = exports.QueryProposalSinceIdRequest = exports.QueryProposalSinceFinalizedAtResponse = exports.QueryProposalSinceFinalizedAtRequest = exports.QueryProposalByHeightResponse = exports.QueryProposalByHeightRequest = exports.QueryProposalsResponse = exports.QueryProposalsRequest = exports.QueryProposalResponse = exports.QueryProposalRequest = exports.VoteStatusResponse = exports.QueryVoteStatusResponse = exports.QueryVoteStatusRequest = exports.StakerResponse = exports.PendingCommissionChange = exports.QueryStakerResponse = exports.QueryStakerRequest = exports.QueryStakersListResponse = exports.QueryStakersListRequest = exports.QueryFunderResponse = exports.QueryFunderRequest = exports.QueryFundersListResponse = exports.QueryFundersListRequest = exports.QueryPoolsResponse = exports.QueryPoolsRequest = exports.QueryPoolResponse = exports.QueryPoolRequest = exports.QueryParamsResponse = exports.QueryParamsRequest = exports.protobufPackage = void 0;
+exports.QueryClientImpl = exports.DelegationForStakerResponse = exports.QueryStakersByPoolAndDelegatorResponse = exports.QueryStakersByPoolAndDelegatorRequest = exports.QueryDelegatorsByPoolAndStakerResponse = exports.QueryDelegatorsByPoolAndStakerRequest = exports.StakerDelegatorResponse = exports.QueryDelegatorResponse = exports.QueryDelegatorRequest = exports.QueryAccountRedelegationResponse = exports.QueryAccountRedelegationRequest = exports.DelegatorResponse = exports.QueryAccountDelegationListResponse = exports.QueryAccountDelegationListRequest = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
@@ -813,6 +813,76 @@ exports.QueryStakerResponse = {
         return message;
     }
 };
+function createBasePendingCommissionChange() {
+    return { new_commission: "", creation_date: "0", finish_date: "0" };
+}
+exports.PendingCommissionChange = {
+    encode: function (message, writer) {
+        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (message.new_commission !== "") {
+            writer.uint32(10).string(message.new_commission);
+        }
+        if (message.creation_date !== "0") {
+            writer.uint32(16).int64(message.creation_date);
+        }
+        if (message.finish_date !== "0") {
+            writer.uint32(24).int64(message.finish_date);
+        }
+        return writer;
+    },
+    decode: function (input, length) {
+        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var end = length === undefined ? reader.len : reader.pos + length;
+        var message = createBasePendingCommissionChange();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.new_commission = reader.string();
+                    break;
+                case 2:
+                    message.creation_date = longToString(reader.int64());
+                    break;
+                case 3:
+                    message.finish_date = longToString(reader.int64());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON: function (object) {
+        return {
+            new_commission: isSet(object.new_commission)
+                ? String(object.new_commission)
+                : "",
+            creation_date: isSet(object.creation_date)
+                ? String(object.creation_date)
+                : "0",
+            finish_date: isSet(object.finish_date) ? String(object.finish_date) : "0"
+        };
+    },
+    toJSON: function (message) {
+        var obj = {};
+        message.new_commission !== undefined &&
+            (obj.new_commission = message.new_commission);
+        message.creation_date !== undefined &&
+            (obj.creation_date = message.creation_date);
+        message.finish_date !== undefined &&
+            (obj.finish_date = message.finish_date);
+        return obj;
+    },
+    fromPartial: function (object) {
+        var _a, _b, _c;
+        var message = createBasePendingCommissionChange();
+        message.new_commission = (_a = object.new_commission) !== null && _a !== void 0 ? _a : "";
+        message.creation_date = (_b = object.creation_date) !== null && _b !== void 0 ? _b : "0";
+        message.finish_date = (_c = object.finish_date) !== null && _c !== void 0 ? _c : "0";
+        return message;
+    }
+};
 function createBaseStakerResponse() {
     return {
         staker: "",
@@ -827,7 +897,8 @@ function createBaseStakerResponse() {
         points: "0",
         unbonding_amount: "0",
         upload_probability: "",
-        status: 0
+        status: 0,
+        pending_commission_change: undefined
     };
 }
 exports.StakerResponse = {
@@ -871,6 +942,9 @@ exports.StakerResponse = {
         }
         if (message.status !== 0) {
             writer.uint32(104).int32(message.status);
+        }
+        if (message.pending_commission_change !== undefined) {
+            exports.PendingCommissionChange.encode(message.pending_commission_change, writer.uint32(114).fork()).ldelim();
         }
         return writer;
     },
@@ -920,6 +994,9 @@ exports.StakerResponse = {
                 case 13:
                     message.status = reader.int32();
                     break;
+                case 14:
+                    message.pending_commission_change = exports.PendingCommissionChange.decode(reader, reader.uint32());
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -947,7 +1024,10 @@ exports.StakerResponse = {
             upload_probability: isSet(object.upload_probability)
                 ? String(object.upload_probability)
                 : "",
-            status: isSet(object.status) ? (0, registry_1.stakerStatusFromJSON)(object.status) : 0
+            status: isSet(object.status) ? (0, registry_1.stakerStatusFromJSON)(object.status) : 0,
+            pending_commission_change: isSet(object.pending_commission_change)
+                ? exports.PendingCommissionChange.fromJSON(object.pending_commission_change)
+                : undefined
         };
     },
     toJSON: function (message) {
@@ -969,6 +1049,10 @@ exports.StakerResponse = {
             (obj.upload_probability = message.upload_probability);
         message.status !== undefined &&
             (obj.status = (0, registry_1.stakerStatusToJSON)(message.status));
+        message.pending_commission_change !== undefined &&
+            (obj.pending_commission_change = message.pending_commission_change
+                ? exports.PendingCommissionChange.toJSON(message.pending_commission_change)
+                : undefined);
         return obj;
     },
     fromPartial: function (object) {
@@ -987,6 +1071,11 @@ exports.StakerResponse = {
         message.unbonding_amount = (_l = object.unbonding_amount) !== null && _l !== void 0 ? _l : "0";
         message.upload_probability = (_m = object.upload_probability) !== null && _m !== void 0 ? _m : "";
         message.status = (_o = object.status) !== null && _o !== void 0 ? _o : 0;
+        message.pending_commission_change =
+            object.pending_commission_change !== undefined &&
+                object.pending_commission_change !== null
+                ? exports.PendingCommissionChange.fromPartial(object.pending_commission_change)
+                : undefined;
         return message;
     }
 };
@@ -3355,6 +3444,7 @@ function createBaseDelegatorResponse() {
         current_reward: "0",
         delegation_amount: "0",
         staker: "",
+        pending_commission_change: undefined,
         delegation_pool_data: undefined
     };
 }
@@ -3376,8 +3466,11 @@ exports.DelegatorResponse = {
         if (message.staker !== "") {
             writer.uint32(42).string(message.staker);
         }
+        if (message.pending_commission_change !== undefined) {
+            exports.PendingCommissionChange.encode(message.pending_commission_change, writer.uint32(50).fork()).ldelim();
+        }
         if (message.delegation_pool_data !== undefined) {
-            registry_1.DelegationPoolData.encode(message.delegation_pool_data, writer.uint32(50).fork()).ldelim();
+            registry_1.DelegationPoolData.encode(message.delegation_pool_data, writer.uint32(58).fork()).ldelim();
         }
         return writer;
     },
@@ -3404,6 +3497,9 @@ exports.DelegatorResponse = {
                     message.staker = reader.string();
                     break;
                 case 6:
+                    message.pending_commission_change = exports.PendingCommissionChange.decode(reader, reader.uint32());
+                    break;
+                case 7:
                     message.delegation_pool_data = registry_1.DelegationPoolData.decode(reader, reader.uint32());
                     break;
                 default:
@@ -3424,6 +3520,9 @@ exports.DelegatorResponse = {
                 ? String(object.delegation_amount)
                 : "0",
             staker: isSet(object.staker) ? String(object.staker) : "",
+            pending_commission_change: isSet(object.pending_commission_change)
+                ? exports.PendingCommissionChange.fromJSON(object.pending_commission_change)
+                : undefined,
             delegation_pool_data: isSet(object.delegation_pool_data)
                 ? registry_1.DelegationPoolData.fromJSON(object.delegation_pool_data)
                 : undefined
@@ -3439,6 +3538,10 @@ exports.DelegatorResponse = {
         message.delegation_amount !== undefined &&
             (obj.delegation_amount = message.delegation_amount);
         message.staker !== undefined && (obj.staker = message.staker);
+        message.pending_commission_change !== undefined &&
+            (obj.pending_commission_change = message.pending_commission_change
+                ? exports.PendingCommissionChange.toJSON(message.pending_commission_change)
+                : undefined);
         message.delegation_pool_data !== undefined &&
             (obj.delegation_pool_data = message.delegation_pool_data
                 ? registry_1.DelegationPoolData.toJSON(message.delegation_pool_data)
@@ -3456,6 +3559,11 @@ exports.DelegatorResponse = {
         message.current_reward = (_b = object.current_reward) !== null && _b !== void 0 ? _b : "0";
         message.delegation_amount = (_c = object.delegation_amount) !== null && _c !== void 0 ? _c : "0";
         message.staker = (_d = object.staker) !== null && _d !== void 0 ? _d : "";
+        message.pending_commission_change =
+            object.pending_commission_change !== undefined &&
+                object.pending_commission_change !== null
+                ? exports.PendingCommissionChange.fromPartial(object.pending_commission_change)
+                : undefined;
         message.delegation_pool_data =
             object.delegation_pool_data !== undefined &&
                 object.delegation_pool_data !== null

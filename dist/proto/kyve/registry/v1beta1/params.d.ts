@@ -24,6 +24,8 @@ export interface Params {
     redelegation_cooldown: string;
     /** unbonding_delegation_time ... */
     redelegation_max_amount: string;
+    /** commission_change_time ... */
+    commission_change_time: string;
 }
 export declare const Params: {
     encode(message: Params, writer?: _m0.Writer): _m0.Writer;
@@ -42,6 +44,7 @@ export declare const Params: {
         unbonding_delegation_time?: string | undefined;
         redelegation_cooldown?: string | undefined;
         redelegation_max_amount?: string | undefined;
+        commission_change_time?: string | undefined;
     } & {
         vote_slash?: string | undefined;
         upload_slash?: string | undefined;
@@ -54,6 +57,7 @@ export declare const Params: {
         unbonding_delegation_time?: string | undefined;
         redelegation_cooldown?: string | undefined;
         redelegation_max_amount?: string | undefined;
+        commission_change_time?: string | undefined;
     } & Record<Exclude<keyof I, keyof Params>, never>>(object: I): Params;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;

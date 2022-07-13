@@ -427,7 +427,7 @@ export interface RedelegationCooldown {
   /** low_index ... */
   address: string;
   /** high_index ... */
-  created_block: string;
+  creation_date: string;
 }
 
 /** CommissionChangeQueueEntry ... */
@@ -2373,7 +2373,7 @@ export const UnbondingDelegationQueueState = {
 };
 
 function createBaseRedelegationCooldown(): RedelegationCooldown {
-  return { address: "", created_block: "0" };
+  return { address: "", creation_date: "0" };
 }
 
 export const RedelegationCooldown = {
@@ -2384,8 +2384,8 @@ export const RedelegationCooldown = {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
-    if (message.created_block !== "0") {
-      writer.uint32(16).uint64(message.created_block);
+    if (message.creation_date !== "0") {
+      writer.uint32(16).uint64(message.creation_date);
     }
     return writer;
   },
@@ -2404,7 +2404,7 @@ export const RedelegationCooldown = {
           message.address = reader.string();
           break;
         case 2:
-          message.created_block = longToString(reader.uint64() as Long);
+          message.creation_date = longToString(reader.uint64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -2417,8 +2417,8 @@ export const RedelegationCooldown = {
   fromJSON(object: any): RedelegationCooldown {
     return {
       address: isSet(object.address) ? String(object.address) : "",
-      created_block: isSet(object.created_block)
-        ? String(object.created_block)
+      creation_date: isSet(object.creation_date)
+        ? String(object.creation_date)
         : "0",
     };
   },
@@ -2426,8 +2426,8 @@ export const RedelegationCooldown = {
   toJSON(message: RedelegationCooldown): unknown {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
-    message.created_block !== undefined &&
-      (obj.created_block = message.created_block);
+    message.creation_date !== undefined &&
+      (obj.creation_date = message.creation_date);
     return obj;
   },
 
@@ -2436,7 +2436,7 @@ export const RedelegationCooldown = {
   ): RedelegationCooldown {
     const message = createBaseRedelegationCooldown();
     message.address = object.address ?? "";
-    message.created_block = object.created_block ?? "0";
+    message.creation_date = object.creation_date ?? "0";
     return message;
   },
 };

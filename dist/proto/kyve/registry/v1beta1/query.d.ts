@@ -89,6 +89,15 @@ export interface QueryStakerResponse {
     /** staker ... */
     staker?: StakerResponse;
 }
+/** PendingCommissionChange ... */
+export interface PendingCommissionChange {
+    /** new_commission ... */
+    new_commission: string;
+    /** creation_date ... */
+    creation_date: string;
+    /** finish_date ... */
+    finish_date: string;
+}
 /** StakerResponse ... */
 export interface StakerResponse {
     /** staker ... */
@@ -117,6 +126,8 @@ export interface StakerResponse {
     upload_probability: string;
     /** status */
     status: StakerStatus;
+    /** pending_commission_change */
+    pending_commission_change?: PendingCommissionChange;
 }
 /** QueryVoteStatusRequest is the request type for the Query/VoteStatus RPC method. */
 export interface QueryVoteStatusRequest {
@@ -407,6 +418,8 @@ export interface DelegatorResponse {
     delegation_amount: string;
     /** staker ... */
     staker: string;
+    /** pending_commission_change */
+    pending_commission_change?: PendingCommissionChange;
     /** delegation_pool_data ... */
     delegation_pool_data?: DelegationPoolData;
 }
@@ -523,6 +536,7 @@ export declare const QueryParamsResponse: {
             unbonding_delegation_time?: string | undefined;
             redelegation_cooldown?: string | undefined;
             redelegation_max_amount?: string | undefined;
+            commission_change_time?: string | undefined;
         } | undefined;
     } & {
         params?: ({
@@ -537,6 +551,7 @@ export declare const QueryParamsResponse: {
             unbonding_delegation_time?: string | undefined;
             redelegation_cooldown?: string | undefined;
             redelegation_max_amount?: string | undefined;
+            commission_change_time?: string | undefined;
         } & {
             vote_slash?: string | undefined;
             upload_slash?: string | undefined;
@@ -549,6 +564,7 @@ export declare const QueryParamsResponse: {
             unbonding_delegation_time?: string | undefined;
             redelegation_cooldown?: string | undefined;
             redelegation_max_amount?: string | undefined;
+            commission_change_time?: string | undefined;
         } & Record<Exclude<keyof I["params"], keyof Params>, never>) | undefined;
     } & Record<Exclude<keyof I, "params">, never>>(object: I): QueryParamsResponse;
 };
@@ -1264,6 +1280,11 @@ export declare const QueryStakersListResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         }[] | undefined;
         pagination?: {
             next_key?: Uint8Array | undefined;
@@ -1284,6 +1305,11 @@ export declare const QueryStakersListResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         }[] & ({
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1298,6 +1324,11 @@ export declare const QueryStakersListResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         } & {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1312,6 +1343,15 @@ export declare const QueryStakersListResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: ({
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & Record<Exclude<keyof I["stakers"][number]["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
         } & Record<Exclude<keyof I["stakers"][number], keyof StakerResponse>, never>)[] & Record<Exclude<keyof I["stakers"], keyof {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1326,6 +1366,11 @@ export declare const QueryStakersListResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         }[]>, never>) | undefined;
         pagination?: ({
             next_key?: Uint8Array | undefined;
@@ -1369,6 +1414,11 @@ export declare const QueryStakerResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         } | undefined;
     } & {
         staker?: ({
@@ -1385,6 +1435,11 @@ export declare const QueryStakerResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         } & {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -1399,8 +1454,32 @@ export declare const QueryStakerResponse: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: ({
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & Record<Exclude<keyof I["staker"]["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
         } & Record<Exclude<keyof I["staker"], keyof StakerResponse>, never>) | undefined;
     } & Record<Exclude<keyof I, "staker">, never>>(object: I): QueryStakerResponse;
+};
+export declare const PendingCommissionChange: {
+    encode(message: PendingCommissionChange, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PendingCommissionChange;
+    fromJSON(object: any): PendingCommissionChange;
+    toJSON(message: PendingCommissionChange): unknown;
+    fromPartial<I extends {
+        new_commission?: string | undefined;
+        creation_date?: string | undefined;
+        finish_date?: string | undefined;
+    } & {
+        new_commission?: string | undefined;
+        creation_date?: string | undefined;
+        finish_date?: string | undefined;
+    } & Record<Exclude<keyof I, keyof PendingCommissionChange>, never>>(object: I): PendingCommissionChange;
 };
 export declare const StakerResponse: {
     encode(message: StakerResponse, writer?: _m0.Writer): _m0.Writer;
@@ -1421,6 +1500,11 @@ export declare const StakerResponse: {
         unbonding_amount?: string | undefined;
         upload_probability?: string | undefined;
         status?: StakerStatus | undefined;
+        pending_commission_change?: {
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } | undefined;
     } & {
         staker?: string | undefined;
         pool_id?: string | undefined;
@@ -1435,6 +1519,15 @@ export declare const StakerResponse: {
         unbonding_amount?: string | undefined;
         upload_probability?: string | undefined;
         status?: StakerStatus | undefined;
+        pending_commission_change?: ({
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } & {
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } & Record<Exclude<keyof I["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
     } & Record<Exclude<keyof I, keyof StakerResponse>, never>>(object: I): StakerResponse;
 };
 export declare const QueryVoteStatusRequest: {
@@ -2752,6 +2845,11 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
                 status?: StakerStatus | undefined;
+                pending_commission_change?: {
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -2834,6 +2932,11 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
                 status?: StakerStatus | undefined;
+                pending_commission_change?: {
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -2910,6 +3013,11 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
                 status?: StakerStatus | undefined;
+                pending_commission_change?: {
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -2986,6 +3094,11 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
                 status?: StakerStatus | undefined;
+                pending_commission_change?: {
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } | undefined;
             } & {
                 staker?: string | undefined;
                 pool_id?: string | undefined;
@@ -3000,6 +3113,15 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
                 status?: StakerStatus | undefined;
+                pending_commission_change?: ({
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } & {
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } & Record<Exclude<keyof I["unbondings"][number]["staker"]["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
             } & Record<Exclude<keyof I["unbondings"][number]["staker"], keyof StakerResponse>, never>) | undefined;
             pool?: ({
                 id?: string | undefined;
@@ -3156,6 +3278,11 @@ export declare const QueryAccountDelegationUnbondingsResponse: {
                 unbonding_amount?: string | undefined;
                 upload_probability?: string | undefined;
                 status?: StakerStatus | undefined;
+                pending_commission_change?: {
+                    new_commission?: string | undefined;
+                    creation_date?: string | undefined;
+                    finish_date?: string | undefined;
+                } | undefined;
             } | undefined;
             pool?: {
                 id?: string | undefined;
@@ -3247,6 +3374,11 @@ export declare const DelegationUnbonding: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         } | undefined;
         pool?: {
             id?: string | undefined;
@@ -3323,6 +3455,11 @@ export declare const DelegationUnbonding: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
         } & {
             staker?: string | undefined;
             pool_id?: string | undefined;
@@ -3337,6 +3474,15 @@ export declare const DelegationUnbonding: {
             unbonding_amount?: string | undefined;
             upload_probability?: string | undefined;
             status?: StakerStatus | undefined;
+            pending_commission_change?: ({
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & Record<Exclude<keyof I["staker"]["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
         } & Record<Exclude<keyof I["staker"], keyof StakerResponse>, never>) | undefined;
         pool?: ({
             id?: string | undefined;
@@ -4900,6 +5046,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -4978,6 +5129,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5050,6 +5206,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5202,6 +5363,15 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: ({
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & Record<Exclude<keyof I["delegations"][number]["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
             delegation_pool_data?: ({
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5282,6 +5452,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5369,6 +5544,11 @@ export declare const DelegatorResponse: {
         current_reward?: string | undefined;
         delegation_amount?: string | undefined;
         staker?: string | undefined;
+        pending_commission_change?: {
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } | undefined;
         delegation_pool_data?: {
             id?: string | undefined;
             staker?: string | undefined;
@@ -5521,6 +5701,15 @@ export declare const DelegatorResponse: {
         current_reward?: string | undefined;
         delegation_amount?: string | undefined;
         staker?: string | undefined;
+        pending_commission_change?: ({
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } & {
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } & Record<Exclude<keyof I["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
         delegation_pool_data?: ({
             id?: string | undefined;
             staker?: string | undefined;
