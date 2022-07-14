@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "rimraf dist && tsc",
-    "generate-proto": "sh proto-gen.sh"
+    "generate": "sh proto-gen.sh && yarn build"
   },
   "dependencies": {
     "@protobufs/cosmos": "^0.0.9",
