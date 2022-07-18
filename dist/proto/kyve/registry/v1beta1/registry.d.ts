@@ -326,7 +326,7 @@ export interface RedelegationCooldown {
     /** low_index ... */
     address: string;
     /** high_index ... */
-    created_block: string;
+    creation_date: string;
 }
 /** CommissionChangeQueueEntry ... */
 export interface CommissionChangeQueueEntry {
@@ -779,10 +779,10 @@ export declare const RedelegationCooldown: {
     toJSON(message: RedelegationCooldown): unknown;
     fromPartial<I extends {
         address?: string | undefined;
-        created_block?: string | undefined;
+        creation_date?: string | undefined;
     } & {
         address?: string | undefined;
-        created_block?: string | undefined;
+        creation_date?: string | undefined;
     } & Record<Exclude<keyof I, keyof RedelegationCooldown>, never>>(object: I): RedelegationCooldown;
 };
 export declare const CommissionChangeQueueEntry: {

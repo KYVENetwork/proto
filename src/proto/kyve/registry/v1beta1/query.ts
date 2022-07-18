@@ -483,6 +483,8 @@ export interface DelegatorResponse {
   delegation_amount: string;
   /** staker ... */
   staker: string;
+  /** pending_commission_change */
+  pending_commission_change?: PendingCommissionChange;
   /** delegation_pool_data ... */
   delegation_pool_data?: DelegationPoolData;
 }
@@ -4589,6 +4591,7 @@ function createBaseDelegatorResponse(): DelegatorResponse {
     current_reward: "0",
     delegation_amount: "0",
     staker: "",
+    pending_commission_change: undefined,
     delegation_pool_data: undefined,
   };
 }
@@ -4613,10 +4616,16 @@ export const DelegatorResponse = {
     if (message.staker !== "") {
       writer.uint32(42).string(message.staker);
     }
+    if (message.pending_commission_change !== undefined) {
+      PendingCommissionChange.encode(
+        message.pending_commission_change,
+        writer.uint32(50).fork()
+      ).ldelim();
+    }
     if (message.delegation_pool_data !== undefined) {
       DelegationPoolData.encode(
         message.delegation_pool_data,
-        writer.uint32(50).fork()
+        writer.uint32(58).fork()
       ).ldelim();
     }
     return writer;
@@ -4645,6 +4654,12 @@ export const DelegatorResponse = {
           message.staker = reader.string();
           break;
         case 6:
+          message.pending_commission_change = PendingCommissionChange.decode(
+            reader,
+            reader.uint32()
+          );
+          break;
+        case 7:
           message.delegation_pool_data = DelegationPoolData.decode(
             reader,
             reader.uint32()
@@ -4669,6 +4684,9 @@ export const DelegatorResponse = {
         ? String(object.delegation_amount)
         : "0",
       staker: isSet(object.staker) ? String(object.staker) : "",
+      pending_commission_change: isSet(object.pending_commission_change)
+        ? PendingCommissionChange.fromJSON(object.pending_commission_change)
+        : undefined,
       delegation_pool_data: isSet(object.delegation_pool_data)
         ? DelegationPoolData.fromJSON(object.delegation_pool_data)
         : undefined,
@@ -4685,6 +4703,10 @@ export const DelegatorResponse = {
     message.delegation_amount !== undefined &&
       (obj.delegation_amount = message.delegation_amount);
     message.staker !== undefined && (obj.staker = message.staker);
+    message.pending_commission_change !== undefined &&
+      (obj.pending_commission_change = message.pending_commission_change
+        ? PendingCommissionChange.toJSON(message.pending_commission_change)
+        : undefined);
     message.delegation_pool_data !== undefined &&
       (obj.delegation_pool_data = message.delegation_pool_data
         ? DelegationPoolData.toJSON(message.delegation_pool_data)
@@ -4704,6 +4726,11 @@ export const DelegatorResponse = {
     message.current_reward = object.current_reward ?? "0";
     message.delegation_amount = object.delegation_amount ?? "0";
     message.staker = object.staker ?? "";
+    message.pending_commission_change =
+      object.pending_commission_change !== undefined &&
+      object.pending_commission_change !== null
+        ? PendingCommissionChange.fromPartial(object.pending_commission_change)
+        : undefined;
     message.delegation_pool_data =
       object.delegation_pool_data !== undefined &&
       object.delegation_pool_data !== null

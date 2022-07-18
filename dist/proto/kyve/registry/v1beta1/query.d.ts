@@ -418,6 +418,8 @@ export interface DelegatorResponse {
     delegation_amount: string;
     /** staker ... */
     staker: string;
+    /** pending_commission_change */
+    pending_commission_change?: PendingCommissionChange;
     /** delegation_pool_data ... */
     delegation_pool_data?: DelegationPoolData;
 }
@@ -5044,6 +5046,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5122,6 +5129,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5194,6 +5206,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5346,6 +5363,15 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: ({
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } & Record<Exclude<keyof I["delegations"][number]["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
             delegation_pool_data?: ({
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5426,6 +5452,11 @@ export declare const QueryAccountDelegationListResponse: {
             current_reward?: string | undefined;
             delegation_amount?: string | undefined;
             staker?: string | undefined;
+            pending_commission_change?: {
+                new_commission?: string | undefined;
+                creation_date?: string | undefined;
+                finish_date?: string | undefined;
+            } | undefined;
             delegation_pool_data?: {
                 id?: string | undefined;
                 staker?: string | undefined;
@@ -5513,6 +5544,11 @@ export declare const DelegatorResponse: {
         current_reward?: string | undefined;
         delegation_amount?: string | undefined;
         staker?: string | undefined;
+        pending_commission_change?: {
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } | undefined;
         delegation_pool_data?: {
             id?: string | undefined;
             staker?: string | undefined;
@@ -5665,6 +5701,15 @@ export declare const DelegatorResponse: {
         current_reward?: string | undefined;
         delegation_amount?: string | undefined;
         staker?: string | undefined;
+        pending_commission_change?: ({
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } & {
+            new_commission?: string | undefined;
+            creation_date?: string | undefined;
+            finish_date?: string | undefined;
+        } & Record<Exclude<keyof I["pending_commission_change"], keyof PendingCommissionChange>, never>) | undefined;
         delegation_pool_data?: ({
             id?: string | undefined;
             staker?: string | undefined;

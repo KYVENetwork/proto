@@ -1935,7 +1935,7 @@ exports.UnbondingDelegationQueueState = {
     }
 };
 function createBaseRedelegationCooldown() {
-    return { address: "", created_block: "0" };
+    return { address: "", creation_date: "0" };
 }
 exports.RedelegationCooldown = {
     encode: function (message, writer) {
@@ -1943,8 +1943,8 @@ exports.RedelegationCooldown = {
         if (message.address !== "") {
             writer.uint32(10).string(message.address);
         }
-        if (message.created_block !== "0") {
-            writer.uint32(16).uint64(message.created_block);
+        if (message.creation_date !== "0") {
+            writer.uint32(16).uint64(message.creation_date);
         }
         return writer;
     },
@@ -1959,7 +1959,7 @@ exports.RedelegationCooldown = {
                     message.address = reader.string();
                     break;
                 case 2:
-                    message.created_block = longToString(reader.uint64());
+                    message.creation_date = longToString(reader.uint64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1971,23 +1971,23 @@ exports.RedelegationCooldown = {
     fromJSON: function (object) {
         return {
             address: isSet(object.address) ? String(object.address) : "",
-            created_block: isSet(object.created_block)
-                ? String(object.created_block)
+            creation_date: isSet(object.creation_date)
+                ? String(object.creation_date)
                 : "0"
         };
     },
     toJSON: function (message) {
         var obj = {};
         message.address !== undefined && (obj.address = message.address);
-        message.created_block !== undefined &&
-            (obj.created_block = message.created_block);
+        message.creation_date !== undefined &&
+            (obj.creation_date = message.creation_date);
         return obj;
     },
     fromPartial: function (object) {
         var _a, _b;
         var message = createBaseRedelegationCooldown();
         message.address = (_a = object.address) !== null && _a !== void 0 ? _a : "";
-        message.created_block = (_b = object.created_block) !== null && _b !== void 0 ? _b : "0";
+        message.creation_date = (_b = object.creation_date) !== null && _b !== void 0 ? _b : "0";
         return message;
     }
 };

@@ -199,7 +199,7 @@ export declare const GenesisState: {
         }[] | undefined;
         redelegation_cooldown_list?: {
             address?: string | undefined;
-            created_block?: string | undefined;
+            creation_date?: string | undefined;
         }[] | undefined;
         commission_change_queue_state?: {
             low_index?: string | undefined;
@@ -766,16 +766,16 @@ export declare const GenesisState: {
         }[]>, never>) | undefined;
         redelegation_cooldown_list?: ({
             address?: string | undefined;
-            created_block?: string | undefined;
+            creation_date?: string | undefined;
         }[] & ({
             address?: string | undefined;
-            created_block?: string | undefined;
+            creation_date?: string | undefined;
         } & {
             address?: string | undefined;
-            created_block?: string | undefined;
+            creation_date?: string | undefined;
         } & Record<Exclude<keyof I["redelegation_cooldown_list"][number], keyof RedelegationCooldown>, never>)[] & Record<Exclude<keyof I["redelegation_cooldown_list"], keyof {
             address?: string | undefined;
-            created_block?: string | undefined;
+            creation_date?: string | undefined;
         }[]>, never>) | undefined;
         commission_change_queue_state?: ({
             low_index?: string | undefined;
