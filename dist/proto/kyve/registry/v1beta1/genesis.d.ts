@@ -1,6 +1,6 @@
+import { Params } from "./params";
+import { UnbondingStakingQueueState, UnbondingDelegationQueueState, CommissionChangeQueueState, Pool, Funder, Staker, Delegator, DelegationPoolData, DelegationEntries, Proposal, UnbondingStakingQueueEntry, UnbondingStaker, UnbondingDelegationQueueEntry, RedelegationCooldown, CommissionChangeQueueEntry } from "./registry";
 import * as _m0 from "protobufjs/minimal";
-import { Params } from "../../../kyve/registry/v1beta1/params";
-import { UnbondingStakingQueueState, UnbondingDelegationQueueState, CommissionChangeQueueState, Pool, Funder, Staker, Delegator, DelegationPoolData, DelegationEntries, Proposal, UnbondingStakingQueueEntry, UnbondingStaker, UnbondingDelegationQueueEntry, RedelegationCooldown, CommissionChangeQueueEntry } from "../../../kyve/registry/v1beta1/registry";
 export declare const protobufPackage = "kyve.registry.v1beta1";
 /** GenesisState defines the registry module's genesis state. */
 export interface GenesisState {
@@ -115,7 +115,7 @@ export declare const GenesisState: {
             inactive_stakers?: string[] | undefined;
             total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
+            status?: import("./registry").PoolStatus | undefined;
         }[] | undefined;
         pool_count?: string | undefined;
         funder_list?: {
@@ -133,7 +133,7 @@ export declare const GenesisState: {
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").StakerStatus | undefined;
+            status?: import("./registry").StakerStatus | undefined;
         }[] | undefined;
         delegator_list?: {
             id?: string | undefined;
@@ -296,7 +296,7 @@ export declare const GenesisState: {
             inactive_stakers?: string[] | undefined;
             total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
+            status?: import("./registry").PoolStatus | undefined;
         }[] & ({
             id?: string | undefined;
             creator?: string | undefined;
@@ -353,7 +353,7 @@ export declare const GenesisState: {
             inactive_stakers?: string[] | undefined;
             total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
+            status?: import("./registry").PoolStatus | undefined;
         } & {
             id?: string | undefined;
             creator?: string | undefined;
@@ -405,7 +405,7 @@ export declare const GenesisState: {
                 to_key?: string | undefined;
                 to_value?: string | undefined;
                 bundle_hash?: string | undefined;
-            } & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"], keyof import("../../../kyve/registry/v1beta1/registry").BundleProposal>, never>) | undefined;
+            } & Record<Exclude<keyof I["pool_list"][number]["bundle_proposal"], keyof import("./registry").BundleProposal>, never>) | undefined;
             max_bundle_size?: string | undefined;
             protocol?: ({
                 version?: string | undefined;
@@ -415,7 +415,7 @@ export declare const GenesisState: {
                 version?: string | undefined;
                 binaries?: string | undefined;
                 last_upgrade?: string | undefined;
-            } & Record<Exclude<keyof I["pool_list"][number]["protocol"], keyof import("../../../kyve/registry/v1beta1/registry").Protocol>, never>) | undefined;
+            } & Record<Exclude<keyof I["pool_list"][number]["protocol"], keyof import("./registry").Protocol>, never>) | undefined;
             upgrade_plan?: ({
                 version?: string | undefined;
                 binaries?: string | undefined;
@@ -426,14 +426,14 @@ export declare const GenesisState: {
                 binaries?: string | undefined;
                 scheduled_at?: string | undefined;
                 duration?: string | undefined;
-            } & Record<Exclude<keyof I["pool_list"][number]["upgrade_plan"], keyof import("../../../kyve/registry/v1beta1/registry").UpgradePlan>, never>) | undefined;
+            } & Record<Exclude<keyof I["pool_list"][number]["upgrade_plan"], keyof import("./registry").UpgradePlan>, never>) | undefined;
             start_key?: string | undefined;
             current_key?: string | undefined;
             current_value?: string | undefined;
             inactive_stakers?: (string[] & string[] & Record<Exclude<keyof I["pool_list"][number]["inactive_stakers"], keyof string[]>, never>) | undefined;
             total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
+            status?: import("./registry").PoolStatus | undefined;
         } & Record<Exclude<keyof I["pool_list"][number], keyof Pool>, never>)[] & Record<Exclude<keyof I["pool_list"], keyof {
             id?: string | undefined;
             creator?: string | undefined;
@@ -490,7 +490,7 @@ export declare const GenesisState: {
             inactive_stakers?: string[] | undefined;
             total_inactive_stake?: string | undefined;
             min_stake?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").PoolStatus | undefined;
+            status?: import("./registry").PoolStatus | undefined;
         }[]>, never>) | undefined;
         pool_count?: string | undefined;
         funder_list?: ({
@@ -520,7 +520,7 @@ export declare const GenesisState: {
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").StakerStatus | undefined;
+            status?: import("./registry").StakerStatus | undefined;
         }[] & ({
             account?: string | undefined;
             pool_id?: string | undefined;
@@ -531,7 +531,7 @@ export declare const GenesisState: {
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").StakerStatus | undefined;
+            status?: import("./registry").StakerStatus | undefined;
         } & {
             account?: string | undefined;
             pool_id?: string | undefined;
@@ -542,7 +542,7 @@ export declare const GenesisState: {
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").StakerStatus | undefined;
+            status?: import("./registry").StakerStatus | undefined;
         } & Record<Exclude<keyof I["staker_list"][number], keyof Staker>, never>)[] & Record<Exclude<keyof I["staker_list"], keyof {
             account?: string | undefined;
             pool_id?: string | undefined;
@@ -553,7 +553,7 @@ export declare const GenesisState: {
             website?: string | undefined;
             logo?: string | undefined;
             points?: string | undefined;
-            status?: import("../../../kyve/registry/v1beta1/registry").StakerStatus | undefined;
+            status?: import("./registry").StakerStatus | undefined;
         }[]>, never>) | undefined;
         delegator_list?: ({
             id?: string | undefined;

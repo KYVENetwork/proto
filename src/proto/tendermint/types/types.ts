@@ -1,10 +1,10 @@
 /* eslint-disable */
+import { Proof } from "../crypto/proof";
+import { Consensus } from "../version/types";
+import { ValidatorSet } from "./validator";
+import { Timestamp } from "../../google/protobuf/timestamp";
 import Long from "long";
 import * as _m0 from "protobufjs/minimal";
-import { Proof } from "../../tendermint/crypto/proof";
-import { Consensus } from "../../tendermint/version/types";
-import { ValidatorSet } from "../../tendermint/types/validator";
-import { Timestamp } from "../../google/protobuf/timestamp";
 
 export const protobufPackage = "tendermint.types";
 

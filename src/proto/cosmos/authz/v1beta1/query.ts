@@ -1,11 +1,7 @@
 /* eslint-disable */
-import Long from "long";
+import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
+import { Grant, GrantAuthorization } from "./authz";
 import * as _m0 from "protobufjs/minimal";
-import {
-  PageRequest,
-  PageResponse,
-} from "../../../cosmos/base/query/v1beta1/pagination";
-import { Grant, GrantAuthorization } from "../../../cosmos/authz/v1beta1/authz";
 
 export const protobufPackage = "cosmos.authz.v1beta1";
 
@@ -562,7 +558,7 @@ export interface Query {
   /**
    * GranterGrants returns list of `GrantAuthorization`, granted by granter.
    *
-   * Since: cosmos-sdk 0.46
+   * Since: cosmos-sdk 0.45.2
    */
   GranterGrants(
     request: QueryGranterGrantsRequest
@@ -570,7 +566,7 @@ export interface Query {
   /**
    * GranteeGrants returns a list of `GrantAuthorization` by grantee.
    *
-   * Since: cosmos-sdk 0.46
+   * Since: cosmos-sdk 0.45.2
    */
   GranteeGrants(
     request: QueryGranteeGrantsRequest
@@ -660,11 +656,6 @@ export type Exact<P, I extends P> = P extends Builtin
         Exclude<keyof I, KeysOfUnion<P>>,
         never
       >;
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

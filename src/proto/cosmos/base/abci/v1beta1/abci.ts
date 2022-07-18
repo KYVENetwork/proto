@@ -1,8 +1,8 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
 import { Any } from "../../../../google/protobuf/any";
+import Long from "long";
 import { Event } from "../../../../tendermint/abci/types";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.base.abci.v1beta1";
 
@@ -95,10 +95,6 @@ export interface Result {
   /**
    * Data is any data returned from message or handler execution. It MUST be
    * length prefixed in order to separate data from multiple message executions.
-   * Deprecated. This field is still populated, but prefer msg_response instead
-   * because it also contains the Msg response typeURL.
-   *
-   * @deprecated
    */
   data: Uint8Array;
   /** Log contains the log information from message or handler execution. */
@@ -108,12 +104,6 @@ export interface Result {
    * or handler execution.
    */
   events: Event[];
-  /**
-   * msg_responses contains the Msg handler responses type packed in Anys.
-   *
-   * Since: cosmos-sdk 0.46
-   */
-  msg_responses: Any[];
 }
 
 /**
@@ -128,8 +118,6 @@ export interface SimulationResponse {
 /**
  * MsgData defines the data returned in a Result object during message
  * execution.
- *
- * @deprecated
  */
 export interface MsgData {
   msg_type: string;
@@ -141,18 +129,7 @@ export interface MsgData {
  * for each message.
  */
 export interface TxMsgData {
-  /**
-   * data field is deprecated and not populated.
-   *
-   * @deprecated
-   */
   data: MsgData[];
-  /**
-   * msg_responses contains the Msg handler responses packed into Anys.
-   *
-   * Since: cosmos-sdk 0.46
-   */
-  msg_responses: Any[];
 }
 
 /** SearchTxsResult defines a structure for querying txs pageable */
@@ -644,7 +621,7 @@ export const GasInfo = {
 };
 
 function createBaseResult(): Result {
-  return { data: new Uint8Array(), log: "", events: [], msg_responses: [] };
+  return { data: new Uint8Array(), log: "", events: [] };
 }
 
 export const Result = {
@@ -660,9 +637,6 @@ export const Result = {
     }
     for (const v of message.events) {
       Event.encode(v!, writer.uint32(26).fork()).ldelim();
-    }
-    for (const v of message.msg_responses) {
-      Any.encode(v!, writer.uint32(34).fork()).ldelim();
     }
     return writer;
   },
@@ -683,9 +657,6 @@ export const Result = {
         case 3:
           message.events.push(Event.decode(reader, reader.uint32()));
           break;
-        case 4:
-          message.msg_responses.push(Any.decode(reader, reader.uint32()));
-          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -703,9 +674,6 @@ export const Result = {
       events: Array.isArray(object?.events)
         ? object.events.map((e: any) => Event.fromJSON(e))
         : [],
-      msg_responses: Array.isArray(object?.msg_responses)
-        ? object.msg_responses.map((e: any) => Any.fromJSON(e))
-        : [],
     };
   },
 
@@ -721,13 +689,6 @@ export const Result = {
     } else {
       obj.events = [];
     }
-    if (message.msg_responses) {
-      obj.msg_responses = message.msg_responses.map((e) =>
-        e ? Any.toJSON(e) : undefined
-      );
-    } else {
-      obj.msg_responses = [];
-    }
     return obj;
   },
 
@@ -736,8 +697,6 @@ export const Result = {
     message.data = object.data ?? new Uint8Array();
     message.log = object.log ?? "";
     message.events = object.events?.map((e) => Event.fromPartial(e)) || [];
-    message.msg_responses =
-      object.msg_responses?.map((e) => Any.fromPartial(e)) || [];
     return message;
   },
 };
@@ -884,7 +843,7 @@ export const MsgData = {
 };
 
 function createBaseTxMsgData(): TxMsgData {
-  return { data: [], msg_responses: [] };
+  return { data: [] };
 }
 
 export const TxMsgData = {
@@ -894,9 +853,6 @@ export const TxMsgData = {
   ): _m0.Writer {
     for (const v of message.data) {
       MsgData.encode(v!, writer.uint32(10).fork()).ldelim();
-    }
-    for (const v of message.msg_responses) {
-      Any.encode(v!, writer.uint32(18).fork()).ldelim();
     }
     return writer;
   },
@@ -911,9 +867,6 @@ export const TxMsgData = {
         case 1:
           message.data.push(MsgData.decode(reader, reader.uint32()));
           break;
-        case 2:
-          message.msg_responses.push(Any.decode(reader, reader.uint32()));
-          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -927,9 +880,6 @@ export const TxMsgData = {
       data: Array.isArray(object?.data)
         ? object.data.map((e: any) => MsgData.fromJSON(e))
         : [],
-      msg_responses: Array.isArray(object?.msg_responses)
-        ? object.msg_responses.map((e: any) => Any.fromJSON(e))
-        : [],
     };
   },
 
@@ -940,13 +890,6 @@ export const TxMsgData = {
     } else {
       obj.data = [];
     }
-    if (message.msg_responses) {
-      obj.msg_responses = message.msg_responses.map((e) =>
-        e ? Any.toJSON(e) : undefined
-      );
-    } else {
-      obj.msg_responses = [];
-    }
     return obj;
   },
 
@@ -955,8 +898,6 @@ export const TxMsgData = {
   ): TxMsgData {
     const message = createBaseTxMsgData();
     message.data = object.data?.map((e) => MsgData.fromPartial(e)) || [];
-    message.msg_responses =
-      object.msg_responses?.map((e) => Any.fromPartial(e)) || [];
     return message;
   },
 };

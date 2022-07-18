@@ -1,7 +1,7 @@
-import * as _m0 from "protobufjs/minimal";
 import { Any } from "../../../google/protobuf/any";
 import { Duration } from "../../../google/protobuf/duration";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Coin } from "../../base/v1beta1/coin";
+import * as _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 export declare enum VoteOption {
@@ -83,17 +83,13 @@ export interface Proposal {
     proposal_id: string;
     content?: Any;
     status: ProposalStatus;
-    /**
-     * final_tally_result is the final tally result of the proposal. When
-     * querying a proposal via gRPC, this field is not populated until the
-     * proposal's voting period has ended.
-     */
     final_tally_result?: TallyResult;
     submit_time?: Date;
     deposit_end_time?: Date;
     total_deposit: Coin[];
     voting_start_time?: Date;
     voting_end_time?: Date;
+    is_expedited: boolean;
 }
 /** TallyResult defines a standard tally for a governance proposal. */
 export interface TallyResult {
@@ -129,11 +125,19 @@ export interface DepositParams {
      *  months.
      */
     max_deposit_period?: Duration;
+    /** Minimum expedited deposit for a proposal to enter voting period. */
+    min_expedited_deposit: Coin[];
+    /** TODO */
+    min_deposit_percentage: Uint8Array;
 }
 /** VotingParams defines the params for voting on governance proposals. */
 export interface VotingParams {
-    /** Length of the voting period. */
+    /** voting_period defines the length of the voting period. */
     voting_period?: Duration;
+    /** proposal_voting_periods defines custom voting periods for proposal types. */
+    proposal_voting_periods: ProposalVotingPeriod[];
+    /** expedited_voting_period defines the length of the expedited voting period. */
+    expedited_voting_period?: Duration;
 }
 /** TallyParams defines the params for tallying votes on governance proposals. */
 export interface TallyParams {
@@ -149,6 +153,17 @@ export interface TallyParams {
      *  vetoed. Default value: 1/3.
      */
     veto_threshold: Uint8Array;
+    /** Minimum proportion of Yes votes for an expedited proposal to pass. Default value: 0.67. */
+    expedited_threshold: Uint8Array;
+}
+/**
+ * ProposalVotingPeriod defines custom voting periods for a unique governance
+ * proposal type.
+ */
+export interface ProposalVotingPeriod {
+    /** e.g. "cosmos.params.v1beta1.ParameterChangeProposal" */
+    proposal_type: string;
+    voting_period?: Duration;
 }
 export declare const WeightedVoteOption: {
     encode(message: WeightedVoteOption, writer?: _m0.Writer): _m0.Writer;
@@ -232,6 +247,7 @@ export declare const Proposal: {
         }[] | undefined;
         voting_start_time?: Date | undefined;
         voting_end_time?: Date | undefined;
+        is_expedited?: boolean | undefined;
     } & {
         proposal_id?: string | undefined;
         content?: ({
@@ -270,6 +286,7 @@ export declare const Proposal: {
         }[]>, never>) | undefined;
         voting_start_time?: Date | undefined;
         voting_end_time?: Date | undefined;
+        is_expedited?: boolean | undefined;
     } & Record<Exclude<keyof I, keyof Proposal>, never>>(object: I): Proposal;
 };
 export declare const TallyResult: {
@@ -335,6 +352,11 @@ export declare const DepositParams: {
             seconds?: string | undefined;
             nanos?: number | undefined;
         } | undefined;
+        min_expedited_deposit?: {
+            denom?: string | undefined;
+            amount?: string | undefined;
+        }[] | undefined;
+        min_deposit_percentage?: Uint8Array | undefined;
     } & {
         min_deposit?: ({
             denom?: string | undefined;
@@ -356,6 +378,20 @@ export declare const DepositParams: {
             seconds?: string | undefined;
             nanos?: number | undefined;
         } & Record<Exclude<keyof I["max_deposit_period"], keyof Duration>, never>) | undefined;
+        min_expedited_deposit?: ({
+            denom?: string | undefined;
+            amount?: string | undefined;
+        }[] & ({
+            denom?: string | undefined;
+            amount?: string | undefined;
+        } & {
+            denom?: string | undefined;
+            amount?: string | undefined;
+        } & Record<Exclude<keyof I["min_expedited_deposit"][number], keyof Coin>, never>)[] & Record<Exclude<keyof I["min_expedited_deposit"], keyof {
+            denom?: string | undefined;
+            amount?: string | undefined;
+        }[]>, never>) | undefined;
+        min_deposit_percentage?: Uint8Array | undefined;
     } & Record<Exclude<keyof I, keyof DepositParams>, never>>(object: I): DepositParams;
 };
 export declare const VotingParams: {
@@ -368,6 +404,17 @@ export declare const VotingParams: {
             seconds?: string | undefined;
             nanos?: number | undefined;
         } | undefined;
+        proposal_voting_periods?: {
+            proposal_type?: string | undefined;
+            voting_period?: {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } | undefined;
+        }[] | undefined;
+        expedited_voting_period?: {
+            seconds?: string | undefined;
+            nanos?: number | undefined;
+        } | undefined;
     } & {
         voting_period?: ({
             seconds?: string | undefined;
@@ -376,7 +423,42 @@ export declare const VotingParams: {
             seconds?: string | undefined;
             nanos?: number | undefined;
         } & Record<Exclude<keyof I["voting_period"], keyof Duration>, never>) | undefined;
-    } & Record<Exclude<keyof I, "voting_period">, never>>(object: I): VotingParams;
+        proposal_voting_periods?: ({
+            proposal_type?: string | undefined;
+            voting_period?: {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } | undefined;
+        }[] & ({
+            proposal_type?: string | undefined;
+            voting_period?: {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } | undefined;
+        } & {
+            proposal_type?: string | undefined;
+            voting_period?: ({
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } & {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } & Record<Exclude<keyof I["proposal_voting_periods"][number]["voting_period"], keyof Duration>, never>) | undefined;
+        } & Record<Exclude<keyof I["proposal_voting_periods"][number], keyof ProposalVotingPeriod>, never>)[] & Record<Exclude<keyof I["proposal_voting_periods"], keyof {
+            proposal_type?: string | undefined;
+            voting_period?: {
+                seconds?: string | undefined;
+                nanos?: number | undefined;
+            } | undefined;
+        }[]>, never>) | undefined;
+        expedited_voting_period?: ({
+            seconds?: string | undefined;
+            nanos?: number | undefined;
+        } & {
+            seconds?: string | undefined;
+            nanos?: number | undefined;
+        } & Record<Exclude<keyof I["expedited_voting_period"], keyof Duration>, never>) | undefined;
+    } & Record<Exclude<keyof I, keyof VotingParams>, never>>(object: I): VotingParams;
 };
 export declare const TallyParams: {
     encode(message: TallyParams, writer?: _m0.Writer): _m0.Writer;
@@ -387,11 +469,35 @@ export declare const TallyParams: {
         quorum?: Uint8Array | undefined;
         threshold?: Uint8Array | undefined;
         veto_threshold?: Uint8Array | undefined;
+        expedited_threshold?: Uint8Array | undefined;
     } & {
         quorum?: Uint8Array | undefined;
         threshold?: Uint8Array | undefined;
         veto_threshold?: Uint8Array | undefined;
+        expedited_threshold?: Uint8Array | undefined;
     } & Record<Exclude<keyof I, keyof TallyParams>, never>>(object: I): TallyParams;
+};
+export declare const ProposalVotingPeriod: {
+    encode(message: ProposalVotingPeriod, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ProposalVotingPeriod;
+    fromJSON(object: any): ProposalVotingPeriod;
+    toJSON(message: ProposalVotingPeriod): unknown;
+    fromPartial<I extends {
+        proposal_type?: string | undefined;
+        voting_period?: {
+            seconds?: string | undefined;
+            nanos?: number | undefined;
+        } | undefined;
+    } & {
+        proposal_type?: string | undefined;
+        voting_period?: ({
+            seconds?: string | undefined;
+            nanos?: number | undefined;
+        } & {
+            seconds?: string | undefined;
+            nanos?: number | undefined;
+        } & Record<Exclude<keyof I["voting_period"], keyof Duration>, never>) | undefined;
+    } & Record<Exclude<keyof I, keyof ProposalVotingPeriod>, never>>(object: I): ProposalVotingPeriod;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

@@ -1,15 +1,15 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
-import { Header } from "../../tendermint/types/types";
-import { ProofOps } from "../../tendermint/crypto/proof";
+import { Header } from "../types/types";
+import { ProofOps } from "../crypto/proof";
 import {
   EvidenceParams,
   ValidatorParams,
   VersionParams,
-} from "../../tendermint/types/params";
-import { PublicKey } from "../../tendermint/crypto/keys";
+} from "../types/params";
+import { PublicKey } from "../crypto/keys";
 import { Timestamp } from "../../google/protobuf/timestamp";
+import Long from "long";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "tendermint.abci";
 
@@ -276,6 +276,7 @@ export interface ResponseDeliverTx {
   info: string;
   gas_wanted: string;
   gas_used: string;
+  /** nondeterministic */
   events: Event[];
   codespace: string;
 }

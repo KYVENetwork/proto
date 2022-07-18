@@ -1,10 +1,9 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
 import { Duration } from "../../../google/protobuf/duration";
 import { Any } from "../../../google/protobuf/any";
 import { Timestamp } from "../../../google/protobuf/timestamp";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Coin } from "../../base/v1beta1/coin";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.feegrant.v1beta1";
 
@@ -54,7 +53,7 @@ export interface PeriodicAllowance {
 
 /** AllowedMsgAllowance creates allowance only for specified message types. */
 export interface AllowedMsgAllowance {
-  /** allowance can be any of basic and periodic fee allowance. */
+  /** allowance can be any of basic and filtered fee allowance. */
   allowance?: Any;
   /** allowed_messages are the messages for which the grantee has the access. */
   allowed_messages: string[];
@@ -66,7 +65,7 @@ export interface Grant {
   granter: string;
   /** grantee is the address of the user being granted an allowance of another user's funds. */
   grantee: string;
-  /** allowance can be any of basic, periodic, allowed fee allowance. */
+  /** allowance can be any of basic and filtered fee allowance. */
   allowance?: Any;
 }
 
@@ -487,11 +486,6 @@ function fromJsonTimestamp(o: any): Date {
   } else {
     return fromTimestamp(Timestamp.fromJSON(o));
   }
-}
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
 }
 
 function isSet(value: any): boolean {

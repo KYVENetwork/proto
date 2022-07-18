@@ -1,8 +1,7 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
 import { Any } from "../../../google/protobuf/any";
 import { Timestamp } from "../../../google/protobuf/timestamp";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.authz.v1beta1";
 
@@ -23,29 +22,20 @@ export interface GenericAuthorization {
  */
 export interface Grant {
   authorization?: Any;
-  /**
-   * time when the grant will expire and will be pruned. If null, then the grant
-   * doesn't have a time expiration (other conditions  in `authorization`
-   * may apply to invalidate the grant)
-   */
   expiration?: Date;
 }
 
 /**
  * GrantAuthorization extends a grant with both the addresses of the grantee and granter.
  * It is used in genesis.proto and query.proto
+ *
+ * Since: cosmos-sdk 0.45.2
  */
 export interface GrantAuthorization {
   granter: string;
   grantee: string;
   authorization?: Any;
   expiration?: Date;
-}
-
-/** GrantQueueItem contains the list of TypeURL of a sdk.Msg. */
-export interface GrantQueueItem {
-  /** msg_type_urls contains the list of TypeURL of a sdk.Msg. */
-  msg_type_urls: string[];
 }
 
 function createBaseGenericAuthorization(): GenericAuthorization {
@@ -281,66 +271,6 @@ export const GrantAuthorization = {
   },
 };
 
-function createBaseGrantQueueItem(): GrantQueueItem {
-  return { msg_type_urls: [] };
-}
-
-export const GrantQueueItem = {
-  encode(
-    message: GrantQueueItem,
-    writer: _m0.Writer = _m0.Writer.create()
-  ): _m0.Writer {
-    for (const v of message.msg_type_urls) {
-      writer.uint32(10).string(v!);
-    }
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): GrantQueueItem {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseGrantQueueItem();
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.msg_type_urls.push(reader.string());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-
-  fromJSON(object: any): GrantQueueItem {
-    return {
-      msg_type_urls: Array.isArray(object?.msg_type_urls)
-        ? object.msg_type_urls.map((e: any) => String(e))
-        : [],
-    };
-  },
-
-  toJSON(message: GrantQueueItem): unknown {
-    const obj: any = {};
-    if (message.msg_type_urls) {
-      obj.msg_type_urls = message.msg_type_urls.map((e) => e);
-    } else {
-      obj.msg_type_urls = [];
-    }
-    return obj;
-  },
-
-  fromPartial<I extends Exact<DeepPartial<GrantQueueItem>, I>>(
-    object: I
-  ): GrantQueueItem {
-    const message = createBaseGrantQueueItem();
-    message.msg_type_urls = object.msg_type_urls?.map((e) => e) || [];
-    return message;
-  },
-};
-
 type Builtin =
   | Date
   | Function
@@ -388,11 +318,6 @@ function fromJsonTimestamp(o: any): Date {
   } else {
     return fromTimestamp(Timestamp.fromJSON(o));
   }
-}
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
 }
 
 function isSet(value: any): boolean {

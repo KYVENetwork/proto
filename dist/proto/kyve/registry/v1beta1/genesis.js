@@ -28,10 +28,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.GenesisState = exports.protobufPackage = void 0;
 /* eslint-disable */
+var params_1 = require("./params");
+var registry_1 = require("./registry");
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
-var params_1 = require("../../../kyve/registry/v1beta1/params");
-var registry_1 = require("../../../kyve/registry/v1beta1/registry");
 exports.protobufPackage = "kyve.registry.v1beta1";
 function createBaseGenesisState() {
     return {

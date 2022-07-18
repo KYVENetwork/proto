@@ -22,13 +22,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 exports.__esModule = true;
 exports.Any = exports.protobufPackage = void 0;
 /* eslint-disable */
-var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "google.protobuf";
 function createBaseAny() {
@@ -117,10 +113,6 @@ function base64FromBytes(arr) {
         bin.push(String.fromCharCode(byte));
     });
     return btoa(bin.join(""));
-}
-if (_m0.util.Long !== long_1["default"]) {
-    _m0.util.Long = long_1["default"];
-    _m0.configure();
 }
 function isSet(value) {
     return value !== null && value !== undefined;

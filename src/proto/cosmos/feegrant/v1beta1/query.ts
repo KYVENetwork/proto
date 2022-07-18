@@ -1,11 +1,7 @@
 /* eslint-disable */
-import Long from "long";
+import { Grant } from "./feegrant";
+import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import * as _m0 from "protobufjs/minimal";
-import { Grant } from "../../../cosmos/feegrant/v1beta1/feegrant";
-import {
-  PageRequest,
-  PageResponse,
-} from "../../../cosmos/base/query/v1beta1/pagination";
 
 export const protobufPackage = "cosmos.feegrant.v1beta1";
 
@@ -604,11 +600,6 @@ export type Exact<P, I extends P> = P extends Builtin
         Exclude<keyof I, KeysOfUnion<P>>,
         never
       >;
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

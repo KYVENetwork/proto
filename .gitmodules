@@ -1,3 +1,6 @@
 [submodule "chain"]
 	path = chain
 	url = https://github.com/KYVENetwork/chain.git
+[submodule "cosmos-sdk"]
+	path = cosmos-sdk
+	url = https://github.com/KYVENetwork/cosmos-sdk.git

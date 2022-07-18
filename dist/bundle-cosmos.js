@@ -28,6 +28,7 @@ var _cosmosTx = __importStar(require("./proto/cosmos/gov/v1beta1/tx"));
 var _cosmosQuery = __importStar(require("./proto/cosmos/gov/v1beta1/query"));
 var _cosmosGenesis = __importStar(require("./proto/cosmos/gov/v1beta1/genesis"));
 var _cosmosGov = __importStar(require("./proto/cosmos/gov/v1beta1/gov"));
+var _cosmosGovTx = __importStar(require("./proto/cosmos/gov/v1beta1/tx"));
 var _cosmosParams = __importStar(require("./proto/cosmos/params/v1beta1/params"));
 var cosmos;
 (function (cosmos) {
@@ -39,6 +40,7 @@ var cosmos;
             v1beta1.cosmosQuery = _cosmosQuery;
             v1beta1.cosmosGenesis = _cosmosGenesis;
             v1beta1.cosmosGov = _cosmosGov;
+            v1beta1.cosmosGovTx = _cosmosGovTx;
             v1beta1.cosmosParams = _cosmosParams;
         })(v1beta1 = registry.v1beta1 || (registry.v1beta1 = {}));
     })(registry = cosmos.registry || (cosmos.registry = {}));

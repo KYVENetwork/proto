@@ -1,14 +1,7 @@
 /* eslint-disable */
-import Long from "long";
+import { Params, ValidatorSigningInfo } from "./slashing";
+import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import * as _m0 from "protobufjs/minimal";
-import {
-  Params,
-  ValidatorSigningInfo,
-} from "../../../cosmos/slashing/v1beta1/slashing";
-import {
-  PageRequest,
-  PageResponse,
-} from "../../../cosmos/base/query/v1beta1/pagination";
 
 export const protobufPackage = "cosmos.slashing.v1beta1";
 
@@ -539,11 +532,6 @@ export type Exact<P, I extends P> = P extends Builtin
         Exclude<keyof I, KeysOfUnion<P>>,
         never
       >;
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

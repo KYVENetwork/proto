@@ -1,11 +1,11 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
 import { Header } from "../../../tendermint/types/types";
 import { Any } from "../../../google/protobuf/any";
 import { Duration } from "../../../google/protobuf/duration";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Coin } from "../../base/v1beta1/coin";
 import { Timestamp } from "../../../google/protobuf/timestamp";
+import Long from "long";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.staking.v1beta1";
 
@@ -255,8 +255,6 @@ export interface Params {
   historical_entries: number;
   /** bond_denom defines the bondable coin denomination. */
   bond_denom: string;
-  /** min_commission_rate is the chain-wide minimum commission rate that a validator can charge their delegators */
-  min_commission_rate: string;
 }
 
 /**
@@ -1651,7 +1649,6 @@ function createBaseParams(): Params {
     max_entries: 0,
     historical_entries: 0,
     bond_denom: "",
-    min_commission_rate: "",
   };
 }
 
@@ -1678,9 +1675,6 @@ export const Params = {
     if (message.bond_denom !== "") {
       writer.uint32(42).string(message.bond_denom);
     }
-    if (message.min_commission_rate !== "") {
-      writer.uint32(50).string(message.min_commission_rate);
-    }
     return writer;
   },
 
@@ -1706,9 +1700,6 @@ export const Params = {
         case 5:
           message.bond_denom = reader.string();
           break;
-        case 6:
-          message.min_commission_rate = reader.string();
-          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -1730,9 +1721,6 @@ export const Params = {
         ? Number(object.historical_entries)
         : 0,
       bond_denom: isSet(object.bond_denom) ? String(object.bond_denom) : "",
-      min_commission_rate: isSet(object.min_commission_rate)
-        ? String(object.min_commission_rate)
-        : "",
     };
   },
 
@@ -1749,8 +1737,6 @@ export const Params = {
     message.historical_entries !== undefined &&
       (obj.historical_entries = Math.round(message.historical_entries));
     message.bond_denom !== undefined && (obj.bond_denom = message.bond_denom);
-    message.min_commission_rate !== undefined &&
-      (obj.min_commission_rate = message.min_commission_rate);
     return obj;
   },
 
@@ -1764,7 +1750,6 @@ export const Params = {
     message.max_entries = object.max_entries ?? 0;
     message.historical_entries = object.historical_entries ?? 0;
     message.bond_denom = object.bond_denom ?? "";
-    message.min_commission_rate = object.min_commission_rate ?? "";
     return message;
   },
 };

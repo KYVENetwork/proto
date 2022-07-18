@@ -28,9 +28,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.GenesisState = exports.protobufPackage = void 0;
 /* eslint-disable */
+var gov_1 = require("./gov");
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
-var gov_1 = require("../../../cosmos/gov/v1beta1/gov");
 exports.protobufPackage = "cosmos.gov.v1beta1";
 function createBaseGenesisState() {
     return {

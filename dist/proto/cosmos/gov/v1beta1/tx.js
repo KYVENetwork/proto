@@ -28,14 +28,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.MsgClientImpl = exports.MsgDepositResponse = exports.MsgDeposit = exports.MsgVoteWeightedResponse = exports.MsgVoteWeighted = exports.MsgVoteResponse = exports.MsgVote = exports.MsgSubmitProposalResponse = exports.MsgSubmitProposal = exports.protobufPackage = void 0;
 /* eslint-disable */
-var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
 var any_1 = require("../../../google/protobuf/any");
-var gov_1 = require("../../../cosmos/gov/v1beta1/gov");
-var coin_1 = require("../../../cosmos/base/v1beta1/coin");
+var gov_1 = require("./gov");
+var long_1 = __importDefault(require("long"));
+var coin_1 = require("../../base/v1beta1/coin");
+var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "cosmos.gov.v1beta1";
 function createBaseMsgSubmitProposal() {
-    return { content: undefined, initial_deposit: [], proposer: "" };
+    return {
+        content: undefined,
+        initial_deposit: [],
+        proposer: "",
+        is_expedited: false
+    };
 }
 exports.MsgSubmitProposal = {
     encode: function (message, writer) {
@@ -49,6 +54,9 @@ exports.MsgSubmitProposal = {
         }
         if (message.proposer !== "") {
             writer.uint32(26).string(message.proposer);
+        }
+        if (message.is_expedited === true) {
+            writer.uint32(32).bool(message.is_expedited);
         }
         return writer;
     },
@@ -68,6 +76,9 @@ exports.MsgSubmitProposal = {
                 case 3:
                     message.proposer = reader.string();
                     break;
+                case 4:
+                    message.is_expedited = reader.bool();
+                    break;
                 default:
                     reader.skipType(tag & 7);
                     break;
@@ -81,7 +92,10 @@ exports.MsgSubmitProposal = {
             initial_deposit: Array.isArray(object === null || object === void 0 ? void 0 : object.initial_deposit)
                 ? object.initial_deposit.map(function (e) { return coin_1.Coin.fromJSON(e); })
                 : [],
-            proposer: isSet(object.proposer) ? String(object.proposer) : ""
+            proposer: isSet(object.proposer) ? String(object.proposer) : "",
+            is_expedited: isSet(object.is_expedited)
+                ? Boolean(object.is_expedited)
+                : false
         };
     },
     toJSON: function (message) {
@@ -97,10 +111,12 @@ exports.MsgSubmitProposal = {
             obj.initial_deposit = [];
         }
         message.proposer !== undefined && (obj.proposer = message.proposer);
+        message.is_expedited !== undefined &&
+            (obj.is_expedited = message.is_expedited);
         return obj;
     },
     fromPartial: function (object) {
-        var _a, _b;
+        var _a, _b, _c;
         var message = createBaseMsgSubmitProposal();
         message.content =
             object.content !== undefined && object.content !== null
@@ -109,6 +125,7 @@ exports.MsgSubmitProposal = {
         message.initial_deposit =
             ((_a = object.initial_deposit) === null || _a === void 0 ? void 0 : _a.map(function (e) { return coin_1.Coin.fromPartial(e); })) || [];
         message.proposer = (_b = object.proposer) !== null && _b !== void 0 ? _b : "";
+        message.is_expedited = (_c = object.is_expedited) !== null && _c !== void 0 ? _c : false;
         return message;
     }
 };

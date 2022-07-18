@@ -1,7 +1,7 @@
-import * as _m0 from "protobufjs/minimal";
 import { Any } from "../../../google/protobuf/any";
-import { VoteOption, WeightedVoteOption } from "../../../cosmos/gov/v1beta1/gov";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { VoteOption, WeightedVoteOption } from "./gov";
+import { Coin } from "../../base/v1beta1/coin";
+import * as _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /**
  * MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
@@ -11,6 +11,7 @@ export interface MsgSubmitProposal {
     content?: Any;
     initial_deposit: Coin[];
     proposer: string;
+    is_expedited: boolean;
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 export interface MsgSubmitProposalResponse {
@@ -66,6 +67,7 @@ export declare const MsgSubmitProposal: {
             amount?: string | undefined;
         }[] | undefined;
         proposer?: string | undefined;
+        is_expedited?: boolean | undefined;
     } & {
         content?: ({
             type_url?: string | undefined;
@@ -88,6 +90,7 @@ export declare const MsgSubmitProposal: {
             amount?: string | undefined;
         }[]>, never>) | undefined;
         proposer?: string | undefined;
+        is_expedited?: boolean | undefined;
     } & Record<Exclude<keyof I, keyof MsgSubmitProposal>, never>>(object: I): MsgSubmitProposal;
 };
 export declare const MsgSubmitProposalResponse: {
