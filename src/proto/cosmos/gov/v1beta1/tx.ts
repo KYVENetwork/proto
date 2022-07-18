@@ -1,14 +1,14 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
 import { Any } from "../../../google/protobuf/any";
 import {
   VoteOption,
   WeightedVoteOption,
   voteOptionFromJSON,
   voteOptionToJSON,
-} from "../../../cosmos/gov/v1beta1/gov";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
+} from "./gov";
+import Long from "long";
+import { Coin } from "../../base/v1beta1/coin";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.gov.v1beta1";
 

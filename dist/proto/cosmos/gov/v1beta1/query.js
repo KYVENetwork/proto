@@ -28,10 +28,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.QueryClientImpl = exports.QueryTallyResultResponse = exports.QueryTallyResultRequest = exports.QueryDepositsResponse = exports.QueryDepositsRequest = exports.QueryDepositResponse = exports.QueryDepositRequest = exports.QueryParamsResponse = exports.QueryParamsRequest = exports.QueryVotesResponse = exports.QueryVotesRequest = exports.QueryVoteResponse = exports.QueryVoteRequest = exports.QueryProposalsResponse = exports.QueryProposalsRequest = exports.QueryProposalResponse = exports.QueryProposalRequest = exports.protobufPackage = void 0;
 /* eslint-disable */
+var gov_1 = require("./gov");
+var pagination_1 = require("../../base/query/v1beta1/pagination");
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
-var gov_1 = require("../../../cosmos/gov/v1beta1/gov");
-var pagination_1 = require("../../../cosmos/base/query/v1beta1/pagination");
 exports.protobufPackage = "cosmos.gov.v1beta1";
 function createBaseQueryProposalRequest() {
     return { proposal_id: "0" };

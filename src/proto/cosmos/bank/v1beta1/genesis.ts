@@ -1,8 +1,7 @@
 /* eslint-disable */
-import Long from "long";
+import { Params, Metadata } from "./bank";
+import { Coin } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { Params, Metadata } from "../../../cosmos/bank/v1beta1/bank";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
 
 export const protobufPackage = "cosmos.bank.v1beta1";
 
@@ -234,11 +233,6 @@ export type Exact<P, I extends P> = P extends Builtin
         Exclude<keyof I, KeysOfUnion<P>>,
         never
       >;
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

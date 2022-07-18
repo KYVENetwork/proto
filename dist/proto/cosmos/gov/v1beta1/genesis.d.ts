@@ -1,5 +1,5 @@
+import { DepositParams, VotingParams, TallyParams, Deposit, Vote, Proposal } from "./gov";
 import * as _m0 from "protobufjs/minimal";
-import { DepositParams, VotingParams, TallyParams, Deposit, Vote, Proposal } from "../../../cosmos/gov/v1beta1/gov";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {
@@ -36,9 +36,9 @@ export declare const GenesisState: {
         votes?: {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         }[] | undefined;
@@ -48,7 +48,7 @@ export declare const GenesisState: {
                 type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
-            status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
+            status?: import("./gov").ProposalStatus | undefined;
             final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
@@ -146,42 +146,42 @@ export declare const GenesisState: {
         votes?: ({
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         }[] & ({
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         } & {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: ({
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] & ({
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             } & {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
-            } & Record<Exclude<keyof I["votes"][number]["options"][number], keyof import("../../../cosmos/gov/v1beta1/gov").WeightedVoteOption>, never>)[] & Record<Exclude<keyof I["votes"][number]["options"], keyof {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            } & Record<Exclude<keyof I["votes"][number]["options"][number], keyof import("./gov").WeightedVoteOption>, never>)[] & Record<Exclude<keyof I["votes"][number]["options"], keyof {
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["votes"][number], keyof Vote>, never>)[] & Record<Exclude<keyof I["votes"], keyof {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         }[]>, never>) | undefined;
@@ -191,7 +191,7 @@ export declare const GenesisState: {
                 type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
-            status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
+            status?: import("./gov").ProposalStatus | undefined;
             final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
@@ -213,7 +213,7 @@ export declare const GenesisState: {
                 type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
-            status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
+            status?: import("./gov").ProposalStatus | undefined;
             final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
@@ -238,7 +238,7 @@ export declare const GenesisState: {
                 type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } & Record<Exclude<keyof I["proposals"][number]["content"], keyof import("../../../google/protobuf/any").Any>, never>) | undefined;
-            status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
+            status?: import("./gov").ProposalStatus | undefined;
             final_tally_result?: ({
                 yes?: string | undefined;
                 abstain?: string | undefined;
@@ -249,7 +249,7 @@ export declare const GenesisState: {
                 abstain?: string | undefined;
                 no?: string | undefined;
                 no_with_veto?: string | undefined;
-            } & Record<Exclude<keyof I["proposals"][number]["final_tally_result"], keyof import("../../../cosmos/gov/v1beta1/gov").TallyResult>, never>) | undefined;
+            } & Record<Exclude<keyof I["proposals"][number]["final_tally_result"], keyof import("./gov").TallyResult>, never>) | undefined;
             submit_time?: Date | undefined;
             deposit_end_time?: Date | undefined;
             total_deposit?: ({
@@ -274,7 +274,7 @@ export declare const GenesisState: {
                 type_url?: string | undefined;
                 value?: Uint8Array | undefined;
             } | undefined;
-            status?: import("../../../cosmos/gov/v1beta1/gov").ProposalStatus | undefined;
+            status?: import("./gov").ProposalStatus | undefined;
             final_tally_result?: {
                 yes?: string | undefined;
                 abstain?: string | undefined;
@@ -386,7 +386,7 @@ export declare const GenesisState: {
                     seconds?: string | undefined;
                     nanos?: number | undefined;
                 } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number]["voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-            } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number], keyof import("../../../cosmos/gov/v1beta1/gov").ProposalVotingPeriod>, never>)[] & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"], keyof {
+            } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number], keyof import("./gov").ProposalVotingPeriod>, never>)[] & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"], keyof {
                 proposal_type?: string | undefined;
                 voting_period?: {
                     seconds?: string | undefined;

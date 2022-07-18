@@ -28,12 +28,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.ProposalVotingPeriod = exports.TallyParams = exports.VotingParams = exports.DepositParams = exports.Vote = exports.TallyResult = exports.Proposal = exports.Deposit = exports.TextProposal = exports.WeightedVoteOption = exports.proposalStatusToJSON = exports.proposalStatusFromJSON = exports.ProposalStatus = exports.voteOptionToJSON = exports.voteOptionFromJSON = exports.VoteOption = exports.protobufPackage = void 0;
 /* eslint-disable */
-var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
 var any_1 = require("../../../google/protobuf/any");
 var duration_1 = require("../../../google/protobuf/duration");
 var timestamp_1 = require("../../../google/protobuf/timestamp");
-var coin_1 = require("../../../cosmos/base/v1beta1/coin");
+var long_1 = __importDefault(require("long"));
+var coin_1 = require("../../base/v1beta1/coin");
+var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "cosmos.gov.v1beta1";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 var VoteOption;

@@ -1,7 +1,7 @@
 /* eslint-disable */
+import { Block } from "../types/block";
 import Long from "long";
 import * as _m0 from "protobufjs/minimal";
-import { Block } from "../../tendermint/types/block";
 
 export const protobufPackage = "tendermint.blockchain";
 

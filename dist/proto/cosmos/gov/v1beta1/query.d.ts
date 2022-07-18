@@ -1,6 +1,6 @@
+import { Proposal, ProposalStatus, Vote, VotingParams, DepositParams, TallyParams, Deposit, TallyResult } from "./gov";
+import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import * as _m0 from "protobufjs/minimal";
-import { Proposal, ProposalStatus, Vote, VotingParams, DepositParams, TallyParams, Deposit, TallyResult } from "../../../cosmos/gov/v1beta1/gov";
-import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /** QueryProposalRequest is the request type for the Query/Proposal RPC method. */
 export interface QueryProposalRequest {
@@ -420,9 +420,9 @@ export declare const QueryVoteResponse: {
         vote?: {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         } | undefined;
@@ -430,26 +430,26 @@ export declare const QueryVoteResponse: {
         vote?: ({
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         } & {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: ({
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] & ({
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             } & {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
-            } & Record<Exclude<keyof I["vote"]["options"][number], keyof import("../../../cosmos/gov/v1beta1/gov").WeightedVoteOption>, never>)[] & Record<Exclude<keyof I["vote"]["options"], keyof {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            } & Record<Exclude<keyof I["vote"]["options"][number], keyof import("./gov").WeightedVoteOption>, never>)[] & Record<Exclude<keyof I["vote"]["options"], keyof {
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["vote"], keyof Vote>, never>) | undefined;
@@ -495,9 +495,9 @@ export declare const QueryVotesResponse: {
         votes?: {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         }[] | undefined;
@@ -509,42 +509,42 @@ export declare const QueryVotesResponse: {
         votes?: ({
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         }[] & ({
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         } & {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: ({
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] & ({
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             } & {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
-            } & Record<Exclude<keyof I["votes"][number]["options"][number], keyof import("../../../cosmos/gov/v1beta1/gov").WeightedVoteOption>, never>)[] & Record<Exclude<keyof I["votes"][number]["options"], keyof {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            } & Record<Exclude<keyof I["votes"][number]["options"][number], keyof import("./gov").WeightedVoteOption>, never>)[] & Record<Exclude<keyof I["votes"][number]["options"], keyof {
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[]>, never>) | undefined;
         } & Record<Exclude<keyof I["votes"][number], keyof Vote>, never>)[] & Record<Exclude<keyof I["votes"], keyof {
             proposal_id?: string | undefined;
             voter?: string | undefined;
-            option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+            option?: import("./gov").VoteOption | undefined;
             options?: {
-                option?: import("../../../cosmos/gov/v1beta1/gov").VoteOption | undefined;
+                option?: import("./gov").VoteOption | undefined;
                 weight?: string | undefined;
             }[] | undefined;
         }[]>, never>) | undefined;
@@ -658,7 +658,7 @@ export declare const QueryParamsResponse: {
                     seconds?: string | undefined;
                     nanos?: number | undefined;
                 } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number]["voting_period"], keyof import("../../../google/protobuf/duration").Duration>, never>) | undefined;
-            } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number], keyof import("../../../cosmos/gov/v1beta1/gov").ProposalVotingPeriod>, never>)[] & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"], keyof {
+            } & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"][number], keyof import("./gov").ProposalVotingPeriod>, never>)[] & Record<Exclude<keyof I["voting_params"]["proposal_voting_periods"], keyof {
                 proposal_type?: string | undefined;
                 voting_period?: {
                     seconds?: string | undefined;

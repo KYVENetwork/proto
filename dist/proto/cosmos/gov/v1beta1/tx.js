@@ -28,11 +28,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 exports.MsgClientImpl = exports.MsgDepositResponse = exports.MsgDeposit = exports.MsgVoteWeightedResponse = exports.MsgVoteWeighted = exports.MsgVoteResponse = exports.MsgVote = exports.MsgSubmitProposalResponse = exports.MsgSubmitProposal = exports.protobufPackage = void 0;
 /* eslint-disable */
-var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
 var any_1 = require("../../../google/protobuf/any");
-var gov_1 = require("../../../cosmos/gov/v1beta1/gov");
-var coin_1 = require("../../../cosmos/base/v1beta1/coin");
+var gov_1 = require("./gov");
+var long_1 = __importDefault(require("long"));
+var coin_1 = require("../../base/v1beta1/coin");
+var _m0 = __importStar(require("protobufjs/minimal"));
 exports.protobufPackage = "cosmos.gov.v1beta1";
 function createBaseMsgSubmitProposal() {
     return {

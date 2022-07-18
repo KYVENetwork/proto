@@ -1,7 +1,6 @@
 /* eslint-disable */
-import Long from "long";
+import { ParamChange } from "./params";
 import * as _m0 from "protobufjs/minimal";
-import { ParamChange } from "../../../cosmos/params/v1beta1/params";
 
 export const protobufPackage = "cosmos.params.v1beta1";
 
@@ -206,11 +205,6 @@ export type Exact<P, I extends P> = P extends Builtin
         Exclude<keyof I, KeysOfUnion<P>>,
         never
       >;
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

@@ -1,16 +1,12 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
-import {
-  VoteType,
-  voteTypeFromJSON,
-  voteTypeToJSON,
-} from "../../../kyve/registry/v1beta1/tx";
+import { VoteType, voteTypeFromJSON, voteTypeToJSON } from "./tx";
 import {
   StakerStatus,
   stakerStatusFromJSON,
   stakerStatusToJSON,
-} from "../../../kyve/registry/v1beta1/registry";
+} from "./registry";
+import Long from "long";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "kyve.registry.v1beta1";
 

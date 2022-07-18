@@ -1,7 +1,5 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
-import { Params } from "../../../kyve/registry/v1beta1/params";
+import { Params } from "./params";
 import {
   UnbondingStakingQueueState,
   UnbondingDelegationQueueState,
@@ -18,7 +16,9 @@ import {
   UnbondingDelegationQueueEntry,
   RedelegationCooldown,
   CommissionChangeQueueEntry,
-} from "../../../kyve/registry/v1beta1/registry";
+} from "./registry";
+import Long from "long";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "kyve.registry.v1beta1";
 

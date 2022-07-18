@@ -29,11 +29,11 @@ exports.__esModule = true;
 exports.Staked = exports.QueryAccountStakedListResponse = exports.QueryAccountStakedListRequest = exports.Funded = exports.QueryAccountFundedListResponse = exports.QueryAccountFundedListRequest = exports.DelegationUnbonding = exports.QueryAccountDelegationUnbondingsResponse = exports.QueryAccountDelegationUnbondingsRequest = exports.StakingUnbonding = exports.QueryAccountStakingUnbondingsResponse = exports.QueryAccountStakingUnbondingsRequest = exports.QueryAccountAssetsResponse = exports.QueryAccountAssetsRequest = exports.QueryStakeInfoResponse = exports.QueryStakeInfoRequest = exports.QueryCanVoteResponse = exports.QueryCanVoteRequest = exports.QueryCanProposeResponse = exports.QueryCanProposeRequest = exports.QueryProposalSinceIdResponse = exports.QueryProposalSinceIdRequest = exports.QueryProposalSinceFinalizedAtResponse = exports.QueryProposalSinceFinalizedAtRequest = exports.QueryProposalByHeightResponse = exports.QueryProposalByHeightRequest = exports.QueryProposalsResponse = exports.QueryProposalsRequest = exports.QueryProposalResponse = exports.QueryProposalRequest = exports.VoteStatusResponse = exports.QueryVoteStatusResponse = exports.QueryVoteStatusRequest = exports.StakerResponse = exports.PendingCommissionChange = exports.QueryStakerResponse = exports.QueryStakerRequest = exports.QueryStakersListResponse = exports.QueryStakersListRequest = exports.QueryFunderResponse = exports.QueryFunderRequest = exports.QueryFundersListResponse = exports.QueryFundersListRequest = exports.QueryPoolsResponse = exports.QueryPoolsRequest = exports.QueryPoolResponse = exports.QueryPoolRequest = exports.QueryParamsResponse = exports.QueryParamsRequest = exports.protobufPackage = void 0;
 exports.QueryClientImpl = exports.DelegationForStakerResponse = exports.QueryStakersByPoolAndDelegatorResponse = exports.QueryStakersByPoolAndDelegatorRequest = exports.QueryDelegatorsByPoolAndStakerResponse = exports.QueryDelegatorsByPoolAndStakerRequest = exports.StakerDelegatorResponse = exports.QueryDelegatorResponse = exports.QueryDelegatorRequest = exports.QueryAccountRedelegationResponse = exports.QueryAccountRedelegationRequest = exports.DelegatorResponse = exports.QueryAccountDelegationListResponse = exports.QueryAccountDelegationListRequest = void 0;
 /* eslint-disable */
+var params_1 = require("./params");
+var registry_1 = require("./registry");
+var pagination_1 = require("../../../cosmos/base/query/v1beta1/pagination");
 var long_1 = __importDefault(require("long"));
 var _m0 = __importStar(require("protobufjs/minimal"));
-var params_1 = require("../../../kyve/registry/v1beta1/params");
-var registry_1 = require("../../../kyve/registry/v1beta1/registry");
-var pagination_1 = require("../../../cosmos/base/query/v1beta1/pagination");
 exports.protobufPackage = "kyve.registry.v1beta1";
 function createBaseQueryParamsRequest() {
     return {};

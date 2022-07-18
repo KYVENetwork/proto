@@ -1,7 +1,6 @@
 /* eslint-disable */
-import Long from "long";
+import { GrantAuthorization } from "./authz";
 import * as _m0 from "protobufjs/minimal";
-import { GrantAuthorization } from "../../../cosmos/authz/v1beta1/authz";
 
 export const protobufPackage = "cosmos.authz.v1beta1";
 
@@ -103,8 +102,3 @@ export type Exact<P, I extends P> = P extends Builtin
         Exclude<keyof I, KeysOfUnion<P>>,
         never
       >;
-
-if (_m0.util.Long !== Long) {
-  _m0.util.Long = Long as any;
-  _m0.configure();
-}

@@ -1,6 +1,4 @@
 /* eslint-disable */
-import Long from "long";
-import * as _m0 from "protobufjs/minimal";
 import {
   PartSetHeader,
   Proposal as Proposal1,
@@ -10,8 +8,10 @@ import {
   BlockID,
   signedMsgTypeFromJSON,
   signedMsgTypeToJSON,
-} from "../../tendermint/types/types";
-import { BitArray } from "../../tendermint/libs/bits/types";
+} from "../types/types";
+import { BitArray } from "../libs/bits/types";
+import Long from "long";
+import * as _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "tendermint.consensus";
 
