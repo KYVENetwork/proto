@@ -30,15 +30,7 @@ var _kyveParams = __importStar(require("./proto/kyve/registry/v1beta1/params"));
 var _kyveQuery = __importStar(require("./proto/kyve/registry/v1beta1/query"));
 var _kyveRegistry = __importStar(require("./proto/kyve/registry/v1beta1/registry"));
 var _kyveTx = __importStar(require("./proto/kyve/registry/v1beta1/tx"));
-/**
- * With this approach we can use entities as types and values
- * For example:
- * As a type:
- *   const varPool = {} as kyve.registry.v1beta1.kyveRegistry.Pool
- *   the varPool has type Pool
- * As a value:
- *  const result = kyve.registry.v1beta1.kyveRegistry.Pool.decode(buffer)
- */
+var _kyveQueryRes = __importStar(require("./proto-res/kyve/registry/v1beta1/query"));
 var kyve;
 (function (kyve) {
     var registry;
@@ -49,6 +41,7 @@ var kyve;
             v1beta1.kyveGov = _kyveGov;
             v1beta1.kyveParams = _kyveParams;
             v1beta1.kyveQuery = _kyveQuery;
+            v1beta1.kyveQueryRes = _kyveQueryRes;
             v1beta1.kyveRegistry = _kyveRegistry;
             v1beta1.kyveTx = _kyveTx;
         })(v1beta1 = registry.v1beta1 || (registry.v1beta1 = {}));
