@@ -1,4 +1,4 @@
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "cosmos.base.query.v1beta1";
 /**
  * PageRequest is to be embedded in gRPC request messages for efficient

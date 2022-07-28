@@ -5,7 +5,7 @@ import { BlockID } from "../../../../tendermint/types/types";
 import { Block } from "../../../../tendermint/types/block";
 import { DefaultNodeInfo } from "../../../../tendermint/p2p/types";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.base.tendermint.v1beta1";
 

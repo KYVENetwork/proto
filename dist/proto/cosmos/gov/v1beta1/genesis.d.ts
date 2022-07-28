@@ -1,5 +1,5 @@
 import { DepositParams, VotingParams, TallyParams, Deposit, Vote, Proposal } from "./gov";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "cosmos.gov.v1beta1";
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisState {

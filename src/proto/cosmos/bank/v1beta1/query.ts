@@ -2,7 +2,7 @@
 import { Coin } from "../../base/v1beta1/coin";
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { Params, Metadata } from "./bank";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.bank.v1beta1";
 

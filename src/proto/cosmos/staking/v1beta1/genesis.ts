@@ -7,7 +7,7 @@ import {
   Redelegation,
 } from "./staking";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.staking.v1beta1";
 

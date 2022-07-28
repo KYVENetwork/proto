@@ -1,7 +1,7 @@
 import { Params } from "./params";
 import { Pool, Funder, StakerStatus, Proposal, DelegationPoolData } from "./registry";
 import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "kyve.registry.v1beta1";
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
 export interface QueryParamsRequest {

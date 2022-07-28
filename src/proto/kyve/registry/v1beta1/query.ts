@@ -14,7 +14,7 @@ import {
   PageResponse,
 } from "../../../cosmos/base/query/v1beta1/pagination";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "kyve.registry.v1beta1";
 

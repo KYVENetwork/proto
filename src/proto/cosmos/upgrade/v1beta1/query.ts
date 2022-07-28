@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Plan, ModuleVersion } from "./upgrade";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.upgrade.v1beta1";
 

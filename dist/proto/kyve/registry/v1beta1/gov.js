@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -29,7 +6,7 @@ exports.__esModule = true;
 exports.ResetPoolProposal = exports.CancelPoolUpgradeProposal = exports.SchedulePoolUpgradeProposal = exports.UnpausePoolProposal = exports.PausePoolProposal = exports.UpdatePoolProposal = exports.CreatePoolProposal = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
+var minimal_1 = __importDefault(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
 function createBaseCreatePoolProposal() {
     return {
@@ -51,7 +28,7 @@ function createBaseCreatePoolProposal() {
 }
 exports.CreatePoolProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -97,7 +74,7 @@ exports.CreatePoolProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseCreatePoolProposal();
         while (reader.pos < end) {
@@ -239,7 +216,7 @@ function createBaseUpdatePoolProposal() {
 }
 exports.UpdatePoolProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -279,7 +256,7 @@ exports.UpdatePoolProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUpdatePoolProposal();
         while (reader.pos < end) {
@@ -393,7 +370,7 @@ function createBasePausePoolProposal() {
 }
 exports.PausePoolProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -406,7 +383,7 @@ exports.PausePoolProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBasePausePoolProposal();
         while (reader.pos < end) {
@@ -457,7 +434,7 @@ function createBaseUnpausePoolProposal() {
 }
 exports.UnpausePoolProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -470,7 +447,7 @@ exports.UnpausePoolProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUnpausePoolProposal();
         while (reader.pos < end) {
@@ -529,7 +506,7 @@ function createBaseSchedulePoolUpgradeProposal() {
 }
 exports.SchedulePoolUpgradeProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -554,7 +531,7 @@ exports.SchedulePoolUpgradeProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseSchedulePoolUpgradeProposal();
         while (reader.pos < end) {
@@ -632,7 +609,7 @@ function createBaseCancelPoolUpgradeProposal() {
 }
 exports.CancelPoolUpgradeProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -645,7 +622,7 @@ exports.CancelPoolUpgradeProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseCancelPoolUpgradeProposal();
         while (reader.pos < end) {
@@ -696,7 +673,7 @@ function createBaseResetPoolProposal() {
 }
 exports.ResetPoolProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -712,7 +689,7 @@ exports.ResetPoolProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseResetPoolProposal();
         while (reader.pos < end) {
@@ -767,9 +744,9 @@ exports.ResetPoolProposal = {
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== long_1["default"]) {
-    _m0.util.Long = long_1["default"];
-    _m0.configure();
+if (minimal_1["default"].util.Long !== long_1["default"]) {
+    minimal_1["default"].util.Long = long_1["default"];
+    minimal_1["default"].configure();
 }
 function isSet(value) {
     return value !== null && value !== undefined;

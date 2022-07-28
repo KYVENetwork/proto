@@ -11,7 +11,7 @@ import {
 } from "../types/types";
 import { BitArray } from "../libs/bits/types";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "tendermint.consensus";
 

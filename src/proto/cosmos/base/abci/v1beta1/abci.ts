@@ -2,7 +2,7 @@
 import { Any } from "../../../../google/protobuf/any";
 import Long from "long";
 import { Event } from "../../../../tendermint/abci/types";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.base.abci.v1beta1";
 

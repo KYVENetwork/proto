@@ -13,7 +13,7 @@ import {
 } from "./gov";
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.gov.v1beta1";
 

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { Minter, Params } from "./mint";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.mint.v1beta1";
 

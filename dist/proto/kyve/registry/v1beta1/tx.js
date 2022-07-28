@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -29,7 +6,7 @@ exports.__esModule = true;
 exports.MsgClientImpl = exports.MsgUpdateCommissionResponse = exports.MsgUpdateCommission = exports.MsgUpdateMetadataResponse = exports.MsgUpdateMetadata = exports.MsgClaimUploaderRoleResponse = exports.MsgClaimUploaderRole = exports.MsgVoteProposalResponse = exports.MsgVoteProposal = exports.MsgSubmitBundleProposalResponse = exports.MsgSubmitBundleProposal = exports.MsgRedelegatePoolResponse = exports.MsgRedelegatePool = exports.MsgUndelegatePoolResponse = exports.MsgUndelegatePool = exports.MsgWithdrawPoolResponse = exports.MsgWithdrawPool = exports.MsgDelegatePoolResponse = exports.MsgDelegatePool = exports.MsgUnstakePoolResponse = exports.MsgUnstakePool = exports.MsgReactivateStakerResponse = exports.MsgReactivateStaker = exports.MsgStakePoolResponse = exports.MsgStakePool = exports.MsgDefundPoolResponse = exports.MsgDefundPool = exports.MsgFundPoolResponse = exports.MsgFundPool = exports.voteTypeToJSON = exports.voteTypeFromJSON = exports.VoteType = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
+var minimal_1 = __importDefault(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
 /** VoteType ... */
 var VoteType;
@@ -86,7 +63,7 @@ function createBaseMsgFundPool() {
 }
 exports.MsgFundPool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -99,7 +76,7 @@ exports.MsgFundPool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgFundPool();
         while (reader.pos < end) {
@@ -149,11 +126,11 @@ function createBaseMsgFundPoolResponse() {
 }
 exports.MsgFundPoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgFundPoolResponse();
         while (reader.pos < end) {
@@ -183,7 +160,7 @@ function createBaseMsgDefundPool() {
 }
 exports.MsgDefundPool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -196,7 +173,7 @@ exports.MsgDefundPool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgDefundPool();
         while (reader.pos < end) {
@@ -246,11 +223,11 @@ function createBaseMsgDefundPoolResponse() {
 }
 exports.MsgDefundPoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgDefundPoolResponse();
         while (reader.pos < end) {
@@ -280,7 +257,7 @@ function createBaseMsgStakePool() {
 }
 exports.MsgStakePool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -293,7 +270,7 @@ exports.MsgStakePool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgStakePool();
         while (reader.pos < end) {
@@ -343,11 +320,11 @@ function createBaseMsgStakePoolResponse() {
 }
 exports.MsgStakePoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgStakePoolResponse();
         while (reader.pos < end) {
@@ -377,7 +354,7 @@ function createBaseMsgReactivateStaker() {
 }
 exports.MsgReactivateStaker = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -387,7 +364,7 @@ exports.MsgReactivateStaker = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgReactivateStaker();
         while (reader.pos < end) {
@@ -431,11 +408,11 @@ function createBaseMsgReactivateStakerResponse() {
 }
 exports.MsgReactivateStakerResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgReactivateStakerResponse();
         while (reader.pos < end) {
@@ -465,7 +442,7 @@ function createBaseMsgUnstakePool() {
 }
 exports.MsgUnstakePool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -478,7 +455,7 @@ exports.MsgUnstakePool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUnstakePool();
         while (reader.pos < end) {
@@ -528,11 +505,11 @@ function createBaseMsgUnstakePoolResponse() {
 }
 exports.MsgUnstakePoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUnstakePoolResponse();
         while (reader.pos < end) {
@@ -562,7 +539,7 @@ function createBaseMsgDelegatePool() {
 }
 exports.MsgDelegatePool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -578,7 +555,7 @@ exports.MsgDelegatePool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgDelegatePool();
         while (reader.pos < end) {
@@ -634,11 +611,11 @@ function createBaseMsgDelegatePoolResponse() {
 }
 exports.MsgDelegatePoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgDelegatePoolResponse();
         while (reader.pos < end) {
@@ -668,7 +645,7 @@ function createBaseMsgWithdrawPool() {
 }
 exports.MsgWithdrawPool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -681,7 +658,7 @@ exports.MsgWithdrawPool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgWithdrawPool();
         while (reader.pos < end) {
@@ -731,11 +708,11 @@ function createBaseMsgWithdrawPoolResponse() {
 }
 exports.MsgWithdrawPoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgWithdrawPoolResponse();
         while (reader.pos < end) {
@@ -765,7 +742,7 @@ function createBaseMsgUndelegatePool() {
 }
 exports.MsgUndelegatePool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -781,7 +758,7 @@ exports.MsgUndelegatePool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUndelegatePool();
         while (reader.pos < end) {
@@ -837,11 +814,11 @@ function createBaseMsgUndelegatePoolResponse() {
 }
 exports.MsgUndelegatePoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUndelegatePoolResponse();
         while (reader.pos < end) {
@@ -878,7 +855,7 @@ function createBaseMsgRedelegatePool() {
 }
 exports.MsgRedelegatePool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -900,7 +877,7 @@ exports.MsgRedelegatePool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgRedelegatePool();
         while (reader.pos < end) {
@@ -972,11 +949,11 @@ function createBaseMsgRedelegatePoolResponse() {
 }
 exports.MsgRedelegatePoolResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgRedelegatePoolResponse();
         while (reader.pos < end) {
@@ -1017,7 +994,7 @@ function createBaseMsgSubmitBundleProposal() {
 }
 exports.MsgSubmitBundleProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -1051,7 +1028,7 @@ exports.MsgSubmitBundleProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgSubmitBundleProposal();
         while (reader.pos < end) {
@@ -1145,11 +1122,11 @@ function createBaseMsgSubmitBundleProposalResponse() {
 }
 exports.MsgSubmitBundleProposalResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgSubmitBundleProposalResponse();
         while (reader.pos < end) {
@@ -1179,7 +1156,7 @@ function createBaseMsgVoteProposal() {
 }
 exports.MsgVoteProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -1195,7 +1172,7 @@ exports.MsgVoteProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgVoteProposal();
         while (reader.pos < end) {
@@ -1251,11 +1228,11 @@ function createBaseMsgVoteProposalResponse() {
 }
 exports.MsgVoteProposalResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgVoteProposalResponse();
         while (reader.pos < end) {
@@ -1285,7 +1262,7 @@ function createBaseMsgClaimUploaderRole() {
 }
 exports.MsgClaimUploaderRole = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -1295,7 +1272,7 @@ exports.MsgClaimUploaderRole = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgClaimUploaderRole();
         while (reader.pos < end) {
@@ -1339,11 +1316,11 @@ function createBaseMsgClaimUploaderRoleResponse() {
 }
 exports.MsgClaimUploaderRoleResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgClaimUploaderRoleResponse();
         while (reader.pos < end) {
@@ -1373,7 +1350,7 @@ function createBaseMsgUpdateMetadata() {
 }
 exports.MsgUpdateMetadata = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -1392,7 +1369,7 @@ exports.MsgUpdateMetadata = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUpdateMetadata();
         while (reader.pos < end) {
@@ -1454,11 +1431,11 @@ function createBaseMsgUpdateMetadataResponse() {
 }
 exports.MsgUpdateMetadataResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUpdateMetadataResponse();
         while (reader.pos < end) {
@@ -1488,7 +1465,7 @@ function createBaseMsgUpdateCommission() {
 }
 exports.MsgUpdateCommission = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.creator !== "") {
             writer.uint32(10).string(message.creator);
         }
@@ -1501,7 +1478,7 @@ exports.MsgUpdateCommission = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUpdateCommission();
         while (reader.pos < end) {
@@ -1551,11 +1528,11 @@ function createBaseMsgUpdateCommissionResponse() {
 }
 exports.MsgUpdateCommissionResponse = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseMsgUpdateCommissionResponse();
         while (reader.pos < end) {
@@ -1602,98 +1579,98 @@ var MsgClientImpl = /** @class */ (function () {
         var data = exports.MsgFundPool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "FundPool", data);
         return promise.then(function (data) {
-            return exports.MsgFundPoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgFundPoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.DefundPool = function (request) {
         var data = exports.MsgDefundPool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "DefundPool", data);
         return promise.then(function (data) {
-            return exports.MsgDefundPoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgDefundPoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.StakePool = function (request) {
         var data = exports.MsgStakePool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "StakePool", data);
         return promise.then(function (data) {
-            return exports.MsgStakePoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgStakePoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.ReactivateStaker = function (request) {
         var data = exports.MsgReactivateStaker.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "ReactivateStaker", data);
         return promise.then(function (data) {
-            return exports.MsgReactivateStakerResponse.decode(new _m0.Reader(data));
+            return exports.MsgReactivateStakerResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.UnstakePool = function (request) {
         var data = exports.MsgUnstakePool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UnstakePool", data);
         return promise.then(function (data) {
-            return exports.MsgUnstakePoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgUnstakePoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.DelegatePool = function (request) {
         var data = exports.MsgDelegatePool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "DelegatePool", data);
         return promise.then(function (data) {
-            return exports.MsgDelegatePoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgDelegatePoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.WithdrawPool = function (request) {
         var data = exports.MsgWithdrawPool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "WithdrawPool", data);
         return promise.then(function (data) {
-            return exports.MsgWithdrawPoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgWithdrawPoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.UndelegatePool = function (request) {
         var data = exports.MsgUndelegatePool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UndelegatePool", data);
         return promise.then(function (data) {
-            return exports.MsgUndelegatePoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgUndelegatePoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.RedelegatePool = function (request) {
         var data = exports.MsgRedelegatePool.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "RedelegatePool", data);
         return promise.then(function (data) {
-            return exports.MsgRedelegatePoolResponse.decode(new _m0.Reader(data));
+            return exports.MsgRedelegatePoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.SubmitBundleProposal = function (request) {
         var data = exports.MsgSubmitBundleProposal.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "SubmitBundleProposal", data);
         return promise.then(function (data) {
-            return exports.MsgSubmitBundleProposalResponse.decode(new _m0.Reader(data));
+            return exports.MsgSubmitBundleProposalResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.VoteProposal = function (request) {
         var data = exports.MsgVoteProposal.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "VoteProposal", data);
         return promise.then(function (data) {
-            return exports.MsgVoteProposalResponse.decode(new _m0.Reader(data));
+            return exports.MsgVoteProposalResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.ClaimUploaderRole = function (request) {
         var data = exports.MsgClaimUploaderRole.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "ClaimUploaderRole", data);
         return promise.then(function (data) {
-            return exports.MsgClaimUploaderRoleResponse.decode(new _m0.Reader(data));
+            return exports.MsgClaimUploaderRoleResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.UpdateMetadata = function (request) {
         var data = exports.MsgUpdateMetadata.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UpdateMetadata", data);
         return promise.then(function (data) {
-            return exports.MsgUpdateMetadataResponse.decode(new _m0.Reader(data));
+            return exports.MsgUpdateMetadataResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     MsgClientImpl.prototype.UpdateCommission = function (request) {
         var data = exports.MsgUpdateCommission.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Msg", "UpdateCommission", data);
         return promise.then(function (data) {
-            return exports.MsgUpdateCommissionResponse.decode(new _m0.Reader(data));
+            return exports.MsgUpdateCommissionResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     return MsgClientImpl;
@@ -1702,9 +1679,9 @@ exports.MsgClientImpl = MsgClientImpl;
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== long_1["default"]) {
-    _m0.util.Long = long_1["default"];
-    _m0.configure();
+if (minimal_1["default"].util.Long !== long_1["default"]) {
+    minimal_1["default"].util.Long = long_1["default"];
+    minimal_1["default"].configure();
 }
 function isSet(value) {
     return value !== null && value !== undefined;

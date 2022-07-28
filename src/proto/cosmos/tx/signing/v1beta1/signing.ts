@@ -2,7 +2,7 @@
 import { Any } from "../../../../google/protobuf/any";
 import { CompactBitArray } from "../../../crypto/multisig/v1beta1/multisig";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.tx.signing.v1beta1";
 

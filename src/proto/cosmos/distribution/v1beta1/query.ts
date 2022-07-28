@@ -9,7 +9,7 @@ import {
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import Long from "long";
 import { DecCoin } from "../../base/v1beta1/coin";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.distribution.v1beta1";
 

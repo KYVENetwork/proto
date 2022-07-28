@@ -1,6 +1,6 @@
 import { Params } from "./params";
 import { UnbondingStakingQueueState, UnbondingDelegationQueueState, CommissionChangeQueueState, Pool, Funder, Staker, Delegator, DelegationPoolData, DelegationEntries, Proposal, UnbondingStakingQueueEntry, UnbondingStaker, UnbondingDelegationQueueEntry, RedelegationCooldown, CommissionChangeQueueEntry } from "./registry";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "kyve.registry.v1beta1";
 /** GenesisState defines the registry module's genesis state. */
 export interface GenesisState {

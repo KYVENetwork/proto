@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -29,7 +6,7 @@ exports.__esModule = true;
 exports.CommissionChangeQueueState = exports.CommissionChangeQueueEntry = exports.RedelegationCooldown = exports.UnbondingDelegationQueueState = exports.UnbondingDelegationQueueEntry = exports.UnbondingStakingQueueState = exports.UnbondingStaker = exports.UnbondingStakingQueueEntry = exports.Staker = exports.Proposal = exports.Pool = exports.Funder = exports.Delegator = exports.DelegationPoolData = exports.DelegationEntries = exports.UpgradePlan = exports.Protocol = exports.BundleProposal = exports.stakerStatusToNumber = exports.stakerStatusToJSON = exports.stakerStatusFromJSON = exports.StakerStatus = exports.poolStatusToNumber = exports.poolStatusToJSON = exports.poolStatusFromJSON = exports.PoolStatus = exports.protobufPackage = void 0;
 /* eslint-disable */
 var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
+var minimal_1 = __importDefault(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
 /** PoolStatus ... */
 var PoolStatus;
@@ -200,7 +177,7 @@ function createBaseBundleProposal() {
 }
 exports.BundleProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.uploader !== "") {
             writer.uint32(10).string(message.uploader);
         }
@@ -246,7 +223,7 @@ exports.BundleProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseBundleProposal();
         while (reader.pos < end) {
@@ -382,7 +359,7 @@ function createBaseProtocol() {
 }
 exports.Protocol = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.version !== "") {
             writer.uint32(10).string(message.version);
         }
@@ -395,7 +372,7 @@ exports.Protocol = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseProtocol();
         while (reader.pos < end) {
@@ -448,7 +425,7 @@ function createBaseUpgradePlan() {
 }
 exports.UpgradePlan = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.version !== "") {
             writer.uint32(10).string(message.version);
         }
@@ -464,7 +441,7 @@ exports.UpgradePlan = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUpgradePlan();
         while (reader.pos < end) {
@@ -523,7 +500,7 @@ function createBaseDelegationEntries() {
 }
 exports.DelegationEntries = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
@@ -539,7 +516,7 @@ exports.DelegationEntries = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDelegationEntries();
         while (reader.pos < end) {
@@ -603,7 +580,7 @@ function createBaseDelegationPoolData() {
 }
 exports.DelegationPoolData = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
@@ -628,7 +605,7 @@ exports.DelegationPoolData = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDelegationPoolData();
         while (reader.pos < end) {
@@ -725,7 +702,7 @@ function createBaseDelegator() {
 }
 exports.Delegator = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
@@ -744,7 +721,7 @@ exports.Delegator = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDelegator();
         while (reader.pos < end) {
@@ -809,7 +786,7 @@ function createBaseFunder() {
 }
 exports.Funder = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.account !== "") {
             writer.uint32(18).string(message.account);
         }
@@ -822,7 +799,7 @@ exports.Funder = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseFunder();
         while (reader.pos < end) {
@@ -906,7 +883,7 @@ function createBasePool() {
 }
 exports.Pool = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
@@ -1012,7 +989,7 @@ exports.Pool = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBasePool();
         while (reader.pos < end) {
@@ -1341,7 +1318,7 @@ function createBaseProposal() {
 }
 exports.Proposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.storage_id !== "") {
             writer.uint32(10).string(message.storage_id);
         }
@@ -1375,7 +1352,7 @@ exports.Proposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseProposal();
         while (reader.pos < end) {
@@ -1483,7 +1460,7 @@ function createBaseStaker() {
 }
 exports.Staker = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.account !== "") {
             writer.uint32(10).string(message.account);
         }
@@ -1517,7 +1494,7 @@ exports.Staker = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseStaker();
         while (reader.pos < end) {
@@ -1621,7 +1598,7 @@ function createBaseUnbondingStakingQueueEntry() {
 }
 exports.UnbondingStakingQueueEntry = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.index !== "0") {
             writer.uint32(8).uint64(message.index);
         }
@@ -1640,7 +1617,7 @@ exports.UnbondingStakingQueueEntry = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUnbondingStakingQueueEntry();
         while (reader.pos < end) {
@@ -1705,7 +1682,7 @@ function createBaseUnbondingStaker() {
 }
 exports.UnbondingStaker = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
@@ -1718,7 +1695,7 @@ exports.UnbondingStaker = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUnbondingStaker();
         while (reader.pos < end) {
@@ -1771,7 +1748,7 @@ function createBaseUnbondingStakingQueueState() {
 }
 exports.UnbondingStakingQueueState = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.low_index !== "0") {
             writer.uint32(8).uint64(message.low_index);
         }
@@ -1781,7 +1758,7 @@ exports.UnbondingStakingQueueState = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUnbondingStakingQueueState();
         while (reader.pos < end) {
@@ -1832,7 +1809,7 @@ function createBaseUnbondingDelegationQueueEntry() {
 }
 exports.UnbondingDelegationQueueEntry = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.index !== "0") {
             writer.uint32(8).uint64(message.index);
         }
@@ -1854,7 +1831,7 @@ exports.UnbondingDelegationQueueEntry = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUnbondingDelegationQueueEntry();
         while (reader.pos < end) {
@@ -1925,7 +1902,7 @@ function createBaseUnbondingDelegationQueueState() {
 }
 exports.UnbondingDelegationQueueState = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.low_index !== "0") {
             writer.uint32(8).uint64(message.low_index);
         }
@@ -1935,7 +1912,7 @@ exports.UnbondingDelegationQueueState = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseUnbondingDelegationQueueState();
         while (reader.pos < end) {
@@ -1979,7 +1956,7 @@ function createBaseRedelegationCooldown() {
 }
 exports.RedelegationCooldown = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.address !== "") {
             writer.uint32(10).string(message.address);
         }
@@ -1989,7 +1966,7 @@ exports.RedelegationCooldown = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseRedelegationCooldown();
         while (reader.pos < end) {
@@ -2042,7 +2019,7 @@ function createBaseCommissionChangeQueueEntry() {
 }
 exports.CommissionChangeQueueEntry = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.index !== "0") {
             writer.uint32(8).uint64(message.index);
         }
@@ -2061,7 +2038,7 @@ exports.CommissionChangeQueueEntry = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseCommissionChangeQueueEntry();
         while (reader.pos < end) {
@@ -2126,7 +2103,7 @@ function createBaseCommissionChangeQueueState() {
 }
 exports.CommissionChangeQueueState = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.low_index !== "0") {
             writer.uint32(8).uint64(message.low_index);
         }
@@ -2136,7 +2113,7 @@ exports.CommissionChangeQueueState = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseCommissionChangeQueueState();
         while (reader.pos < end) {
@@ -2178,9 +2155,9 @@ exports.CommissionChangeQueueState = {
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== long_1["default"]) {
-    _m0.util.Long = long_1["default"];
-    _m0.configure();
+if (minimal_1["default"].util.Long !== long_1["default"]) {
+    minimal_1["default"].util.Long = long_1["default"];
+    minimal_1["default"].configure();
 }
 function isSet(value) {
     return value !== null && value !== undefined;

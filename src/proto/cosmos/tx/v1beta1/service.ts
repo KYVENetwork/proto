@@ -5,7 +5,7 @@ import { Tx } from "./tx";
 import { BlockID } from "../../../tendermint/types/types";
 import { Block } from "../../../tendermint/types/block";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "cosmos.tx.v1beta1";
 

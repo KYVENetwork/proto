@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -33,18 +10,18 @@ var params_1 = require("./params");
 var registry_1 = require("./registry");
 var pagination_1 = require("../../../cosmos/base/query/v1beta1/pagination");
 var long_1 = __importDefault(require("long"));
-var _m0 = __importStar(require("protobufjs/minimal"));
+var minimal_1 = __importDefault(require("protobufjs/minimal"));
 exports.protobufPackage = "kyve.registry.v1beta1";
 function createBaseQueryParamsRequest() {
     return {};
 }
 exports.QueryParamsRequest = {
     encode: function (_, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryParamsRequest();
         while (reader.pos < end) {
@@ -74,14 +51,14 @@ function createBaseQueryParamsResponse() {
 }
 exports.QueryParamsResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.params !== undefined) {
             params_1.Params.encode(message.params, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryParamsResponse();
         while (reader.pos < end) {
@@ -122,14 +99,14 @@ function createBaseQueryPoolRequest() {
 }
 exports.QueryPoolRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.id !== "0") {
             writer.uint32(8).uint64(message.id);
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryPoolRequest();
         while (reader.pos < end) {
@@ -167,14 +144,14 @@ function createBaseQueryPoolResponse() {
 }
 exports.QueryPoolResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool !== undefined) {
             registry_1.Pool.encode(message.pool, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryPoolResponse();
         while (reader.pos < end) {
@@ -215,7 +192,7 @@ function createBaseQueryPoolsRequest() {
 }
 exports.QueryPoolsRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -231,7 +208,7 @@ exports.QueryPoolsRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryPoolsRequest();
         while (reader.pos < end) {
@@ -295,7 +272,7 @@ function createBaseQueryPoolsResponse() {
 }
 exports.QueryPoolsResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.pools; _i < _a.length; _i++) {
             var v = _a[_i];
             registry_1.Pool.encode(v, writer.uint32(10).fork()).ldelim();
@@ -306,7 +283,7 @@ exports.QueryPoolsResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryPoolsResponse();
         while (reader.pos < end) {
@@ -365,14 +342,14 @@ function createBaseQueryFundersListRequest() {
 }
 exports.QueryFundersListRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryFundersListRequest();
         while (reader.pos < end) {
@@ -410,7 +387,7 @@ function createBaseQueryFundersListResponse() {
 }
 exports.QueryFundersListResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.funders; _i < _a.length; _i++) {
             var v = _a[_i];
             registry_1.Funder.encode(v, writer.uint32(10).fork()).ldelim();
@@ -418,7 +395,7 @@ exports.QueryFundersListResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryFundersListResponse();
         while (reader.pos < end) {
@@ -465,7 +442,7 @@ function createBaseQueryFunderRequest() {
 }
 exports.QueryFunderRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -475,7 +452,7 @@ exports.QueryFunderRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryFunderRequest();
         while (reader.pos < end) {
@@ -519,14 +496,14 @@ function createBaseQueryFunderResponse() {
 }
 exports.QueryFunderResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.funder !== undefined) {
             registry_1.Funder.encode(message.funder, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryFunderResponse();
         while (reader.pos < end) {
@@ -567,7 +544,7 @@ function createBaseQueryStakersListRequest() {
 }
 exports.QueryStakersListRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -580,7 +557,7 @@ exports.QueryStakersListRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakersListRequest();
         while (reader.pos < end) {
@@ -639,7 +616,7 @@ function createBaseQueryStakersListResponse() {
 }
 exports.QueryStakersListResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.stakers; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.StakerResponse.encode(v, writer.uint32(10).fork()).ldelim();
@@ -650,7 +627,7 @@ exports.QueryStakersListResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakersListResponse();
         while (reader.pos < end) {
@@ -712,7 +689,7 @@ function createBaseQueryStakerRequest() {
 }
 exports.QueryStakerRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -722,7 +699,7 @@ exports.QueryStakerRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakerRequest();
         while (reader.pos < end) {
@@ -766,14 +743,14 @@ function createBaseQueryStakerResponse() {
 }
 exports.QueryStakerResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.staker !== undefined) {
             exports.StakerResponse.encode(message.staker, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakerResponse();
         while (reader.pos < end) {
@@ -818,7 +795,7 @@ function createBasePendingCommissionChange() {
 }
 exports.PendingCommissionChange = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.new_commission !== "") {
             writer.uint32(10).string(message.new_commission);
         }
@@ -831,7 +808,7 @@ exports.PendingCommissionChange = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBasePendingCommissionChange();
         while (reader.pos < end) {
@@ -903,7 +880,7 @@ function createBaseStakerResponse() {
 }
 exports.StakerResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
@@ -949,7 +926,7 @@ exports.StakerResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseStakerResponse();
         while (reader.pos < end) {
@@ -1084,14 +1061,14 @@ function createBaseQueryVoteStatusRequest() {
 }
 exports.QueryVoteStatusRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryVoteStatusRequest();
         while (reader.pos < end) {
@@ -1129,14 +1106,14 @@ function createBaseQueryVoteStatusResponse() {
 }
 exports.QueryVoteStatusResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.vote_status !== undefined) {
             exports.VoteStatusResponse.encode(message.vote_status, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryVoteStatusResponse();
         while (reader.pos < end) {
@@ -1181,7 +1158,7 @@ function createBaseVoteStatusResponse() {
 }
 exports.VoteStatusResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.valid !== "0") {
             writer.uint32(8).uint64(message.valid);
         }
@@ -1197,7 +1174,7 @@ exports.VoteStatusResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseVoteStatusResponse();
         while (reader.pos < end) {
@@ -1253,14 +1230,14 @@ function createBaseQueryProposalRequest() {
 }
 exports.QueryProposalRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.storage_id !== "") {
             writer.uint32(10).string(message.storage_id);
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalRequest();
         while (reader.pos < end) {
@@ -1298,14 +1275,14 @@ function createBaseQueryProposalResponse() {
 }
 exports.QueryProposalResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.proposal !== undefined) {
             registry_1.Proposal.encode(message.proposal, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalResponse();
         while (reader.pos < end) {
@@ -1350,7 +1327,7 @@ function createBaseQueryProposalsRequest() {
 }
 exports.QueryProposalsRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -1360,7 +1337,7 @@ exports.QueryProposalsRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalsRequest();
         while (reader.pos < end) {
@@ -1412,7 +1389,7 @@ function createBaseQueryProposalsResponse() {
 }
 exports.QueryProposalsResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.proposals; _i < _a.length; _i++) {
             var v = _a[_i];
             registry_1.Proposal.encode(v, writer.uint32(10).fork()).ldelim();
@@ -1423,7 +1400,7 @@ exports.QueryProposalsResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalsResponse();
         while (reader.pos < end) {
@@ -1485,7 +1462,7 @@ function createBaseQueryProposalByHeightRequest() {
 }
 exports.QueryProposalByHeightRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -1495,7 +1472,7 @@ exports.QueryProposalByHeightRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalByHeightRequest();
         while (reader.pos < end) {
@@ -1539,14 +1516,14 @@ function createBaseQueryProposalByHeightResponse() {
 }
 exports.QueryProposalByHeightResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.proposal !== undefined) {
             registry_1.Proposal.encode(message.proposal, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalByHeightResponse();
         while (reader.pos < end) {
@@ -1591,7 +1568,7 @@ function createBaseQueryProposalSinceFinalizedAtRequest() {
 }
 exports.QueryProposalSinceFinalizedAtRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -1604,7 +1581,7 @@ exports.QueryProposalSinceFinalizedAtRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalSinceFinalizedAtRequest();
         while (reader.pos < end) {
@@ -1665,7 +1642,7 @@ function createBaseQueryProposalSinceFinalizedAtResponse() {
 }
 exports.QueryProposalSinceFinalizedAtResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.proposals; _i < _a.length; _i++) {
             var v = _a[_i];
             registry_1.Proposal.encode(v, writer.uint32(10).fork()).ldelim();
@@ -1676,7 +1653,7 @@ exports.QueryProposalSinceFinalizedAtResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalSinceFinalizedAtResponse();
         while (reader.pos < end) {
@@ -1738,7 +1715,7 @@ function createBaseQueryProposalSinceIdRequest() {
 }
 exports.QueryProposalSinceIdRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -1751,7 +1728,7 @@ exports.QueryProposalSinceIdRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalSinceIdRequest();
         while (reader.pos < end) {
@@ -1809,7 +1786,7 @@ function createBaseQueryProposalSinceIdResponse() {
 }
 exports.QueryProposalSinceIdResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.proposals; _i < _a.length; _i++) {
             var v = _a[_i];
             registry_1.Proposal.encode(v, writer.uint32(10).fork()).ldelim();
@@ -1820,7 +1797,7 @@ exports.QueryProposalSinceIdResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryProposalSinceIdResponse();
         while (reader.pos < end) {
@@ -1882,7 +1859,7 @@ function createBaseQueryCanProposeRequest() {
 }
 exports.QueryCanProposeRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -1895,7 +1872,7 @@ exports.QueryCanProposeRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryCanProposeRequest();
         while (reader.pos < end) {
@@ -1946,7 +1923,7 @@ function createBaseQueryCanProposeResponse() {
 }
 exports.QueryCanProposeResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.possible === true) {
             writer.uint32(8).bool(message.possible);
         }
@@ -1956,7 +1933,7 @@ exports.QueryCanProposeResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryCanProposeResponse();
         while (reader.pos < end) {
@@ -2000,7 +1977,7 @@ function createBaseQueryCanVoteRequest() {
 }
 exports.QueryCanVoteRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -2013,7 +1990,7 @@ exports.QueryCanVoteRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryCanVoteRequest();
         while (reader.pos < end) {
@@ -2063,7 +2040,7 @@ function createBaseQueryCanVoteResponse() {
 }
 exports.QueryCanVoteResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.possible === true) {
             writer.uint32(8).bool(message.possible);
         }
@@ -2073,7 +2050,7 @@ exports.QueryCanVoteResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryCanVoteResponse();
         while (reader.pos < end) {
@@ -2117,7 +2094,7 @@ function createBaseQueryStakeInfoRequest() {
 }
 exports.QueryStakeInfoRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -2127,7 +2104,7 @@ exports.QueryStakeInfoRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakeInfoRequest();
         while (reader.pos < end) {
@@ -2171,7 +2148,7 @@ function createBaseQueryStakeInfoResponse() {
 }
 exports.QueryStakeInfoResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.balance !== "") {
             writer.uint32(10).string(message.balance);
         }
@@ -2187,7 +2164,7 @@ exports.QueryStakeInfoResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakeInfoResponse();
         while (reader.pos < end) {
@@ -2250,14 +2227,14 @@ function createBaseQueryAccountAssetsRequest() {
 }
 exports.QueryAccountAssetsRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.address !== "") {
             writer.uint32(10).string(message.address);
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountAssetsRequest();
         while (reader.pos < end) {
@@ -2303,7 +2280,7 @@ function createBaseQueryAccountAssetsResponse() {
 }
 exports.QueryAccountAssetsResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.balance !== "0") {
             writer.uint32(8).uint64(message.balance);
         }
@@ -2328,7 +2305,7 @@ exports.QueryAccountAssetsResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountAssetsResponse();
         while (reader.pos < end) {
@@ -2423,7 +2400,7 @@ function createBaseQueryAccountStakingUnbondingsRequest() {
 }
 exports.QueryAccountStakingUnbondingsRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -2433,7 +2410,7 @@ exports.QueryAccountStakingUnbondingsRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountStakingUnbondingsRequest();
         while (reader.pos < end) {
@@ -2485,7 +2462,7 @@ function createBaseQueryAccountStakingUnbondingsResponse() {
 }
 exports.QueryAccountStakingUnbondingsResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.unbondings; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.StakingUnbonding.encode(v, writer.uint32(10).fork()).ldelim();
@@ -2496,7 +2473,7 @@ exports.QueryAccountStakingUnbondingsResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountStakingUnbondingsResponse();
         while (reader.pos < end) {
@@ -2558,7 +2535,7 @@ function createBaseStakingUnbonding() {
 }
 exports.StakingUnbonding = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.amount !== "0") {
             writer.uint32(8).uint64(message.amount);
         }
@@ -2571,7 +2548,7 @@ exports.StakingUnbonding = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseStakingUnbonding();
         while (reader.pos < end) {
@@ -2628,7 +2605,7 @@ function createBaseQueryAccountDelegationUnbondingsRequest() {
 }
 exports.QueryAccountDelegationUnbondingsRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -2638,7 +2615,7 @@ exports.QueryAccountDelegationUnbondingsRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountDelegationUnbondingsRequest();
         while (reader.pos < end) {
@@ -2690,7 +2667,7 @@ function createBaseQueryAccountDelegationUnbondingsResponse() {
 }
 exports.QueryAccountDelegationUnbondingsResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.unbondings; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.DelegationUnbonding.encode(v, writer.uint32(10).fork()).ldelim();
@@ -2701,7 +2678,7 @@ exports.QueryAccountDelegationUnbondingsResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountDelegationUnbondingsResponse();
         while (reader.pos < end) {
@@ -2768,7 +2745,7 @@ function createBaseDelegationUnbonding() {
 }
 exports.DelegationUnbonding = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.amount !== "0") {
             writer.uint32(8).uint64(message.amount);
         }
@@ -2784,7 +2761,7 @@ exports.DelegationUnbonding = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDelegationUnbonding();
         while (reader.pos < end) {
@@ -2855,7 +2832,7 @@ function createBaseQueryAccountFundedListRequest() {
 }
 exports.QueryAccountFundedListRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -2865,7 +2842,7 @@ exports.QueryAccountFundedListRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountFundedListRequest();
         while (reader.pos < end) {
@@ -2917,7 +2894,7 @@ function createBaseQueryAccountFundedListResponse() {
 }
 exports.QueryAccountFundedListResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.funded; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.Funded.encode(v, writer.uint32(10).fork()).ldelim();
@@ -2928,7 +2905,7 @@ exports.QueryAccountFundedListResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountFundedListResponse();
         while (reader.pos < end) {
@@ -2989,7 +2966,7 @@ function createBaseFunded() {
 }
 exports.Funded = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.account !== "") {
             writer.uint32(10).string(message.account);
         }
@@ -3002,7 +2979,7 @@ exports.Funded = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseFunded();
         while (reader.pos < end) {
@@ -3056,7 +3033,7 @@ function createBaseQueryAccountStakedListRequest() {
 }
 exports.QueryAccountStakedListRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -3066,7 +3043,7 @@ exports.QueryAccountStakedListRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountStakedListRequest();
         while (reader.pos < end) {
@@ -3118,7 +3095,7 @@ function createBaseQueryAccountStakedListResponse() {
 }
 exports.QueryAccountStakedListResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.staked; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.Staked.encode(v, writer.uint32(10).fork()).ldelim();
@@ -3129,7 +3106,7 @@ exports.QueryAccountStakedListResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountStakedListResponse();
         while (reader.pos < end) {
@@ -3198,7 +3175,7 @@ function createBaseStaked() {
 }
 exports.Staked = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
@@ -3223,7 +3200,7 @@ exports.Staked = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseStaked();
         while (reader.pos < end) {
@@ -3307,7 +3284,7 @@ function createBaseQueryAccountDelegationListRequest() {
 }
 exports.QueryAccountDelegationListRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -3317,7 +3294,7 @@ exports.QueryAccountDelegationListRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountDelegationListRequest();
         while (reader.pos < end) {
@@ -3369,7 +3346,7 @@ function createBaseQueryAccountDelegationListResponse() {
 }
 exports.QueryAccountDelegationListResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.delegations; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.DelegatorResponse.encode(v, writer.uint32(10).fork()).ldelim();
@@ -3380,7 +3357,7 @@ exports.QueryAccountDelegationListResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountDelegationListResponse();
         while (reader.pos < end) {
@@ -3450,7 +3427,7 @@ function createBaseDelegatorResponse() {
 }
 exports.DelegatorResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.account !== "") {
             writer.uint32(10).string(message.account);
         }
@@ -3475,7 +3452,7 @@ exports.DelegatorResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDelegatorResponse();
         while (reader.pos < end) {
@@ -3577,14 +3554,14 @@ function createBaseQueryAccountRedelegationRequest() {
 }
 exports.QueryAccountRedelegationRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.address !== "") {
             writer.uint32(10).string(message.address);
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountRedelegationRequest();
         while (reader.pos < end) {
@@ -3622,7 +3599,7 @@ function createBaseQueryAccountRedelegationResponse() {
 }
 exports.QueryAccountRedelegationResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         writer.uint32(10).fork();
         for (var _i = 0, _a = message.redelegation_cooldown_entries; _i < _a.length; _i++) {
             var v = _a[_i];
@@ -3632,7 +3609,7 @@ exports.QueryAccountRedelegationResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryAccountRedelegationResponse();
         while (reader.pos < end) {
@@ -3687,7 +3664,7 @@ function createBaseQueryDelegatorRequest() {
 }
 exports.QueryDelegatorRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pool_id !== "0") {
             writer.uint32(8).uint64(message.pool_id);
         }
@@ -3700,7 +3677,7 @@ exports.QueryDelegatorRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryDelegatorRequest();
         while (reader.pos < end) {
@@ -3750,14 +3727,14 @@ function createBaseQueryDelegatorResponse() {
 }
 exports.QueryDelegatorResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.delegator !== undefined) {
             exports.StakerDelegatorResponse.encode(message.delegator, writer.uint32(10).fork()).ldelim();
         }
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryDelegatorResponse();
         while (reader.pos < end) {
@@ -3807,7 +3784,7 @@ function createBaseStakerDelegatorResponse() {
 }
 exports.StakerDelegatorResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.delegator !== "") {
             writer.uint32(10).string(message.delegator);
         }
@@ -3823,7 +3800,7 @@ exports.StakerDelegatorResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseStakerDelegatorResponse();
         while (reader.pos < end) {
@@ -3885,7 +3862,7 @@ function createBaseQueryDelegatorsByPoolAndStakerRequest() {
 }
 exports.QueryDelegatorsByPoolAndStakerRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -3898,7 +3875,7 @@ exports.QueryDelegatorsByPoolAndStakerRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryDelegatorsByPoolAndStakerRequest();
         while (reader.pos < end) {
@@ -3961,7 +3938,7 @@ function createBaseQueryDelegatorsByPoolAndStakerResponse() {
 }
 exports.QueryDelegatorsByPoolAndStakerResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.delegators; _i < _a.length; _i++) {
             var v = _a[_i];
             exports.StakerDelegatorResponse.encode(v, writer.uint32(10).fork()).ldelim();
@@ -3978,7 +3955,7 @@ exports.QueryDelegatorsByPoolAndStakerResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryDelegatorsByPoolAndStakerResponse();
         while (reader.pos < end) {
@@ -4066,7 +4043,7 @@ function createBaseQueryStakersByPoolAndDelegatorRequest() {
 }
 exports.QueryStakersByPoolAndDelegatorRequest = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.pagination !== undefined) {
             pagination_1.PageRequest.encode(message.pagination, writer.uint32(10).fork()).ldelim();
         }
@@ -4079,7 +4056,7 @@ exports.QueryStakersByPoolAndDelegatorRequest = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakersByPoolAndDelegatorRequest();
         while (reader.pos < end) {
@@ -4137,7 +4114,7 @@ function createBaseQueryStakersByPoolAndDelegatorResponse() {
 }
 exports.QueryStakersByPoolAndDelegatorResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.delegator !== "") {
             writer.uint32(10).string(message.delegator);
         }
@@ -4154,7 +4131,7 @@ exports.QueryStakersByPoolAndDelegatorResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseQueryStakersByPoolAndDelegatorResponse();
         while (reader.pos < end) {
@@ -4241,7 +4218,7 @@ function createBaseDelegationForStakerResponse() {
 }
 exports.DelegationForStakerResponse = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.staker !== "") {
             writer.uint32(10).string(message.staker);
         }
@@ -4260,7 +4237,7 @@ exports.DelegationForStakerResponse = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDelegationForStakerResponse();
         while (reader.pos < end) {
@@ -4364,182 +4341,182 @@ var QueryClientImpl = /** @class */ (function () {
         var data = exports.QueryParamsRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Params", data);
         return promise.then(function (data) {
-            return exports.QueryParamsResponse.decode(new _m0.Reader(data));
+            return exports.QueryParamsResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Pool = function (request) {
         var data = exports.QueryPoolRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Pool", data);
         return promise.then(function (data) {
-            return exports.QueryPoolResponse.decode(new _m0.Reader(data));
+            return exports.QueryPoolResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Pools = function (request) {
         var data = exports.QueryPoolsRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Pools", data);
         return promise.then(function (data) {
-            return exports.QueryPoolsResponse.decode(new _m0.Reader(data));
+            return exports.QueryPoolsResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.FundersList = function (request) {
         var data = exports.QueryFundersListRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "FundersList", data);
         return promise.then(function (data) {
-            return exports.QueryFundersListResponse.decode(new _m0.Reader(data));
+            return exports.QueryFundersListResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Funder = function (request) {
         var data = exports.QueryFunderRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Funder", data);
         return promise.then(function (data) {
-            return exports.QueryFunderResponse.decode(new _m0.Reader(data));
+            return exports.QueryFunderResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.StakersList = function (request) {
         var data = exports.QueryStakersListRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "StakersList", data);
         return promise.then(function (data) {
-            return exports.QueryStakersListResponse.decode(new _m0.Reader(data));
+            return exports.QueryStakersListResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Staker = function (request) {
         var data = exports.QueryStakerRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Staker", data);
         return promise.then(function (data) {
-            return exports.QueryStakerResponse.decode(new _m0.Reader(data));
+            return exports.QueryStakerResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.VoteStatus = function (request) {
         var data = exports.QueryVoteStatusRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "VoteStatus", data);
         return promise.then(function (data) {
-            return exports.QueryVoteStatusResponse.decode(new _m0.Reader(data));
+            return exports.QueryVoteStatusResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Proposal = function (request) {
         var data = exports.QueryProposalRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Proposal", data);
         return promise.then(function (data) {
-            return exports.QueryProposalResponse.decode(new _m0.Reader(data));
+            return exports.QueryProposalResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Proposals = function (request) {
         var data = exports.QueryProposalsRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Proposals", data);
         return promise.then(function (data) {
-            return exports.QueryProposalsResponse.decode(new _m0.Reader(data));
+            return exports.QueryProposalsResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.ProposalByHeight = function (request) {
         var data = exports.QueryProposalByHeightRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "ProposalByHeight", data);
         return promise.then(function (data) {
-            return exports.QueryProposalByHeightResponse.decode(new _m0.Reader(data));
+            return exports.QueryProposalByHeightResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.ProposalSinceFinalizedAt = function (request) {
         var data = exports.QueryProposalSinceFinalizedAtRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "ProposalSinceFinalizedAt", data);
         return promise.then(function (data) {
-            return exports.QueryProposalSinceFinalizedAtResponse.decode(new _m0.Reader(data));
+            return exports.QueryProposalSinceFinalizedAtResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.ProposalSinceId = function (request) {
         var data = exports.QueryProposalSinceIdRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "ProposalSinceId", data);
         return promise.then(function (data) {
-            return exports.QueryProposalSinceIdResponse.decode(new _m0.Reader(data));
+            return exports.QueryProposalSinceIdResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.CanPropose = function (request) {
         var data = exports.QueryCanProposeRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "CanPropose", data);
         return promise.then(function (data) {
-            return exports.QueryCanProposeResponse.decode(new _m0.Reader(data));
+            return exports.QueryCanProposeResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.CanVote = function (request) {
         var data = exports.QueryCanVoteRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "CanVote", data);
         return promise.then(function (data) {
-            return exports.QueryCanVoteResponse.decode(new _m0.Reader(data));
+            return exports.QueryCanVoteResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.StakeInfo = function (request) {
         var data = exports.QueryStakeInfoRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "StakeInfo", data);
         return promise.then(function (data) {
-            return exports.QueryStakeInfoResponse.decode(new _m0.Reader(data));
+            return exports.QueryStakeInfoResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountAssets = function (request) {
         var data = exports.QueryAccountAssetsRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountAssets", data);
         return promise.then(function (data) {
-            return exports.QueryAccountAssetsResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountAssetsResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountStakingUnbondings = function (request) {
         var data = exports.QueryAccountStakingUnbondingsRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountStakingUnbondings", data);
         return promise.then(function (data) {
-            return exports.QueryAccountStakingUnbondingsResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountStakingUnbondingsResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountDelegationUnbondings = function (request) {
         var data = exports.QueryAccountDelegationUnbondingsRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountDelegationUnbondings", data);
         return promise.then(function (data) {
-            return exports.QueryAccountDelegationUnbondingsResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountDelegationUnbondingsResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountFundedList = function (request) {
         var data = exports.QueryAccountFundedListRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountFundedList", data);
         return promise.then(function (data) {
-            return exports.QueryAccountFundedListResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountFundedListResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountStakedList = function (request) {
         var data = exports.QueryAccountStakedListRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountStakedList", data);
         return promise.then(function (data) {
-            return exports.QueryAccountStakedListResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountStakedListResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountDelegationList = function (request) {
         var data = exports.QueryAccountDelegationListRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountDelegationList", data);
         return promise.then(function (data) {
-            return exports.QueryAccountDelegationListResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountDelegationListResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.AccountRedelegation = function (request) {
         var data = exports.QueryAccountRedelegationRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "AccountRedelegation", data);
         return promise.then(function (data) {
-            return exports.QueryAccountRedelegationResponse.decode(new _m0.Reader(data));
+            return exports.QueryAccountRedelegationResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.Delegator = function (request) {
         var data = exports.QueryDelegatorRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "Delegator", data);
         return promise.then(function (data) {
-            return exports.QueryDelegatorResponse.decode(new _m0.Reader(data));
+            return exports.QueryDelegatorResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.DelegatorsByPoolAndStaker = function (request) {
         var data = exports.QueryDelegatorsByPoolAndStakerRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "DelegatorsByPoolAndStaker", data);
         return promise.then(function (data) {
-            return exports.QueryDelegatorsByPoolAndStakerResponse.decode(new _m0.Reader(data));
+            return exports.QueryDelegatorsByPoolAndStakerResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     QueryClientImpl.prototype.StakersByPoolAndDelegator = function (request) {
         var data = exports.QueryStakersByPoolAndDelegatorRequest.encode(request).finish();
         var promise = this.rpc.request("kyve.registry.v1beta1.Query", "StakersByPoolAndDelegator", data);
         return promise.then(function (data) {
-            return exports.QueryStakersByPoolAndDelegatorResponse.decode(new _m0.Reader(data));
+            return exports.QueryStakersByPoolAndDelegatorResponse.decode(new minimal_1["default"].Reader(data));
         });
     };
     return QueryClientImpl;
@@ -4548,9 +4525,9 @@ exports.QueryClientImpl = QueryClientImpl;
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== long_1["default"]) {
-    _m0.util.Long = long_1["default"];
-    _m0.configure();
+if (minimal_1["default"].util.Long !== long_1["default"]) {
+    minimal_1["default"].util.Long = long_1["default"];
+    minimal_1["default"].configure();
 }
 function isSet(value) {
     return value !== null && value !== undefined;

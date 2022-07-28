@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { NetAddress } from "./types";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "tendermint.p2p";
 

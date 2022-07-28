@@ -6,7 +6,7 @@ import {
 } from "./types";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import Long from "long";
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "tendermint.types";
 

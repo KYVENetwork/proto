@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -33,7 +10,7 @@ var duration_1 = require("../../../google/protobuf/duration");
 var timestamp_1 = require("../../../google/protobuf/timestamp");
 var long_1 = __importDefault(require("long"));
 var coin_1 = require("../../base/v1beta1/coin");
-var _m0 = __importStar(require("protobufjs/minimal"));
+var minimal_1 = __importDefault(require("protobufjs/minimal"));
 exports.protobufPackage = "cosmos.gov.v1beta1";
 /** VoteOption enumerates the valid vote options for a given governance proposal. */
 var VoteOption;
@@ -176,7 +153,7 @@ function createBaseWeightedVoteOption() {
 }
 exports.WeightedVoteOption = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.option !== 0) {
             writer.uint32(8).int32(message.option);
         }
@@ -186,7 +163,7 @@ exports.WeightedVoteOption = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseWeightedVoteOption();
         while (reader.pos < end) {
@@ -231,7 +208,7 @@ function createBaseTextProposal() {
 }
 exports.TextProposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.title !== "") {
             writer.uint32(10).string(message.title);
         }
@@ -241,7 +218,7 @@ exports.TextProposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseTextProposal();
         while (reader.pos < end) {
@@ -286,7 +263,7 @@ function createBaseDeposit() {
 }
 exports.Deposit = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.proposal_id !== "0") {
             writer.uint32(8).uint64(message.proposal_id);
         }
@@ -300,7 +277,7 @@ exports.Deposit = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDeposit();
         while (reader.pos < end) {
@@ -369,7 +346,7 @@ function createBaseProposal() {
 }
 exports.Proposal = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.proposal_id !== "0") {
             writer.uint32(8).uint64(message.proposal_id);
         }
@@ -404,7 +381,7 @@ exports.Proposal = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseProposal();
         while (reader.pos < end) {
@@ -536,7 +513,7 @@ function createBaseTallyResult() {
 }
 exports.TallyResult = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.yes !== "") {
             writer.uint32(10).string(message.yes);
         }
@@ -552,7 +529,7 @@ exports.TallyResult = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseTallyResult();
         while (reader.pos < end) {
@@ -611,7 +588,7 @@ function createBaseVote() {
 }
 exports.Vote = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.proposal_id !== "0") {
             writer.uint32(8).uint64(message.proposal_id);
         }
@@ -628,7 +605,7 @@ exports.Vote = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseVote();
         while (reader.pos < end) {
@@ -701,7 +678,7 @@ function createBaseDepositParams() {
 }
 exports.DepositParams = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         for (var _i = 0, _a = message.min_deposit; _i < _a.length; _i++) {
             var v = _a[_i];
             coin_1.Coin.encode(v, writer.uint32(10).fork()).ldelim();
@@ -719,7 +696,7 @@ exports.DepositParams = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseDepositParams();
         while (reader.pos < end) {
@@ -814,7 +791,7 @@ function createBaseVotingParams() {
 }
 exports.VotingParams = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.voting_period !== undefined) {
             duration_1.Duration.encode(message.voting_period, writer.uint32(10).fork()).ldelim();
         }
@@ -828,7 +805,7 @@ exports.VotingParams = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseVotingParams();
         while (reader.pos < end) {
@@ -914,7 +891,7 @@ function createBaseTallyParams() {
 }
 exports.TallyParams = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.quorum.length !== 0) {
             writer.uint32(10).bytes(message.quorum);
         }
@@ -930,7 +907,7 @@ exports.TallyParams = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseTallyParams();
         while (reader.pos < end) {
@@ -1003,7 +980,7 @@ function createBaseProposalVotingPeriod() {
 }
 exports.ProposalVotingPeriod = {
     encode: function (message, writer) {
-        if (writer === void 0) { writer = _m0.Writer.create(); }
+        if (writer === void 0) { writer = minimal_1["default"].Writer.create(); }
         if (message.proposal_type !== "") {
             writer.uint32(10).string(message.proposal_type);
         }
@@ -1013,7 +990,7 @@ exports.ProposalVotingPeriod = {
         return writer;
     },
     decode: function (input, length) {
-        var reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+        var reader = input instanceof minimal_1["default"].Reader ? input : new minimal_1["default"].Reader(input);
         var end = length === undefined ? reader.len : reader.pos + length;
         var message = createBaseProposalVotingPeriod();
         while (reader.pos < end) {
@@ -1117,9 +1094,9 @@ function fromJsonTimestamp(o) {
 function longToString(long) {
     return long.toString();
 }
-if (_m0.util.Long !== long_1["default"]) {
-    _m0.util.Long = long_1["default"];
-    _m0.configure();
+if (minimal_1["default"].util.Long !== long_1["default"]) {
+    minimal_1["default"].util.Long = long_1["default"];
+    minimal_1["default"].configure();
 }
 function isSet(value) {
     return value !== null && value !== undefined;

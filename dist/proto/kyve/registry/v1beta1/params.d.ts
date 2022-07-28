@@ -1,4 +1,4 @@
-import * as _m0 from "protobufjs/minimal";
+import _m0 from "protobufjs/minimal";
 export declare const protobufPackage = "kyve.registry.v1beta1";
 /** Params defines the set of params for the registry module. */
 export interface Params {
